@@ -50,6 +50,25 @@ This session is editing the existing files rather than creating a duplicate site
 - **Live site:** https://kanlerxz87-cyber.github.io/RentincreaseSF2/
 - **Live pages verified:** `index.html`, `executive-summary.html`, `units.html`, `analysis.html`, `laws.html`, `process.html`, `tenant-protections.html`, `practices.html`, `flagged.html`, `sources.html`, and `style.css` all returned HTTP 200 locally and were re-fetched from the live site after deployment.
 
+## PR #3 review (session arena/77623c60-rentincreasesf2)
+
+A parallel session opened PR #3, "Rental increase analysis — Outer Sunset SF, ZIP 94122 (verified sources + GitHub Pages site)," while this session was finishing PR #2. PR #3 proposes a 14-page static site with a different structure and a larger source register.
+
+### Review findings
+
+- **Privacy violation (blocking):** PR #3 publishes tenant initials (L O, V N, J P, M T, E R, I S) on the site, including in the privacy section and flagged-items page. The user explicitly required all personal information to be anonymized and said privacy is top priority. Initials are personal information and must not be published. This alone makes PR #3 unacceptable as submitted.
+- **Unit 1 calculation conflict:** PR #3 presents $4,114.85 (3.0%) as a maximum for Unit 1 on the February 1, 2026 anniversary, and treats the 1.4% as banked. Under the Rent Board's 24-month banking rule, the 1.4% that became available on February 1, 2026 is not banked until February 1, 2027. For an April 1, 2026 effective date, the maximum is 1.6% ($4,058.92). PR #3's own flagged item F-07 acknowledges the 24-month rule but still presents 3.0% as a lawful outcome for Unit 1 without a clear date qualification. This conflicts with the more conservative analysis in PR #2.
+- **Build artifacts:** PR #3 includes `tools/__pycache__/*.pyc` files. These should not be committed.
+- **Duplicate/conflicting site:** PR #2 is already merged and live. Merging PR #3 would replace the live site with a different structure and would require a full line-by-line re-verification of all 14 pages.
+
+### Decision
+
+Do not merge PR #3. Close it with a comment explaining the privacy violation, the Unit 1 calculation conflict, and the duplicate-site issue. The work remains preserved on its branch. No files from PR #3 were edited by this session. PR #2 remains the live site.
+
+### Coordination note
+
+The parallel session should be notified that its PR was reviewed and closed. If it wants to contribute, it should open a new PR that removes all initials, uses placeholders only, corrects the Unit 1 analysis, and removes build artifacts. Any new PR must be reviewed against the same privacy and source-verification standard.
+
 ## Final verification summary
 
 - `python3 scripts/validate_site.py` passes.
