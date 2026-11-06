@@ -19,6 +19,15 @@ https://kanlerxz87-cyber.github.io/RentincreaseSF2/
 - `flagged.html` — every unverified item and irregularity
 - `sources.html` — all official sources
 
+## Research & structured data artifacts
+
+- `data/verified-data.json` — machine-readable verified rate schedule, anonymized unit calculations, ZIP 94122 official statistics, and flagged irregularities with official `source_url` links and blank `""` values for unverified items
+- `docs/executive-summary.md` — full Markdown executive summary
+- `docs/research-local-sf.md` — primary-source SF Rent Ordinance & Form 571 verification
+- `docs/research-state-federal-market.md` — primary-source California, federal, and ZIP 94122 statistical verification
+- `docs/analysis-practices-lawyer-audit.md` — corporate vs. individual practices, Civ. Code §827 + CCP §1013 protocol, and tenant-lawyer scrutiny audit
+- `docs/unit-calculations-and-flags.md` — exact `decimal.Decimal` unit math and flagged items registry
+
 ## Verification standard
 
 Every legal and numerical claim is linked to an official government or City of San Francisco source. Tenant-provided lease dates, rents, occupancy, and build year are marked **unverified** until confirmed against official records. The rent increase license status is unchecked because no address/APN was provided. No value is inferred or filled in without an official source.
