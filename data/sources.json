@@ -378,6 +378,14 @@
       "type": "Official announcement",
       "url": "https://www.sf.gov/news--unlawful-detainers-will-require-10-day-response-starting-january-1-2025",
       "verifies": "AB 2347 changed the tenant response time to an unlawful detainer complaint from five days to ten days"
+    },
+    {
+      "id": "S-48",
+      "title": "Increasing rents during irregular periods",
+      "publisher": "SF Rent Board",
+      "type": "Official guidance",
+      "url": "https://www.sf.gov/information--increasing-rents-during-irregular-periods",
+      "verifies": "The controlling DEFINITION of the anniversary date (last increase, or lease commencement if never increased); the once-every-12-months rule measured from the prior increase OR move-in date; two worked examples of off-anniversary increases at 12-24 months and 24+ months; and \u2014 decisively \u2014 the 12-month banking interval, resolving Flag F-03"
     }
   ]
 }

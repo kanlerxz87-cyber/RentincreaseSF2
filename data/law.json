@@ -214,6 +214,24 @@
       "verified": true,
       "applies_to": "Not engaged by a rent increase. Materially relevant if the owner ever considers capital-improvement work, a buyout, or withdrawal \u2014 see Flag F-24.",
       "note": "Also relevant to Flag F-10: this is now the authoritative official description of how the Rent Board handles tenant harassment reports."
+    },
+    {
+      "rule": "DEFINITION of the anniversary date",
+      "detail": "'Your anniversary date is either: (1) The day and month of the last time your landlord increased your rent; or (2) The day and month your lease began (this applies if your landlord has never increased your rent).' And: 'Landlords can only increase the rent once every 12 months. In other words, landlords cannot raise the rent on a unit within 12 months of the prior rent increase (or move-in date).'",
+      "authority": "SF Rent Board official guidance",
+      "source": "https://www.sf.gov/information--increasing-rents-during-irregular-periods",
+      "source_name": "SF.gov \u2014 Increasing rents during irregular periods",
+      "verified": true,
+      "applies_to": "UNIT 1 \u2014 because no increase was ever imposed, the anniversary date is the LEASE COMMENCEMENT date (February 1), not the April 2026 household-change date, unless a NEW lease began then. Narrows Flag F-07 to a purely factual question about the document signed."
+    },
+    {
+      "rule": "Increasing rent during an IRREGULAR period (off-anniversary)",
+      "detail": "Two worked official examples. (a) 12-24 months from the anniversary: lease began June 1, 2018; increasing on December 1, 2019 yields ONLY the then-current 2.6%, and 'the landlord must then wait at least 12 months before applying the next rent increase' \u2014 whereas waiting until the June 1, 2020 anniversary yields 2.6% PLUS 1.8% = 4.4%. (b) 24+ months: lease began April 1, 2016; increasing on June 1, 2019 yields three periods (2.2% + 1.6% + 2.6%) = 6.4%, whereas waiting until the April 1, 2020 anniversary yields four periods (2.2% + 1.6% + 2.6% + 1.8%) = 8.2%. 'It's easiest when landlords apply rent increases on anniversary dates. Otherwise, landlords must consider the trade-off between immediate increases to rents versus potentially larger rental increases if they wait.'",
+      "authority": "SF Rent Board official guidance",
+      "source": "https://www.sf.gov/information--increasing-rents-during-irregular-periods",
+      "source_name": "SF.gov \u2014 Increasing rents during irregular periods",
+      "verified": true,
+      "applies_to": "BOTH UNITS \u2014 this is the official basis for the U1-B and U2-B 'acting early forfeits value and moves the anniversary date' conclusions, and it is a FOURTH official source confirming the 12-month (not 24-month) banking interval: in example (a) the 2.6% had exactly 12 months (June 1, 2019 to June 1, 2020) to elapse before it was added to the 1.8%."
     }
   ],
   "state": [

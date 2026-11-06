@@ -44,7 +44,7 @@
       "serve_by": "2026-11-01",
       "serve_by_if_mailed": "2026-10-27",
       "new_anniversary_date": "New anniversary = the effective date chosen",
-      "why": "Lawful, but PERMANENTLY FORFEITS the skipped 1.4%. Costs $55.93/month ($671.16/year) forever versus U1-A and resets the anniversary date off February 1."
+      "why": "Lawful, but PERMANENTLY FORFEITS the skipped 1.4%. Costs $55.93/month ($671.16/year) forever versus U1-A and resets the anniversary date off February 1. Officially confirmed by the Rent Board's worked examples in 'Increasing rents during irregular periods': imposing off-anniversary yields only the then-current percentage and moves the anniversary date, whereas waiting to the anniversary stacks the skipped period on top."
     },
     {
       "id": "U1-C",
@@ -182,7 +182,7 @@
       "serve_by": "2026-11-10",
       "serve_by_if_mailed": "2026-11-05",
       "new_anniversary_date": "The effective date chosen (June 1 anniversary LOST)",
-      "why": "Same 13.1% total as U2-A, but reached as 11.5% banked + 1.6% annual. The 1.6% that became available on 6/1/2026 has not yet had 12 full months elapse, so it does NOT bank and is forfeited. Also permanently moves the anniversary date off June 1. Serve-by date of 2026-11-10 is only 4 days after this analysis date \u2014 not realistically achievable."
+      "why": "Same 13.1% total as U2-A, but reached as 11.5% banked + 1.6% annual. The 1.6% that became available on 6/1/2026 has not yet had 12 full months elapse, so it does NOT bank and is forfeited. Also permanently moves the anniversary date off June 1. Serve-by date of 2026-11-10 is only 4 days after this analysis date \u2014 not realistically achievable. Officially confirmed by the Rent Board's worked examples in 'Increasing rents during irregular periods': imposing off-anniversary yields only the then-current percentage and moves the anniversary date, whereas waiting to the anniversary stacks the skipped period on top."
     },
     {
       "id": "U2-C",
@@ -215,6 +215,7 @@
     "https://www.sf.gov/reports--december-2022--rent-board-rules-and-regulations-part-iv-rent-increases-not-requiring",
     "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=CIV&sectionNum=827",
     "https://www.sf.gov/information--rent-increases-under-section-614-and-costa-hawkins",
-    "https://www.sf.gov/information--charging-additional-occupants-prohibited"
+    "https://www.sf.gov/information--charging-additional-occupants-prohibited",
+    "https://www.sf.gov/information--increasing-rents-during-irregular-periods"
   ]
 }

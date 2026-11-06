@@ -24,15 +24,16 @@
     },
     {
       "id": "F-03",
-      "severity": "HIGH",
-      "category": "CONFLICT BETWEEN TWO OFFICIAL SF.GOV SOURCES",
-      "title": "Banking: 12 months or 24 months?",
-      "finding": "The SF.gov 'Banked rent increases' page states: 'A skipped increase is only banked if at least 24 full months pass without any rent increase. If less than 24 months pass, the skipped increase is lost and cannot be imposed at a later date.' The official Rent Board Rules & Regulations \u00a7 4.12(a) states instead: 'A full 12 months must have elapsed from the date that an annual rent increase, or a portion thereof, could have been imposed before this banking section becomes applicable.' The codified Administrative Code \u00a7 37.3(a)(2) contains no 24-month condition at all.",
+      "severity": "medium",
+      "category": "RESOLVED at integration \u2014 was a conflict between official sources",
+      "title": "Banking interval: 12 months CONFIRMED by a fourth official source; the sf.gov '24 full months' sentence is inconsistent with the Rent Board's own worked examples",
+      "finding": "Three official sources previously appeared to conflict: the sf.gov 'Banked rent increases' page states a skipped increase banks only if 'at least 24 full months' pass; Rent Board Rules & Regulations \u00a7 4.12(a) states 'A full 12 months must have elapsed'; and Admin. Code \u00a7 37.3(a)(2) states no interval condition at all. RESOLVED: the official page 'Increasing rents during irregular periods' publishes two worked examples that apply the 12-month interval. In the first, a lease beginning June 1, 2018 with no increase taken yields, on the June 1, 2020 anniversary, BOTH the 2.6% that became available June 1, 2019 AND the current 1.8% \u2014 the banked 2.6% having had exactly 12 months to elapse, not 24. The second example (April 1, 2016 lease, increase on the April 1, 2020 anniversary) stacks four periods on the same 12-month logic. The sf.gov banked-increases page also contradicts its own 24-month sentence in its own worked example.",
       "corroboration": "The SAME SF.gov banked-rent-increases page contradicts its own 24-month sentence in its worked example: a tenancy beginning 8/1/2022 with increases skipped on 8/1/2023 (3.6%) and 8/1/2024 (1.7%) is shown as banking BOTH for an 8/1/2025 increase \u2014 the 1.7% having had only 12 months, not 24, to elapse. The SF.gov 'Learn about rent increases' page uses the same 12-month logic in its own multi-year examples.",
-      "impact": "MATERIAL to Unit 2. Under the 12-month rule (Rules \u00a7 4.12), the 1.6% available on 6/1/2026 banks on 6/1/2027 and the full 13.1% is recoverable. Under a literal 24-month rule it would not. Both units' scenarios in this analysis are computed on the 12-month rule because that is the text of the regulation and of the codified ordinance, and because SF.gov's own worked examples apply it.",
-      "action": "CONFIRM WITH A RENT BOARD COUNSELOR (415-252-4600, free) before serving any notice on Unit 2. Ask specifically which period controls under Rules \u00a7 4.12 and whether the info page's 24-month sentence reflects an amendment. Do not rely on either page alone.",
-      "source": "https://www.sf.gov/information--banked-rent-increases",
-      "conflicting_source": "https://www.sf.gov/reports--december-2022--rent-board-rules-and-regulations-part-iv-rent-increases-not-requiring"
+      "impact": "Unit 2's 13.1% and Unit 1's 3.0% both stand on the 12-month interval, which is what Rules \u00a7 4.12 states and what the Rent Board's worked examples apply. The '24 full months' sentence on the sf.gov banked-increases page is recorded as an official-source defect (still published, not silently deleted) but is no longer treated as an open question.",
+      "action": "No longer blocking. Still worth one confirming question to a Rent Board counselor (free, 415-252-4600) since a guidance page and a regulation disagree on their face, but the analysis no longer depends on the answer.",
+      "source": "https://www.sf.gov/information--increasing-rents-during-irregular-periods",
+      "conflicting_source": "https://www.sf.gov/information--banked-rent-increases",
+      "secondary_source": "https://www.sf.gov/reports--december-2022--rent-board-rules-and-regulations-part-iv-rent-increases-not-requiring"
     },
     {
       "id": "F-04",
@@ -71,11 +72,11 @@
       "severity": "HIGH",
       "category": "No official source resolves this fact pattern",
       "title": "Did Unit 1's 4/1/2026 rental agreement reset the anniversary date?",
-      "finding": "Unit 1's lease commenced 2/1/2025. Two of three original occupants departed and one occupant was added, and a continuing tenancy is recorded at 4/1/2026 with rent unchanged at $3,995. SF.gov states the first annual increase may be imposed '12 months after the date the tenant's lease began', and that the anniversary date changes when an increase is imposed. No official SF source states whether executing a NEW written rental agreement with a replacement occupant \u2014 with no increase and with an original occupant still in place \u2014 resets the anniversary date.",
+      "finding": "Unit 1's lease commenced 2/1/2025. Two of three original occupants departed and one occupant was added, and a continuing tenancy is recorded at 4/1/2026 with rent unchanged at $3,995. SF.gov states the first annual increase may be imposed '12 months after the date the tenant's lease began', and that the anniversary date changes when an increase is imposed. No official SF source states whether executing a NEW written rental agreement with a replacement occupant \u2014 with no increase and with an original occupant still in place \u2014 resets the anniversary date. NARROWED AT INTEGRATION: the Rent Board now supplies the controlling DEFINITION \u2014 'Your anniversary date is either: (1) The day and month of the last time your landlord increased your rent; or (2) The day and month your lease began (this applies if your landlord has never increased your rent).' Since no increase was ever imposed on Unit 1, the anniversary date is the lease commencement date, February 1, UNLESS the April 2026 document constituted a new lease. The remaining question is therefore purely factual \u2014 what was signed on 2026-04-01 \u2014 not legal.",
       "impact": "If the anniversary date is still February 1, Scenario U1-A (3.0%, effective on or after 2/1/2027) is correct. If a new tenancy began on 4/1/2026, the first increase would not be available until 4/1/2027 and would use the then-unpublished 2027-28 percentage. Scenario U1-C is published with ALL dollar values left blank for this reason \u2014 nothing was estimated.",
-      "action": "Ask a Rent Board counselor (free, 415-252-4600) directly. Also review the 4/1/2026 document: whether it is a new lease, a roommate-change addendum, or a lease amendment materially affects the answer. Note that Rent Board Rules \u00a7 6.14 requires a written notice to subsequent occupants to preserve an unlimited-increase right later; whether one was served on the added occupant should be checked, because failing to serve it now will matter when the last original occupant eventually leaves.",
+      "action": "Review the 2026-04-01 document: a new lease commencing that date moves the anniversary to April 1; a roommate-change addendum or amendment to the existing February 1, 2025 lease does not. Confirm with a Rent Board counselor (free, 415-252-4600). Source for the controlling definition: https://www.sf.gov/information--increasing-rents-during-irregular-periods",
       "source": "https://www.sf.gov/learn-about-rent-increases-san-francisco",
-      "secondary_source": "https://www.sf.gov/information--rent-increases-under-section-614-and-costa-hawkins"
+      "secondary_source": "https://www.sf.gov/information--increasing-rents-during-irregular-periods"
     },
     {
       "id": "F-08",
@@ -167,11 +168,10 @@
       "severity": "HIGH",
       "category": "PENDING LEGISLATION \u2014 could change the answer",
       "title": "Proposed cap on banked rent increases",
-      "finding": "News reporting dated September 17, 2026 describes San Francisco supervisors introducing legislation that would limit banked rent increases to 10% annually and require landlords to inform tenants of rent increase limits and rights. This is third-party reporting, NOT an official source, and the legislation was NOT found to be enacted in any official Rent Board source reviewed in this session.",
+      "finding": "Third-party news reporting dated September 17, 2026 describes San Francisco supervisors introducing legislation that would limit banked rent increases to 10% annually and require landlords to inform tenants of rent increase limits and rights. This is NOT an official source and is deliberately not linked from this site; no enactment was found in any official Rent Board source reviewed, including the Rent Board News index checked at integration on 2026-11-06, whose most recent items are dated August 7, 2026 and January 23, 2026.",
       "impact": "If enacted as described, it would directly cap Unit 2's Scenario A/B total, which is currently computed at 13.1%. Unit 1's 3.0% would be unaffected.",
       "action": "BEFORE serving any notice on Unit 2, check the official Rent Board News page and the Board of Supervisors' legislative tracker for any enacted amendment to Admin. Code \u00a7 37.3(a)(2). Re-run the calculation if it has changed. Treat the 13.1% figure as provisional.",
-      "source": "https://www.sf.gov/departments--rent-board/news",
-      "secondary_source": "https://localnewsmatters.org/2026-09-17/san-francisco-rent-increase-banking/"
+      "source": "https://www.sf.gov/departments--rent-board/news"
     },
     {
       "id": "F-17",
@@ -245,7 +245,7 @@
       "impact": "The base rents are not withheld because the owner expressly required dates and amounts to be preserved unchanged, and because they are the entire basis of the analysis. Names, address, APN and every occupant identity ARE withheld and are protected by a build-time PII sweep that fails the build.",
       "action": "Two mitigations exist and were deliberately NOT applied unilaterally, because both are the owner's decision: (1) make the repository private and use a private Pages deployment; (2) round the published rents to the nearest $50 while keeping exact figures in the internal working copy. Neither changes any legal conclusion.",
       "source": "https://www.sf.gov/rent-board-housing-inventory",
-      "secondary_source": "https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site"
+      "secondary_source": "https://github.com/kanlerxz87-cyber/RentincreaseSF2"
     },
     {
       "id": "F-24",
@@ -254,9 +254,8 @@
       "title": "Demolition and major-renovation tenant protections now in force",
       "finding": "Legislation announced by the Rent Board on January 23, 2026 amends both the Planning Code and the Rent Ordinance and took effect February 9, 2026. It adds a new just cause for eviction at \u00a7 37.9(a)(17), narrows \u00a7 37.9(a)(10) to the permanent removal of a single unit, requires replacement of demolished units, bars demolition permits for five years after certain harassment or a non-compliant buyout, obliges the Rent Board to hold an investigative harassment hearing within 45 days, and gives a lower-income tenant displaced more than three months by a \u00a7 37.9(a)(11) capital-improvement eviction additional monthly payments for up to 39 months.",
       "impact": "Not engaged by a lawful annual or banked rent increase, so it does not change any figure on this site. It is material to two open flags: F-09 (if capital-improvement work is ever contemplated, temporary displacement now carries far larger relocation exposure for lower-income tenants) and F-10 (this is now the authoritative official description of Rent Board harassment proceedings). Updated Rent Board forms were stated to follow the effective date.",
-      "action": "Read the linked announcement before any capital-improvement, buyout or withdrawal decision. For a rent increase specifically, no action is required.",
-      "source": "https://www.sf.gov/news-new-legislation-expands-tenant-protections-related-to-residential-demolitions-and-major-renovations",
-      "secondary_source": "https://sfgov.legistar.com/View.ashx?M=F&ID=15018116&GUID"
+      "action": "Read the linked announcement before any capital-improvement, buyout or withdrawal decision. For a rent increase specifically, no action is required. The announcement links the full legislation text on the Board of Supervisors' Legistar portal (File record reached from the announcement page); the GUID was truncated in the fetched copy, so no direct citation is published here rather than a malformed URL.",
+      "source": "https://www.sf.gov/news-new-legislation-expands-tenant-protections-related-to-residential-demolitions-and-major-renovations"
     }
   ]
 }
