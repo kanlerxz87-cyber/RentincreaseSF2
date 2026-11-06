@@ -86,6 +86,7 @@ def foot(active=""):
     </div>
   </div>
 </footer>
+<script src="assets/app.js" defer></script>
 </body>
 </html>
 """

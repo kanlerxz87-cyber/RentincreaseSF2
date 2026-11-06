@@ -609,15 +609,17 @@ def build_calculations():
       is the lower of the two lawful routes. Both are shown so the difference is visible rather than
       asserted.</p>
       {table(
-        ["Method", "Result", "Note"],
+        ["Method", "Result", "Note", "Source"],
         [
           '<tr><td class="key">Banked percentages added (lawful)</td>'
           '<td class="num"><strong>$3,562.65</strong></td>'
-          '<td class="small">11.5% + 1.6% = 13.1% of the original $3,150 base</td></tr>',
+          '<td class="small">11.5% + 1.6% = 13.1% of the original $3,150 base</td>'
+          "<td>{}</td></tr>".format(s("rr4")),
           '<tr><td class="key">Sequential annual increases with compounding (illustrative only)</td>'
           '<td class="num">$3,585.72</td>'
           '<td class="small">1.8 → 0.7 → 2.3 → 3.6 → 1.7 → 1.4 → 1.6 applied to a rising base. '
-          'Not available now, because the increases were not taken when they arose.</td></tr>',
+          'Not available now, because the increases were not taken when they arose.</td>'
+          "<td>{}</td></tr>".format(s("571")),
         ],
         thead_num=(1,),
       )}
@@ -828,17 +830,21 @@ def build_history():
     <div class="card">
       <h2>Rates that matter for these two units</h2>
       {table(
-        ["Unit", "Anniversary", "Rate available then", "Taken?", "Consequence"],
+        ["Unit", "Anniversary", "Rate available then", "Taken?", "Consequence", "Source"],
         [
           '<tr><td class="key">Unit 1</td><td>1 Feb 2026</td><td class="num">1.4%</td><td>No</td>'
-          '<td class="small">Banked only from 1 Feb 2027. Before that date it is lost.</td></tr>',
+          '<td class="small">Banked only from 1 Feb 2027. Before that date it is lost.</td>'
+          "<td>{}</td></tr>".format(s("banked")),
           '<tr><td class="key">Unit 1</td><td>1 Feb 2027</td><td class="num">1.6%</td><td>Due</td>'
-          '<td class="small">Can be combined with the banked 1.4% for a 3.0% total.</td></tr>',
+          '<td class="small">Can be combined with the banked 1.4% for a 3.0% total.</td>'
+          "<td>{}</td></tr>".format(s("rr4")),
           '<tr><td class="key">Unit 2</td><td>1 Jun 2020 → 1 Jun 2025</td>'
           '<td class="num">1.8 + 0.7 + 2.3 + 3.6 + 1.7 + 1.4</td><td>No</td>'
-          '<td class="small">All six banked, total 11.5%.</td></tr>',
+          '<td class="small">All six banked, total 11.5%.</td>'
+          "<td>{}</td></tr>".format(s("571")),
           '<tr><td class="key">Unit 2</td><td>1 Jun 2026</td><td class="num">1.6%</td><td>Due</td>'
-          '<td class="small">Plus the banked 11.5% = 13.1%.</td></tr>',
+          '<td class="small">Plus the banked 11.5% = 13.1%.</td>'
+          "<td>{}</td></tr>".format(s("rr4")),
         ],
         thead_num=(2,),
       )}
