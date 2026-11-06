@@ -67,7 +67,6 @@ SOURCES = {
     "doj_realpage": "https://www.justice.gov/opa/pr/justice-department-requires-realpage-end-sharing-competitively-sensitive-information-and",
     "doj_pinnacle": "https://www.justice.gov/opa/pr/justice-department-reaches-proposed-consent-decree-pinnacle-one-americas-largest-landlords",
     "bls_cpi": "https://www.bls.gov/regions/west/news-release/consumerpriceindex_sanfrancisco.htm",
-    "courts_pi": "https://selfhelp.courts.ca.gov/piq-affidavit-rent-increase",
     "edi":    "https://www.edi.courts.ca.gov/",
 }
 

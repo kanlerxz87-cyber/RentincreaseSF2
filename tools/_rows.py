@@ -241,10 +241,6 @@ LAW_ROWS = [
          rule="Gov. Code § 12955.7: it is unlawful to coerce, intimidate, threaten or interfere with "
               "a person's exercise of rights under § 12955.",
          value="Separate violation", src="gov12955_7", status="Verified"),
-    dict(level="State", topic="Rent-increase affidavit (rent-increase above 10% on some units)",
-         rule="Some increases above 10% require the tenant to be given a signed affidavit about the "
-              "property's exempt status. Not reached here — see Flagged for Review.",
-         value="Not triggered on the figures below", src="courts_pi", status="Context only"),
     # --- FEDERAL ---
     dict(level="Federal", topic="No federal rent cap",
          rule="Neither the Fair Housing Act nor any other federal statute cited by HUD sets a ceiling "
