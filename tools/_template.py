@@ -21,6 +21,7 @@ NAV = [
     ("review.html",        "Lawyer review"),
     ("sources.html",       "Sources"),
     ("flagged.html",       "Flagged"),
+    ("verification.html",  "Verification"),
 ]
 
 
