@@ -133,6 +133,24 @@ code { background: #eef2f7; padding: 1px 6px; border-radius: 6px; font-size: 13p
 .calc { font-variant-numeric: tabular-nums; }
 .unverified { color: var(--warn); font-weight: 600; }
 .verified { color: var(--ok); font-weight: 600; }
+td.blank-cell {
+  background: repeating-linear-gradient(-45deg, #fafbfd, #fafbfd 6px, #f2f5f9 6px, #f2f5f9 12px);
+  min-width: 110px;
+}
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 14px;
+}
+.filter-bar input[type="search"] {
+  padding: 7px 12px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  font-size: 14px;
+  min-width: 240px;
+}
 .legend { display: flex; flex-wrap: wrap; gap: 10px; margin: 12px 0; }
 .legend span { font-size: 12px; }
 .footer {
