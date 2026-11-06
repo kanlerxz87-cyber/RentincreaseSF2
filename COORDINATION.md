@@ -189,8 +189,8 @@ None. No other session holds a claim.
 | Corrections made at integration | **12** — see `docs/integration-report.md` §3. Included a Census aggregation error (436 → **2,731**), a wrongly-raised flag (**F-17 resolved**), missing new law (**F-24**, effective 2026-02-09), and **eight** stale ✅ marks in the verification log above that were reclassified to ⚠️ or ❌ |
 | Flagged items | **24** — 7 HIGH, 8 medium, 5 low, 3 informational, 1 cosmetic. Published on [Flagged for Review](pages/flagged.html); per protocol these do **not** block the merge |
 | Values left blank | **11** categories, each published blank with its reason and flag ID — never inferred |
-| Pull request | _filled in below after creation_ |
-| Merge result | _filled in below after merge_ |
+| Pull request | [**#5**](https://github.com/kanlerxz87-cyber/RentincreaseSF2/pull/5) — `arena/48ffb5b4-rentincreasesf2` → `main`, opened 2026-11-06 |
+| Merge result | Pending at the time of writing; merged immediately after this commit without waiting for approval, per the task protocol. See the merge-commit record below. |
 | GitHub Pages URL | https://kanlerxz87-cyber.github.io/RentincreaseSF2/ |
 | Pages build status | _filled in below after deploy_ |
 | Full report | [`docs/integration-report.md`](docs/integration-report.md) |

@@ -251,6 +251,7 @@ Tables are filterable client-side (vanilla JS, ~1.3 KB). The flags table has sev
 |---|---|
 | Pages configuration | `build_type: legacy`, source `main`, path `/`, HTTPS enforced — already enabled before this work |
 | `.nojekyll` | **Added**, so Pages serves the static site verbatim instead of running Jekyll (which would also exclude `_`-prefixed and certain other filenames) |
+| Pull request | [**#5**](https://github.com/kanlerxz87-cyber/RentincreaseSF2/pull/5) |
 | Build | `python3 build.py` — exits 0 |
 | URL | https://kanlerxz87-cyber.github.io/RentincreaseSF2/ |
 
