@@ -26,4 +26,5 @@ Session ID: `arena/3eac9d0e-rentincreasesf2` (single active session for this rep
 ## Irregularities / flagged items
 - Unit 2 has had no recorded increase since 6/1/2019; any banked increase stacking multiple years could exceed 10% and trigger the 90-day notice rule — flagged on the Flagged for Review page for legal review.
 - Tenant names anonymized to placeholders (Tenant A–E); dates and dollar amounts preserved per instructions.
-- PR link and merge result will be recorded here after completion (task 8).
+- PR: https://github.com/kanlerxz87-cyber/RentincreaseSF2/pull/1 — merged to main (merge commit via `gh pr merge 1 --merge`), 2026-11-06.
+- GitHub Pages: legacy build from `main` `/`, status **built**, live at https://kanlerxz87-cyber.github.io/RentincreaseSF2/ (verified via GitHub Pages API, 2026-11-06).
