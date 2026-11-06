@@ -12,8 +12,8 @@
 | `T1` | Official Source Verification: SF Local Law (Admin Code Ch. 37, SF Rent Board Annual Rates 2019–2027, Banking Rules, Housing Inventory License, Co-Tenant/Subtenant Rules) | `done` | `arena/39ba7aa1-rentincreasesf2` | `2026-11-06T13:19:00Z` | `docs/research-local-sf.md` |
 | `T2` | Official Source Verification: CA State Law (Costa-Hawkins, AB 1482, Civ. Code § 827, CCP §§ 1013/1162, FEHA, Unruh, Civ. Code § 1942.5), Federal Law (FHA, SCRA, CARES, DOJ), & ZIP 94122 Official Data | `done` | `arena/39ba7aa1-rentincreasesf2` | `2026-11-06T13:25:00Z` | `docs/research-state-federal-market.md` |
 | `T3` | Corporate vs. Individual Landlord Practices, Proper Rent Increase Notice Protocol, SF Tenant Lawyer Scrutiny Standards, & Single-Unit vs. Both-Units Fair Housing Analysis | `done` | `arena/39ba7aa1-rentincreasesf2` | `2026-11-06T13:31:00Z` | `docs/analysis-practices-lawyer-audit.md` |
-| `T4` | Anonymized Unit 1 & Unit 2 Rent Calculations, Executive Summary, & Irregularities / Unverified Items Audit | `in progress` | `arena/39ba7aa1-rentincreasesf2` | `2026-11-06T13:35:00Z` | `docs/unit-calculations-and-flags.md`, `docs/executive-summary.md` |
-| `T5` | Verified Structured Dataset & Line-by-Line Official Source Registry | `unclaimed` | — | — | `data/verified-data.json` |
+| `T4` | Anonymized Unit 1 & Unit 2 Rent Calculations, Executive Summary, & Irregularities / Unverified Items Audit | `done` | `arena/39ba7aa1-rentincreasesf2` | `2026-11-06T13:35:00Z` | `docs/unit-calculations-and-flags.md`, `docs/executive-summary.md` |
+| `T5` | Verified Structured Dataset & Line-by-Line Official Source Registry | `in progress` | `arena/39ba7aa1-rentincreasesf2` | `2026-11-06T13:38:00Z` | `data/verified-data.json` |
 | `T6` | GitHub Pages Clean Dashboard Website (Landing Page + Category Subpages + Flagged for Review Page) | `unclaimed` | — | — | `.nojekyll`, `index.html`, `executive-summary.html`, `legal-framework.html`, `unit-analysis.html`, `landlord-practices.html`, `notice-and-compliance.html`, `lawyer-scrutiny.html`, `flagged-for-review.html`, `assets/styles.css`, `assets/app.js`, `README.md` |
 | `T7` | Final Integration, Line-by-Line Re-Verification, Broken-Link & PII Automated Checks, PR Creation, Merge to `main`, & GitHub Pages Deployment Confirmation | `unclaimed` | — | — | `scripts/verify_site.py`, `COORDINATION.md` |
 
@@ -82,6 +82,17 @@
   - https://www.hud.gov/helping-americans/fair-housing-act-overview
 - **Flagged Irregularities (`needs review`):** None newly discovered beyond `T1`–`T2`; documented staggered-timing contractual rule if Unit 1's `April 1, 2026` document is an unexpired fixed-term lease.
 
+### `T4` — Anonymized Unit Calculations, Banking Ledger, Executive Summary & Flags (`done`)
+- **Session:** `arena/39ba7aa1-rentincreasesf2`
+- **Verification Performed:** Verified every dollar calculation via `decimal.Decimal` in Python against Form 571 (`Unit 1: $3,995.00 × 1.6% = $63.92 → $4,058.92`; `Unit 2: $3,150.00 × 1.6% = $50.40 → $3,200.40`; `Unit 2 banked 2020–2025 = 11.5% / $362.25 + 1.6% current = 13.1% / $412.65 → $3,562.65`). Identified and flagged the `March 1–May 31, 2027` anniversary-date forfeiture trap for Unit 2's `June 1, 2026` (`1.6%`) rate and the `February 1, 2027` 24-month banking threshold for Unit 1's `February 1, 2026` (`1.4%`) rate. Confirmed zero PII/initials in any file.
+- **Official Sources Linked:**
+  - https://media.api.sf.gov/documents/571_Allowable_Annual_Increases_26-27_1.pdf
+  - https://www.sf.gov/information--banked-rent-increases
+  - https://www.sf.gov/learn-about-rent-increases-san-francisco
+  - https://www.sf.gov/information--rent-increases-under-section-614-and-costa-hawkins
+  - https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=CIV&sectionNum=827.
+- **Flagged Irregularities (`needs review`):** Consolidated `FLAG-01` through `FLAG-07` in `docs/unit-calculations-and-flags.md` for publication on `flagged.html`.
+
 ---
 
 ## Coordination & Merge Event Log
@@ -90,3 +101,4 @@
 - `2026-11-06T13:25:00Z` — Session `arena/39ba7aa1-rentincreasesf2` completed `T1` with full primary-source verification and claimed `T2` (`docs/research-state-federal-market.md`).
 - `2026-11-06T13:31:00Z` — Session `arena/39ba7aa1-rentincreasesf2` completed `T2`, logged line-by-line audit of `origin/main` (`1e6f88f`), and claimed `T3` (`docs/analysis-practices-lawyer-audit.md`).
 - `2026-11-06T13:35:00Z` — Session `arena/39ba7aa1-rentincreasesf2` completed `T3` and claimed `T4` (`docs/unit-calculations-and-flags.md`, `docs/executive-summary.md`).
+- `2026-11-06T13:38:00Z` — Session `arena/39ba7aa1-rentincreasesf2` completed `T4` and claimed `T5` (`data/verified-data.json`).
