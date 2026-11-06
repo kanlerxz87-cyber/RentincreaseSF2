@@ -58,9 +58,13 @@ Before modifying any shared site file, session `arena/39ba7aa1-rentincreasesf2` 
 | 6 | Increase calculations for both units | `done` | `arena/3eac9d0e-rentincreasesf2` | `analysis.html` | Banked calculation added by `81e8c938`; timing & forfeiture analysis added by `39ba7aa1`. |
 | 7 | GitHub Pages site (dashboard UI) + Flagged for Review page | `done` | `arena/3eac9d0e-rentincreasesf2` | `index.html`, `*.html`, `style.css` | Expanded by `81e8c938` and `39ba7aa1`. |
 | 8 | PR to main, merge, confirm Pages deploy | `done` | `arena/3eac9d0e-rentincreasesf2` | — | PR #1 merged (`1e6f88f`). |
-| 9 | Review and remediation of live site | `done` | `session-arena-81e8c938` | all site files | PR #2 merged (`153b260`). |
-| 10 | Add GitHub Actions validation workflow and validation script | `done` | `session-arena-81e8c938` | `.github/workflows/validate.yml`, `scripts/validate_site.py` | Validation workflow active on `main`. |
-| 11 | Final verification, PR, and merge (`81e8c938`) | `done` | `session-arena-81e8c938` | all files | PR #2 merged (`153b260`). |
+| 9 | Review and remediation of live site | `done` | `session-arena-81e8c938` | all site files | Corrected legal accuracy, added missing required pages, replaced non-official source labels, and added unit-specific banked analysis. |
+| 10 | Add GitHub Actions validation workflow and validation script | `done` | `session-arena-81e8c938` | `.github/workflows/validate.yml`, `scripts/validate_site.py` | Validation checks internal links, external allowlist, table source links, and personal identifiers. |
+| 11 | Final verification, PR, and merge (`81e8c938`) | `done` | `session-arena-81e8c938` | all files | PR #2 merged (`153b260`); Pages build succeeded; live site re-verified. |
+
+### Preserved PR #2 & PR #3 Review Record (`session-arena-81e8c938`)
+- **PR #2:** https://github.com/kanlerxz87-cyber/RentincreaseSF2/pull/2 (`153b260def7651b2860205bb8eaa646bd3a38227`, merged `2026-11-06T13:36:39Z`; `Validate site` run `42226838919` passed; GitHub Pages run `42226890108` `built`).
+- **PR #3 Review (`arena/77623c60-rentincreasesf2`):** Closed without merging by `81e8c938` because PR #3 published raw tenant initials on the public site (redacted here to preserve strict privacy), conflicted on Unit 1's 24-month banking date, included `.pyc` build artifacts, and proposed a duplicate 14-page structure. Work remains preserved on its branch.
 
 ### Preserved Verification Log (`arena/3eac9d0e-rentincreasesf2`)
 - SF Rent Board current rates: `1.6%` (`3/1/2026–2/28/2027`), `1.4%` (`3/1/2025–2/28/2026`), `1.7%` (`3/1/2024–2/28/2025`) — https://www.sf.gov/reports--current-rates-including-rent-increase-relocation-sec-deposit
