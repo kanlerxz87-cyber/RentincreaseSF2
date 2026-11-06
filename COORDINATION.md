@@ -11,8 +11,8 @@
 |---|---|---|---|---|---|
 | `T1` | Official Source Verification: SF Local Law (Admin Code Ch. 37, SF Rent Board Annual Rates 2019–2027, Banking Rules, Housing Inventory License, Co-Tenant/Subtenant Rules) | `done` | `arena/39ba7aa1-rentincreasesf2` | `2026-11-06T13:19:00Z` | `docs/research-local-sf.md` |
 | `T2` | Official Source Verification: CA State Law (Costa-Hawkins, AB 1482, Civ. Code § 827, CCP §§ 1013/1162, FEHA, Unruh, Civ. Code § 1942.5), Federal Law (FHA, SCRA, CARES, DOJ), & ZIP 94122 Official Data | `done` | `arena/39ba7aa1-rentincreasesf2` | `2026-11-06T13:25:00Z` | `docs/research-state-federal-market.md` |
-| `T3` | Corporate vs. Individual Landlord Practices, Proper Rent Increase Notice Protocol, SF Tenant Lawyer Scrutiny Standards, & Single-Unit vs. Both-Units Fair Housing Analysis | `in progress` | `arena/39ba7aa1-rentincreasesf2` | `2026-11-06T13:31:00Z` | `docs/analysis-practices-lawyer-audit.md` |
-| `T4` | Anonymized Unit 1 & Unit 2 Rent Calculations, Executive Summary, & Irregularities / Unverified Items Audit | `unclaimed` | — | — | `docs/unit-calculations-and-flags.md`, `docs/executive-summary.md` |
+| `T3` | Corporate vs. Individual Landlord Practices, Proper Rent Increase Notice Protocol, SF Tenant Lawyer Scrutiny Standards, & Single-Unit vs. Both-Units Fair Housing Analysis | `done` | `arena/39ba7aa1-rentincreasesf2` | `2026-11-06T13:31:00Z` | `docs/analysis-practices-lawyer-audit.md` |
+| `T4` | Anonymized Unit 1 & Unit 2 Rent Calculations, Executive Summary, & Irregularities / Unverified Items Audit | `in progress` | `arena/39ba7aa1-rentincreasesf2` | `2026-11-06T13:35:00Z` | `docs/unit-calculations-and-flags.md`, `docs/executive-summary.md` |
 | `T5` | Verified Structured Dataset & Line-by-Line Official Source Registry | `unclaimed` | — | — | `data/verified-data.json` |
 | `T6` | GitHub Pages Clean Dashboard Website (Landing Page + Category Subpages + Flagged for Review Page) | `unclaimed` | — | — | `.nojekyll`, `index.html`, `executive-summary.html`, `legal-framework.html`, `unit-analysis.html`, `landlord-practices.html`, `notice-and-compliance.html`, `lawyer-scrutiny.html`, `flagged-for-review.html`, `assets/styles.css`, `assets/app.js`, `README.md` |
 | `T7` | Final Integration, Line-by-Line Re-Verification, Broken-Link & PII Automated Checks, PR Creation, Merge to `main`, & GitHub Pages Deployment Confirmation | `unclaimed` | — | — | `scripts/verify_site.py`, `COORDINATION.md` |
@@ -67,6 +67,21 @@
   1. **Unit Bedroom Counts & `94122` Private Market Comparables:** Unit 1 and Unit 2 bedroom/bathroom counts were not supplied in internal data, and official municipal/federal tables do not publish a 2026 private-listing median rent by bedroom for ZIP `94122`; left blank rather than estimated from third-party listing sites.
   2. **Repo Audit of `origin/main` (PR #1 from `arena/3eac9d0e-rentincreasesf2`):** Observed `origin/main` advanced to `1e6f88f`; audited line-by-line and noted (a) complete omission of Corporate vs. Individual landlord inquiry, (b) 10 table rows across `units.html` and `analysis.html` missing official source links, (c) placeholder mismatch (`Tenant A–E` vs `Tenant A–F`), and (d) redirection of legacy HUD link `hud.gov/program_offices/fair_housing_equal_opp` to `hud.gov/contactus/fairhousing` instead of `hud.gov/helping-americans/fair-housing-act-overview`. All items logged for non-destructive integration in `T6`/`T7`.
 
+### `T3` — Corporate vs. Individual Practices, Notice Protocol, Lawyer Audit & Fair Housing (`done`)
+- **Session:** `arena/39ba7aa1-rentincreasesf2`
+- **Verification Performed:** Verified corporate vs. individual landlord practices against SF Rent Board FY 2024–2025 petition/passthrough data, SF Housing Inventory licensing data (`99,800` licenses), SF Admin Code `§ 37.10C` algorithmic pricing prohibition, and U.S. DOJ RealPage/corporate landlord complaints; verified 7-step `Civ. Code § 827` + `CCP § 1013` notice protocol, 7-point SF tenant lawyer red-team audit, and uniform building-wide anti-discrimination policy under FHA/FEHA/Unruh.
+- **Official Sources Linked:**
+  - https://www.sf.gov/rent-board-forms-forms-center
+  - https://www.sf.gov/information--general-obligation-bond-passthrough-worksheets
+  - https://media.api.sf.gov/documents/minutes_040825.pdf
+  - https://www.sf.gov/news--new-law-prohibits-algorithmic-devices-used-set-rents-san-francisco
+  - https://www.justice.gov/archives/opa/pr/justice-department-sues-six-large-landlords-algorithmic-pricing-scheme-harms-millions
+  - https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=CIV&sectionNum=827.
+  - https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=1013.&lawCode=CCP
+  - https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=GOV&sectionNum=12955.
+  - https://www.hud.gov/helping-americans/fair-housing-act-overview
+- **Flagged Irregularities (`needs review`):** None newly discovered beyond `T1`–`T2`; documented staggered-timing contractual rule if Unit 1's `April 1, 2026` document is an unexpired fixed-term lease.
+
 ---
 
 ## Coordination & Merge Event Log
@@ -74,3 +89,4 @@
 - `2026-11-06T13:19:00Z` — Session `arena/39ba7aa1-rentincreasesf2` initialized `COORDINATION.md` after checking repo root (`README.md` only on `main` at `3ed3b19`) and claimed `T1` (`docs/research-local-sf.md`).
 - `2026-11-06T13:25:00Z` — Session `arena/39ba7aa1-rentincreasesf2` completed `T1` with full primary-source verification and claimed `T2` (`docs/research-state-federal-market.md`).
 - `2026-11-06T13:31:00Z` — Session `arena/39ba7aa1-rentincreasesf2` completed `T2`, logged line-by-line audit of `origin/main` (`1e6f88f`), and claimed `T3` (`docs/analysis-practices-lawyer-audit.md`).
+- `2026-11-06T13:35:00Z` — Session `arena/39ba7aa1-rentincreasesf2` completed `T3` and claimed `T4` (`docs/unit-calculations-and-flags.md`, `docs/executive-summary.md`).
