@@ -1,0 +1,232 @@
+{
+  "metadata": {
+    "project": "San Francisco Rent Increase Compliance & Legal Analysis (ZIP 94122)",
+    "verification_date": "2026-11-06",
+    "privacy_policy": "Strict anonymization enforced. Zero personal names, initials, or street addresses included. Placeholders (Tenant 1A-1D, Tenant 2A-2B) used exclusively; exact dates and dollar amounts preserved.",
+    "location": {
+      "city": "San Francisco",
+      "state": "CA",
+      "neighborhood": "Outer Sunset",
+      "zip_code": "94122",
+      "year_built": 1940,
+      "rent_controlled": true,
+      "coverage_cutoff_date": "1979-06-13",
+      "source_url": "https://www.sf.gov/learn-about-san-francisco-rental-laws",
+      "source_label": "SF.gov — Learn about San Francisco rental laws"
+    }
+  },
+  "current_key_rates": {
+    "sf_annual_allowable_period": "March 1, 2026 – February 28, 2027",
+    "sf_annual_allowable_pct": 1.6,
+    "sf_security_deposit_interest_pct": 4.2,
+    "sf_rent_board_fee_dwelling_usd": 59.00,
+    "sf_rent_board_fee_tenant_share_usd": 29.50,
+    "ca_ab1482_sf_county_pct_2026_2027": 8.8,
+    "ca_ab1482_superseded_by_local": true,
+    "source_url": "https://www.sf.gov/reports--current-rates-including-rent-increase-relocation-sec-deposit",
+    "source_label": "SF.gov — Current Rates (2026–2027)"
+  },
+  "historical_sf_rates": [
+    {
+      "period": "March 1, 2026 – February 28, 2027",
+      "rate_pct": "1.6%",
+      "status": "Verified (Current Active Rate)",
+      "source_url": "https://www.sf.gov/news--annual-rent-increase-3126-22827-announced",
+      "source_label": "SF.gov — 3/1/26–2/28/27 Rate Announcement"
+    },
+    {
+      "period": "March 1, 2025 – February 28, 2026",
+      "rate_pct": "1.4%",
+      "status": "Verified",
+      "source_url": "https://media.api.sf.gov/documents/571_Allowable_Annual_Increases_26-27_1.pdf",
+      "source_label": "SF Rent Board Form 571 (2026–2027)"
+    },
+    {
+      "period": "March 1, 2024 – February 28, 2025",
+      "rate_pct": "1.7%",
+      "status": "Verified",
+      "source_url": "https://media.api.sf.gov/documents/571_Allowable_Annual_Increases_26-27_1.pdf",
+      "source_label": "SF Rent Board Form 571 (2026–2027)"
+    },
+    {
+      "period": "March 1, 2023 – February 29, 2024",
+      "rate_pct": "3.6%",
+      "status": "Verified",
+      "source_url": "https://media.api.sf.gov/documents/571_Allowable_Annual_Increases_26-27_1.pdf",
+      "source_label": "SF Rent Board Form 571 (2026–2027)"
+    },
+    {
+      "period": "March 1, 2022 – February 28, 2023",
+      "rate_pct": "2.3%",
+      "status": "Verified",
+      "source_url": "https://media.api.sf.gov/documents/571_Allowable_Annual_Increases_26-27_1.pdf",
+      "source_label": "SF Rent Board Form 571 (2026–2027)"
+    },
+    {
+      "period": "March 1, 2021 – February 28, 2022",
+      "rate_pct": "0.7%",
+      "status": "Verified",
+      "source_url": "https://media.api.sf.gov/documents/571_Allowable_Annual_Increases_26-27_1.pdf",
+      "source_label": "SF Rent Board Form 571 (2026–2027)"
+    },
+    {
+      "period": "March 1, 2020 – February 28, 2021",
+      "rate_pct": "1.8%",
+      "status": "Verified",
+      "source_url": "https://media.api.sf.gov/documents/571_Allowable_Annual_Increases_26-27_1.pdf",
+      "source_label": "SF Rent Board Form 571 (2026–2027)"
+    },
+    {
+      "period": "March 1, 2019 – February 29, 2020",
+      "rate_pct": "2.6%",
+      "status": "Verified",
+      "source_url": "https://media.api.sf.gov/documents/571_Allowable_Annual_Increases_26-27_1.pdf",
+      "source_label": "SF Rent Board Form 571 (2026–2027)"
+    },
+    {
+      "period": "March 1, 2027 – February 29, 2028",
+      "rate_pct": "",
+      "status": "Unverified / Blank (Not Yet Announced as of 2026-11-06)",
+      "source_url": "https://www.sf.gov/reports--current-rates-including-rent-increase-relocation-sec-deposit",
+      "source_label": "SF.gov — Current Rates"
+    }
+  ],
+  "units": [
+    {
+      "unit_id": "Unit 1",
+      "last_lease_start": "February 1, 2025",
+      "base_rent_usd": 3995.00,
+      "initial_tenants_anonymized": ["Tenant 1A", "Tenant 1B", "Tenant 1C"],
+      "current_tenants_anonymized": ["Tenant 1A", "Tenant 1D"],
+      "continuing_tenancy_note": "April 1, 2026 @ $3,995.00/month (Original occupant Tenant 1A remains in possession; Costa-Hawkins & Rules § 6.14 bar market reset)",
+      "annual_1_6_increase_usd": 63.92,
+      "new_base_rent_1_6_usd": 4058.92,
+      "notice_days_personal": 30,
+      "notice_days_mail": 35,
+      "bedrooms": "",
+      "rent_increase_license_status": "",
+      "lease_expiration_date": "",
+      "source_url": "https://www.sf.gov/information--rent-increases-under-section-614-and-costa-hawkins",
+      "source_label": "SF.gov — Section 6.14 & Costa-Hawkins"
+    },
+    {
+      "unit_id": "Unit 2",
+      "last_lease_start": "June 1, 2019",
+      "base_rent_usd": 3150.00,
+      "initial_tenants_anonymized": ["Tenant 2A", "Tenant 2B"],
+      "current_tenants_anonymized": ["Tenant 2A", "Tenant 2B"],
+      "continuing_tenancy_note": "Continuing tenancy since June 1, 2019 @ $3,150.00/month recorded start",
+      "annual_1_6_increase_usd": 50.40,
+      "new_base_rent_1_6_usd": 3200.40,
+      "theoretical_banked_2020_2025_pct": 11.5,
+      "theoretical_banked_2020_2025_usd": 362.25,
+      "theoretical_max_combined_pct": 13.1,
+      "theoretical_max_combined_usd": 412.65,
+      "theoretical_max_new_rent_usd": 3562.65,
+      "notice_days_personal_annual_only": 30,
+      "notice_days_mail_annual_only": 35,
+      "notice_days_personal_full_banked": 90,
+      "notice_days_mail_full_banked": 95,
+      "post_2019_interim_increase_history": "",
+      "bedrooms": "",
+      "rent_increase_license_status": "",
+      "source_url": "https://www.sf.gov/information--banked-rent-increases",
+      "source_label": "SF.gov — Banked Rent Increases"
+    }
+  ],
+  "zip_94122_official_stats": [
+    {
+      "metric": "SF Rent Board Tenant Petitions Filed in ZIP 94122 (FY 2024–2025)",
+      "value": "42 petitions (6th highest of 24 SF ZIP codes)",
+      "verified": true,
+      "source_url": "https://media.api.sf.gov/documents/Rent_Board_Annual_Statistical_Report_FY2024-2025.pdf",
+      "source_label": "SF Rent Board FY 2024–2025 Statistical Report (p. 5)"
+    },
+    {
+      "metric": "SF Rent Board Landlord Capital Improvement Petitions in ZIP 94122 (FY 2024–2025)",
+      "value": "15 petitions",
+      "verified": true,
+      "source_url": "https://media.api.sf.gov/documents/Rent_Board_Annual_Statistical_Report_FY2024-2025.pdf",
+      "source_label": "SF Rent Board FY 2024–2025 Statistical Report (p. 11)"
+    },
+    {
+      "metric": "SF Rent Board Tenant Wrongful Eviction Reports in ZIP 94122 (FY 2024–2025)",
+      "value": "14 reports",
+      "verified": true,
+      "source_url": "https://media.api.sf.gov/documents/Rent_Board_Annual_Statistical_Report_FY2024-2025.pdf",
+      "source_label": "SF Rent Board FY 2024–2025 Statistical Report (p. 27)"
+    },
+    {
+      "metric": "2026 Private-Market Median Asking Rent by Bedroom in ZIP 94122",
+      "value": "",
+      "verified": false,
+      "source_url": "https://www.sf.gov/information--rent-board-statistics-and-reports",
+      "source_label": "SF.gov — Rent Board Statistics & Reports"
+    }
+  ],
+  "flagged_items": [
+    {
+      "id": "FLAG-01",
+      "title": "SF Rent Board Housing Inventory License Status (§ 37.15)",
+      "status": "needs review",
+      "blank_value": "",
+      "reason": "Public lookup on portal.sfrb.org requires street address/APN, withheld for strict privacy. Unlicensed annual/banked increases are null and void under Rules § 13.14.",
+      "source_url": "https://www.sf.gov/rent-board-housing-inventory",
+      "source_label": "SF.gov — Housing Inventory"
+    },
+    {
+      "id": "FLAG-02",
+      "title": "Unit 1 April 1, 2026 Agreement Structure & § 6.14 Reservation Notice",
+      "status": "needs review",
+      "blank_value": "",
+      "reason": "Must verify whether April 1, 2026 signed a new 12-month fixed-term lease (barring increases before April 1, 2027) or a month-to-month addendum, and whether a written § 6.14 notice was served on Tenant 1D within 60 days.",
+      "source_url": "https://www.sf.gov/information--rent-increases-under-section-614-and-costa-hawkins",
+      "source_label": "SF.gov — Section 6.14 & Costa-Hawkins"
+    },
+    {
+      "id": "FLAG-03",
+      "title": "Unit 2 Post-2019 Rent Increase Ledger & March–May 2027 Anniversary Forfeiture Trap",
+      "status": "needs review",
+      "blank_value": "",
+      "reason": "Internal record states June 1, 2019 @ $3,150/mo without certifying zero post-2019 increases. Changing Unit 2's anniversary to March 1–May 31, 2027 permanently forfeits the June 1, 2026 (1.6%) skipped increase.",
+      "source_url": "https://www.sf.gov/learn-about-rent-increases-san-francisco",
+      "source_label": "SF.gov — Learn about rent increases"
+    },
+    {
+      "id": "FLAG-04",
+      "title": "Future SF Rent Board Allowable Rate (3/1/2027 – 2/29/2028)",
+      "status": "needs review",
+      "blank_value": "",
+      "reason": "Not yet published by SF Rent Board as of 2026-11-06 (announced in January 2027); left strictly blank.",
+      "source_url": "https://www.sf.gov/reports--current-rates-including-rent-increase-relocation-sec-deposit",
+      "source_label": "SF.gov — Current Rates"
+    },
+    {
+      "id": "FLAG-05",
+      "title": "Unit Bedroom/Bathroom Counts & ZIP 94122 Private Market Comparables",
+      "status": "needs review",
+      "blank_value": "",
+      "reason": "Unit bedroom counts not provided in internal data and official government portals do not publish a 2026 private asking-rent median by bedroom for ZIP 94122.",
+      "source_url": "https://sf.gov/information/rent-board-housing-inventory-frequently-asked-questions-faq",
+      "source_label": "SF.gov — Housing Inventory FAQ"
+    },
+    {
+      "id": "FLAG-06",
+      "title": "Property Habitability, DBI Citations, & 180-Day Anti-Retaliation Clearance",
+      "status": "needs review",
+      "blank_value": "",
+      "reason": "Confidential street address withheld for privacy; owner must confirm zero unabated DBI/DPH citations and zero unaddressed tenant repair complaints within 180 days under Cal. Civ. Code § 1942.5.",
+      "source_url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=1942.5.&lawCode=CIV",
+      "source_label": "Cal. Civ. Code § 1942.5"
+    },
+    {
+      "id": "FLAG-07",
+      "title": "Repository Audit of Initial Main Commit (1e6f88f) — Resolved",
+      "status": "done",
+      "blank_value": "Resolved",
+      "reason": "Initial main commit omitted Corporate vs. Individual landlord inquiry, lacked official source links on 10 table rows, had Tenant A-E vs A-F label mismatch, and linked a redirected HUD page. All resolved in current integration.",
+      "source_url": "https://www.hud.gov/helping-americans/fair-housing-act-overview",
+      "source_label": "HUD.gov — Fair Housing Act Overview"
+    }
+  ]
+}

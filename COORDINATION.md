@@ -13,8 +13,8 @@
 | `T2` | Official Source Verification: CA State Law (Costa-Hawkins, AB 1482, Civ. Code § 827, CCP §§ 1013/1162, FEHA, Unruh, Civ. Code § 1942.5), Federal Law (FHA, SCRA, CARES, DOJ), & ZIP 94122 Official Data | `done` | `arena/39ba7aa1-rentincreasesf2` | `2026-11-06T13:25:00Z` | `docs/research-state-federal-market.md` |
 | `T3` | Corporate vs. Individual Landlord Practices, Proper Rent Increase Notice Protocol, SF Tenant Lawyer Scrutiny Standards, & Single-Unit vs. Both-Units Fair Housing Analysis | `done` | `arena/39ba7aa1-rentincreasesf2` | `2026-11-06T13:31:00Z` | `docs/analysis-practices-lawyer-audit.md` |
 | `T4` | Anonymized Unit 1 & Unit 2 Rent Calculations, Executive Summary, & Irregularities / Unverified Items Audit | `done` | `arena/39ba7aa1-rentincreasesf2` | `2026-11-06T13:35:00Z` | `docs/unit-calculations-and-flags.md`, `docs/executive-summary.md` |
-| `T5` | Verified Structured Dataset & Line-by-Line Official Source Registry | `in progress` | `arena/39ba7aa1-rentincreasesf2` | `2026-11-06T13:38:00Z` | `data/verified-data.json` |
-| `T6` | GitHub Pages Clean Dashboard Website (Landing Page + Category Subpages + Flagged for Review Page) | `unclaimed` | — | — | `.nojekyll`, `index.html`, `executive-summary.html`, `legal-framework.html`, `unit-analysis.html`, `landlord-practices.html`, `notice-and-compliance.html`, `lawyer-scrutiny.html`, `flagged-for-review.html`, `assets/styles.css`, `assets/app.js`, `README.md` |
+| `T5` | Verified Structured Dataset & Line-by-Line Official Source Registry | `done` | `arena/39ba7aa1-rentincreasesf2` | `2026-11-06T13:38:00Z` | `data/verified-data.json` |
+| `T6` | GitHub Pages Clean Dashboard Website (Landing Page + Category Subpages + Flagged for Review Page) | `in progress` | `arena/39ba7aa1-rentincreasesf2` | `2026-11-06T13:41:00Z` | `.nojekyll`, `index.html`, `executive-summary.html`, `units.html`, `laws.html`, `analysis.html`, `practices.html`, `process.html`, `lawyer-review.html`, `flagged.html`, `style.css`, `assets/app.js`, `README.md` |
 | `T7` | Final Integration, Line-by-Line Re-Verification, Broken-Link & PII Automated Checks, PR Creation, Merge to `main`, & GitHub Pages Deployment Confirmation | `unclaimed` | — | — | `scripts/verify_site.py`, `COORDINATION.md` |
 
 ---
@@ -93,6 +93,11 @@
   - https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=CIV&sectionNum=827.
 - **Flagged Irregularities (`needs review`):** Consolidated `FLAG-01` through `FLAG-07` in `docs/unit-calculations-and-flags.md` for publication on `flagged.html`.
 
+### `T5` — Verified Structured Dataset (`done`)
+- **Session:** `arena/39ba7aa1-rentincreasesf2`
+- **Verification Performed:** Validated `data/verified-data.json` via `python3 -m json.tool`; confirmed every object has a verified official `source_url`, zero PII/initials, and empty strings (`""`) for all unverified items (`FLAG-01`–`FLAG-06`).
+- **Official Sources Linked:** All primary `sf.gov`, `leginfo.legislature.ca.gov`, `oag.ca.gov`, `calcivilrights.ca.gov`, `hud.gov`, and `justice.gov` URLs verified in `T1`–`T4`.
+
 ---
 
 ## Coordination & Merge Event Log
@@ -102,3 +107,4 @@
 - `2026-11-06T13:31:00Z` — Session `arena/39ba7aa1-rentincreasesf2` completed `T2`, logged line-by-line audit of `origin/main` (`1e6f88f`), and claimed `T3` (`docs/analysis-practices-lawyer-audit.md`).
 - `2026-11-06T13:35:00Z` — Session `arena/39ba7aa1-rentincreasesf2` completed `T3` and claimed `T4` (`docs/unit-calculations-and-flags.md`, `docs/executive-summary.md`).
 - `2026-11-06T13:38:00Z` — Session `arena/39ba7aa1-rentincreasesf2` completed `T4` and claimed `T5` (`data/verified-data.json`).
+- `2026-11-06T13:41:00Z` — Session `arena/39ba7aa1-rentincreasesf2` completed `T5` and claimed `T6` (integration & dashboard build).
