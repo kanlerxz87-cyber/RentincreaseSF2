@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Flagged for Review &middot; Rent Increase Analysis &middot; SF 94122</title>
+<meta name="description" content="22 irregularities, conflicts between official sources, and values left blank rather than inferred.">
+<link rel="stylesheet" href="../assets/css/styles.css">
+</head><body><div class="wrap">
+<nav><div class="brand"><b>Rent Increase Analysis</b><span>Outer Sunset, SF 94122</span></div><a href="../index.html">Dashboard</a><div class="grp">Findings</div><a href="../pages/executive-summary.html">Executive Summary</a><a href="../pages/units.html">Unit Profiles</a><a href="../pages/calculations.html">Increase Scenarios</a><div class="grp">Legal framework</div><a href="../pages/local-law.html">San Francisco Law</a><a href="../pages/state-law.html">California Law</a><a href="../pages/federal-law.html">Federal Law</a><a href="../pages/allowable.html">Allowable Increases</a><a href="../pages/market.html">Market Data 94122</a><div class="grp">Analysis</div><a href="../pages/practices.html">Owner Practices</a><a href="../pages/discrimination.html">Anti-Discrimination</a><a href="../pages/tenant-review.html">Tenant-Lawyer Test</a><a href="../pages/checklist.html">Compliance Checklist</a><div class="grp">Verification</div><a href="../pages/sources.html">Source Register</a><a href="../pages/flagged.html" class="on">Flagged for Review</a></nav>
+<main>
+<h1>Flagged for Review</h1>
+<p class="lede">22 irregularities, conflicts between official sources, and values left blank rather than inferred.</p>
+
+<div class="note warn"><b>These items do not block publication.</b>
+A status of &#x27;needs review&#x27; means the item is published on this page and does not block the build or the merge. Nothing has been inferred to fill a gap: where a value could not be confirmed from an official source it is left BLANK in the data files and recorded here.</div>
+<div class="cards">
+ <div class="card bad"><div class="k">HIGH</div><div class="v">7</div><div class="s">Must close before serving any notice</div></div>
+ <div class="card warn"><div class="k">Medium</div><div class="v">7</div><div class="s">Resolve before relying on the figure</div></div>
+ <div class="card"><div class="k">Low</div><div class="v">5</div><div class="s">Recorded for completeness</div></div>
+ <div class="card"><div class="k">Informational / cosmetic</div><div class="v">3</div><div class="s">No action required</div></div>
+</div>
+<div class="filterbar">
+<button class="btn" data-sev="HIGH" data-target="fl-tbl">HIGH only</button>
+<button class="btn" data-sev="medium" data-target="fl-tbl">Medium only</button>
+<button class="btn" data-sev="low" data-target="fl-tbl">Low only</button>
+<input type="search" data-filter="fl-tbl" placeholder="Filter 22 flags&hellip;">
+<span class="count" id="fl-tbl-count"></span></div>
+<table id="fl-tbl"><thead><tr><th style="width:8%">ID</th><th style="width:22%">Item</th>
+<th style="width:52%">Finding, impact and required action</th><th style="width:18%">Source links</th></tr></thead>
+<tbody><tr data-sev="low">
+<td><b>F-01</b><div style="margin-top:5px"><span class="pill p-mut">LOW</span></div></td>
+<td><b>HUD Fair Market Rent for the San Francisco area is left blank</b><div class="tag" style="margin-top:4px">Unverified value</div></td>
+<td><div><b>Finding.</b> HUD&#x27;s Fair Market Rent API returned {&quot;error&quot;:&quot;Unauthenticated&quot;}. No FY2026 or FY2027 area-specific FMR for the San Francisco HUD Metro FMR Area could be retrieved from huduser.gov in this session. Third-party sites published conflicting 2-bedroom values for FY2026 ($3,604 versus $3,160), which is precisely why they were rejected as authority.</div>
+<div style="margin-top:8px"><b>Impact.</b> No FMR figure appears anywhere on this site. The market page relies solely on U.S. Census Bureau ACS data, which was retrieved successfully.</div>
+<div style="margin-top:8px"><b>Action.</b> Owner or reviewer can look up the area FMR directly at HUD&#x27;s Fair Market Rents dataset page.</div></td>
+<td><span class="src"><a href="https://www.huduser.gov/portal/datasets/fmr.html" rel="noopener" target="_blank">official source</a></span>
+
+</td></tr><tr data-sev="low">
+<td><b>F-02</b><div style="margin-top:5px"><span class="pill p-mut">LOW</span></div></td>
+<td><b>BLS Consumer Price Index inputs are left blank</b><div class="tag" style="margin-top:4px">Unverified value</div></td>
+<td><div><b>Finding.</b> The BLS San Francisco regional CPI news-release URL returned 404. Separately, third-party reporting (not an official source) states the October 2025 CPI was never published because of a federal government shutdown and that the Rent Board estimated it. The raw index values are therefore not reported here.</div>
+<div style="margin-top:8px"><b>Impact.</b> None on the operative conclusion. The published RESULT — 1.6% — is verified from three official sf.gov sources and is the number an owner must use. SF.gov instructs owners to &#x27;use the published 1.6%&#x27; rather than substitute an independently calculated CPI estimate.</div>
+<div style="margin-top:8px"><b>Action.</b> No action needed. Do not attempt to recompute the percentage from CPI.</div></td>
+<td><span class="src"><a href="https://www.sf.gov/news--annual-rent-increase-3126-22827-announced" rel="noopener" target="_blank">official source</a></span>
+
+</td></tr><tr data-sev="HIGH">
+<td><b>F-03</b><div style="margin-top:5px"><span class="pill p-bad">HIGH</span></div></td>
+<td><b>Banking: 12 months or 24 months?</b><div class="tag" style="margin-top:4px">CONFLICT BETWEEN TWO OFFICIAL SF.GOV SOURCES</div></td>
+<td><div><b>Finding.</b> The SF.gov &#x27;Banked rent increases&#x27; page states: &#x27;A skipped increase is only banked if at least 24 full months pass without any rent increase. If less than 24 months pass, the skipped increase is lost and cannot be imposed at a later date.&#x27; The official Rent Board Rules &amp; Regulations § 4.12(a) states instead: &#x27;A full 12 months must have elapsed from the date that an annual rent increase, or a portion thereof, could have been imposed before this banking section becomes applicable.&#x27; The codified Administrative Code § 37.3(a)(2) contains no 24-month condition at all.</div>
+<div style="margin-top:8px"><b>Impact.</b> MATERIAL to Unit 2. Under the 12-month rule (Rules § 4.12), the 1.6% available on 6/1/2026 banks on 6/1/2027 and the full 13.1% is recoverable. Under a literal 24-month rule it would not. Both units&#x27; scenarios in this analysis are computed on the 12-month rule because that is the text of the regulation and of the codified ordinance, and because SF.gov&#x27;s own worked examples apply it.</div>
+<div style="margin-top:8px"><b>Action.</b> CONFIRM WITH A RENT BOARD COUNSELOR (415-252-4600, free) before serving any notice on Unit 2. Ask specifically which period controls under Rules § 4.12 and whether the info page&#x27;s 24-month sentence reflects an amendment. Do not rely on either page alone.</div></td>
+<td><span class="src"><a href="https://www.sf.gov/information--banked-rent-increases" rel="noopener" target="_blank">official source</a></span>
+
+<div class="tag" style="margin-top:4px">conflicts with: <span class="src"><a href="https://www.sf.gov/reports--december-2022--rent-board-rules-and-regulations-part-iv-rent-increases-not-requiring" rel="noopener" target="_blank">link</a></span></div></td></tr><tr data-sev="HIGH">
+<td><b>F-04</b><div style="margin-top:5px"><span class="pill p-bad">HIGH</span></div></td>
+<td><b>Certificate of occupancy date not established</b><div class="tag" style="margin-top:4px">Unverified fact — requires owner input</div></td>
+<td><div><b>Finding.</b> The stated facts are that the building was built in 1940 and is rent controlled. Rent Ordinance coverage turns on the certificate of occupancy being issued on or before June 13, 1979, which a 1940 building will almost certainly satisfy — but &#x27;almost certainly&#x27; is not verification, and the property&#x27;s address or Assessor&#x27;s Parcel Number was not supplied (and is personal information that must not be published).</div>
+<div style="margin-top:8px"><b>Impact.</b> If the certificate of occupancy post-dates June 13, 1979 for any reason (for example a rebuild or substantial rehabilitation), the units could have eviction protection only and no rent-increase cap — which would change every conclusion on this site.</div>
+<div style="margin-top:8px"><b>Action.</b> Look up the address on the SF Property Information Map, the tool SF.gov itself directs owners to use, and record the certificate of occupancy date. Also confirm no substantial-rehabilitation exemption has been granted.</div></td>
+<td><span class="src"><a href="https://sfplanninggis.org/PIM/" rel="noopener" target="_blank">official source</a></span>
+<div class="tag" style="margin-top:4px">secondary: <span class="src"><a href="https://www.sf.gov/learn-about-san-francisco-rental-laws" rel="noopener" target="_blank">link</a></span></div>
+</td></tr><tr data-sev="medium">
+<td><b>F-05</b><div style="margin-top:5px"><span class="pill p-warn">MEDIUM</span></div></td>
+<td><b>Condominium status and owner occupancy unknown</b><div class="tag" style="margin-top:4px">Unverified fact — requires owner input</div></td>
+<td><div><b>Finding.</b> It is not stated whether either unit is a condominium, nor whether an owner occupies either unit. Both facts change the analysis.</div>
+<div style="margin-top:8px"><b>Impact.</b> Costa-Hawkins gives a partial exemption from rent-increase limits to qualifying condominiums for tenancies commencing on or after January 1, 1996 — which would apply to Unit 2 (2019) and Unit 1 (2025). Separately, AB 1482 exempts &#x27;a two-unit property, provided the second unit was occupied by an owner of the property for the entire period of the tenancy&#x27;.</div>
+<div style="margin-top:8px"><b>Action.</b> Confirm from the deed / subdivision map that the units are not separately alienable condominiums, and confirm owner-occupancy status. Note that even a Costa-Hawkins-exempt unit remains subject to just-cause eviction rules and the annual Rent Board fee.</div></td>
+<td><span class="src"><a href="https://www.sf.gov/information--partial-exemption-certain-single-family-homes-and-condominiums-under-costa-hawkins" rel="noopener" target="_blank">official source</a></span>
+<div class="tag" style="margin-top:4px">secondary: <span class="src"><a href="https://www.sf.gov/reports--california-tenant-protection-act-2019-ab-1482" rel="noopener" target="_blank">link</a></span></div>
+</td></tr><tr data-sev="HIGH">
+<td><b>F-06</b><div style="margin-top:5px"><span class="pill p-bad">HIGH</span></div></td>
+<td><b>Retaliation timing screen cannot be completed</b><div class="tag" style="margin-top:4px">Cannot be screened without owner records</div></td>
+<td><div><b>Finding.</b> Cal. Civ. Code § 1942.5(a) bars a rent increase within 180 days of specified good-faith tenant complaints about tenantability, agency complaints, inspections or citations, or the filing of a proceeding. Section 1942.5(d) bars an increase made to retaliate for lawful tenant organising. Neither tenant&#x27;s complaint, repair-request, inspection or organising history was supplied.</div>
+<div style="margin-top:8px"><b>Impact.</b> A mathematically perfect increase served inside a 180-day window is still unlawful retaliation. This is the single most likely way a correctly calculated increase fails review by a tenant lawyer.</div>
+<div style="margin-top:8px"><b>Action.</b> Before serving ANY notice, review each unit&#x27;s records for the preceding 12 months: repair requests, communications about habitability, Department of Building Inspection complaints or citations, Rent Board petitions filed by the tenant, and any tenant-association activity. Document the review. If anything falls within 180 days, obtain legal advice before proceeding.</div></td>
+<td><span class="src"><a href="https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=CIV&amp;sectionNum=1942.5" rel="noopener" target="_blank">official source</a></span>
+
+</td></tr><tr data-sev="HIGH">
+<td><b>F-07</b><div style="margin-top:5px"><span class="pill p-bad">HIGH</span></div></td>
+<td><b>Did Unit 1&#x27;s 4/1/2026 rental agreement reset the anniversary date?</b><div class="tag" style="margin-top:4px">No official source resolves this fact pattern</div></td>
+<td><div><b>Finding.</b> Unit 1&#x27;s lease commenced 2/1/2025. Two of three original occupants departed and one occupant was added, and a continuing tenancy is recorded at 4/1/2026 with rent unchanged at $3,995. SF.gov states the first annual increase may be imposed &#x27;12 months after the date the tenant&#x27;s lease began&#x27;, and that the anniversary date changes when an increase is imposed. No official SF source states whether executing a NEW written rental agreement with a replacement occupant — with no increase and with an original occupant still in place — resets the anniversary date.</div>
+<div style="margin-top:8px"><b>Impact.</b> If the anniversary date is still February 1, Scenario U1-A (3.0%, effective on or after 2/1/2027) is correct. If a new tenancy began on 4/1/2026, the first increase would not be available until 4/1/2027 and would use the then-unpublished 2027-28 percentage. Scenario U1-C is published with ALL dollar values left blank for this reason — nothing was estimated.</div>
+<div style="margin-top:8px"><b>Action.</b> Ask a Rent Board counselor (free, 415-252-4600) directly. Also review the 4/1/2026 document: whether it is a new lease, a roommate-change addendum, or a lease amendment materially affects the answer. Note that Rent Board Rules § 6.14 requires a written notice to subsequent occupants to preserve an unlimited-increase right later; whether one was served on the added occupant should be checked, because failing to serve it now will matter when the last original occupant eventually leaves.</div></td>
+<td><span class="src"><a href="https://www.sf.gov/learn-about-rent-increases-san-francisco" rel="noopener" target="_blank">official source</a></span>
+<div class="tag" style="margin-top:4px">secondary: <span class="src"><a href="https://www.sf.gov/information--rent-increases-under-section-614-and-costa-hawkins" rel="noopener" target="_blank">link</a></span></div>
+</td></tr><tr data-sev="HIGH">
+<td><b>F-08</b><div style="margin-top:5px"><span class="pill p-bad">HIGH</span></div></td>
+<td><b>Unit 2&#x27;s complete rent ledger was not supplied</b><div class="tag" style="margin-top:4px">Assumption requiring owner records</div></td>
+<td><div><b>Finding.</b> The only Unit 2 fact supplied is a lease commencing 6/1/2019 at $3,150. The 11.5% and 13.1% banked totals in this analysis assume NO increase was ever imposed between 6/1/2019 and today. That assumption is drawn from the absence of any other entry; it is not verified.</div>
+<div style="margin-top:8px"><b>Impact.</b> Decisive. If any increase was imposed, both the banked total and the anniversary date change. A tenant can petition on Rent Board Form 516C for a review of the entire rent history, and the Rent Board recalculates the lawful base rent from ALL increases imposed since April 1, 1982 — including increases imposed by prior owners, since &#x27;New owners may use banked increases from prior owners&#x27; cuts both ways.</div>
+<div style="margin-top:8px"><b>Action.</b> Produce the complete ledger: the original lease, every notice of rent increase ever served, each effective date and amount, and any prior-owner records. Recompute before noticing.</div></td>
+<td><span class="src"><a href="https://www.sf.gov/information--banked-rent-increases" rel="noopener" target="_blank">official source</a></span>
+<div class="tag" style="margin-top:4px">secondary: <span class="src"><a href="https://www.sf.gov/reports--rent-board-forms-forms-center" rel="noopener" target="_blank">link</a></span></div>
+</td></tr><tr data-sev="low">
+<td><b>F-09</b><div style="margin-top:5px"><span class="pill p-mut">LOW</span></div></td>
+<td><b>Capital improvement, O&amp;M and passthrough history not explored</b><div class="tag" style="margin-top:4px">Out of scope — no facts supplied</div></td>
+<td><div><b>Finding.</b> No facts were supplied about building condition, capital improvements, utility costs, bond measures, or operating and maintenance expenses. Those are separate petition routes above the annual allowable (Admin. Code §§ 37.3(a)(3)-(6), 37.7, 37.8) and were deliberately not modelled.</div>
+<div style="margin-top:8px"><b>Impact.</b> If qualifying capital work exists, additional lawful recovery may be available. Conversely, an unremedied habitability problem is a live defence: Form 516B lets a tenant petition where they &#x27;received a rent increase notice within the last 60 days&#x27; and repairs required by law have not been made.</div>
+<div style="margin-top:8px"><b>Action.</b> Confirm there are no open repair or habitability issues before noticing. If capital improvements exist, review the petition route separately — it requires Rent Board approval before the cost may be passed through.</div></td>
+<td><span class="src"><a href="https://www.sf.gov/file/530-om-petition-fillable-324pdf" rel="noopener" target="_blank">official source</a></span>
+<div class="tag" style="margin-top:4px">secondary: <span class="src"><a href="https://www.sf.gov/reports--rent-board-forms-forms-center" rel="noopener" target="_blank">link</a></span></div>
+</td></tr><tr data-sev="medium">
+<td><b>F-10</b><div style="margin-top:5px"><span class="pill p-warn">MEDIUM</span></div></td>
+<td><b>Tenant harassment page returned 404; penalty figures unverified</b><div class="tag" style="margin-top:4px">Official source unavailable</div></td>
+<td><div><b>Finding.</b> The SF.gov tenant-harassment information page could not be retrieved during this session (404). The specific penalty figures commonly attributed to SF Admin. Code § 37.10B could not be confirmed against an official source.</div>
+<div style="margin-top:8px"><b>Impact.</b> The corresponding row in the legal framework table is marked UNVERIFIED and carries no dollar figures. No action should be taken on that row without confirming the text.</div>
+<div style="margin-top:8px"><b>Action.</b> Obtain the current codified text of § 37.10B from the Rent Board, or purchase a paper copy of the Rent Ordinance via the Rent Board&#x27;s publications page.</div></td>
+<td><span class="src"><a href="https://www.sf.gov/resource/2023/rent-board-laws-and-regulations" rel="noopener" target="_blank">official source</a></span>
+
+</td></tr><tr data-sev="low">
+<td><b>F-11</b><div style="margin-top:5px"><span class="pill p-mut">LOW</span></div></td>
+<td><b>SF.gov &#x27;Learn about San Francisco rental laws&#x27; still cites the 2024-25 rate</b><div class="tag" style="margin-top:4px">STALE CONTENT ON AN OFFICIAL PAGE</div></td>
+<td><div><b>Finding.</b> That page states: &#x27;the allowed rent increase percentage for 2024 to February 28, 2025 is 1.7%.&#x27; The rate for the current period (3/1/2026-2/28/2027) is 1.6%. The page has not been updated since the 1.7% period.</div>
+<div style="margin-top:8px"><b>Impact.</b> Low. The correct current rate is confirmed by three other official sources (S-01, S-02, S-06). Recorded because an owner reading only that page would use the wrong percentage.</div>
+<div style="margin-top:8px"><b>Action.</b> Always cross-check the percentage against Info Sheet 571 and the Current Rates page rather than any single guidance page.</div></td>
+<td><span class="src"><a href="https://www.sf.gov/learn-about-san-francisco-rental-laws" rel="noopener" target="_blank">official source</a></span>
+
+<div class="tag" style="margin-top:4px">conflicts with: <span class="src"><a href="https://www.sf.gov/reports--current-rates-including-rent-increase-relocation-sec-deposit" rel="noopener" target="_blank">link</a></span></div></td></tr><tr data-sev="medium">
+<td><b>F-12</b><div style="margin-top:5px"><span class="pill p-warn">MEDIUM</span></div></td>
+<td><b>Rent Board Form 538 states the wrong license phase-in dates</b><div class="tag" style="margin-top:4px">CONFLICT BETWEEN OFFICIAL RENT BOARD DOCUMENTS</div></td>
+<td><div><b>Finding.</b> The official Rent Board Form 538 (2024-25 General Obligation Bond Measure Worksheet) states the § 37.15 license requirement &#x27;applies to increases that are effective on or after July 1, 2020 for buildings with ten or more residential units. For condominium units and buildings with less than ten residential units, the requirement applies to rent increases that are effective on or after March 1, 2021.&#x27; SF.gov&#x27;s Housing Inventory page gives July 1, 2022 and March 1, 2023.</div>
+<div style="margin-top:8px"><b>Impact.</b> Low for this property — under either set of dates a 2-unit building was already within the requirement long before today, so a current license is mandatory either way. Recorded because the discrepancy shows official Rent Board forms can lag the guidance pages.</div>
+<div style="margin-top:8px"><b>Action.</b> Rely on the sf.gov Housing Inventory page (July 1, 2022 / March 1, 2023) and confirm license status directly in the Rent Board Portal.</div></td>
+<td><span class="src"><a href="https://www.sf.gov/sites/default/files/2024-10/538%202024-25%20Bond%20Measure%20Worksheet%2010.24%20.pdf" rel="noopener" target="_blank">official source</a></span>
+
+<div class="tag" style="margin-top:4px">conflicts with: <span class="src"><a href="https://www.sf.gov/rent-board-housing-inventory" rel="noopener" target="_blank">link</a></span></div></td></tr><tr data-sev="low">
+<td><b>F-13</b><div style="margin-top:5px"><span class="pill p-mut">LOW</span></div></td>
+<td><b>&#x27;575 Cap. Imp. Labor Rates&#x27; link points to the 574 document</b><div class="tag" style="margin-top:4px">BROKEN LINK ON AN OFFICIAL PAGE</div></td>
+<td><div><b>Finding.</b> On the SF.gov Current Rates page, the link labelled &#x27;575 Cap. Imp. Labor Rates&#x27; resolves to 574_Cap._Imp._Imputed_Interest_26-27_7.26.pdf — the imputed-interest document, not the labor-rates document.</div>
+<div style="margin-top:8px"><b>Impact.</b> None on this analysis. Uncompensated labor rates are published inline on the same page and were read from there.</div>
+<div style="margin-top:8px"><b>Action.</b> If labor rates are needed, obtain Form 575 from the Forms Center rather than that link.</div></td>
+<td><span class="src"><a href="https://www.sf.gov/reports--current-rates-including-rent-increase-relocation-sec-deposit" rel="noopener" target="_blank">official source</a></span>
+
+</td></tr><tr data-sev="medium">
+<td><b>F-14</b><div style="margin-top:5px"><span class="pill p-warn">MEDIUM</span></div></td>
+<td><b>Rent Board Fee table omits the current tax years</b><div class="tag" style="margin-top:4px">INCOMPLETE OFFICIAL TABLE</div></td>
+<td><div><b>Finding.</b> The SF.gov Current Rates page is headed &#x27;For March 1, 2026 - February 28, 2027&#x27; but its &#x27;Rent Board Fees that can be banked&#x27; table lists only tax years 2023-2024 (3/1/24) and 2024-2025 (3/1/25), at $29.50 tenant / $29.50 landlord. The 2025-26 and 2026-27 amounts are absent.</div>
+<div style="margin-top:8px"><b>Impact.</b> The current-year bankable Rent Board fee amount is therefore left BLANK in the data files. It is a small but real component of lawful recovery (a landlord may pass 50% of the annual fee to the tenant and may bank it), and it is not included in any figure published on this site.</div>
+<div style="margin-top:8px"><b>Action.</b> Obtain the current fee from Form 573 Rent Board Fee History on the Current Rates page, or from the Rent Board Fee page. Do not assume the $29.50 figure still applies.</div></td>
+<td><span class="src"><a href="https://www.sf.gov/reports--current-rates-including-rent-increase-relocation-sec-deposit" rel="noopener" target="_blank">official source</a></span>
+<div class="tag" style="margin-top:4px">secondary: <span class="src"><a href="https://www.sf.gov/documents/29484/573_Rent_Board_Fee_History_25-26_8.26.pdf" rel="noopener" target="_blank">link</a></span></div>
+</td></tr><tr data-sev="cosmetic">
+<td><b>F-15</b><div style="margin-top:5px"><span class="pill p-mut">COSMETIC</span></div></td>
+<td><b>Info Sheet 571 Spanish PDF has a doubled extension</b><div class="tag" style="margin-top:4px">Defective filename on an official page</div></td>
+<td><div><b>Finding.</b> The link labelled &#x27;571 AUMENTOS DE LA RENTA PERMITIDOS&#x27; resolves to a file named 571_Allowable_Annual_Increases_26-27_Spanish_1.26.pdf.pdf.</div>
+<div style="margin-top:8px"><b>Impact.</b> None — the document resolves correctly. Recorded for completeness of the source audit.</div>
+<div style="margin-top:8px"><b>Action.</b> None.</div></td>
+<td><span class="src"><a href="https://www.sf.gov/documents/34343/571_Allowable_Annual_Increases_26-27_Spanish_1.26.pdf.pdf" rel="noopener" target="_blank">official source</a></span>
+
+</td></tr><tr data-sev="HIGH">
+<td><b>F-16</b><div style="margin-top:5px"><span class="pill p-bad">HIGH</span></div></td>
+<td><b>Proposed cap on banked rent increases</b><div class="tag" style="margin-top:4px">PENDING LEGISLATION — could change the answer</div></td>
+<td><div><b>Finding.</b> News reporting dated September 17, 2026 describes San Francisco supervisors introducing legislation that would limit banked rent increases to 10% annually and require landlords to inform tenants of rent increase limits and rights. This is third-party reporting, NOT an official source, and the legislation was NOT found to be enacted in any official Rent Board source reviewed in this session.</div>
+<div style="margin-top:8px"><b>Impact.</b> If enacted as described, it would directly cap Unit 2&#x27;s Scenario A/B total, which is currently computed at 13.1%. Unit 1&#x27;s 3.0% would be unaffected.</div>
+<div style="margin-top:8px"><b>Action.</b> BEFORE serving any notice on Unit 2, check the official Rent Board News page and the Board of Supervisors&#x27; legislative tracker for any enacted amendment to Admin. Code § 37.3(a)(2). Re-run the calculation if it has changed. Treat the 13.1% figure as provisional.</div></td>
+<td><span class="src"><a href="https://www.sf.gov/departments--rent-board/news" rel="noopener" target="_blank">official source</a></span>
+<div class="tag" style="margin-top:4px">secondary: <span class="src"><a href="https://localnewsmatters.org/2026-09-17/san-francisco-rent-increase-banking/" rel="noopener" target="_blank">link</a></span></div>
+</td></tr><tr data-sev="medium">
+<td><b>F-17</b><div style="margin-top:5px"><span class="pill p-warn">MEDIUM</span></div></td>
+<td><b>Rent Board office address may have changed</b><div class="tag" style="margin-top:4px">Possible stale contact details</div></td>
+<td><div><b>Finding.</b> The official Rent Board News Archive lists a 2025 item titled &#x27;The San Francisco Rent Board has moved&#x27;, while the current &#x27;Speak with a Rent Board counselor&#x27; page gives 25 Van Ness Avenue, Suite #700, San Francisco, CA 94102.</div>
+<div style="margin-top:8px"><b>Impact.</b> Affects in-person visits only. Phone counselling (415-252-4600) is unaffected.</div>
+<div style="margin-top:8px"><b>Action.</b> Confirm the current address on the Rent Board location page before travelling.</div></td>
+<td><span class="src"><a href="https://www.sf.gov/speak-rent-board-counselor" rel="noopener" target="_blank">official source</a></span>
+<div class="tag" style="margin-top:4px">secondary: <span class="src"><a href="https://www.sf.gov/reports--december-2024--san-francisco-rent-board-news-archive" rel="noopener" target="_blank">link</a></span></div>
+</td></tr><tr data-sev="medium">
+<td><b>F-18</b><div style="margin-top:5px"><span class="pill p-warn">MEDIUM</span></div></td>
+<td><b>The 3/1/2027-2/28/2028 allowable percentage does not exist yet</b><div class="tag" style="margin-top:4px">Unpublished input</div></td>
+<td><div><b>Finding.</b> Unit 2 Scenario U2-A depends partly on the annual percentage in effect on 6/1/2027, which falls in the 3/1/2027-2/28/2028 period. The Rent Board has not published it. Historically the announcement arrives in the preceding December or January; for the 2026-27 period it was announced January 14, 2026.</div>
+<div style="margin-top:8px"><b>Impact.</b> The final total for U2-A cannot be computed. Only the banked 13.1% component ($412.65) is stated, and the annual component is explicitly left blank rather than estimated.</div>
+<div style="margin-top:8px"><b>Action.</b> Re-check the Rent Board news page after December 2026 and before serving notice for a June 1, 2027 effective date (serve by March 3, 2027, or February 26, 2027 if mailed).</div></td>
+<td><span class="src"><a href="https://www.sf.gov/departments--rent-board/news" rel="noopener" target="_blank">official source</a></span>
+
+</td></tr><tr data-sev="informational">
+<td><b>F-19</b><div style="margin-top:5px"><span class="pill p-mut">INFORMATIONAL</span></div></td>
+<td><b>Repository as received contained no project content</b><div class="tag" style="margin-top:4px">Repo review finding</div></td>
+<td><div><b>Finding.</b> At the start of this session the repository contained exactly one file: README.md, 17 bytes, holding the single line &#x27;# RentincreaseSF2&#x27; with no trailing newline. There was no data, no site, no .gitignore, no LICENSE, no COORDINATION.md, and one commit (&#x27;Initial commit&#x27;, 3ed3b19). GitHub Pages was ALREADY ENABLED and configured for a legacy Jekyll build from the root of main — meaning the published URL was serving nothing useful before this work. No pre-existing data existed to audit line by line.</div>
+<div style="margin-top:8px"><b>Impact.</b> There were no prior findings, tables or figures to verify or contradict. Every figure on this site was sourced fresh in this session.</div>
+<div style="margin-top:8px"><b>Action.</b> A .nojekyll file has been added so GitHub Pages serves the static site without Jekyll processing. Consider adding a LICENSE.</div></td>
+<td><span class="src"><a href="https://github.com/kanlerxz87-cyber/RentincreaseSF2" rel="noopener" target="_blank">official source</a></span>
+
+</td></tr><tr data-sev="informational">
+<td><b>F-20</b><div style="margin-top:5px"><span class="pill p-mut">INFORMATIONAL</span></div></td>
+<td><b>Unit 1 and Unit 2 lawfully receive very different increases</b><div class="tag" style="margin-top:4px">Analytical — owner decision required</div></td>
+<td><div><b>Finding.</b> Applying the same written policy to both units produces 3.0% for Unit 1 and 13.1% for Unit 2. The gap is entirely a function of tenure length and skipped-increase history: Unit 1&#x27;s tenancy began 2/1/2025 with one skipped increase, Unit 2&#x27;s began 6/1/2019 with seven skipped increases.</div>
+<div style="margin-top:8px"><b>Impact.</b> This is the substance of the discrimination question. A differential is NOT unlawful merely because it is large; what matters is whether it flows from a documented, neutral, uniformly applied policy rather than from a protected characteristic. See the Anti-Discrimination page for the full analysis.</div>
+<div style="margin-top:8px"><b>Action.</b> Adopt the single written policy set out on the Anti-Discrimination page, apply it to both units, and retain the per-unit computation sheets as the evidentiary record.</div></td>
+<td><span class="src"><a href="https://calcivilrights.ca.gov/housing/" rel="noopener" target="_blank">official source</a></span>
+
+</td></tr><tr data-sev="medium">
+<td><b>F-21</b><div style="margin-top:5px"><span class="pill p-warn">MEDIUM</span></div></td>
+<td><b>No government data compares corporate and individual landlord increase behaviour</b><div class="tag" style="margin-top:4px">No official source exists</div></td>
+<td><div><b>Finding.</b> No official government source was found that quantifies how large corporate landlords set rent increases differently from individual owners in San Francisco. Any statement of the form &#x27;corporations typically raise rent by X%&#x27; or &#x27;individual owners usually do Y&#x27; would be unsourced.</div>
+<div style="margin-top:8px"><b>Impact.</b> The Corporate vs Individual Owner page answers the question STRUCTURALLY instead — using the verified statutory differences in how the law treats corporate and individual owners (Costa-Hawkins and AB 1482 entity disqualifications, the § 37.10C algorithmic-pricing ban, Housing Inventory obligations) — and expressly declines to publish any unverifiable behavioural statistic.</div>
+<div style="margin-top:8px"><b>Action.</b> None. This is a deliberate limitation, recorded so that a reader does not mistake the absence of statistics for an oversight.</div></td>
+<td><span class="src"><a href="https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=CIV&amp;sectionNum=1947.12" rel="noopener" target="_blank">official source</a></span>
+<div class="tag" style="margin-top:4px">secondary: <span class="src"><a href="https://www.sf.gov/information--algorithmic-devices-set-rent-are-prohibited-san-francisco" rel="noopener" target="_blank">link</a></span></div>
+</td></tr><tr data-sev="HIGH">
+<td><b>F-22</b><div style="margin-top:5px"><span class="pill p-bad">HIGH</span></div></td>
+<td><b>Rent increase license status unknown</b><div class="tag" style="margin-top:4px">Compliance gate — cannot be verified externally</div></td>
+<td><div><b>Finding.</b> An annual or banked increase imposed while the owner is unlicensed is NULL AND VOID in its entirety under Rent Board Rules § 13.14, regardless of whether the percentage and the notice were correct. License status is visible only through the Rent Board Portal and depends on the owner&#x27;s own Housing Inventory filings. It cannot be verified from outside.</div>
+<div style="margin-top:8px"><b>Impact.</b> This is a complete defence for a tenant and the most commonly missed requirement. A 2-unit building has been within scope since March 1, 2023, so filings for March 2023, 2024, 2025 and 2026 must all have been made.</div>
+<div style="margin-top:8px"><b>Action.</b> Log in at portal.sfrb.org and confirm a current rent increase license is on file for BOTH units, and that the Housing Inventory submission for the current year was made by March 1. If any year was missed, file now — late submissions are accepted with no monetary penalty, but the license must be in effect ON THE EFFECTIVE DATE of the increase, not merely before the notice is served.</div></td>
+<td><span class="src"><a href="https://www.sf.gov/rent-board-housing-inventory" rel="noopener" target="_blank">official source</a></span>
+<div class="tag" style="margin-top:4px">secondary: <span class="src"><a href="https://sfrb.org/section-1314-licensing-%E2%80%93-notice-rent-increase" rel="noopener" target="_blank">link</a></span></div>
+</td></tr></tbody></table>
+
+<h2>Values deliberately left blank across this site</h2>
+<table><thead><tr><th>Value</th><th>Where it would appear</th><th>Why it is blank</th><th>Flag</th></tr></thead><tbody>
+<tr><td>HUD Fair Market Rent, San Francisco area</td><td><a href="market.html">Market Data</a></td>
+ <td>HUD&rsquo;s API returned <code>Unauthenticated</code>; no area value retrievable from huduser.gov this session; third-party figures conflicted ($3,604 vs $3,160).</td><td><b>F-01</b></td></tr>
+<tr><td>BLS CPI-U index values</td><td><a href="market.html">Market Data</a></td>
+ <td>Regional news release returned 404. Immaterial: SF.gov instructs owners to use the <b>published</b> percentage, not a recomputed one.</td><td><b>F-02</b></td></tr>
+<tr><td>The 3/1/2027&ndash;2/28/2028 allowable percentage</td><td><a href="allowable.html">Allowable Increases</a>, Unit 2 Scenario U2-A</td>
+ <td>Not yet published by the Rent Board. Consequently the final total for U2-A cannot be computed.</td><td><b>F-18</b></td></tr>
+<tr><td>Current-year bankable Rent Board fee</td><td><a href="allowable.html">Allowable &amp; Current Rates</a></td>
+ <td>Absent from the official rate table, which shows only tax years 2023-24 and 2024-25.</td><td><b>F-14</b></td></tr>
+<tr><td>All dollar values in Unit 1 Scenario U1-C</td><td><a href="calculations.html">Increase Scenarios</a></td>
+ <td>Depends on an anniversary-date question no official source resolves. Left blank rather than estimated.</td><td><b>F-07</b></td></tr>
+<tr><td>Certificate of occupancy date</td><td><a href="units.html">Unit Profiles</a></td>
+ <td>Address not supplied and is personal information. Must be looked up on the SF Property Information Map.</td><td><b>F-04</b></td></tr>
+<tr><td>Condominium status and owner occupancy</td><td><a href="units.html">Unit Profiles</a></td>
+ <td>Not supplied. Changes the Costa-Hawkins and AB 1482 analysis if affirmative.</td><td><b>F-05</b></td></tr>
+<tr><td>Rent increase license status</td><td><a href="tenant-review.html">Tenant-Lawyer Test</a></td>
+ <td>Only visible through portal.sfrb.org; cannot be verified externally.</td><td><b>F-22</b></td></tr>
+<tr><td>Retaliation screen result</td><td><a href="checklist.html">Checklist</a></td>
+ <td>No tenant complaint, repair or organising history supplied.</td><td><b>F-06</b></td></tr>
+<tr><td>Tenant harassment penalties under Admin. Code &sect; 37.10B</td><td><a href="state-law.html">California Law</a></td>
+ <td>The official SF.gov page returned 404; penalty figures could not be confirmed. Row marked UNVERIFIED and carries no figures.</td><td><b>F-10</b></td></tr>
+</tbody></table>
+
+<h2>Irregularities found in the official sources themselves</h2>
+<p>Verification is not only about confirming values &mdash; it also means reporting where official sources
+are wrong, stale, incomplete or internally inconsistent. Six were found:</p>
+<table><thead><tr><th>Flag</th><th>Official source</th><th>Defect</th></tr></thead><tbody>
+<tr><td><b>F-03</b></td><td>SF.gov <i>Banked rent increases</i> vs Rent Board Rules &sect; 4.12 vs Admin. Code &sect; 37.3(a)(2)</td>
+ <td><b>Three official sources, two different answers.</b> The sf.gov page says a skipped increase banks only if <b>24 full months</b> pass; the Rules say <b>12</b>; the codified ordinance states no condition at all. The sf.gov page then contradicts itself: its own worked example banks an increase that had only 12 months to elapse. Materially affects Unit 2.</td></tr>
+<tr><td><b>F-11</b></td><td>SF.gov <i>Learn about San Francisco rental laws</i></td><td>Still cites <b>1.7%</b> for the 2024&ndash;Feb 2025 period as though current. The correct current rate is 1.6%, confirmed by three other official sources.</td></tr>
+<tr><td><b>F-12</b></td><td>Rent Board Form 538 (2024-25 Bond Measure Worksheet)</td><td>States the &sect; 37.15 license applies from <b>July 1, 2020</b> / <b>March 1, 2021</b>. SF.gov gives July 1, 2022 / March 1, 2023. Official forms lagging official guidance.</td></tr>
+<tr><td><b>F-13</b></td><td>SF.gov <i>Current Rates</i></td><td>The link labelled <b>&ldquo;575 Cap. Imp. Labor Rates&rdquo;</b> resolves to the <b>574</b> imputed-interest PDF &mdash; the wrong document.</td></tr>
+<tr><td><b>F-14</b></td><td>SF.gov <i>Current Rates</i></td><td>Headed for 3/1/2026&ndash;2/28/2027, but the bankable Rent Board Fee table omits the <b>2025-26 and 2026-27</b> tax years.</td></tr>
+<tr><td><b>F-15</b></td><td>SF.gov Info Sheet 571 Spanish PDF</td><td>Filename carries a doubled extension <code>.pdf.pdf</code>. Resolves correctly; recorded for audit completeness.</td></tr>
+<tr><td><b>F-17</b></td><td>SF.gov <i>Speak with a Rent Board counselor</i> vs the Rent Board News Archive</td><td>The news archive lists a 2025 item &ldquo;The San Francisco Rent Board has moved&rdquo; while the counselor page still gives 25 Van Ness Avenue Suite #700. Confirm before travelling.</td></tr>
+</tbody></table>
+
+<h2>Repository irregularities</h2>
+<p>Findings R-01 to R-06 from the line-by-line audit of the repository as received are in
+<a href="../docs/repo-review.md"><code>docs/repo-review.md</code></a>. The significant one is <b>R-02</b>:
+GitHub Pages was already enabled against a repository containing only a 17-byte <code>README.md</code>, using the
+legacy Jekyll build with no <code>.nojekyll</code> and no <code>index.html</code>, so the published URL served nothing
+useful. Fixed by adding <code>.nojekyll</code> and building a real site.</p>
+
+<footer>
+Anonymized under <a href="../docs/PRIVACY-AND-ANONYMIZATION.md">the privacy policy</a>:
+placeholder identifiers only, dates and dollar amounts preserved exactly, no personal
+information committed to this repository.<br>
+Every factual row links to an official source. Values that could not be confirmed are left
+blank and listed on <a href="../pages/flagged.html">Flagged for Review</a>.
+This site is informational and is not legal advice.
+Data retrieved 2026-11-06 &middot; generated by <code>build.py</code> from
+<a href="../data/sources.json">40 registered official sources</a>.
+</footer>
+</main></div><script src="../assets/js/app.js"></script></body></html>

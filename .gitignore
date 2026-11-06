@@ -1,0 +1,11 @@
+# Never commit locally-held tenant or owner identifiers
+.pii-guard.local.json
+internal/
+pii/
+*.local.md
+*.local.html
+# Build / editor noise
+__pycache__/
+*.pyc
+.DS_Store
+node_modules/
