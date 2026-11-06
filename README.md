@@ -28,10 +28,10 @@ built in 1940** in the Outer Sunset district of San Francisco.
 
 - **Official sources only.** `.gov` domains, the California Legislative Information service,
   the SF Rent Board, the SF Board of Supervisors and the U.S. Census Bureau API.
-  40 documents registered in [`data/sources.json`](data/sources.json).
+  47 documents registered in [`data/sources.json`](data/sources.json).
 - **Every table row carries a source link.** Enforced by the generator, not by discipline.
 - **Blank rather than inferred.** Any value that could not be confirmed from an official
-  source is left empty and recorded in [`data/flags.json`](data/flags.json) — 22 flags,
+  source is left empty and recorded in [`data/flags.json`](data/flags.json) — 24 flags,
   7 of them HIGH severity.
 - **No figure is typed by hand.** Every dollar amount and every notice deadline is recomputed
   from official percentages at build time and cross-checked against the stored values; a

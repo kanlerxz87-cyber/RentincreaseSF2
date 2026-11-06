@@ -6,9 +6,9 @@
 **Privacy:** All tenant and owner identities replaced with placeholders. Dates and dollar
 amounts preserved exactly. See [`PRIVACY-AND-ANONYMIZATION.md`](PRIVACY-AND-ANONYMIZATION.md).
 **Standard of proof:** Every legal proposition and every number is sourced to an official
-`.gov`, legislative, Rent Board or U.S. Census Bureau document. 40 sources are registered in
+`.gov`, legislative, Rent Board or U.S. Census Bureau document. 47 sources are registered in
 [`data/sources.json`](../data/sources.json). Anything that could not be confirmed from an
-official source is left **blank** and recorded as one of **22 flags** on the
+official source is left **blank** and recorded as one of **24 flags** on the
 [Flagged for Review](../pages/flagged.html) page. Nothing has been inferred.
 
 > **This is not legal advice.** San Francisco rent law turns on facts this repository does
@@ -535,7 +535,7 @@ the published percentage rather than recompute it.
 
 ## 12. Irregularities flagged for review
 
-**22 flags**, of which **7 are HIGH severity**. Full detail, with source links, on the
+**24 flags**, of which **7 are HIGH severity**. Full detail, with source links, on the
 [Flagged for Review](../pages/flagged.html) page. The HIGH items:
 
 | ID | Flag | Why it matters |
@@ -561,6 +561,6 @@ published URL served nothing useful. Fixed.
 
 ---
 
-*Sources: 40 official documents registered in [`data/sources.json`](../data/sources.json).
+*Sources: 47 official documents registered in [`data/sources.json`](../data/sources.json).
 All arithmetic machine-computed by [`build.py`](../build.py) from official percentages; no
 figure on this site was typed by hand.*

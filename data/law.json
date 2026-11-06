@@ -171,12 +171,13 @@
     },
     {
       "rule": "Algorithmic / revenue-management pricing is BANNED",
-      "detail": "Effective October 14, 2024, it is unlawful to sell, license or provide, or to use, an 'algorithmic device' that analyses non-public competitor data to recommend what rent to charge or whether to leave a unit vacant. Each separate month is a separate violation; each separate unit is a separate violation. City Attorney or a tenant/tenants' rights organisation may sue for damages, injunctive relief, restitution, civil penalties up to $1,000 per violation, and attorney's fees.",
+      "detail": "Effective October 14, 2024, it is unlawful to sell, license or provide, or to use, an 'algorithmic device' that analyses non-public competitor data to recommend what rent to charge or whether to leave a unit vacant. Each separate month is a separate violation; each separate unit is a separate violation. City Attorney or a tenant/tenants' rights organisation may sue for damages, injunctive relief, restitution, civil penalties up to $1,000 per violation, and attorney's fees. ENFORCEMENT EXPANDED: as of October 6, 2025, tenants' rights organizations may ALSO file civil lawsuits to enforce the prohibition, in addition to the City Attorney and individual tenants (File No. 240796).",
       "authority": "SF Admin. Code \u00a7 37.10C",
-      "source": "https://www.sf.gov/information--algorithmic-devices-set-rent-are-prohibited-san-francisco",
-      "source_name": "SF.gov \u2014 Algorithmic devices that set rent are prohibited",
+      "source": "https://www.sf.gov/news-update-to-algorithmic-devices-law",
+      "source_name": "SF.gov \u2014 Update to Algorithmic Devices Law (October 6, 2025)",
       "verified": true,
-      "applies_to": "Answers 'how do big real estate corporations do this' \u2014 in SF they legally may not use pricing software."
+      "applies_to": "Answers 'how do big real estate corporations do this' \u2014 in SF they legally may not use pricing software.",
+      "secondary_source": "https://www.sf.gov/information--algorithmic-devices-set-rent-are-prohibited-san-francisco"
     },
     {
       "rule": "Beyond the annual allowable \u2014 petition required",
@@ -203,6 +204,16 @@
       "source": "https://www.sf.gov/speak-rent-board-counselor",
       "source_name": "SF.gov \u2014 Speak with a Rent Board counselor",
       "verified": true
+    },
+    {
+      "rule": "NEW: demolition and major-renovation tenant protections, effective February 9, 2026",
+      "detail": "Adopted by the Board of Supervisors and announced January 23, 2026; amends BOTH the Planning Code and the Rent Ordinance. Adds a new just cause for eviction at Rent Ordinance \u00a7 37.9(a)(17) (permitted redevelopment requiring demolition of an entire building) and narrows \u00a7 37.9(a)(10) to permanent removal of a SINGLE unit. Requires replacement of all demolished units, sometimes as affordable or rent-controlled. Bars demolition permits for five years after certain tenant harassment or after a non-compliant buyout. Requires the Rent Board to hold an investigative harassment hearing before an ALJ within 45 days where criteria are met (no damages or monetary relief; appealable to the Rent Board Commission). For temporary capital-improvement evictions under \u00a7 37.9(a)(11), a lower-income tenant displaced more than three months is entitled to additional monthly payments for up to 39 months. Creates a rebuttable presumption that a tenant who moves out within one year of an owner/relative move-in notice moved out because of it, even if the notice was later withdrawn. Adds buyout disclosure requirements and an Ellis Act disclosure of any plan to demolish within five years.",
+      "authority": "SF Planning Code and SF Admin. Code Ch. 37 as amended, effective 2026-02-09",
+      "source": "https://www.sf.gov/news-new-legislation-expands-tenant-protections-related-to-residential-demolitions-and-major-renovations",
+      "source_name": "SF.gov \u2014 New Legislation Expands Tenant Protections Related to Residential Demolitions and Major Renovations (January 23, 2026)",
+      "verified": true,
+      "applies_to": "Not engaged by a rent increase. Materially relevant if the owner ever considers capital-improvement work, a buyout, or withdrawal \u2014 see Flag F-24.",
+      "note": "Also relevant to Flag F-10: this is now the authoritative official description of how the Rent Board handles tenant harassment reports."
     }
   ],
   "state": [

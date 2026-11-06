@@ -322,6 +322,62 @@
       "type": "Official form PDF",
       "url": "https://www.sf.gov/documents/18505/525_Report_of_Excessive_Rent_Increase_Under_the_TPA_10.25.pdf",
       "verifies": "The form a tenant files if they believe AB 1482 was violated; the Rent Board acknowledges receipt and informs the landlord of the applicable law but cannot enforce state law or hold AB 1482 hearings"
+    },
+    {
+      "id": "S-41",
+      "title": "Rent Board News",
+      "publisher": "SF Rent Board",
+      "type": "Official news index",
+      "url": "https://www.sf.gov/departments--rent-board/news",
+      "verifies": "The authoritative current-announcements feed; used to detect new law and to confirm the 1.6% rate and the 4.2% deposit rate announcements"
+    },
+    {
+      "id": "S-42",
+      "title": "Update to Algorithmic Devices Law (October 6, 2025)",
+      "publisher": "SF Rent Board",
+      "type": "Official announcement",
+      "url": "https://www.sf.gov/news-update-to-algorithmic-devices-law",
+      "verifies": "From 2025-10-06 tenants' rights organisations may ALSO sue to enforce \u00a7 37.10C, alongside the City Attorney and individual tenants; File No. 240796"
+    },
+    {
+      "id": "S-43",
+      "title": "New Legislation Expands Tenant Protections Related to Residential Demolitions and Major Renovations (January 23, 2026)",
+      "publisher": "SF Rent Board",
+      "type": "Official announcement",
+      "url": "https://www.sf.gov/news-new-legislation-expands-tenant-protections-related-to-residential-demolitions-and-major-renovations",
+      "verifies": "Effective 2026-02-09: new just cause \u00a7 37.9(a)(17); \u00a7 37.9(a)(10) narrowed to a single unit; mandatory replacement of demolished units; five-year demolition bar after harassment or a non-compliant buyout; 45-day investigative harassment hearings; up to 39 months of additional relocation for \u00a7 37.9(a)(11) displacement over three months; OMI one-year rebuttable presumption"
+    },
+    {
+      "id": "S-44",
+      "title": "The San Francisco Rent Board has moved (March 18, 2025)",
+      "publisher": "SF Rent Board",
+      "type": "Official announcement",
+      "url": "https://www.sf.gov/news-the-san-francisco-rent-board-has-moved",
+      "verifies": "Confirms 25 Van Ness Avenue, Suite 700, San Francisco, CA 94102 as the CURRENT office address \u2014 resolves Flag F-17"
+    },
+    {
+      "id": "S-45",
+      "title": "New Interest Rate for Security Deposits Effective 3/1/26 (January 9, 2026)",
+      "publisher": "SF Rent Board",
+      "type": "Official announcement",
+      "url": "https://www.sf.gov/news--new-interest-rate-security-deposits-effective-3126",
+      "verifies": "Independently confirms the 4.2% security deposit interest rate for 3/1/2026 \u2013 2/28/2027"
+    },
+    {
+      "id": "S-46",
+      "title": "Rent Ordinance Section 37.3 was amended effective November 24, 2024 (Ordinance No. 248-24)",
+      "publisher": "SF Rent Board",
+      "type": "Official announcement",
+      "url": "https://www.sf.gov/news--rent-ordinance-section-373-was-amended-effective-november-24-24",
+      "verifies": "Ordinance 248-24 changes the new-construction date in the Rent Ordinance, but only if Costa-Hawkins is repealed or amended to permit the City to do so \u2014 relevant context for Flag F-04"
+    },
+    {
+      "id": "S-47",
+      "title": "Unlawful Detainers will require a 10 day response starting January 1, 2025 (AB 2347)",
+      "publisher": "SF Rent Board",
+      "type": "Official announcement",
+      "url": "https://www.sf.gov/news--unlawful-detainers-will-require-10-day-response-starting-january-1-2025",
+      "verifies": "AB 2347 changed the tenant response time to an unlawful detainer complaint from five days to ten days"
     }
   ]
 }
