@@ -4,45 +4,109 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>SF Rental Increase Review — Dashboard</title>
+<meta name="description" content="Verified rent-increase compliance dashboard for two rent-controlled San Francisco units in ZIP 94122. Official sources only.">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <div class="layout">
 <nav>
   <h1>Rental Increase Review</h1>
-  <div class="sub">San Francisco, Outer Sunset 94122 · Updated 2026-11-06</div>
+  <div class="sub">San Francisco · Outer Sunset 94122<br>Last verified: 2026-11-06</div>
+  <div class="nav-group">Overview</div>
   <a href="index.html" class="active">Dashboard</a>
   <a href="executive-summary.html">Executive Summary</a>
-  <a href="units.html">Rental Units (Anonymized)</a>
-  <a href="laws.html">Laws &amp; Regulations</a>
+  <div class="nav-group">Units &amp; Analysis</div>
+  <a href="units.html">Units (Anonymized)</a>
   <a href="analysis.html">Increase Analysis</a>
-  <a href="process.html">Notice Process &amp; Fairness</a>
+  <div class="nav-group">Legal &amp; Process</div>
+  <a href="laws.html">Laws &amp; Regulations</a>
+  <a href="process.html">Notice &amp; Process</a>
+  <a href="tenant-protections.html">Tenant Protections</a>
+  <a href="practices.html">Owner Practices</a>
+  <div class="nav-group">Review</div>
   <a href="flagged.html">Flagged for Review</a>
+  <a href="sources.html">Sources</a>
 </nav>
 <main>
 <h2>Dashboard</h2>
+<div class="badge-row">
+  <span class="tag ok">Official sources only</span>
+  <span class="tag warn">3 intake facts unverified</span>
+  <span class="tag warn">License status unchecked</span>
+  <span class="tag muted">Not legal advice</span>
+</div>
+
 <div class="grid">
   <div class="stat"><div class="num">1.6%</div><div class="lbl">SF allowable annual increase, 3/1/2026 – 2/28/2027 (Rent Board)</div></div>
-  <div class="stat"><div class="num">$63.92</div><div class="lbl">Max monthly increase — Unit 1 ($3,995 base)</div></div>
-  <div class="stat"><div class="num">$50.40</div><div class="lbl">Max monthly increase — Unit 2 ($3,150 base)</div></div>
-  <div class="stat"><div class="num">30 days</div><div class="lbl">Written notice required (increase ≤ 10%)</div></div>
+  <div class="stat"><div class="num">$63.92</div><div class="lbl">Unit 1 maximum monthly increase at 1.6% ($3,995 base)</div></div>
+  <div class="stat"><div class="num">13.1%</div><div class="lbl">Unit 2 total allowable if 11.5% is banked and 1.6% current (verify)</div></div>
+  <div class="stat"><div class="num">30 / 90 days</div><div class="lbl">Written notice: 30 days if ≤10%; 90 days if &gt;10%; +5 days if mailed</div></div>
 </div>
+
 <div class="card" style="margin-top:20px">
   <h3>Project scope</h3>
-  <p>This site collects, organizes, and analyzes the requirements for raising rent on two rent-controlled units in a 1940 building in San Francisco's Outer Sunset (94122). All personal information is anonymized with placeholder names; dates and dollar amounts are preserved unchanged. Every figure is verified against official sources — see each table's source links. Anything that could not be confirmed from an official source is left blank and listed on the <a href="flagged.html">Flagged for Review</a> page.</p>
+  <p>This dashboard collects, organizes, and analyzes the requirements for raising rent on two rent-controlled units in a 1940 building in San Francisco's Outer Sunset (ZIP 94122). The 1940 build year, lease dates, rents, and occupancy are tenant-provided intake facts and are marked <span class="unverified">unverified</span> until confirmed against official records. Tenant names and other personal identifiers are withheld; dates and dollar amounts are preserved as provided.</p>
+  <div class="callout warn"><strong>Privacy:</strong> No tenant names, initials, or contact details are published. The site uses placeholders only. Personal information is kept internal.</div>
+  <div class="callout"><strong>Not legal advice:</strong> This is a compliance review based on official sources. The SF Rent Board cannot give legal advice. Consult a tenant lawyer or a Rent Board counselor before serving a notice.</div>
 </div>
+
 <div class="card">
   <h3>Key findings at a glance</h3>
+  <div class="table-wrap">
   <table>
-    <tr><th>Finding</th><th>Detail</th><th>Source</th></tr>
-    <tr><td>Reasonable / normal increase</td><td>1.6% annual allowable increase for rent-controlled units effective 3/1/2026–2/28/2027</td><td><a href="https://www.sf.gov/reports--current-rates-including-rent-increase-relocation-sec-deposit">sf.gov — Current Rates</a></td></tr>
-    <tr><td>How often</td><td>Once every 12 months, on the tenant's anniversary date</td><td><a href="https://www.sf.gov/learn-about-rent-increases-san-francisco">sf.gov — Rent increases</a></td></tr>
-    <tr><td>Notice</td><td>30-day written notice (≤10%); 90-day if &gt;10%; +5 days if mailed</td><td><a href="https://www.sf.gov/learn-about-rent-increases-san-francisco">sf.gov</a>, <a href="https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=CIV&sectionNum=827.">Civ. Code §827</a></td></tr>
-    <tr><td>State cap (if local didn't apply)</td><td>5% + regional CPI, max 10% per 12 months (AB 1482) — stricter local rule controls here</td><td><a href="https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=CIV&sectionNum=1947.12.">Civ. Code §1947.12</a></td></tr>
-    <tr><td>Federal</td><td>Fair Housing Act — no discrimination in terms/conditions of rental (7 protected classes)</td><td><a href="https://www.hud.gov/program_offices/fair_housing_equal_opp">HUD.gov</a></td></tr>
-    <tr><td>Discrimination avoidance</td><td>Apply the same policy and same allowable increase to both units</td><td><a href="https://www.hud.gov/program_offices/fair_housing_equal_opp">HUD.gov</a>, <a href="https://www.sf.gov/learn-about-rent-increases-san-francisco">sf.gov</a></td></tr>
+    <thead><tr><th>Finding</th><th>Detail</th><th>Status</th><th>Official source</th></tr></thead>
+    <tbody>
+      <tr><td>Reasonable / normal annual increase</td><td>1.6% for rent-controlled units effective 3/1/2026–2/28/2027</td><td><span class="tag ok">Verified</span></td><td><a href="https://www.sf.gov/reports--current-rates-including-rent-increase-relocation-sec-deposit">sf.gov — Current Rates</a></td></tr>
+      <tr><td>How often</td><td>Once every 12 months, on the tenant's anniversary date</td><td><span class="tag ok">Verified</span></td><td><a href="https://www.sf.gov/learn-about-rent-increases-san-francisco">sf.gov — Rent increases</a></td></tr>
+      <tr><td>Notice</td><td>30-day written notice (≤10%); 90-day if &gt;10%; +5 days if mailed</td><td><span class="tag ok">Verified</span></td><td><a href="https://www.sf.gov/learn-about-rent-increases-san-francisco">sf.gov</a>; <a href="https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=827.&lawCode=CIV">Civ. Code §827</a></td></tr>
+      <tr><td>License prerequisite</td><td>Current rent increase license required before an annual/banked increase takes effect</td><td><span class="tag warn">Status unchecked</span></td><td><a href="https://www.sf.gov/rent-board-housing-inventory">sf.gov — Housing Inventory</a></td></tr>
+      <tr><td>Unit 1 maximum at 1.6%</td><td>$3,995 × 1.6% = $63.92; new rent $4,058.92</td><td><span class="tag warn">Calculated from unverified base rent</span></td><td><a href="https://www.sf.gov/learn-about-rent-increases-san-francisco">sf.gov — formula</a></td></tr>
+      <tr><td>Unit 2 total if banked</td><td>11.5% banked + 1.6% current = 13.1%; $3,150 × 13.1% = $412.65; new rent $3,562.65</td><td><span class="tag warn">Calculated; verify rent history</span></td><td><a href="https://www.sf.gov/documents/34344/571_Allowable_Annual_Increases_26-27_1.pdf">sf.gov — 571 table</a>; <a href="https://www.sf.gov/information--banked-rent-increases">sf.gov — Banked increases</a></td></tr>
+      <tr><td>State cap (if local did not apply)</td><td>5% + regional CPI, max 10% per 12 months (AB 1482); stricter local rule controls covered units</td><td><span class="tag ok">Verified</span></td><td><a href="https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=1947.12.&lawCode=CIV">Civ. Code §1947.12</a></td></tr>
+      <tr><td>Federal fair housing</td><td>Fair Housing Act prohibits discrimination in terms/conditions of rental; 7 protected classes</td><td><span class="tag ok">Verified</span></td><td><a href="https://www.hud.gov/reporthousingdiscrimination">HUD — Report Housing Discrimination</a></td></tr>
+      <tr><td>One unit or both?</td><td>No official requirement to raise both. Each unit has its own base rent and history. A uniform percentage is not required and may be unlawful if applied to a unit with different history.</td><td><span class="tag warn">Analysis; lawyer review</span></td><td><a href="https://www.sf.gov/learn-about-rent-increases-san-francisco">sf.gov — Rent increases</a>; <a href="https://www.sf.gov/information--banked-rent-increases">sf.gov — Banked increases</a></td></tr>
+      <tr><td>Discrimination avoidance</td><td>Apply each unit's lawful formula and document legitimate, non-discriminatory reasons. Raising both units is not a legal safe harbor.</td><td><span class="tag warn">Analysis; lawyer review</span></td><td><a href="https://www.sf.gov/information--get-help-discrimination-housing">sf.gov — Housing discrimination</a>; <a href="https://calcivilrights.ca.gov/housing/">CRD — Housing</a></td></tr>
+    </tbody>
   </table>
+  </div>
 </div>
+
+<div class="card">
+  <h3>Review status</h3>
+  <div class="table-wrap">
+  <table>
+    <thead><tr><th>Item</th><th>Status</th><th>What to do</th><th>Official source</th></tr></thead>
+    <tbody>
+      <tr><td>Build year / rent-control coverage</td><td><span class="tag warn">Unverified</span></td><td>Confirm 1940 build year on the SF Planning Property Information Map or SF Assessor record.</td><td><a href="https://sfplanninggis.org/pim/?pub=true">SF Planning PIM</a></td></tr>
+      <tr><td>Lease dates, rents, occupancy</td><td><span class="tag warn">Unverified</span></td><td>Compare the lease and Rent Board Housing Inventory record.</td><td><a href="https://www.sf.gov/rent-board-housing-inventory">sf.gov — Housing Inventory</a></td></tr>
+      <tr><td>Rent increase license</td><td><span class="tag warn">Unchecked</span></td><td>Search the unit in the Rent Board Portal before serving any notice.</td><td><a href="https://portal.sfrb.org/">Rent Board Portal</a></td></tr>
+      <tr><td>Unit 2 banked balance</td><td><span class="tag warn">Calculated</span></td><td>Verify no prior increases and same tenants; recalculate if not.</td><td><a href="https://www.sf.gov/information--banked-rent-increases">sf.gov — Banked increases</a></td></tr>
+      <tr><td>Tenant-lawyer approval</td><td><span class="tag warn">Not guaranteed</span></td><td>Have a tenant lawyer review the calculation, notice, and documentation before service.</td><td><a href="https://www.sf.gov/speak-rent-board-counselor">sf.gov — Rent Board counselor</a></td></tr>
+    </tbody>
+  </table>
+  </div>
+</div>
+
+<div class="card">
+  <h3>How to use this dashboard</h3>
+  <ul>
+    <li><a href="executive-summary.html">Executive Summary</a> — the bottom line in one page.</li>
+    <li><a href="units.html">Units (Anonymized)</a> — intake facts, verification status, and calculations.</li>
+    <li><a href="analysis.html">Increase Analysis</a> — Unit 1 and Unit 2 calculations, including banked increases.</li>
+    <li><a href="laws.html">Laws &amp; Regulations</a> — local, state, and federal rules with official links.</li>
+    <li><a href="process.html">Notice &amp; Process</a> — the correct way to inform tenants and permissible reasons.</li>
+    <li><a href="tenant-protections.html">Tenant Protections</a> — just cause, free legal help, discrimination, and a lawyer-review checklist.</li>
+    <li><a href="practices.html">Owner Practices</a> — corporate vs. individual owner practices and what official sources do and do not say.</li>
+    <li><a href="flagged.html">Flagged for Review</a> — every unverified item and irregularity.</li>
+    <li><a href="sources.html">Sources</a> — all official sources used.</li>
+  </ul>
+</div>
+
+<footer class="footer">
+  <p><strong>Privacy:</strong> Tenant names and personal identifiers are withheld. Dates and dollar amounts are preserved as provided.</p>
+  <p><strong>Not legal advice:</strong> This site is a compliance review based on official sources. It is not legal advice. The SF Rent Board cannot give legal advice. Consult a tenant lawyer or the Rent Board before serving a notice.</p>
+  <p>Last verified: 2026-11-06 · <a href="sources.html">Sources</a> · <a href="flagged.html">Flagged for Review</a></p>
+</footer>
 </main>
 </div>
 </body>
