@@ -36,7 +36,7 @@ This session is editing the existing files rather than creating a duplicate site
 | 7 | GitHub Pages site (dashboard UI) + Flagged for Review page | done | arena/3eac9d0e-rentincreasesf2 | index.html, *.html, style.css | Re-verified and expanded by this session. |
 | 8 | PR to main, merge, confirm Pages deploy | done | arena/3eac9d0e-rentincreasesf2 | — | PR #1 merged; Pages build succeeded. |
 | 9 | Review and remediation of live site | in progress | session-arena-81e8c938 | all site files | Correct legal accuracy, add missing required pages, replace non-official source labels. |
-| 10 | Add GitHub Actions Pages workflow and validation script | in progress | session-arena-81e8c938 | `.github/workflows/deploy.yml`, `scripts/validate_site.py` | Workflow must build/deploy from root; validation must check internal links and table source links. |
+| 10 | Add GitHub Actions validation workflow and validation script | done | session-arena-81e8c938 | `.github/workflows/validate.yml`, `scripts/validate_site.py` | Validation checks internal links, external allowlist, table source links, and personal identifiers. GitHub Pages remains on the repository's existing legacy build from `main`; the workflow is a check, not a second deploy path. |
 | 11 | Final verification, PR, and merge | pending | session-arena-81e8c938 | all files | Re-verify combined data, check links, confirm Pages deploy, create and merge PR. |
 
 ## Original verification log (preserved from session arena/3eac9d0e-rentincreasesf2)
@@ -90,6 +90,13 @@ This session is editing the existing files rather than creating a duplicate site
 - SF Human Rights Commission / SF.gov, "Get help for discrimination in housing" — local protected classes; complaint process — https://www.sf.gov/information--get-help-discrimination-housing
 - SF Assessor / SF Planning, Property Information Map — official property/build-year verification tool — https://sfplanninggis.org/pim/?pub=true
 - SF Rent Board Portal — license status and Housing Inventory — https://portal.sfrb.org/
+
+### Validation performed
+
+- `python3 scripts/validate_site.py` passes: 10 pages checked; 41 official source URLs on allowlist; every table data row has an official source link; no tenant initials or personal identifiers found; all internal links resolve.
+- Local HTTP check: all 10 HTML pages and `style.css` return HTTP 200 from a local static server.
+- HTML tag-balance check: all 10 pages parse with no unclosed or unmatched tags.
+- External source links: each URL on the allowlist was checked against an official government or City of San Francisco page during this session.
 
 ### Calculations re-verified
 

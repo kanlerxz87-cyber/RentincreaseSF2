@@ -40,7 +40,7 @@ This site is a compliance review based on official sources. It is not legal advi
 
 ## Deployment
 
-GitHub Pages serves the static files from the repository root. A GitHub Actions workflow validates the site and deploys it. See `.github/workflows/deploy.yml`.
+GitHub Pages serves the static files from the repository root using the repository's existing Pages configuration. A GitHub Actions workflow validates the site on every push to `main`. See `.github/workflows/validate.yml`.
 
 ## Validation
 
