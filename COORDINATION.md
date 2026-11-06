@@ -35,9 +35,63 @@ This session is editing the existing files rather than creating a duplicate site
 | 6 | Increase calculations for both units | done | arena/3eac9d0e-rentincreasesf2 | analysis.html | Re-verified and expanded by this session with banked calculation. |
 | 7 | GitHub Pages site (dashboard UI) + Flagged for Review page | done | arena/3eac9d0e-rentincreasesf2 | index.html, *.html, style.css | Re-verified and expanded by this session. |
 | 8 | PR to main, merge, confirm Pages deploy | done | arena/3eac9d0e-rentincreasesf2 | — | PR #1 merged; Pages build succeeded. |
-| 9 | Review and remediation of live site | in progress | session-arena-81e8c938 | all site files | Correct legal accuracy, add missing required pages, replace non-official source labels. |
+| 9 | Review and remediation of live site | done | session-arena-81e8c938 | all site files | Corrected legal accuracy, added missing required pages, replaced non-official source labels, and added unit-specific banked analysis. |
 | 10 | Add GitHub Actions validation workflow and validation script | done | session-arena-81e8c938 | `.github/workflows/validate.yml`, `scripts/validate_site.py` | Validation checks internal links, external allowlist, table source links, and personal identifiers. GitHub Pages remains on the repository's existing legacy build from `main`; the workflow is a check, not a second deploy path. |
-| 11 | Final verification, PR, and merge | pending | session-arena-81e8c938 | all files | Re-verify combined data, check links, confirm Pages deploy, create and merge PR. |
+| 11 | Final verification, PR, and merge | done | session-arena-81e8c938 | all files | PR #2 merged; Pages build succeeded; live site re-verified. |
+
+## PR and deployment record
+
+- **PR:** https://github.com/kanlerxz87-cyber/RentincreaseSF2/pull/2
+- **Merge commit:** `153b260def7651b2860205bb8eaa646bd3a38227`
+- **Merged at:** 2026-11-06T13:36:39Z
+- **Merge method:** merge commit
+- **Validation workflow:** `Validate site` passed on the PR (run 42226838919).
+- **GitHub Pages build:** `pages build and deployment` run 42226890108 completed successfully; Pages status `built`.
+- **Live site:** https://kanlerxz87-cyber.github.io/RentincreaseSF2/
+- **Live pages verified:** `index.html`, `executive-summary.html`, `units.html`, `analysis.html`, `laws.html`, `process.html`, `tenant-protections.html`, `practices.html`, `flagged.html`, `sources.html`, and `style.css` all returned HTTP 200 locally and were re-fetched from the live site after deployment.
+
+## PR #3 review (session arena/77623c60-rentincreasesf2)
+
+A parallel session opened PR #3, "Rental increase analysis — Outer Sunset SF, ZIP 94122 (verified sources + GitHub Pages site)," while this session was finishing PR #2. PR #3 proposes a 14-page static site with a different structure and a larger source register.
+
+### Review findings
+
+- **Privacy violation (blocking):** PR #3 publishes tenant initials (L O, V N, J P, M T, E R, I S) on the site, including in the privacy section and flagged-items page. The user explicitly required all personal information to be anonymized and said privacy is top priority. Initials are personal information and must not be published. This alone makes PR #3 unacceptable as submitted.
+- **Unit 1 calculation conflict:** PR #3 presents $4,114.85 (3.0%) as a maximum for Unit 1 on the February 1, 2026 anniversary, and treats the 1.4% as banked. Under the Rent Board's 24-month banking rule, the 1.4% that became available on February 1, 2026 is not banked until February 1, 2027. For an April 1, 2026 effective date, the maximum is 1.6% ($4,058.92). PR #3's own flagged item F-07 acknowledges the 24-month rule but still presents 3.0% as a lawful outcome for Unit 1 without a clear date qualification. This conflicts with the more conservative analysis in PR #2.
+- **Build artifacts:** PR #3 includes `tools/__pycache__/*.pyc` files. These should not be committed.
+- **Duplicate/conflicting site:** PR #2 is already merged and live. Merging PR #3 would replace the live site with a different structure and would require a full line-by-line re-verification of all 14 pages.
+
+### Decision
+
+Do not merge PR #3. Close it with a comment explaining the privacy violation, the Unit 1 calculation conflict, and the duplicate-site issue. The work remains preserved on its branch. No files from PR #3 were edited by this session. PR #2 remains the live site.
+
+### Coordination note
+
+The parallel session should be notified that its PR was reviewed and closed. If it wants to contribute, it should open a new PR that removes all initials, uses placeholders only, corrects the Unit 1 analysis, and removes build artifacts. Any new PR must be reviewed against the same privacy and source-verification standard.
+
+## Final verification summary
+
+- `python3 scripts/validate_site.py` passes.
+- All 10 HTML pages and `style.css` return HTTP 200 from a local static server.
+- HTML tag-balance check passes for all 10 pages.
+- Every table data row has at least one official source link.
+- No tenant initials or personal identifiers are present in the published HTML.
+- All external source links are on the verified official-source allowlist.
+- Live site was re-fetched after deployment and shows the remediated content, including the Unit 2 banked calculation and the Flagged for Review page.
+
+## Remaining items for the user to review
+
+The Flagged for Review page lists the items that cannot be confirmed from official sources without additional records. The most important are:
+- confirm the 1940 build year and rent-control coverage;
+- confirm the lease dates, base rents, and occupancy;
+- check the rent increase license in the Rent Board Portal;
+- confirm Unit 1's last-increase date and whether the April 1, 2026 increase has been served;
+- confirm Unit 1's tenancy status (continuing original tenant vs. new tenancy);
+- confirm Unit 2's complete rent history before relying on the 13.1% banked calculation;
+- confirm the notice service date for Unit 2's 90-day requirement;
+- have a tenant lawyer review the final notice and documentation.
+
+No further code changes are required for the site to be live. The remaining items are factual/legal confirmations that require records not available in the repository.
 
 ## Original verification log (preserved from session arena/3eac9d0e-rentincreasesf2)
 
