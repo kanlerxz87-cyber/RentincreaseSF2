@@ -1,0 +1,67 @@
+{
+  "_source": "https://www.sf.gov/reports--current-rates-including-rent-increase-relocation-sec-deposit",
+  "_accessed": "2026-11-06",
+  "security_deposit_interest": [
+    {
+      "period": "3/1/26 \u2013 2/28/27",
+      "rate": "4.2%"
+    },
+    {
+      "period": "3/1/25 \u2013 2/28/26",
+      "rate": "5.0%"
+    },
+    {
+      "period": "3/1/24 \u2013 2/28/25",
+      "rate": "5.2%"
+    }
+  ],
+  "rent_board_fee_bankable": [
+    {
+      "tax_year": "2024-2025 (3/1/25)",
+      "tenant": "$29.50",
+      "landlord": "$29.50"
+    },
+    {
+      "tax_year": "2023-2024 (3/1/24)",
+      "tenant": "$29.50",
+      "landlord": "$29.50"
+    }
+  ],
+  "capital_improvement_imputed_interest": [
+    {
+      "amortization": "7 year",
+      "rate": "4.1%",
+      "factor": ".01372"
+    },
+    {
+      "amortization": "10 year",
+      "rate": "4.3%",
+      "factor": ".01027"
+    },
+    {
+      "amortization": "15 year",
+      "rate": "4.6%",
+      "factor": ".00770"
+    },
+    {
+      "amortization": "20 year",
+      "rate": "4.8%",
+      "factor": ".00649"
+    }
+  ],
+  "uncompensated_labor": [
+    {
+      "period": "6/29/26 \u2013 present",
+      "rate": "$40.40"
+    },
+    {
+      "period": "6/30/25 \u2013 6/28/26",
+      "rate": "$38.90"
+    },
+    {
+      "period": "7/01/24 \u2013 6/29/25",
+      "rate": "$37.50"
+    }
+  ],
+  "note": "The official 'Current Rates' page lists only the 2023-24 and 2024-25 Rent Board Fee tax years. The 2025-26 and 2026-27 fee amounts are absent from that page and are therefore left unverified here \u2014 see Flagged for Review."
+}

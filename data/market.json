@@ -1,0 +1,250 @@
+{
+  "_provenance": "All figures returned directly by the U.S. Census Bureau American Community Survey 2020-2024 5-year estimates, retrieved 2026-11-06 via the Census Bureau's own data API. Table and variable IDs are cited on every row so each can be re-run. No values inferred, no third-party aggregators used.",
+  "geography": {
+    "zcta": "94122",
+    "name": "ZCTA5 94122",
+    "neighborhood": "Outer Sunset, San Francisco",
+    "gcode": "860XX00US94122"
+  },
+  "dataset": "ACS 2020-2024 5-Year Estimates (ACSDT5Y2024)",
+  "median_gross_rent": [
+    {
+      "geo": "ZCTA 94122 (Outer Sunset)",
+      "value": "$2,816",
+      "moe": "\u00b1$153",
+      "table": "B25064",
+      "var": "B25064_001E",
+      "source": "https://data.census.gov/api/access/data/table?id=ACSDT5Y2024.B25064&g=860XX00US94122"
+    },
+    {
+      "geo": "San Francisco County",
+      "value": "$2,476",
+      "moe": "\u00b1$30",
+      "table": "B25064",
+      "var": "B25064_001E",
+      "source": "https://data.census.gov/api/access/data/table?id=ACSDT5Y2024.B25064&g=050XX00US06075"
+    }
+  ],
+  "median_household_income": [
+    {
+      "geo": "ZCTA 94122",
+      "value": "$146,250",
+      "moe": "\u00b1$12,113",
+      "table": "B19013",
+      "var": "B19013_001E",
+      "source": "https://data.census.gov/api/access/data/table?id=ACSDT5Y2024.B19013&g=860XX00US94122"
+    }
+  ],
+  "gross_rent_distribution": {
+    "_note": "Variable labels were each individually confirmed against the Census Bureau variable-definition endpoint (e.g. https://api.census.gov/data/2024/acs/acs5/variables/B25063_026E.json returns 'Estimate!!Total:!!With cash rent:!!$3,500 or more'). Brackets sum exactly to the 'With cash rent' total of 10,864, and the computed median falls in the $2,500-$2,999 bracket, consistent with the independently published B25064 median of $2,816.",
+    "source": "https://data.census.gov/api/access/data/table?id=ACSDT5Y2024.B25063&g=860XX00US94122",
+    "with_cash_rent_total": 10864,
+    "no_cash_rent": 705,
+    "universe_total": 11569,
+    "brackets": [
+      {
+        "label": "Less than $2,000 (nine lower brackets aggregated)",
+        "households": 2731,
+        "var": "B25063_003E..B25063_022E",
+        "_sub_brackets": "$1,500 to $1,999 = 1,151 (B25063_022E, label verified from Census variable-definition endpoint); $1,250 to $1,499 = 500 (B25063_021E); $1,000 to $1,249 = 644 (B25063_020E); all brackets below $1,000 = 436 (B25063_003E..B25063_019E)"
+      },
+      {
+        "label": "$2,000 to $2,499",
+        "households": 1826,
+        "var": "B25063_023E"
+      },
+      {
+        "label": "$2,500 to $2,999",
+        "households": 1384,
+        "var": "B25063_024E"
+      },
+      {
+        "label": "$3,000 to $3,499",
+        "households": 1587,
+        "var": "B25063_025E"
+      },
+      {
+        "label": "$3,500 or more",
+        "households": 3336,
+        "var": "B25063_026E"
+      }
+    ],
+    "_label_verification": [
+      "B25063_022E -> 'Estimate!!Total:!!With cash rent:!!$1,500 to $1,999'  https://api.census.gov/data/2024/acs/acs5/variables/B25063_022E.json",
+      "B25063_023E -> 'Estimate!!Total:!!With cash rent:!!$2,000 to $2,499'   https://api.census.gov/data/2024/acs/acs5/variables/B25063_023E.json",
+      "B25063_025E -> 'Estimate!!Total:!!With cash rent:!!$3,000 to $3,499'   https://api.census.gov/data/2024/acs/acs5/variables/B25063_025E.json",
+      "B25063_026E -> 'Estimate!!Total:!!With cash rent:!!$3,500 or more'     https://api.census.gov/data/2024/acs/acs5/variables/B25063_026E.json",
+      "B25034_002E -> 'Estimate!!Total:!!Built 2020 or later'                 https://api.census.gov/data/2024/acs/acs5/variables/B25034_002E.json",
+      "B25034_010E -> 'Estimate!!Total:!!Built 1940 to 1949'                  https://api.census.gov/data/2024/acs/acs5/variables/B25034_010E.json",
+      "B25034_011E -> 'Estimate!!Total:!!Built 1939 or earlier'               https://api.census.gov/data/2024/acs/acs5/variables/B25034_011E.json"
+    ],
+    "_sum_check": "2,731 + 1,826 + 1,384 + 1,587 + 3,336 = 10,864 = the published 'With cash rent' total. Check passes."
+  },
+  "derived_shares": {
+    "_note": "Arithmetic on the Census counts above. Percentages are of the 10,864 'with cash rent' households.",
+    "pct_paying_2000_or_more": "74.9%",
+    "pct_paying_3000_or_more": "45.3%",
+    "pct_paying_3500_or_more": "30.7%"
+  },
+  "rent_burden": {
+    "source": "https://data.census.gov/api/access/data/table?id=ACSDT5Y2024.B25070&g=860XX00US94122",
+    "universe_total": 11569,
+    "not_computed": 867,
+    "computed_universe": 10702,
+    "brackets": [
+      {
+        "label": "Less than 10.0% of income",
+        "households": 716,
+        "moe": "\u00b1189",
+        "var": "B25070_002E"
+      },
+      {
+        "label": "10.0 to 14.9%",
+        "households": 1186,
+        "moe": "\u00b1268",
+        "var": "B25070_003E"
+      },
+      {
+        "label": "15.0 to 19.9%",
+        "households": 2040,
+        "moe": "\u00b1437",
+        "var": "B25070_004E"
+      },
+      {
+        "label": "20.0 to 24.9%",
+        "households": 1315,
+        "moe": "\u00b1272",
+        "var": "B25070_005E"
+      },
+      {
+        "label": "25.0 to 29.9%",
+        "households": 935,
+        "moe": "\u00b1233",
+        "var": "B25070_006E"
+      },
+      {
+        "label": "30.0 to 34.9%",
+        "households": 959,
+        "moe": "\u00b1287",
+        "var": "B25070_007E"
+      },
+      {
+        "label": "35.0 to 39.9%",
+        "households": 643,
+        "moe": "\u00b1205",
+        "var": "B25070_008E"
+      },
+      {
+        "label": "40.0 to 49.9%",
+        "households": 681,
+        "moe": "\u00b1184",
+        "var": "B25070_009E"
+      },
+      {
+        "label": "50.0% or more",
+        "households": 2227,
+        "moe": "\u00b1419",
+        "var": "B25070_010E"
+      }
+    ],
+    "cost_burdened_30pct_plus": "4,510 households = 42.1% of the computed universe",
+    "severely_burdened_50pct_plus": "2,227 households = 20.8% of the computed universe"
+  },
+  "housing_age": {
+    "source": "https://data.census.gov/api/access/data/table?id=ACSDT5Y2024.B25034&g=860XX00US94122",
+    "total_housing_units": 24208,
+    "buckets": [
+      {
+        "label": "Built 1939 or earlier",
+        "units": 11116,
+        "moe": "\u00b1835",
+        "var": "B25034_011E"
+      },
+      {
+        "label": "Built 1940 to 1949",
+        "units": 4423,
+        "moe": "\u00b1435",
+        "var": "B25034_010E"
+      },
+      {
+        "label": "Built 1950 to 1959",
+        "units": 2591,
+        "moe": "\u00b1329",
+        "var": "B25034_009E"
+      },
+      {
+        "label": "Built 1960 to 1969",
+        "units": 2547,
+        "moe": "\u00b1383",
+        "var": "B25034_008E"
+      },
+      {
+        "label": "Built 1970 to 1979",
+        "units": 2004,
+        "moe": "\u00b1339",
+        "var": "B25034_007E"
+      },
+      {
+        "label": "Built 1980 to 1989",
+        "units": 600,
+        "moe": "\u00b1164",
+        "var": "B25034_006E"
+      },
+      {
+        "label": "Built 1990 to 1999",
+        "units": 305,
+        "moe": "\u00b1127",
+        "var": "B25034_005E"
+      },
+      {
+        "label": "Built 2000 to 2009",
+        "units": 372,
+        "moe": "\u00b1176",
+        "var": "B25034_004E"
+      },
+      {
+        "label": "Built 2010 to 2019",
+        "units": 237,
+        "moe": "\u00b1132",
+        "var": "B25034_003E"
+      },
+      {
+        "label": "Built 2020 or later",
+        "units": 13,
+        "moe": "\u00b123",
+        "var": "B25034_002E"
+      }
+    ],
+    "pre_1979_06_13_share": "22,681 of 24,208 units = 93.7% were built before June 13, 1979 and are therefore presumptively within the Rent Ordinance's coverage",
+    "relevance": "Corroborates the stated 1940 construction date: 1940s and pre-1940 stock together account for 64.2% of 94122 housing units."
+  },
+  "unit_rent_context": [
+    {
+      "unit": "Unit 1",
+      "current_base_rent": "$3,995.00",
+      "vs_zcta_median": "+41.9% above the 94122 median gross rent of $2,816"
+    },
+    {
+      "unit": "Unit 2",
+      "current_base_rent": "$3,150.00",
+      "vs_zcta_median": "+11.9% above the 94122 median gross rent of $2,816"
+    },
+    {
+      "unit": "Unit 2 (scenario U2-A / U2-B outcome)",
+      "projected_base_rent": "$3,562.65",
+      "vs_zcta_median": "+26.5% above the 94122 median gross rent of $2,816"
+    }
+  ],
+  "hud_fair_market_rent": {
+    "status": "UNVERIFIED \u2014 left blank",
+    "reason": "HUD's Fair Market Rent API returned {\"error\":\"Unauthenticated\"} and no FY2026/FY2027 area-specific figure for the San Francisco HUD Metro FMR Area could be retrieved from huduser.gov during this session. Third-party sites published conflicting 2-bedroom values ($3,604 vs $3,160 for FY2026), which is exactly why they were rejected. No value is reported rather than an inferred one.",
+    "official_landing_page": "https://www.huduser.gov/portal/datasets/fmr.html",
+    "flag": "F-01"
+  },
+  "bls_cpi": {
+    "status": "UNVERIFIED \u2014 left blank",
+    "reason": "The BLS San Francisco regional CPI news-release URL returned 404 during this session, and the Rent Board itself has stated the October 2025 CPI was never published because of a federal government shutdown, so the underlying index value cannot be confirmed. The operative published RESULT (1.6%) is verified from sf.gov; the raw CPI inputs are not reported.",
+    "official_landing_page": "https://www.bls.gov/regions/pacific/",
+    "flag": "F-02"
+  }
+}

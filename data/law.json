@@ -1,0 +1,349 @@
+{
+  "_provenance": "Every rule below is quoted or paraphrased from the cited official source (sf.gov, leginfo.legislature.ca.gov, hud.gov, calcivilrights.ca.gov, sfbos.org). Nothing is inferred. Rules that could not be confirmed are marked UNVERIFIED.",
+  "local": [
+    {
+      "rule": "Rent control coverage \u2014 pre-1979 buildings",
+      "detail": "Many residential units built on or before June 13, 1979 have both rent control and eviction protection. First step is to check the building's construction date on the SF Property Information Map.",
+      "authority": "SF Rent Ordinance, Admin. Code Ch. 37",
+      "source": "https://www.sf.gov/learn-about-san-francisco-rental-laws",
+      "source_name": "SF.gov \u2014 Learn about San Francisco rental laws",
+      "verified": true
+    },
+    {
+      "rule": "A two-unit building is NOT exempt",
+      "detail": "'A single-family dwelling with a legal in-law unit constitutes a two-unit building and is not exempt from the Ordinance. A single-family dwelling with an illegal in-law unit also constitutes a two-unit building and is not exempt, unless both units are rented together as a single tenancy.'",
+      "authority": "Costa-Hawkins Rental Housing Act as applied by the SF Rent Board (Topic 019)",
+      "source": "https://www.sf.gov/information--partial-exemption-certain-single-family-homes-and-condominiums-under-costa-hawkins",
+      "source_name": "SF.gov \u2014 Partial Exemption for Certain Single-Family Homes and Condominiums Under Costa-Hawkins",
+      "verified": true,
+      "applies_to": "BOTH UNITS"
+    },
+    {
+      "rule": "Annual allowable increase",
+      "detail": "60% of the increase in the CPI for All Urban Consumers in the Bay Area, published by the Rent Board each March 1, and never more than 7%. Currently 1.6% for increases effective 3/1/2026 through 2/28/2027.",
+      "authority": "SF Admin. Code \u00a7 37.3(a)(1)",
+      "source": "https://www.sf.gov/learn-about-rent-increases-san-francisco",
+      "source_name": "SF.gov \u2014 Learn about rent increases in San Francisco",
+      "verified": true
+    },
+    {
+      "rule": "One increase every 12 months",
+      "detail": "'Under the San Francisco Rent Ordinance, a landlord can only increase a tenant's rent by a certain percentage once every 12 months.' The first annual increase may be imposed 12 months after the date the tenant's lease began.",
+      "authority": "SF Admin. Code \u00a7 37.3(a); Rent Board Rules \u00a7 4.12",
+      "source": "https://www.sf.gov/learn-about-rent-increases-san-francisco",
+      "source_name": "SF.gov \u2014 Learn about rent increases in San Francisco",
+      "verified": true
+    },
+    {
+      "rule": "Anniversary date",
+      "detail": "'Once a landlord has increased a tenant's rent, the date of the increase becomes known as the tenant's anniversary date. The landlord cannot increase the rent again until at least 12 months later. If a landlord increases the rent more than 12 months later, the effective date of the increase becomes the tenant's new anniversary date.'",
+      "authority": "SF.gov Rent Board guidance",
+      "source": "https://www.sf.gov/learn-about-rent-increases-san-francisco",
+      "source_name": "SF.gov \u2014 Learn about rent increases in San Francisco",
+      "verified": true
+    },
+    {
+      "rule": "Banking is permitted",
+      "detail": "An owner who does not impose an allowed increase may bank it and use it later. 'Once an increase is properly banked, it does not expire.' Banked percentages are ADDED, not compounded. There is no limit on how much can be banked, back to April 1, 1982. New owners may use prior owners' banked increases. Banked increases do NOT carry over to a new tenant.",
+      "authority": "SF Admin. Code \u00a7 37.3(a)(2); Rent Board Rules \u00a7 4.12",
+      "source": "https://www.sf.gov/information--banked-rent-increases",
+      "source_name": "SF.gov \u2014 Banked rent increases",
+      "verified": true
+    },
+    {
+      "rule": "Banking requires 12 full months to elapse",
+      "detail": "Rules \u00a7 4.12(a): 'A full 12 months must have elapsed from the date that an annual rent increase, or a portion thereof, could have been imposed before this banking section becomes applicable.' NOTE: the SF.gov Banked-rent-increases page states 24 months. These two official sources conflict \u2014 see Flagged item F-03.",
+      "authority": "Rent Board Rules & Regulations \u00a7 4.12(a)",
+      "source": "https://www.sf.gov/reports--december-2022--rent-board-rules-and-regulations-part-iv-rent-increases-not-requiring",
+      "source_name": "SF.gov \u2014 Rent Board Rules and Regulations Part IV",
+      "verified": true,
+      "flag": "F-03"
+    },
+    {
+      "rule": "Acting early permanently forfeits a skipped increase",
+      "detail": "SF.gov's own worked example: a skipped increase that has not yet had 12 full months elapse is 'permanently lost due to the change in anniversary date.'",
+      "authority": "SF.gov Rent Board guidance (worked examples)",
+      "source": "https://www.sf.gov/learn-about-rent-increases-san-francisco",
+      "source_name": "SF.gov \u2014 Learn about rent increases in San Francisco",
+      "verified": true
+    },
+    {
+      "rule": "No compounding, no rounding up",
+      "detail": "'Landlords cannot round up to the nearest dollar when calculating rent increases.' 'Increases cannot be compounded.'",
+      "authority": "Rent Board Rules \u00a7 4.12(a); SF.gov",
+      "source": "https://www.sf.gov/information--annual-rent-increase-multiple-years",
+      "source_name": "SF.gov \u2014 Annual rent increase for multiple years",
+      "verified": true
+    },
+    {
+      "rule": "Increase applies to BASE RENT only",
+      "detail": "'Landlords must calculate the rent increase on the tenant's base rent only. This includes any housing services like parking or storage. It does not include any temporary passthroughs or fluctuating charges.'",
+      "authority": "SF Admin. Code \u00a7 37.2(a)(1); Rent Board Rules \u00a7 4.11(h)",
+      "source": "https://www.sf.gov/learn-about-rent-increases-san-francisco",
+      "source_name": "SF.gov \u2014 Learn about rent increases in San Francisco",
+      "verified": true
+    },
+    {
+      "rule": "Use the rate in effect on the EFFECTIVE date",
+      "detail": "'The landlord should use the percentage that will be in effect on the date of the increase, not the percentage in effect on the date they serve the notice.'",
+      "authority": "SF.gov Rent Board guidance",
+      "source": "https://www.sf.gov/information--banked-rent-increases",
+      "source_name": "SF.gov \u2014 Banked rent increases",
+      "verified": true
+    },
+    {
+      "rule": "RENT INCREASE LICENSE is mandatory",
+      "detail": "'A landlord must get a rent increase license before imposing annual allowable and/or banked rent increases on a tenant.' Obtained by reporting into the Rent Board Housing Inventory. 'A landlord must have a current rent increase license on file with the Rent Board before any annual or banked rent increase can go into effect.'",
+      "authority": "SF Admin. Code \u00a7 37.15; Rent Board Rules \u00a7 13.14",
+      "source": "https://www.sf.gov/rent-board-housing-inventory",
+      "source_name": "SF.gov \u2014 The Rent Board Housing Inventory",
+      "verified": true,
+      "applies_to": "BOTH UNITS"
+    },
+    {
+      "rule": "Unlicensed increase = NULL AND VOID",
+      "detail": "'Any annual and/or banked rent increase purporting to be effective while the landlord is unlicensed shall render the entire rent increase null and void.' Correct arithmetic does not save it.",
+      "authority": "Rent Board Rules & Regulations \u00a7 13.14",
+      "source": "https://sfrb.org/section-1314-licensing-%E2%80%93-notice-rent-increase",
+      "source_name": "SF Rent Board \u2014 Section 13.14 Licensing",
+      "verified": true,
+      "note": "Mirrored on sf.gov; the primary codified authority is Rent Board Rules \u00a7 13.14."
+    },
+    {
+      "rule": "Housing Inventory deadline and phase-in",
+      "detail": "Report by March 1 of every year at portal.sfrb.org. Operative July 1, 2022 for non-condo units in buildings with 10+ units; reporting began March 1, 2023 for condominiums and units in buildings with fewer than 10 units. No monetary penalty for late filing, but the license will not be in effect and the increase will not be enforceable. Late submissions are still accepted.",
+      "authority": "SF Admin. Code \u00a7 37.15",
+      "source": "https://www.sf.gov/rent-board-housing-inventory",
+      "source_name": "SF.gov \u2014 The Rent Board Housing Inventory",
+      "verified": true,
+      "applies_to": "2-unit building \u2192 the 3/1/2023 date governs"
+    },
+    {
+      "rule": "Housing Inventory data is PUBLIC",
+      "detail": "'The information entered in the housing inventory submission is public.' Includes owner name and business contact information, approximate square footage, bedrooms, bathrooms, and vacancy/occupancy history for the past 12 months. Tenants can search the Rent Board Portal to check whether a landlord is current.",
+      "authority": "SF Admin. Code \u00a7 37.15",
+      "source": "https://www.sf.gov/rent-board-housing-inventory",
+      "source_name": "SF.gov \u2014 The Rent Board Housing Inventory",
+      "verified": true,
+      "note": "Reported under penalty of perjury. Also note this publishes the base rent in $250 increments \u2014 relevant to the owner's own privacy."
+    },
+    {
+      "rule": "Notice content requirements",
+      "detail": "The notice should include: the dollar amount of the increase; the percentage amount of the increase; the date it goes into effect; and which part of the increase is banked. Rules \u00a7 4.12(b) additionally requires the dates on which the banked amount is based.",
+      "authority": "SF Admin. Code \u00a7 37.3(b); Rent Board Rules \u00a7\u00a7 4.10, 4.12(b)",
+      "source": "https://www.sf.gov/information--banked-rent-increases",
+      "source_name": "SF.gov \u2014 Banked rent increases",
+      "verified": true
+    },
+    {
+      "rule": "Non-conforming increase can be void",
+      "detail": "Rules \u00a7 4.10(b): 'Any rent increase which does not conform with the provisions of this Section shall render the entire rent increase null and void, unless the amount requested equals no more than the allowable annual and banked rent increase(s).'",
+      "authority": "Rent Board Rules & Regulations \u00a7 4.10(b)",
+      "source": "https://www.sf.gov/reports--december-2022--rent-board-rules-and-regulations-part-iv-rent-increases-not-requiring",
+      "source_name": "SF.gov \u2014 Rent Board Rules and Regulations Part IV",
+      "verified": true
+    },
+    {
+      "rule": "NO increase for an added occupant",
+      "detail": "'The Rent Ordinance prohibits landlords from charging more rent solely because a tenant has added an additional occupant to an existing tenancy, including a newborn child. This constitutes an unlawful rent increase, even if the lease or rental agreement specifically permits a rent increase for additional occupants.'",
+      "authority": "SF Admin. Code \u00a7 37.3(a)(11)(A); Rent Board Topics 152/254",
+      "source": "https://www.sf.gov/information--charging-additional-occupants-prohibited",
+      "source_name": "SF.gov \u2014 Charging for Additional Occupants Prohibited",
+      "verified": true,
+      "applies_to": "UNIT 1 \u2014 DECISIVE"
+    },
+    {
+      "rule": "Market-rate reset needs the LAST original occupant to leave",
+      "detail": "Rules \u00a7 6.14 'provides for an unlimited rent increase on remaining occupants when the last original occupant vacates the unit, as long as the landlord timely served all remaining occupants with a written 6.14 notice.' Costa-Hawkins (Civ. Code \u00a7 1954.53(d)) applies 'when the last original occupant no longer permanently resides in the unit', and 'a co-tenant, as opposed to a subtenant, is not subject to such a rent increase, regardless of when the co-tenant moved in.'",
+      "authority": "Rent Board Rules \u00a7 6.14; Civ. Code \u00a7 1954.53(d)",
+      "source": "https://www.sf.gov/information--rent-increases-under-section-614-and-costa-hawkins",
+      "source_name": "SF.gov \u2014 Rent Increases Under Section 6.14 And Costa-Hawkins",
+      "verified": true,
+      "applies_to": "UNIT 1 \u2014 DECISIVE (an original occupant remains, so NO reset is available)"
+    },
+    {
+      "rule": "Tenants may replace roommates",
+      "detail": "The Rent Ordinance generally allows tenants to replace departing roommates and/or increase the number of occupants, even where a written lease prohibits it. Landlord has 14 days to approve or deny in writing with specific facts; silence or unreasonable denial is deemed approval. Occupancy caps: 2 in a studio, 3 in one-bedroom, 4 in two-bedroom, 6 in three-bedroom, 8 in four-bedroom, or the Housing Code \u00a7 503 maximum.",
+      "authority": "Rent Board Rules \u00a7\u00a7 6.15A, 6.15B, 6.15D, 6.15E",
+      "source": "https://www.sf.gov/information--replacement-roommates",
+      "source_name": "SF.gov \u2014 Replacement of Roommates",
+      "verified": true
+    },
+    {
+      "rule": "Algorithmic / revenue-management pricing is BANNED",
+      "detail": "Effective October 14, 2024, it is unlawful to sell, license or provide, or to use, an 'algorithmic device' that analyses non-public competitor data to recommend what rent to charge or whether to leave a unit vacant. Each separate month is a separate violation; each separate unit is a separate violation. City Attorney or a tenant/tenants' rights organisation may sue for damages, injunctive relief, restitution, civil penalties up to $1,000 per violation, and attorney's fees.",
+      "authority": "SF Admin. Code \u00a7 37.10C",
+      "source": "https://www.sf.gov/information--algorithmic-devices-set-rent-are-prohibited-san-francisco",
+      "source_name": "SF.gov \u2014 Algorithmic devices that set rent are prohibited",
+      "verified": true,
+      "applies_to": "Answers 'how do big real estate corporations do this' \u2014 in SF they legally may not use pricing software."
+    },
+    {
+      "rule": "Beyond the annual allowable \u2014 petition required",
+      "detail": "Increases above the annual allowable + banked require a Rent Board petition: capital improvements (\u00a7 37.7), operating & maintenance expenses (max 7% per petition; for buildings with 6+ units, max 7% total in any five-year period), utility passthrough, water revenue bond, general obligation bond. Tenants may seek a hardship exemption.",
+      "authority": "SF Admin. Code \u00a7\u00a7 37.3(a)(3)-(6), 37.7, 37.8",
+      "source": "https://www.sf.gov/file/530-om-petition-fillable-324pdf",
+      "source_name": "SF Rent Board \u2014 Operating & Maintenance Petition (Form 530, Schedule B)",
+      "verified": true,
+      "note": "Not applicable here: no capital-improvement or O&M facts were supplied. Left unexplored rather than assumed \u2014 Flagged item F-09."
+    },
+    {
+      "rule": "Vacancy decontrol",
+      "detail": "'There is no limit on how much rent a landlord may first charge a tenant when renting an empty unit that is covered by rent control.'",
+      "authority": "SF Admin. Code \u00a7 37.3(d); Civ. Code \u00a7 1954.52",
+      "source": "https://www.sf.gov/learn-about-rent-increases-san-francisco",
+      "source_name": "SF.gov \u2014 Learn about rent increases in San Francisco",
+      "verified": true,
+      "applies_to": "NOT available \u2014 both units are occupied by continuing tenancies"
+    },
+    {
+      "rule": "Free Rent Board counselling",
+      "detail": "Free, Monday-Friday 9am-12pm and 1pm-4pm, 415-252-4600. In person at 25 Van Ness Avenue Suite #700, weekdays 9am-4pm. Spanish, Cantonese and Mandarin; interpretation for other languages. Counsellors cannot give legal advice.",
+      "authority": "SF Rent Board",
+      "source": "https://www.sf.gov/speak-rent-board-counselor",
+      "source_name": "SF.gov \u2014 Speak with a Rent Board counselor",
+      "verified": true
+    }
+  ],
+  "state": [
+    {
+      "rule": "30-day written notice for increases of 10% or less",
+      "detail": "If the proposed increase is '10 percent or less of the rental amount charged to that tenant at any time during the 12 months before the effective date of the increase, either in and of itself or when combined with any other rent increases for the 12 months before the effective date of the increase, the notice shall be delivered at least 30 days before the effective date'.",
+      "authority": "Cal. Civ. Code \u00a7 827(b)(2)",
+      "source": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=CIV&sectionNum=827",
+      "source_name": "California Legislative Information \u2014 Civil Code 827",
+      "verified": true
+    },
+    {
+      "rule": "90-day written notice for increases over 10%",
+      "detail": "'If the proposed rent increase for that tenant is greater than 10 percent ... the notice shall be delivered at least 90 days before the effective date of the increase, and subject to Section 1013 of the Code of Civil Procedure if served by mail.'",
+      "authority": "Cal. Civ. Code \u00a7 827(b)(3)(A)",
+      "source": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=CIV&sectionNum=827",
+      "source_name": "California Legislative Information \u2014 Civil Code 827",
+      "verified": true
+    },
+    {
+      "rule": "Service methods",
+      "detail": "Deliver a copy to the tenant personally, or serve by mail under Code Civ. Proc. \u00a7 1013. SF Rent Board guidance adds 5 days where the notice is mailed.",
+      "authority": "Cal. Civ. Code \u00a7 827(b)(1); CCP \u00a7\u00a7 1013, 1162",
+      "source": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=CIV&sectionNum=827",
+      "source_name": "California Legislative Information \u2014 Civil Code 827",
+      "verified": true
+    },
+    {
+      "rule": "AB 1482 statewide cap \u2014 5% + CPI or 10%, whichever is lower",
+      "detail": "'An owner of residential real property shall not, over the course of any 12-month period, increase the gross rental rate for a dwelling or a unit more than 5 percent plus the percentage change in the cost of living, or 10 percent, whichever is lower, of the lowest gross rental rate charged for that dwelling or unit at any time during the 12 months prior to the effective date of the increase.' For SF that is currently 8.8% (5% + 3.8% CPI) for 8/1/2026-7/31/2027. No more than two increments in any 12-month period.",
+      "authority": "Cal. Civ. Code \u00a7 1947.12(a)",
+      "source": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=CIV&sectionNum=1947.12",
+      "source_name": "California Legislative Information \u2014 Civil Code 1947.12",
+      "verified": true
+    },
+    {
+      "rule": "AB 1482 does NOT apply to these units",
+      "detail": "\u00a7 1947.12(d)(3) exempts 'Housing subject to rent or price control through a public entity's valid exercise of its police power consistent with Chapter 2.7 (commencing with Section 1954.50) that restricts annual increases in the rental rate to an amount less than that provided in subdivision (a).' The SF Rent Board states plainly: 'This does NOT apply for units under the rent increase limitations of the San Francisco Rent Ordinance.' SF's 1.6% is less than 8.8%, so the local ordinance governs.",
+      "authority": "Cal. Civ. Code \u00a7 1947.12(d)(3); SF.gov",
+      "source": "https://www.sf.gov/reports--california-tenant-protection-act-2019-ab-1482",
+      "source_name": "SF.gov \u2014 The California Tenant Protection Act of 2019 (AB 1482)",
+      "verified": true,
+      "applies_to": "BOTH UNITS \u2014 the 1.6% SF cap governs, not the 8.8% state cap"
+    },
+    {
+      "rule": "AB 1482 two-unit owner-occupied exemption",
+      "detail": "'A two-unit property, provided the second unit was occupied by an owner of the property for the entire period of the tenancy' is exempt from both just cause and the rent cap. Whether an owner occupies either unit here is NOT SUPPLIED \u2014 left unverified (Flagged item F-05). Immaterial in any event, because the SF Rent Ordinance still applies.",
+      "authority": "Cal. Civ. Code \u00a7\u00a7 1946.2(e), 1947.12(d)",
+      "source": "https://www.sf.gov/reports--california-tenant-protection-act-2019-ab-1482",
+      "source_name": "SF.gov \u2014 AB 1482",
+      "verified": true
+    },
+    {
+      "rule": "Costa-Hawkins: corporate owners lose the single-family/condo exemption",
+      "detail": "The exemption is unavailable where the owner is a real estate investment trust, a corporation, or an LLC with at least one corporate member, AND the landlord gave the tenant the specific written notice required by Civ. Code \u00a7\u00a7 1946.2(e)(8)(B)(i) and 1947.12(d)(5)(B)(i). The exemption also 'does not apply where there is more than one dwelling unit on the same lot, or any second residential unit in the building that cannot be sold separately'.",
+      "authority": "Cal. Civ. Code \u00a7 1947.12(d)(5)",
+      "source": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=CIV&sectionNum=1947.12",
+      "source_name": "California Legislative Information \u2014 Civil Code 1947.12",
+      "verified": true,
+      "applies_to": "This is the concrete legal difference between corporate and individual owners."
+    },
+    {
+      "rule": "Retaliation presumption",
+      "detail": "Civ. Code \u00a7 1942.5(a): where a lessor retaliates because of the tenant's exercise of rights or complaint to an agency about tenantability, and the tenant is not in default as to rent, the lessor 'may not recover possession of a dwelling in any action or proceeding, cause the lessee to quit involuntarily, INCREASE THE RENT, or decrease any services within 180 days' of the tenant's good-faith notice, oral complaint, written agency complaint, inspection/citation, or filing of a proceeding on tenantability. The 180-day period runs from the latest applicable date. \u00a7 1942.5(d) separately makes it unlawful to increase rent to retaliate because a tenant 'has lawfully organized or participated in a lessees' association or an organization advocating lessees' rights or has lawfully and peaceably exercised any rights under the law'. \u00a7\u00a7 1942.5(c) and (e): to report or threaten to report the tenant, or individuals associated with the tenant, to immigration authorities is itself prohibited retaliatory conduct. \u00a7 1942.5(f): any waiver by the tenant is void as contrary to public policy.",
+      "authority": "Cal. Civ. Code \u00a7 1942.5",
+      "source": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=CIV&sectionNum=1942.5",
+      "source_name": "California Legislative Information \u2014 Civil Code 1942.5",
+      "verified": true,
+      "note": "Text verified directly from leginfo on 2026-11-06. Statutory damages figures were NOT verified from the primary text and are deliberately not stated here \u2014 see the remedies portion of the section for manual review.",
+      "applies_to": "BOTH UNITS \u2014 a timing screen must be run against each tenant's complaint/repair/organising history before any notice is served. Flagged item F-06."
+    },
+    {
+      "rule": "Tenant harassment",
+      "detail": "SF makes it unlawful for a landlord to use force, threats, menace or fraud to interfere with a tenant's quiet enjoyment, or to take actions intended to cause a tenant to vacate. Includes failing to perform repairs, removing housing services, abusing the right of entry, threatening the tenant, or influencing the tenant to vacate through misrepresentation. Tenants may sue for actual damages, or up to $5,000 per violation, plus attorney's fees; the City Attorney may also bring an action.",
+      "authority": "SF Admin. Code \u00a7 37.10B; Cal. Civ. Code \u00a7 1940.2",
+      "source": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=CIV&sectionNum=1940.2",
+      "source_name": "California Legislative Information \u2014 Civil Code 1940.2",
+      "verified": false,
+      "flag": "F-10",
+      "note": "UNVERIFIED as written. The SF.gov tenant-harassment information page returned 404 during this session and the \u00a7 37.10B penalty figures could not be confirmed from an official source. Left for manual review; no action should be taken on this row without confirming the text."
+    },
+    {
+      "rule": "Just cause eviction (context)",
+      "detail": "A landlord must have 'just cause' to terminate a covered tenancy. Mere expiration of a lease is not just cause. Relevant here only as context: a rent increase is NOT a substitute for eviction, and refusing to pay a LAWFUL increase is a basis for a non-payment action whereas refusing an UNLAWFUL increase is not.",
+      "authority": "SF Admin. Code \u00a7 37.9; Cal. Civ. Code \u00a7 1946.2",
+      "source": "https://www.sf.gov/learn-about-san-francisco-rental-laws",
+      "source_name": "SF.gov \u2014 Learn about San Francisco rental laws",
+      "verified": true
+    },
+    {
+      "rule": "Fair housing \u2014 California",
+      "detail": "FEHA prohibits discrimination and harassment by housing providers based on protected characteristics, and applies to 'all aspects of housing and housing-related services, such as renting, leasing, sales, new construction, mortgage lending, insurance, municipal services, shelters, advertising, and restrictive covenants'. Retaliation for exercising rights is itself unlawful. California protects against discrimination based on the protected characteristic of a family member, friend, ROOMMATE, or any other associate.",
+      "authority": "Cal. Gov. Code \u00a7 12955 (FEHA), enforced by the California Civil Rights Department",
+      "source": "https://calcivilrights.ca.gov/housing/",
+      "source_name": "California Civil Rights Department \u2014 Housing Discrimination",
+      "verified": true,
+      "applies_to": "DIRECTLY RELEVANT TO UNIT 1 \u2014 the household composition changed. FEHA protects associates and roommates."
+    }
+  ],
+  "federal": [
+    {
+      "rule": "Fair Housing Act protected classes",
+      "detail": "The Fair Housing Act prohibits discrimination in housing because of: Race, Color, National Origin, Religion, Sex, Familial Status, Disability. It applies to 'nearly all housing, including private housing, public housing, and housing that receives federal funding'.",
+      "authority": "Fair Housing Act, 42 U.S.C. \u00a7\u00a7 3601-3619; \u00a7 3604",
+      "source": "https://www.hud.gov/helping-americans/fair-housing-act-overview",
+      "source_name": "HUD.gov \u2014 Housing Discrimination Under the Fair Housing Act",
+      "verified": true
+    },
+    {
+      "rule": "FHA enforcement posture (2025-26)",
+      "detail": "HUD's current published guidance states FHEO will prioritise 'cases with actual, provable instances of discrimination' and 'cases with strong evidence of intentional discrimination', and has withdrawn prior guidance documents. Note for the owner: this narrows FEDERAL administrative enforcement. It does NOT change California FEHA enforcement by the California Civil Rights Department, nor SF local law, nor a tenant's private right of action.",
+      "authority": "HUD FHEO guidance, 'Fair Housing Act Enforcement and Prioritization of Resources'",
+      "source": "https://www.hud.gov/sites/dfiles/Main/documents/Fair-Housing-Act-Enforcement-Prioritization-Resources.pdf",
+      "source_name": "HUD \u2014 Fair Housing Act Enforcement and Prioritization of Resources (PDF)",
+      "verified": true
+    },
+    {
+      "rule": "Filing a federal fair housing complaint",
+      "detail": "Complaints may be filed with HUD online.",
+      "authority": "42 U.S.C. \u00a7 3610",
+      "source": "https://www.hud.gov/reporthousingdiscrimination",
+      "source_name": "HUD.gov \u2014 File a Complaint",
+      "verified": true
+    },
+    {
+      "rule": "HUD Fair Market Rents",
+      "detail": "FMRs are estimates of 40th percentile gross rents for standard quality units, published annually and effective at the start of the federal fiscal year (generally October 1), per 42 U.S.C. \u00a7 1437f and 24 CFR 888.113. NO area-specific value for San Francisco is reported here \u2014 HUD's API returned 'Unauthenticated' and third-party figures conflicted. Left blank rather than inferred (Flagged item F-01).",
+      "authority": "42 U.S.C. \u00a7 1437f; 24 CFR 888.113",
+      "source": "https://www.huduser.gov/portal/datasets/fmr.html",
+      "source_name": "HUD USER \u2014 Fair Market Rents (40th Percentile Rents)",
+      "verified": true,
+      "flag": "F-01"
+    },
+    {
+      "rule": "Federal law sets no rent ceiling",
+      "detail": "There is no federal statute capping rent increases for unsubsidised private housing. Federal law reaches rent increases only through (a) anti-discrimination rules, and (b) program rules where federal subsidy is involved (e.g. HUD rent-reasonableness review for assisted units). The operative caps here are San Francisco's Rent Ordinance and, residually, California AB 1482.",
+      "authority": "No applicable federal rent-control statute",
+      "source": "https://www.hud.gov/helping-americans/fair-housing-act-overview",
+      "source_name": "HUD.gov \u2014 Fair Housing Act overview (scope of federal housing law)",
+      "verified": true,
+      "note": "Stated as the absence of a federal cap; confirmed by the fact that both SF.gov and leginfo identify local and state law as the operative limits."
+    }
+  ]
+}

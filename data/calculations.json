@@ -1,0 +1,220 @@
+{
+  "_method": "Percentages are the official SF Rent Board allowable annual increases for the period containing each anniversary date (Info Sheet 571). Banked percentages are ADDED, never compounded, and never rounded up (Rent Board Rules & Regulations sec. 4.12). Dollar amounts = base rent x total percent, truncated to the cent as computed. Notice tier from Cal. Civ. Code sec. 827(b): 10% or less -> 30 days; more than 10% -> 90 days; +5 days if served by mail.",
+  "unit1": [
+    {
+      "id": "U1-A",
+      "recommended": true,
+      "label": "Impose on/after Feb 1, 2027 (original anniversary date preserved)",
+      "effective_date": "2027-02-01",
+      "banked": [
+        {
+          "date": "2026-02-01",
+          "percent": "1.4"
+        }
+      ],
+      "annual": {
+        "date": "2027-02-01",
+        "percent": "1.6"
+      },
+      "total_percent": "3.0",
+      "base_rent": "3995.00",
+      "dollar_increase": "119.85",
+      "new_base_rent": "4114.85",
+      "notice": "30-day written notice",
+      "serve_by": "2027-01-02",
+      "serve_by_if_mailed": "2026-12-28",
+      "new_anniversary_date": "February 1 (unchanged)",
+      "why": "12 full months will have elapsed since the 1.4% first became available on 2/1/2026, so it has properly banked (Rules sec. 4.12). The annual rate in effect on 2/1/2027 is still 1.6% because that period runs through 2/28/2027. Keeps the Feb 1 anniversary so no percentage is forfeited."
+    },
+    {
+      "id": "U1-B",
+      "recommended": false,
+      "label": "Impose now, annual only (e.g. effective Dec 2026 / Jan 2027)",
+      "effective_date": "2026-12-01",
+      "banked": [],
+      "annual": {
+        "date": "2026-12-01",
+        "percent": "1.6"
+      },
+      "total_percent": "1.6",
+      "base_rent": "3995.00",
+      "dollar_increase": "63.92",
+      "new_base_rent": "4058.92",
+      "notice": "30-day written notice",
+      "serve_by": "2026-11-01",
+      "serve_by_if_mailed": "2026-10-27",
+      "new_anniversary_date": "New anniversary = the effective date chosen",
+      "why": "Lawful, but PERMANENTLY FORFEITS the skipped 1.4%. Costs $55.93/month ($671.16/year) forever versus U1-A and resets the anniversary date off February 1."
+    },
+    {
+      "id": "U1-C",
+      "recommended": false,
+      "label": "Treat the 4/1/2026 rental agreement as a new lease commencement",
+      "effective_date": "2027-04-01",
+      "banked": [],
+      "annual": {
+        "date": "2027-04-01",
+        "percent": null
+      },
+      "total_percent": null,
+      "base_rent": "3995.00",
+      "dollar_increase": null,
+      "new_base_rent": null,
+      "notice": "Cannot be computed",
+      "serve_by": null,
+      "serve_by_if_mailed": null,
+      "new_anniversary_date": "April 1",
+      "why": "UNVERIFIED. The annual percentage in effect on 4/1/2027 (period 3/1/27-2/28/28) has not been published by the Rent Board. More importantly, no official SF source states whether a roommate replacement accompanied by a new written rental agreement resets the anniversary date. Dollar values left BLANK by design \u2014 nothing inferred. See Flagged item F-07."
+    },
+    {
+      "id": "U1-X",
+      "recommended": false,
+      "label": "UNLAWFUL \u2014 market-rate reset on the added occupant",
+      "effective_date": null,
+      "banked": [],
+      "annual": {
+        "date": null,
+        "percent": null
+      },
+      "total_percent": null,
+      "base_rent": "3995.00",
+      "dollar_increase": null,
+      "new_base_rent": null,
+      "notice": "n/a",
+      "serve_by": null,
+      "serve_by_if_mailed": null,
+      "new_anniversary_date": "n/a",
+      "why": "NOT AVAILABLE. Rent Board Rules sec. 6.14 permits an unlimited increase only when the LAST ORIGINAL OCCUPANT vacates. Tenant A is an original occupant and remains, so sec. 6.14 does not apply. Costa-Hawkins (Civ. Code sec. 1954.53(d)) likewise does not apply, and never applies to a co-tenant. Charging more because an occupant was added is expressly an UNLAWFUL rent increase under Admin. Code sec. 37.3(a)(11)(A) and Rent Board Topic 152 \u2014 even if the lease allows it."
+    }
+  ],
+  "unit2": [
+    {
+      "id": "U2-A",
+      "recommended": true,
+      "label": "Impose on/after Jun 1, 2027 (June 1 anniversary preserved; maximum lawful recovery)",
+      "effective_date": "2027-06-01",
+      "banked": [
+        {
+          "date": "2020-06-01",
+          "percent": "1.8"
+        },
+        {
+          "date": "2021-06-01",
+          "percent": "0.7"
+        },
+        {
+          "date": "2022-06-01",
+          "percent": "2.3"
+        },
+        {
+          "date": "2023-06-01",
+          "percent": "3.6"
+        },
+        {
+          "date": "2024-06-01",
+          "percent": "1.7"
+        },
+        {
+          "date": "2025-06-01",
+          "percent": "1.4"
+        },
+        {
+          "date": "2026-06-01",
+          "percent": "1.6"
+        }
+      ],
+      "annual": {
+        "date": "2027-06-01",
+        "percent": null
+      },
+      "total_percent": "13.1 + the unpublished 3/1/27-2/28/28 annual rate",
+      "banked_total_percent": "13.1",
+      "base_rent": "3150.00",
+      "dollar_increase": "412.65 (banked portion only; annual portion not yet computable)",
+      "new_base_rent": "3562.65 minimum, plus the 2027-28 annual percentage once published",
+      "notice": "90-day written notice (total exceeds 10%)",
+      "serve_by": "2027-03-03",
+      "serve_by_if_mailed": "2027-02-26",
+      "new_anniversary_date": "June 1 (unchanged)",
+      "why": "All seven skipped increases will have had 12 full months elapse by 6/1/2027, so all 13.1% is properly banked and none is forfeited. Preserves the June 1 anniversary. The 2027-28 annual percentage is NOT YET PUBLISHED so the final total is left blank rather than estimated."
+    },
+    {
+      "id": "U2-B",
+      "recommended": false,
+      "label": "Impose before Jun 1, 2027 (earliest practicable: effective 2027-02-08)",
+      "effective_date": "2027-02-08",
+      "banked": [
+        {
+          "date": "2020-06-01",
+          "percent": "1.8"
+        },
+        {
+          "date": "2021-06-01",
+          "percent": "0.7"
+        },
+        {
+          "date": "2022-06-01",
+          "percent": "2.3"
+        },
+        {
+          "date": "2023-06-01",
+          "percent": "3.6"
+        },
+        {
+          "date": "2024-06-01",
+          "percent": "1.7"
+        },
+        {
+          "date": "2025-06-01",
+          "percent": "1.4"
+        }
+      ],
+      "annual": {
+        "date": "2027-02-08",
+        "percent": "1.6"
+      },
+      "total_percent": "13.1",
+      "banked_total_percent": "11.5",
+      "base_rent": "3150.00",
+      "dollar_increase": "412.65",
+      "new_base_rent": "3562.65",
+      "notice": "90-day written notice (exceeds 10%)",
+      "serve_by": "2026-11-10",
+      "serve_by_if_mailed": "2026-11-05",
+      "new_anniversary_date": "The effective date chosen (June 1 anniversary LOST)",
+      "why": "Same 13.1% total as U2-A, but reached as 11.5% banked + 1.6% annual. The 1.6% that became available on 6/1/2026 has not yet had 12 full months elapse, so it does NOT bank and is forfeited. Also permanently moves the anniversary date off June 1. Serve-by date of 2026-11-10 is only 4 days after this analysis date \u2014 not realistically achievable."
+    },
+    {
+      "id": "U2-C",
+      "recommended": false,
+      "label": "Phased option \u2014 impose exactly 10.0% first, bank the remainder",
+      "effective_date": "2027-02-08",
+      "banked": [],
+      "annual": {
+        "date": "2027-02-08",
+        "percent": "n/a \u2014 partial imposition"
+      },
+      "total_percent": "10.0",
+      "banked_total_percent": "partial",
+      "base_rent": "3150.00",
+      "dollar_increase": "315.00",
+      "new_base_rent": "3465.00",
+      "notice": "30-day written notice (10% or less)",
+      "serve_by": "2027-01-09",
+      "serve_by_if_mailed": "2027-01-04",
+      "new_anniversary_date": "The effective date chosen",
+      "why": "SF.gov states a landlord need not impose the maximum: any unused portion banks and may be imposed after at least 12 more months. A 10.0% step avoids the 90-day notice and materially softens the impact on a household already paying above the ZIP median. Remaining entitlement is preserved."
+    }
+  ],
+  "forfeiture_warning": "SF.gov's own worked example states that where an owner imposes an increase before a skipped increase has had 12 full months to elapse, that skipped increase 'is permanently lost due to the change in anniversary date'. Timing therefore has real, permanent dollar consequences.",
+  "_sources": [
+    "https://www.sf.gov/documents/34344/571_Allowable_Annual_Increases_26-27_1.pdf",
+    "https://www.sf.gov/information--banked-rent-increases",
+    "https://www.sf.gov/learn-about-rent-increases-san-francisco",
+    "https://www.sf.gov/information--annual-rent-increase-multiple-years",
+    "https://www.sf.gov/reports--december-2022--rent-board-rules-and-regulations-part-iv-rent-increases-not-requiring",
+    "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=CIV&sectionNum=827",
+    "https://www.sf.gov/information--rent-increases-under-section-614-and-costa-hawkins",
+    "https://www.sf.gov/information--charging-additional-occupants-prohibited"
+  ]
+}

@@ -1,0 +1,116 @@
+{
+  "_anonymization": "All names and identifying details replaced with placeholders. Dates and dollar amounts preserved exactly as supplied. No PII is stored in this repository.",
+  "_location": {
+    "city": "San Francisco",
+    "neighborhood": "Outer Sunset",
+    "zip": "94122",
+    "exact_address": "WITHHELD \u2014 personal information",
+    "assessor_parcel": "NOT SUPPLIED"
+  },
+  "_building": {
+    "year_built": "1940",
+    "units": 2,
+    "certificate_of_occupancy_date": "UNVERIFIED \u2014 not supplied; check https://sfplanninggis.org/PIM/",
+    "rent_control_coverage": "Covered by the SF Rent Ordinance rent-increase limitations IF the certificate of occupancy was issued on or before June 13, 1979 and the building is not a condominium / single-family dwelling. A two-unit building is expressly NOT exempt under Costa-Hawkins.",
+    "coverage_source": "https://www.sf.gov/information--partial-exemption-certain-single-family-homes-and-condominiums-under-costa-hawkins"
+  },
+  "units": [
+    {
+      "id": "Unit 1",
+      "tenants_placeholder": [
+        "Tenant A (original occupant, still in place)",
+        "Tenant D (added occupant)",
+        "Tenant B (original occupant, departed)",
+        "Tenant C (original occupant, departed)"
+      ],
+      "original_lease_tenants_count": 3,
+      "current_tenants_count": 2,
+      "rent_history": [
+        {
+          "date": "2025-02-01",
+          "event": "Lease commenced",
+          "base_rent": "$3,995.00",
+          "percent": null
+        },
+        {
+          "date": "2026-02-01",
+          "event": "Anniversary date passed \u2014 NO increase imposed (1.4% available and skipped)",
+          "base_rent": "$3,995.00",
+          "percent": null
+        },
+        {
+          "date": "2026-04-01",
+          "event": "Continuing tenancy; household composition changed (2 original occupants departed, 1 occupant added). Rent UNCHANGED.",
+          "base_rent": "$3,995.00",
+          "percent": null
+        }
+      ],
+      "current_base_rent": "$3,995.00",
+      "anniversary_date": "February 1 (see Flagged item F-07)",
+      "increases_ever_imposed": 0
+    },
+    {
+      "id": "Unit 2",
+      "tenants_placeholder": [
+        "Tenant B (original occupant)",
+        "Tenant C (original occupant)"
+      ],
+      "original_lease_tenants_count": 2,
+      "current_tenants_count": 2,
+      "rent_history": [
+        {
+          "date": "2019-06-01",
+          "event": "Lease commenced",
+          "base_rent": "$3,150.00",
+          "percent": null
+        },
+        {
+          "date": "2020-06-01",
+          "event": "Anniversary passed \u2014 no increase imposed (1.8% available)",
+          "base_rent": "$3,150.00",
+          "percent": null
+        },
+        {
+          "date": "2021-06-01",
+          "event": "Anniversary passed \u2014 no increase imposed (0.7% available)",
+          "base_rent": "$3,150.00",
+          "percent": null
+        },
+        {
+          "date": "2022-06-01",
+          "event": "Anniversary passed \u2014 no increase imposed (2.3% available)",
+          "base_rent": "$3,150.00",
+          "percent": null
+        },
+        {
+          "date": "2023-06-01",
+          "event": "Anniversary passed \u2014 no increase imposed (3.6% available)",
+          "base_rent": "$3,150.00",
+          "percent": null
+        },
+        {
+          "date": "2024-06-01",
+          "event": "Anniversary passed \u2014 no increase imposed (1.7% available)",
+          "base_rent": "$3,150.00",
+          "percent": null
+        },
+        {
+          "date": "2025-06-01",
+          "event": "Anniversary passed \u2014 no increase imposed (1.4% available)",
+          "base_rent": "$3,150.00",
+          "percent": null
+        },
+        {
+          "date": "2026-06-01",
+          "event": "Anniversary passed \u2014 no increase imposed (1.6% available)",
+          "base_rent": "$3,150.00",
+          "percent": null
+        }
+      ],
+      "current_base_rent": "$3,150.00",
+      "anniversary_date": "June 1",
+      "increases_ever_imposed": 0,
+      "ledger_caveat": "The supplied facts state only the 6/1/2019 lease at $3,150. That NO increase was ever imposed is an assumption drawn from the absence of any other entry; it must be confirmed against the complete rent ledger before any notice is served. See Flagged item F-08."
+    }
+  ]
+}

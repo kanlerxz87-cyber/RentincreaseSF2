@@ -1,0 +1,327 @@
+{
+  "_policy": "Official sources only: .gov domains, the California Legislative Information service, the San Francisco Rent Board, and the U.S. Census Bureau API. Third-party legal blogs, property-management vendors and news aggregators were consulted to LOCATE official documents but are never cited as authority and no value was taken from them.",
+  "_accessed": "2026-11-06",
+  "sources": [
+    {
+      "id": "S-01",
+      "title": "Annual Rent Increase for 3/1/26 - 2/28/27 Announced",
+      "publisher": "City & County of San Francisco \u2014 Rent Board",
+      "type": "Official city announcement",
+      "url": "https://www.sf.gov/news--annual-rent-increase-3126-22827-announced",
+      "date_published": "2026-01-14",
+      "verifies": "1.6% allowable increase for 3/1/2026-2/28/2027; 1.4% for 3/1/2025-2/28/2026; worked calculation example"
+    },
+    {
+      "id": "S-02",
+      "title": "571 Allowable Annual Increases 26-27 (Info Sheet 571)",
+      "publisher": "SF Rent Board",
+      "type": "Official PDF",
+      "url": "https://www.sf.gov/documents/34344/571_Allowable_Annual_Increases_26-27_1.pdf",
+      "verifies": "The complete historical table of allowable annual increases from 4/1/1982 through 2/28/2027, including the 1992-93 single-increase caution"
+    },
+    {
+      "id": "S-03",
+      "title": "Learn about rent increases in San Francisco",
+      "publisher": "SF Rent Board",
+      "type": "Official guidance",
+      "url": "https://www.sf.gov/learn-about-rent-increases-san-francisco",
+      "verifies": "60%-of-CPI basis; once every 12 months; anniversary date mechanics; four worked examples; banked-increase forfeiture on a changed anniversary date; notice periods; base-rent-only rule; no rounding up; additional-occupant prohibition; vacancy decontrol"
+    },
+    {
+      "id": "S-04",
+      "title": "Banked rent increases",
+      "publisher": "SF Rent Board",
+      "type": "Official guidance",
+      "url": "https://www.sf.gov/information--banked-rent-increases",
+      "verifies": "Banking mechanics; no limit; does not expire; new owners inherit; does not carry to a new tenant; notice content including which portion is banked; rent increase license cross-reference; CONTAINS the conflicting 24-month statement (Flag F-03)"
+    },
+    {
+      "id": "S-05",
+      "title": "Annual rent increase for multiple years",
+      "publisher": "SF Rent Board",
+      "type": "Official guidance",
+      "url": "https://www.sf.gov/information--annual-rent-increase-multiple-years",
+      "verifies": "Adding up multi-year increases; no compounding; no petition needed; no rounding up; 30/35-day notice; base rent excludes passthroughs but includes parking and storage"
+    },
+    {
+      "id": "S-06",
+      "title": "Current Rates, including Rent Increase, Relocation, Sec. Deposit",
+      "publisher": "SF Rent Board",
+      "type": "Official rate schedule",
+      "url": "https://www.sf.gov/reports--current-rates-including-rent-increase-relocation-sec-deposit",
+      "verifies": "1.6% allowable increase; 4.2% security deposit interest; bankable Rent Board fee rows; capital improvement imputed interest rates; uncompensated labor rates; relocation payment amounts"
+    },
+    {
+      "id": "S-07",
+      "title": "Learn about San Francisco rental laws",
+      "publisher": "SF Rent Board",
+      "type": "Official guidance",
+      "url": "https://www.sf.gov/learn-about-san-francisco-rental-laws",
+      "verifies": "June 13, 1979 coverage cutoff; Property Information Map as the verification tool; just cause overview; categories of units with eviction protection only; list of fully exempt unit types; Rent Board counselor contact"
+    },
+    {
+      "id": "S-08",
+      "title": "Rent Board Rules and Regulations Part IV \u2014 Rent Increases Not Requiring Approval",
+      "publisher": "SF Rent Board",
+      "type": "Official regulation",
+      "url": "https://www.sf.gov/reports--december-2022--rent-board-rules-and-regulations-part-iv-rent-increases-not-requiring",
+      "verifies": "Rules \u00a7 4.10 (notice content; non-conforming increase null and void) and \u00a7 4.12 (banking; 12-month elapse requirement; no compounding; no rounding up; half-percent good-faith readjustment)"
+    },
+    {
+      "id": "S-09",
+      "title": "The Rent Board Housing Inventory",
+      "publisher": "SF Rent Board",
+      "type": "Official guidance",
+      "url": "https://www.sf.gov/rent-board-housing-inventory",
+      "verifies": "Rent increase license requirement; portal.sfrb.org; March 1 annual deadline; 7/1/2022 and 3/1/2023 phase-in; no monetary late penalty; license must be in effect on the effective date; submissions are public and under penalty of perjury; tenant lookup right"
+    },
+    {
+      "id": "S-10",
+      "title": "Rent Board Rules \u00a7 13.14 Licensing \u2014 Notice of Rent Increase",
+      "publisher": "SF Rent Board",
+      "type": "Official regulation",
+      "url": "https://sfrb.org/section-1314-licensing-%E2%80%93-notice-rent-increase",
+      "verifies": "Unlicensed annual or banked increase is null and void; effective date (not service date) controls; banking rights survive a void increase"
+    },
+    {
+      "id": "S-11",
+      "title": "Partial Exemption for Certain Single-Family Homes and Condominiums Under Costa-Hawkins",
+      "publisher": "SF Rent Board (Topic 019)",
+      "type": "Official guidance",
+      "url": "https://www.sf.gov/information--partial-exemption-certain-single-family-homes-and-condominiums-under-costa-hawkins",
+      "verifies": "A two-unit building is NOT exempt; single-family with legal or illegal in-law = two-unit building and not exempt; exemption still leaves just cause and Rent Board fee obligations; unabated-citation carve-out"
+    },
+    {
+      "id": "S-12",
+      "title": "Charging for Additional Occupants Prohibited",
+      "publisher": "SF Rent Board (Topics 152/254)",
+      "type": "Official guidance",
+      "url": "https://www.sf.gov/information--charging-additional-occupants-prohibited",
+      "verifies": "Increasing rent solely because an occupant was added is an unlawful rent increase even if the lease permits it; tenant petition can void it and recover overcharges; the only lawful route is an O&M or utility passthrough petition"
+    },
+    {
+      "id": "S-13",
+      "title": "Rent Increases Under Section 6.14 And Costa-Hawkins",
+      "publisher": "SF Rent Board (Topic 153)",
+      "type": "Official guidance",
+      "url": "https://www.sf.gov/information--rent-increases-under-section-614-and-costa-hawkins",
+      "verifies": "Unlimited increase available only when the LAST ORIGINAL OCCUPANT vacates and a timely written 6.14 notice was served on each subsequent occupant (60 days generally reasonable); co-tenants are never subject to the Costa-Hawkins reset; no petition required but a tenant may petition to challenge"
+    },
+    {
+      "id": "S-14",
+      "title": "Replacement of Roommates",
+      "publisher": "SF Rent Board",
+      "type": "Official guidance",
+      "url": "https://www.sf.gov/information--replacement-roommates",
+      "verifies": "Tenant right to replace roommates; 14-day landlord response window; deemed approval on silence or unreasonable denial; Rules \u00a7\u00a7 6.15A/6.15B/6.15D/6.15E grounds for denial; occupancy caps by bedroom count"
+    },
+    {
+      "id": "S-15",
+      "title": "Algorithmic devices that set rent are prohibited in San Francisco",
+      "publisher": "SF Rent Board (Topic 268)",
+      "type": "Official guidance",
+      "url": "https://www.sf.gov/information--algorithmic-devices-set-rent-are-prohibited-san-francisco",
+      "verifies": "Admin. Code \u00a7 37.10C effective 10/14/2024; definitions of algorithmic device and non-public competitor data; prohibitions on sale and use; per-month and per-unit violations; remedies up to $1,000 per violation plus fees; private right of action for tenants and tenants' rights organisations"
+    },
+    {
+      "id": "S-16",
+      "title": "The California Tenant Protection Act of 2019 (AB 1482)",
+      "publisher": "SF Rent Board",
+      "type": "Official guidance",
+      "url": "https://www.sf.gov/reports--california-tenant-protection-act-2019-ab-1482",
+      "verifies": "8.8% SF cap for 8/1/2026-7/31/2027 and the express statement that it does NOT apply to units under SF Rent Ordinance limitations; full exemption list including the two-unit owner-occupied exemption and the local-ordinance-more-restrictive exemption; Form 525 Report of Excessive Rent Increase"
+    },
+    {
+      "id": "S-17",
+      "title": "Rent Board Forms Center",
+      "publisher": "SF Rent Board",
+      "type": "Official forms index",
+      "url": "https://www.sf.gov/reports--rent-board-forms-forms-center",
+      "verifies": "Tenant petition forms 516A (decrease in housing services), 516B (failure to repair and maintain \u2014 available where a rent increase notice was received within the last 60 days), 516C (unlawful rent increase / rent history review), 516D (passthrough challenge), 517 (subtenant), 518 (tenant summary petition for a pending increase unlawful on its face)"
+    },
+    {
+      "id": "S-18",
+      "title": "Index of Landlord and Tenant Information",
+      "publisher": "SF Rent Board",
+      "type": "Official site index",
+      "url": "https://www.sf.gov/information--index-landlord-and-tenant-information",
+      "verifies": "Authoritative list and numbering of Rent Board information topics used to locate S-03 through S-17"
+    },
+    {
+      "id": "S-19",
+      "title": "Speak with a Rent Board counselor",
+      "publisher": "SF Rent Board",
+      "type": "Official service page",
+      "url": "https://www.sf.gov/speak-rent-board-counselor",
+      "verifies": "Free counseling; 415-252-4600; weekday hours; in-person at 25 Van Ness Ave Suite #700; multilingual support; counselors cannot give legal advice"
+    },
+    {
+      "id": "S-20",
+      "title": "Tenant and Landlord Resources",
+      "publisher": "SF Mayor's Office of Housing and Community Development",
+      "type": "Official city directory",
+      "url": "https://www.sf.gov/tenant-and-landlord-resources",
+      "verifies": "Free tenant legal help and counseling providers: Eviction Defense Collaborative, Bar Association of San Francisco Conflict Intervention Service, Housing Rights Committee, Bill Sorro Housing Program, Chinatown CDC, Mission Action, SOMCAN, Bayview-Hunters Point Tenants' Rights Clinic, Bay Area Legal Aid Consumer Rights Clinic; landlord-side resources: San Francisco Apartment Association, Rent Board"
+    },
+    {
+      "id": "S-21",
+      "title": "California Civil Code \u00a7 827",
+      "publisher": "California Legislative Information",
+      "type": "Primary statute",
+      "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=CIV&sectionNum=827",
+      "verifies": "30-day notice at 10% or less; 90-day notice above 10%; measurement against the lowest rent charged in the prior 12 months including combined increases; personal delivery or mail service under CCP \u00a7 1013"
+    },
+    {
+      "id": "S-22",
+      "title": "California Civil Code \u00a7 1947.12 (AB 1482 rent cap)",
+      "publisher": "California Legislative Information",
+      "type": "Primary statute",
+      "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=CIV&sectionNum=1947.12",
+      "verifies": "5% + cost of living or 10% whichever is lower; two increments per 12 months; new-tenancy initial rent unrestricted; the \u00a7 1947.12(d)(3) local-rent-control exemption; the \u00a7 1947.12(d)(5) single-family/condo exemption and its REIT/corporation/LLC-with-corporate-member disqualification and written-notice condition"
+    },
+    {
+      "id": "S-23",
+      "title": "California Civil Code \u00a7 1942.5 (retaliation)",
+      "publisher": "California Legislative Information",
+      "type": "Primary statute",
+      "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=CIV&sectionNum=1942.5",
+      "verifies": "180-day bar on increasing rent or decreasing services after specified tenant complaints; separate bar for retaliation against tenant organising; immigration-authority threats as prohibited retaliation; waiver void"
+    },
+    {
+      "id": "S-24",
+      "title": "Housing Discrimination Under the Fair Housing Act",
+      "publisher": "U.S. Department of Housing and Urban Development",
+      "type": "Federal agency",
+      "url": "https://www.hud.gov/helping-americans/fair-housing-act-overview",
+      "verifies": "The seven federal protected classes; scope covering nearly all housing including private housing; current FHEO enforcement prioritisation guidance and withdrawn guidance documents"
+    },
+    {
+      "id": "S-25",
+      "title": "Fair Housing Act Enforcement and Prioritization of Resources",
+      "publisher": "HUD FHEO",
+      "type": "Federal guidance PDF",
+      "url": "https://www.hud.gov/sites/dfiles/Main/documents/Fair-Housing-Act-Enforcement-Prioritization-Resources.pdf",
+      "verifies": "HUD's stated prioritisation of cases with strong evidence of intentional discrimination"
+    },
+    {
+      "id": "S-26",
+      "title": "Housing Discrimination (FEHA)",
+      "publisher": "California Civil Rights Department",
+      "type": "State agency",
+      "url": "https://calcivilrights.ca.gov/housing/",
+      "verifies": "FEHA applies to landlords and all aspects of housing; full list of California protected characteristics including source of income, immigration status, primary language, familial status, marital status, age, military/veteran status, genetic information; protection against discrimination based on the characteristic of a family member, friend, ROOMMATE or other associate; retaliation prohibited; Section 8 voucher refusal unlawful"
+    },
+    {
+      "id": "S-27",
+      "title": "File a housing discrimination complaint",
+      "publisher": "HUD",
+      "type": "Federal agency",
+      "url": "https://www.hud.gov/reporthousingdiscrimination",
+      "verifies": "Federal complaint intake route a tenant can use"
+    },
+    {
+      "id": "S-28",
+      "title": "HUD Fair Market Rents (40th Percentile Rents)",
+      "publisher": "HUD Office of Policy Development and Research",
+      "type": "Federal dataset",
+      "url": "https://www.huduser.gov/portal/datasets/fmr.html",
+      "verifies": "Definition and statutory basis of FMRs (42 U.S.C. \u00a7 1437f; 24 CFR 888.113); FY effective date of October 1. NO area value retrieved \u2014 see Flag F-01"
+    },
+    {
+      "id": "S-29",
+      "title": "ACS 2020-2024 5-Year B25064 Median Gross Rent, ZCTA 94122",
+      "publisher": "U.S. Census Bureau",
+      "type": "Federal statistical API",
+      "url": "https://data.census.gov/api/access/data/table?id=ACSDT5Y2024.B25064&g=860XX00US94122",
+      "verifies": "Median gross rent $2,816 (\u00b1$153)"
+    },
+    {
+      "id": "S-30",
+      "title": "ACS 2020-2024 5-Year B25064 Median Gross Rent, San Francisco County",
+      "publisher": "U.S. Census Bureau",
+      "type": "Federal statistical API",
+      "url": "https://data.census.gov/api/access/data/table?id=ACSDT5Y2024.B25064&g=050XX00US06075",
+      "verifies": "Median gross rent $2,476 (\u00b1$30)"
+    },
+    {
+      "id": "S-31",
+      "title": "ACS 2020-2024 5-Year B25063 Gross Rent, ZCTA 94122",
+      "publisher": "U.S. Census Bureau",
+      "type": "Federal statistical API",
+      "url": "https://data.census.gov/api/access/data/table?id=ACSDT5Y2024.B25063&g=860XX00US94122",
+      "verifies": "Full gross-rent distribution; brackets sum exactly to the 10,864 with-cash-rent total"
+    },
+    {
+      "id": "S-32",
+      "title": "ACS 2020-2024 5-Year B25070 Gross Rent as a Percentage of Household Income, ZCTA 94122",
+      "publisher": "U.S. Census Bureau",
+      "type": "Federal statistical API",
+      "url": "https://data.census.gov/api/access/data/table?id=ACSDT5Y2024.B25070&g=860XX00US94122",
+      "verifies": "Rent-burden distribution; 42.1% cost-burdened at 30%+, 20.8% severely burdened at 50%+"
+    },
+    {
+      "id": "S-33",
+      "title": "ACS 2020-2024 5-Year B25034 Year Structure Built, ZCTA 94122",
+      "publisher": "U.S. Census Bureau",
+      "type": "Federal statistical API",
+      "url": "https://data.census.gov/api/access/data/table?id=ACSDT5Y2024.B25034&g=860XX00US94122",
+      "verifies": "93.7% of 94122 housing units were built before June 13, 1979; 18.3% built 1940-1949; 45.9% built 1939 or earlier"
+    },
+    {
+      "id": "S-34",
+      "title": "ACS 2020-2024 5-Year B19013 Median Household Income, ZCTA 94122",
+      "publisher": "U.S. Census Bureau",
+      "type": "Federal statistical API",
+      "url": "https://data.census.gov/api/access/data/table?id=ACSDT5Y2024.B19013&g=860XX00US94122",
+      "verifies": "Median household income $146,250 (\u00b1$12,113)"
+    },
+    {
+      "id": "S-35",
+      "title": "Census variable definitions (B25063_022E/023E/025E/026E, B25034_002E/010E/011E)",
+      "publisher": "U.S. Census Bureau",
+      "type": "Federal metadata API",
+      "url": "https://api.census.gov/data/2024/acs/acs5/variables/B25063_026E.json",
+      "verifies": "The official label behind every bracket and era bucket published on this site \u2014 each was fetched individually rather than assumed"
+    },
+    {
+      "id": "S-36",
+      "title": "Ordinance No. 265-20 (Housing Inventory and rent increase license)",
+      "publisher": "San Francisco Board of Supervisors",
+      "type": "Official legislation PDF",
+      "url": "https://sfbos.org/sites/default/files/o0265-20.pdf",
+      "verifies": "Codified text amending \u00a7 37.3 and adding \u00a7 37.15; the license mechanism and its suspension on non-compliance"
+    },
+    {
+      "id": "S-37",
+      "title": "Ordinance Chapter 37 as amended 11/24/2024",
+      "publisher": "City & County of San Francisco",
+      "type": "Official codified PDF",
+      "url": "https://www.sf.gov/sites/default/files/2024-12/600%20Ordinance%2011-24-24.pdf",
+      "verifies": "\u00a7 37.3(a)(1) 60%-of-CPI formula and 7% ceiling; \u00a7 37.3(a)(2) Banking text; \u00a7 37.3(b) notice content"
+    },
+    {
+      "id": "S-38",
+      "title": "Operating & Maintenance Petition, Form 530 Schedule B",
+      "publisher": "SF Rent Board",
+      "type": "Official form PDF",
+      "url": "https://www.sf.gov/file/530-om-petition-fillable-324pdf",
+      "verifies": "O&M increase capped at 7% of base rent per petition; 7% five-year aggregate limit for properties with six or more residential units; Civ. Code \u00a7 827 notice tiers; \u00a7 37.15 license reminder"
+    },
+    {
+      "id": "S-39",
+      "title": "San Francisco Property Information Map",
+      "publisher": "SF Planning",
+      "type": "Official lookup tool",
+      "url": "https://sfplanninggis.org/PIM/",
+      "verifies": "The tool SF.gov directs owners and tenants to use to establish a building's construction date and certificate of occupancy \u2014 required to close Flag F-04"
+    },
+    {
+      "id": "S-40",
+      "title": "Report of Excessive Rent Increase Under the Tenant Protection Act (Form 525)",
+      "publisher": "SF Rent Board",
+      "type": "Official form PDF",
+      "url": "https://www.sf.gov/documents/18505/525_Report_of_Excessive_Rent_Increase_Under_the_TPA_10.25.pdf",
+      "verifies": "The form a tenant files if they believe AB 1482 was violated; the Rent Board acknowledges receipt and informs the landlord of the applicable law but cannot enforce state law or hold AB 1482 hearings"
+    }
+  ]
+}
