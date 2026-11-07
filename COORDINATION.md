@@ -2,14 +2,21 @@
 
 **Repo:** `kanlerxz87-cyber/RentincreaseSF2`  
 **Live site:** https://kanlerxz87-cyber.github.io/RentincreaseSF2/  
-**Last updated:** 2026-11-06
+**Last updated:** 2026-11-07
 
 ## Sessions
 
 | Session ID | Role | Status |
 |---|---|---|
 | `arena/3eac9d0e-rentincreasesf2` | Original build session | Completed tasks 1–8; merged PR #1; site deployed. Work preserved. |
-| `session-arena-81e8c938` (this session) | Review, remediation, verification, and final integration | In progress. Reviewing the live site line by line, correcting legal accuracy, adding missing required pages, and re-verifying all sources. |
+| `session-arena-81e8c938` | Review, remediation, verification, and final integration | Completed tasks 9–11; merged PR #2; live site re-verified. |
+| `arena/2b3012a0-rentincreasesf2` (this session) | Rent Board license/process answer, executive-summary restructure, Q&A page, full line-by-line re-verification, new pages, PR/merge/deploy | In progress. |
+
+## Coordination notes for this session
+
+- **Branch:** This session works on the platform-assigned branch `arena/2b3012a0-rentincreasesf2`. The platform ties the session to that branch, so the `session-<id>/<task>` branch naming in the standing instructions is not used. All edits are still scoped to the claimed files below and committed/pushed only to `arena/2b3012a0-rentincreasesf2`.
+- **No conflicting work detected.** No other session has claimed a task since 2026-11-06. The working tree was clean at session start.
+- **Approach:** This session does not rewrite the existing site. It (a) adds the two pages the user's brief requires but that were missing, (b) restructures the executive summary so the Rent Board license question is answered first, (c) re-verifies every existing page line by line against official sources and corrects anything that does not match, and (d) leaves every other session's work intact.
 
 ## Coordination note / handoff
 
@@ -38,6 +45,10 @@ This session is editing the existing files rather than creating a duplicate site
 | 9 | Review and remediation of live site | done | session-arena-81e8c938 | all site files | Corrected legal accuracy, added missing required pages, replaced non-official source labels, and added unit-specific banked analysis. |
 | 10 | Add GitHub Actions validation workflow and validation script | done | session-arena-81e8c938 | `.github/workflows/validate.yml`, `scripts/validate_site.py` | Validation checks internal links, external allowlist, table source links, and personal identifiers. GitHub Pages remains on the repository's existing legacy build from `main`; the workflow is a check, not a second deploy path. |
 | 11 | Final verification, PR, and merge | done | session-arena-81e8c938 | all files | PR #2 merged; Pages build succeeded; live site re-verified. |
+| 12 | Answer the Rent Board license question step by step and put it at the front of the executive summary | in progress | arena/2b3012a0-rentincreasesf2 | `rent-board-process.html` (new), `executive-summary.html`, `index.html`, `README.md` | New page + restructured exec summary. Individual owners are **not** exempt: SF Rent Ordinance §37.15(e) and the Rent Board Housing Inventory page make reporting and the rent increase license prerequisites for annual/banked increases on covered units. |
+| 13 | Add a Questions & Answers page mapping every question in the brief to a verified answer | in progress | arena/2b3012a0-rentincreasesf2 | `questions.html` (new) | One row per question; every row links to an official source. |
+| 14 | Line-by-line re-verification of all existing pages against official sources | in progress | arena/2b3012a0-rentincreasesf2 | `laws.html`, `units.html`, `analysis.html`, `process.html`, `practices.html`, `tenant-protections.html`, `flagged.html`, `sources.html` | Corrections logged in "This session's verification log" below. |
+| 15 | Update validator for new pages and new allowlisted URLs; validate; open PR; merge; confirm Pages deploy | unclaimed | arena/2b3012a0-rentincreasesf2 | `scripts/validate_site.py`, `COORDINATION.md` | Runs after tasks 12–14. |
 
 ## PR and deployment record
 
