@@ -2,7 +2,7 @@
 
 **Repo:** `kanlerxz87-cyber/RentincreaseSF2`  
 **Live site:** https://kanlerxz87-cyber.github.io/RentincreaseSF2/  
-**Last updated:** 2026-11-06
+**Last updated:** 2026-11-07
 
 ## Sessions
 
@@ -38,6 +38,7 @@ This session is editing the existing files rather than creating a duplicate site
 | 9 | Review and remediation of live site | done | session-arena-81e8c938 | all site files | Corrected legal accuracy, added missing required pages, replaced non-official source labels, and added unit-specific banked analysis. |
 | 10 | Add GitHub Actions validation workflow and validation script | done | session-arena-81e8c938 | `.github/workflows/validate.yml`, `scripts/validate_site.py` | Validation checks internal links, external allowlist, table source links, and personal identifiers. GitHub Pages remains on the repository's existing legacy build from `main`; the workflow is a check, not a second deploy path. |
 | 11 | Final verification, PR, and merge | done | session-arena-81e8c938 | all files | PR #2 merged; Pages build succeeded; live site re-verified. |
+| 12 | Clarify individual-owner Housing Inventory/license and Rent Board notice timing | done | arena/795a54b7-rentincreasesf2 | index.html, executive-summary.html, process.html, practices.html, COORDINATION.md | Directly rechecked SF Rent Board Housing Inventory, rent increase, noncompliance, and counselor pages on 2026-11-07. All owners report; tenant-occupied units receive a license; current license is needed before effective date; license need not accompany tenant notice. Official guidance describes tenant notice and annual Housing Inventory, not a separate Rent Board filing for each increase. Safe sequencing advice is labeled as prudence, not a legal timing requirement. |
 
 ## PR and deployment record
 
@@ -92,6 +93,24 @@ The Flagged for Review page lists the items that cannot be confirmed from offici
 - have a tenant lawyer review the final notice and documentation.
 
 No further code changes are required for the site to be live. The remaining items are factual/legal confirmations that require records not available in the repository.
+
+## Follow-up verification log (2026-11-07)
+
+### Official sources rechecked directly for the license/notice clarification
+
+- SF Rent Board, Housing Inventory — all residential property owners report; tenant-occupied units receive a Rent Increase License; current license must be on file before annual/banked increase takes effect; license need not be included with tenant notice; Housing Inventory data/public-reporting details — https://www.sf.gov/rent-board-housing-inventory
+- SF Rent Board, Learn about rent increases — current 1.6% rate for 2026-27, annual allowable increase license requirement, written notice to tenant, notice periods/content — https://www.sf.gov/learn-about-rent-increases-san-francisco
+- SF Rent Board, Notice of Owner Noncompliance — annual reporting applies to owners; license requirement applies to rent-controlled annual/banked increases; consequence for increase effective while unlicensed — https://www.sf.gov/notice-of-owner-noncompliance-with-housing-inventory
+- SF Rent Board, Banked rent increases — license/effective-date requirement and tenant notice content — https://www.sf.gov/information--banked-rent-increases
+- SF Rent Board, Speak with a Rent Board counselor — free counseling, not legal advice — https://www.sf.gov/speak-rent-board-counselor
+
+The official sources do not expressly require a license to be active before the notice is served; they require it before the increase takes effect. Accordingly, the site states the formal effective-date requirement and separately labels checking the license before service as prudent sequencing. The sources describe written notice to tenants and Housing Inventory reporting but do not instruct an owner to separately file each individual increase notice with the Board. This is a statement about the cited official process, not an assertion that no other filing could ever apply to a different petition/passthrough situation.
+
+### Validation performed
+
+- `python3 scripts/validate_site.py` passes: all 10 pages, official links, per-table-row source links, privacy scan, and internal links.
+- `git diff --check` passes.
+- Changed only `index.html`, `executive-summary.html`, `process.html`, `practices.html`, and this coordination log.
 
 ## Original verification log (preserved from session arena/3eac9d0e-rentincreasesf2)
 
