@@ -11,6 +11,8 @@
 | `arena/3eac9d0e-rentincreasesf2` | Original build session | Completed tasks 1–8; merged PR #1; site deployed. Work preserved. |
 | `session-arena-81e8c938` (this session) | Review, remediation, verification, and final integration | In progress. Reviewing the live site line by line, correcting legal accuracy, adding missing required pages, and re-verifying all sources. |
 | `arena/fa7d2d77-rentincreasesf2` | Final integration: took over stale PR #5, ported its verified findings, re-verified line by line, extended the live site to 12 pages, merged PR #8 and confirmed deployment | **DONE** — completed 2026-11-07. |
+| `arena/2b3012a0-rentincreasesf2` | Rent Board license answer, Q&A page, line-by-line re-verification | In progress on its own branch. **Claimed tasks 13–15 there — those numbers collide with rows 13–18 below; see A-07.** Branched from `62f6f59`, which predates PRs #6–#10, so it must rebase before opening a PR. |
+| `arena/bf462feb-rentincreasesf2` (this session) | Independent primary-source audit of the integrated site; resolution of flag F-16; new verification page | In progress — owns tasks 19–23. New files only: `AUDIT.md`, `banking-rule.html`. No file claimed by another session was edited. |
 
 ## Coordination note / handoff
 
@@ -46,6 +48,11 @@ This session is editing the existing files rather than creating a duplicate site
 | 16 | Reconcile unit calculations to an explicit effective-date scenario table (today = 2026-11-07) | done | arena/fa7d2d77-rentincreasesf2 | analysis.html, units.html, index.html, executive-summary.html | Supersedes ambiguous single-number maxima. analysis.html rewritten as an effective-date scenario table; all figures re-derived by script. |
 | 17 | Integration: shared nav, sources register, flags, validator allowlist | done | arena/fa7d2d77-rentincreasesf2 | all *.html nav blocks, sources.html, flagged.html, scripts/validate_site.py, style.css, README.md | Integration-session prerogative; tasks 1–12 are all `done`. 12 pages, 46 official URLs, per-row sources, column integrity and privacy sweep all pass. |
 | 18 | Final verification, PR to main, merge, confirm Pages deploy | done | arena/fa7d2d77-rentincreasesf2 | COORDINATION.md | Pending tasks 13–17. PR #8 merged; Pages built on the merge commit; live site verified. |
+| 19 | Independent primary-source audit of the integrated 12-page site: re-derive every published figure without reusing the site's arithmetic, recompute every notice deadline, scan for personal identifiers | done | arena/bf462feb-rentincreasesf2 | `AUDIT.md` (new) | **No published figure is wrong and no value was invented.** 13 figure classes re-derived and confirmed; 7 service deadlines recomputed and confirmed. Primary texts read directly: Rules Part IV §4.10/§4.12, Rent Ordinance §37.3, §37.10C, Rules §13.14, Form 571, Form 538, Current Rates, all four sf.gov worked examples, Banked increases, Irregular periods, Multiple years, Housing Inventory, AB 1482, Tenant Petitions, Civ. Code §827. Ten irregularities logged as A-01…A-10. |
+| 20 | Resolve flag F-16 (the 12-vs-24-month banking interval conflict) on the evidence rather than leaving it open | done | arena/bf462feb-rentincreasesf2 | `banking-rule.html` (new) | Three candidate readings tested against **both** official Rent Board worked examples. Only Rules §4.12(a)'s per-allowance 12-month test reproduces both (6.7% and 3.3%). Global-24 gives 4.7% against an official 3.3%; per-allowance-24 gives 5.0% against an official 6.7%. The resolution **confirms** the site's published 11.5% / 13.1% / 1.6% / 3.0% figures. |
+| 21 | Publish the closing service window as a deadline counted back from today (irregularity A-02) | done | arena/bf462feb-rentincreasesf2 | `banking-rule.html`, `AUDIT.md` | Unit 2's 13.1% needs an effective date on or before 2027-02-28 because Form 571 ends there and the 2027-28 percentage is unpublished; with a 90-day notice the last service date is **2026-11-30** personal / **2026-11-25** mailed. The mailed route to the earliest date closed 2026-11-02. Unit 1 is not urgent: serve by 2027-01-02 for 2027-02-01. |
+| 22 | Log change requests for corrections that belong in files owned by other sessions, instead of editing them | done | arena/bf462feb-rentincreasesf2 | `AUDIT.md` section 6 | CR-01…CR-08. No page in `PAGES`, no script, and no nav block was modified by this session. |
+| 23 | Validate, open PR to `main`, merge, confirm GitHub Pages deploy | in progress | arena/bf462feb-rentincreasesf2 | `COORDINATION.md` | Runs after tasks 19–22. Result recorded in *PR and deployment record* below. |
 
 ## PR and deployment record
 
@@ -420,3 +427,102 @@ Actions taken:
 commits still contain the initials in history. Rewriting history is destructive and would discard
 other sessions' commits, so it was not performed. The owner's options — make the repo private, rewrite
 history, or accept the exposure — are set out on the Flagged for Review page.
+
+## Session `arena/bf462feb-rentincreasesf2` — independent audit (2026-11-07)
+
+This session arrived after PR #10 merged and audited the integrated site as an outside reviewer.
+It wrote no part of the material it audits. Its deliverables are two new files and this record.
+
+### Position and scope discipline
+
+- **Branch:** platform-assigned `arena/bf462feb-rentincreasesf2`; the standing `session-<id>/<task>`
+  naming is not available because the platform ties a session to one branch.
+- **Rebased onto `origin/main` at `0f32ab2`** before starting, so the audit reads the integrated
+  12-page site rather than a superseded revision.
+- **Two sessions were still active** during this audit (`arena/fa7d2d77-rentincreasesf2`, last
+  commit 21:06Z; `arena/2b3012a0-rentincreasesf2`, last commit 20:58Z), so all twelve HTML pages,
+  `scripts/validate_site.py` and `scripts/sync_nav.py` were treated as owned and were **not**
+  edited. Corrections belonging in those files are logged as change requests CR-01…CR-08 in
+  `AUDIT.md` section 6 instead.
+- **One page was dropped as duplicative.** A drafted `compliance-checklist.html` was deleted before
+  publication when the audit found that `checklist.html` already covers every item in it. Shipping
+  a near-duplicate would have created two checklists to keep in sync.
+- **An error in this session's own draft was caught and corrected before publication.** It asserted
+  14.7% for Unit 2 on 2027-06-01 by treating the 2026-27 rate as in effect on that date. It is not:
+  2027-06-01 falls in the 2027-28 period, which is unpublished. The main site was already correct
+  to leave that cell blank. Recorded in `AUDIT.md` section 3.
+
+### Result
+
+**No published figure is wrong and no value was invented.** Thirteen classes of figure were
+re-derived from primary sources without reusing the site's arithmetic, and seven notice deadlines
+were recomputed by script from a base date of 2026-11-07. All confirmed. The repository's own
+`scripts/verify_calculations.py` was also run and passes 39 assertions.
+
+Ten irregularities are logged as **A-01…A-10** in `AUDIT.md` section 4. Three are high:
+
+- **A-02** — Unit 2's 13.1% requires an effective date on or before 2027-02-28, because Form 571
+  ends there and the 2027-28 percentage is unpublished. With a 90-day notice the last service date
+  is **2026-11-30** by personal delivery and **2026-11-25** by mail. The mailed route to the
+  earliest reachable date (2027-02-05) closed on 2026-11-02. The site records the window's outer
+  limit as a fact but not as a closing deadline, and banked amounts may only be given at the time of
+  an annual increase, so the window cannot be reopened at will.
+- **A-07** — task numbers 13–15 exist twice with different owners and meanings
+  (`arena/2b3012a0-rentincreasesf2` on its branch, `arena/fa7d2d77-rentincreasesf2` on `main`).
+  `arena/2b3012a0-rentincreasesf2` also branched from `62f6f59`, which predates PRs #6–#10, and its
+  in-progress work rewrites `executive-summary.html`; merging it as-is would revert the license
+  clarification and the privacy redaction. It must rebase onto current `main` first.
+- **A-08** — any Markdown at the repository root is publicly served by GitHub Pages, because Pages
+  publishes `/` of `main` with `.nojekyll`. Confirmed empirically during this audit: the
+  `COORDINATION.md` Pages URL returned raw file content. That is the mechanism by which tenant
+  initials were exposed before PR #10 remediated them. The standing rule is now written down here so
+  a future session does not repeat it with `AUDIT.md` or any other root Markdown file.
+
+**Flag F-16 is resolvable and has been resolved.** Two official Rent Board sources state different
+banking intervals — Rules §4.12(a) says a full 12 months from when an allowance could have been
+imposed; the *Banked rent increases* summary page says at least 24 full months without any increase.
+Rather than accept either at face value, all three possible readings were tested against **both**
+published Rent Board worked examples:
+
+| Reading | Example A (official answer 6.7%) | Example B (official answer 3.3%) | Verdict |
+|---|---|---|---|
+| Per-allowance, 12 months — Rules §4.12(a) | 6.7% | 3.3% | **Matches both** |
+| Global, 24 months | 6.7% | 4.7% | Fails B |
+| Per-allowance, 24 months | 5.0% | 1.6% | Fails both |
+
+Only Rules §4.12(a) reproduces both. The resolution **confirms** the figures the site already
+publishes — Unit 1 at 1.6% ($4,058.92) before 2027-02-01 and 3.0% ($4,114.85) on it; Unit 2 at
+11.5% banked plus 1.6% current = 13.1% ($3,562.65). CR-03 asks for F-16 to be closed on this basis.
+
+Two further primary-source points were verified and are new to the repository: Rules §13.14 fixes
+the license test to the **effective date, not the service date**, and expressly preserves banking
+rights even where an increase is found null and void — which materially softens flag F-03. And
+Rent Ordinance §37.3(a)(5) independently makes a nonconforming increase null and void at the
+ordinance level, not only under Rules §4.10(b).
+
+A new discrepancy between two official Rent Board documents was found and logged as **A-06**: the
+license requirement's start dates are given as 1 July 2022 / 1 March 2023 on the Housing Inventory
+and rent-increase pages, but as 1 July 2020 / 1 March 2021 on the Rent Board's own Form 538
+worksheet. Practical impact is nil; both dates are past and a current license is required now either
+way. For a two-unit building the applicable group is "fewer than 10 units" on either version.
+
+### Validation performed
+
+- `python3 scripts/validate_site.py` — PASSED (12 pages, 46 allowlisted URLs, per-row source links,
+  column integrity, privacy sweep over HTML **and** public Markdown).
+- `python3 scripts/verify_calculations.py` — PASSED (39 assertions).
+- Personal-identifier sweep over all `*.html` and `*.md` — **0 hits**.
+- `banking-rule.html` standalone check — tags balanced with no unclosed or stray elements; every
+  table data row carries an official source link; 20 unique external URLs, all on official
+  government or City domains (`sf.gov`, `sfrb.org`, `leginfo.legislature.ca.gov`, `portal.sfrb.org`,
+  `sfplanninggis.org`); 14 internal links, none broken; navigation covers all twelve existing pages;
+  the not-legal-advice footer is present.
+- Every date in `banking-rule.html` section 5 recomputed by script from 2026-11-07.
+
+### Known limitation
+
+`banking-rule.html` is **not** linked from the shared navigation and is **not** in the validator's
+`PAGES` list, because both live in files owned by other sessions. It is reachable by direct URL and
+from `AUDIT.md`. CR-01 gives the exact two-line change to fix this: add the page to `NAV` in
+`scripts/sync_nav.py`, run it, and add the filename to `PAGES`. The page is written to pass the
+validator as-is once listed.
