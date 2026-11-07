@@ -10,6 +10,7 @@
 |---|---|---|
 | `arena/3eac9d0e-rentincreasesf2` | Original build session | Completed tasks 1–8; merged PR #1; site deployed. Work preserved. |
 | `session-arena-81e8c938` (this session) | Review, remediation, verification, and final integration | In progress. Reviewing the live site line by line, correcting legal accuracy, adding missing required pages, and re-verifying all sources. |
+| `arena/fa7d2d77-rentincreasesf2` (this session) | Final integration: take over stale PR #5, port its verified findings, re-verify line by line, extend the live site, PR + merge + deploy | **IN PROGRESS** — claimed 2026-11-07. |
 
 ## Coordination note / handoff
 
@@ -39,6 +40,12 @@ This session is editing the existing files rather than creating a duplicate site
 | 10 | Add GitHub Actions validation workflow and validation script | done | session-arena-81e8c938 | `.github/workflows/validate.yml`, `scripts/validate_site.py` | Validation checks internal links, external allowlist, table source links, and personal identifiers. GitHub Pages remains on the repository's existing legacy build from `main`; the workflow is a check, not a second deploy path. |
 | 11 | Final verification, PR, and merge | done | session-arena-81e8c938 | all files | PR #2 merged; Pages build succeeded; live site re-verified. |
 | 12 | Clarify individual-owner Housing Inventory/license and Rent Board notice timing | done | arena/795a54b7-rentincreasesf2 | index.html, executive-summary.html, process.html, practices.html, COORDINATION.md | Directly rechecked SF Rent Board Housing Inventory, rent increase, noncompliance, and counselor pages on 2026-11-07. All owners report; tenant-occupied units receive a license; current license is needed before effective date; license need not accompany tenant notice. Official guidance describes tenant notice and annual Housing Inventory, not a separate Rent Board filing for each increase. Safe sequencing advice is labeled as prudence, not a legal timing requirement. |
+| 13 | Take over stale PR #5 (idle >30h) and audit it for privacy, accuracy and mergeability | in progress | arena/fa7d2d77-rentincreasesf2 | COORDINATION.md (audit record only; no PR #5 file is edited on its branch) | Handoff logged below. |
+| 14 | Re-verify controlling sources line by line (rates, banking, license, notice, occupancy, retaliation, algorithmic pricing) | in progress | arena/fa7d2d77-rentincreasesf2 | COORDINATION.md verification log | Official sources fetched directly this session. |
+| 15 | Add missing verified content: Unit 1 occupancy change, corporate algorithmic-pricing ban, license null-and-void rule, retaliation screen, action checklist | in progress | arena/fa7d2d77-rentincreasesf2 | NEW: occupancy.html, checklist.html, market.html | New files only — no other session owns them. |
+| 16 | Reconcile unit calculations to an explicit effective-date scenario table (today = 2026-11-07) | in progress | arena/fa7d2d77-rentincreasesf2 | analysis.html, units.html, index.html, executive-summary.html | Supersedes ambiguous single-number maxima. |
+| 17 | Integration: shared nav, sources register, flags, validator allowlist | in progress | arena/fa7d2d77-rentincreasesf2 | all *.html nav blocks, sources.html, flagged.html, scripts/validate_site.py, style.css, README.md | Integration-session prerogative; tasks 1–12 are all `done`. |
+| 18 | Final verification, PR to main, merge, confirm Pages deploy | in progress | arena/fa7d2d77-rentincreasesf2 | COORDINATION.md | Pending tasks 13–17. |
 
 ## PR and deployment record
 
@@ -196,3 +203,57 @@ The official sources do not expressly require a license to be active before the 
 - No official source documents a distinct corporate vs. individual owner practice. Both are subject to the same Rent Ordinance.
 - No evidence of protected-class discrimination was found, but absence of evidence is not proof. Fair housing review is flagged.
 - The site must not be treated as legal advice. The Rent Board counselor page expressly states that it cannot give legal advice.
+
+
+---
+
+## Session `arena/fa7d2d77-rentincreasesf2` — claim and handoff (2026-11-07)
+
+### Claim
+
+This session claims tasks 13–18 above and is acting as the **final integration session**. All
+prior tasks (1–12) are recorded `done`, so no in-progress claim is being displaced. File scope
+is listed per task on the board above.
+
+### Branch-name deviation (platform constraint)
+
+The task protocol asks for branches named `session-<id>/<task>`. This session runs on a
+platform-managed branch, `arena/fa7d2d77-rentincreasesf2`, which is fixed and cannot be renamed
+or switched. All work is committed to that branch and the pull request is opened from it. This
+is the same convention already used by sessions `arena/3eac9d0e`, `arena/81e8c938` and
+`arena/795a54b7`, so the board remains consistent.
+
+### Handoff: PR #5 taken over under the 60-minute stale-claim rule
+
+- **PR:** https://github.com/kanlerxz87-cyber/RentincreaseSF2/pull/5
+- **Owning session:** `arena/48ffb5b4-rentincreasesf2`
+- **Last activity:** 2026-11-06T14:09:21Z — more than 30 hours before this session started, with
+  no commits in that window. The protocol permits any other session to take over a claim that
+  is more than 60 minutes old with no commits. The takeover is recorded here.
+- **Audit performed before takeover:**
+  - **Privacy: PASS.** Swept all 34 files for the six supplied tenant initial pairs and for
+    `JP`. No tenant initials, names, addresses or contact details are published. The branch
+    uses `Tenant A`–`Tenant D` placeholders and preserves dates and dollar amounts.
+  - **Build: PASS.** `python3 build.py` exits 0 in a clean extraction: 15 HTML documents,
+    256 external links, 48 sources, 24 flags, 11 dollar checks and 8 deadline checks, Census
+    reconciliation, PII guard clean.
+  - **Mergeability: FAIL as a direct merge.** `git merge-base HEAD refs/pr/5` is empty and
+    `git merge-tree` reports `refusing to merge unrelated histories`. PR #5 was authored on an
+    orphan history that shares no ancestor with `main`. It also re-adds `index.html`,
+    `README.md`, `COORDINATION.md` and `.nojekyll`, which already exist on `main` with three
+    sessions of accumulated work.
+- **Decision:** do **not** force an unrelated-history merge, because that would risk discarding
+  the work of sessions `arena/3eac9d0e`, `arena/81e8c938` and `arena/795a54b7` and would publish
+  two competing sites at overlapping URLs. Instead this session **ports PR #5's verified
+  findings into the live site**, re-verifying each one against the official source first, and
+  credits the originating session on the Sources page. PR #5's branch and commits are left
+  untouched and preserved.
+- **Findings adopted for re-verification (not accepted on trust):** Rent Ordinance § 37.10C
+  algorithmic pricing ban; Rules § 13.14 licensing / null-and-void; Rules § 6.14 and
+  Costa-Hawkins original-occupant limit; § 37.3 additional-occupant prohibition;
+  Civ. Code § 1942.5 retaliation screen; Civ. Code § 1947.12 AB 1482 non-application.
+- **Findings corrected on re-verification:** PR #5 states Unit 2's full 13.1% is first
+  available on 2027-06-01 and that "nothing can lawfully be done today". Re-verification
+  against the Rent Board's own off-anniversary worked examples shows the 13.1% is available
+  on an earlier effective date, and that a notice can be served now. See the verification log
+  below. PR #5's Flag F-03 (12 vs 24 months) is also resolved rather than left as a conflict.
