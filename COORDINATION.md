@@ -10,7 +10,7 @@
 |---|---|---|
 | `arena/3eac9d0e-rentincreasesf2` | Original build session | Completed tasks 1–8; merged PR #1; site deployed. Work preserved. |
 | `session-arena-81e8c938` (this session) | Review, remediation, verification, and final integration | In progress. Reviewing the live site line by line, correcting legal accuracy, adding missing required pages, and re-verifying all sources. |
-| `arena/fa7d2d77-rentincreasesf2` (this session) | Final integration: take over stale PR #5, port its verified findings, re-verify line by line, extend the live site, PR + merge + deploy | **IN PROGRESS** — claimed 2026-11-07. |
+| `arena/fa7d2d77-rentincreasesf2` | Final integration: took over stale PR #5, ported its verified findings, re-verified line by line, extended the live site to 12 pages, merged PR #8 and confirmed deployment | **DONE** — completed 2026-11-07. |
 
 ## Coordination note / handoff
 
@@ -45,7 +45,7 @@ This session is editing the existing files rather than creating a duplicate site
 | 15 | Add missing verified content: Unit 1 occupancy change, corporate algorithmic-pricing ban, license null-and-void rule, retaliation screen, action checklist | done | arena/fa7d2d77-rentincreasesf2 | NEW: occupancy.html, checklist.html, market.html | New files only — no other session owns them. occupancy.html and checklist.html added. market.html dropped from scope: no official source defines a market benchmark for covered units, so a market page would add unsourced inference. |
 | 16 | Reconcile unit calculations to an explicit effective-date scenario table (today = 2026-11-07) | done | arena/fa7d2d77-rentincreasesf2 | analysis.html, units.html, index.html, executive-summary.html | Supersedes ambiguous single-number maxima. analysis.html rewritten as an effective-date scenario table; all figures re-derived by script. |
 | 17 | Integration: shared nav, sources register, flags, validator allowlist | done | arena/fa7d2d77-rentincreasesf2 | all *.html nav blocks, sources.html, flagged.html, scripts/validate_site.py, style.css, README.md | Integration-session prerogative; tasks 1–12 are all `done`. 12 pages, 46 official URLs, per-row sources, column integrity and privacy sweep all pass. |
-| 18 | Final verification, PR to main, merge, confirm Pages deploy | in progress | arena/fa7d2d77-rentincreasesf2 | COORDINATION.md | Pending tasks 13–17. |
+| 18 | Final verification, PR to main, merge, confirm Pages deploy | done | arena/fa7d2d77-rentincreasesf2 | COORDINATION.md | Pending tasks 13–17. PR #8 merged; Pages built on the merge commit; live site verified. |
 
 ## PR and deployment record
 
@@ -353,3 +353,46 @@ limitations the lawful amount is fixed by formula, and no official source publis
 that would govern these units. Adding one would have required inference, which the verification
 standard forbids. The "reasonable and normal" question is answered on `analysis.html` and
 `executive-summary.html` from the ordinance, the AB 1482 page and the fair-housing sources instead.
+
+
+---
+
+## PR #8 — final integration, merge and deployment record
+
+- **PR:** https://github.com/kanlerxz87-cyber/RentincreaseSF2/pull/8
+- **Title:** Final integration: verified SF rent-increase review, licence process first, 12-page site
+- **Branch:** `arena/fa7d2d77-rentincreasesf2` → `main`
+- **Merge result:** **MERGED** at 2026-11-07T21:02:32Z
+- **Merge commit:** `9a306b1842e68322737883cafa69e6d03ba4157b`
+- **Merge method:** merge commit
+- **PR check:** `Validate site` passed (run 42413886322) — nav sync, site validation and calculation
+  re-derivation all green before merge.
+- **Post-merge check:** `Validate site` on `main` passed (run 42413929437).
+- **GitHub Pages:** `pages build and deployment` run 42413928882 completed; Pages API status **built**;
+  latest build commit `9a306b1842e68322737883cafa69e6d03ba4157b`, which matches `main` HEAD exactly.
+- **Live site:** https://kanlerxz87-cyber.github.io/RentincreaseSF2/
+- **Live verification:** the newly added `occupancy.html` was fetched from the public URL after
+  deployment and renders the ported Rules § 6.14 analysis, the additional-occupant prohibition and
+  the 220-day / 60-day notice-window table. All 12 pages and `style.css` are present on `main` at the
+  deployed commit, and all returned HTTP 200 from the local static server before merge.
+
+### Pages on the live site (12)
+
+`index.html`, `executive-summary.html`, `units.html`, `analysis.html`, `occupancy.html`, `laws.html`,
+`process.html`, `tenant-protections.html`, `practices.html`, `checklist.html`, `flagged.html`,
+`sources.html`.
+
+### PR #5 disposition
+
+- **Closed** with a full explanatory comment: https://github.com/kanlerxz87-cyber/RentincreaseSF2/pull/5
+- Reason: unrelated git history made a direct merge unsafe, not any defect in the work. Privacy and
+  build audits both passed. Its verified findings were re-checked against primary sources and
+  re-implemented in PR #8; three conclusions were corrected. The branch and its six commits are
+  preserved untouched, and the originating session is credited on the Sources page.
+- No file on the PR #5 branch was edited by this session.
+
+### Handoff complete
+
+Tasks 13–18 are all `done`. No claim is left in progress by this session, and no other session's
+work was discarded. The eight new flagged items (F-15 … F-22) are published on the Flagged for Review
+page with source links and do not block anything.
