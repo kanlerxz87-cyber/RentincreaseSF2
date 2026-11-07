@@ -1,0 +1,195 @@
+#!/usr/bin/env python3
+"""Re-derive every published dollar amount and notice deadline from official inputs.
+
+Nothing on the site is typed by hand that could be computed instead. This script
+recomputes the figures from the Rent Board's published percentages and the
+statutory notice periods, then asserts that each computed string actually appears
+in the published HTML. It fails loudly if the site and the arithmetic drift apart.
+
+Official inputs:
+  * Allowable annual percentages - SF Rent Board Info Sheet 571 (26-27)
+    https://www.sf.gov/documents/34344/571_Allowable_Annual_Increases_26-27_1.pdf
+  * Banking mechanics - https://www.sf.gov/information--banked-rent-increases
+    and Rules 4.12 (12 full months from when the increase could have been imposed)
+  * Notice periods - Civil Code 827(b)(2) and (b)(3)(A); +5 days if mailed per
+    https://www.sf.gov/learn-about-rent-increases-san-francisco
+
+Run:  python3 scripts/verify_calculations.py
+"""
+
+from __future__ import annotations
+
+import os
+import sys
+from datetime import date, timedelta
+from decimal import Decimal, ROUND_DOWN
+
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+REVIEW_DATE = date(2026, 11, 7)
+
+# SF Rent Board Info Sheet 571: percentage in effect on each 1 June / 1 February.
+RATE_571 = {
+    "2019-03-01": Decimal("2.6"),
+    "2020-03-01": Decimal("1.8"),
+    "2021-03-01": Decimal("0.7"),
+    "2022-03-01": Decimal("2.3"),
+    "2023-03-01": Decimal("3.6"),
+    "2024-03-01": Decimal("1.7"),
+    "2025-03-01": Decimal("1.4"),
+    "2026-03-01": Decimal("1.6"),
+}
+
+UNIT1_BASE = Decimal("3995.00")
+UNIT2_BASE = Decimal("3150.00")
+
+errors: list[str] = []
+checks = 0
+
+
+def money(value: Decimal) -> Decimal:
+    """Rent Board rule: increases are not rounded up."""
+    return value.quantize(Decimal("0.01"), rounding=ROUND_DOWN)
+
+
+def usd(value: Decimal) -> str:
+    return f"${value:,.2f}"
+
+
+def rate_on(day: date) -> Decimal:
+    """The percentage in effect on a given date, per the 571 table."""
+    applicable = [d for d in RATE_571 if date.fromisoformat(d) <= day]
+    if not applicable:
+        raise ValueError(f"no published rate for {day}")
+    return RATE_571[max(applicable)]
+
+
+def banks_on(available: date) -> date:
+    """Rules 4.12: a full 12 months must elapse from when it could be imposed."""
+    return date(available.year + 1, available.month, available.day)
+
+
+def expect_in_pages(label: str, needle: str, pages: list[str]) -> None:
+    global checks
+    checks += 1
+    for page in pages:
+        with open(os.path.join(ROOT, page), "r", encoding="utf-8") as handle:
+            body = handle.read()
+        if needle not in body:
+            errors.append(f"{label}: computed value {needle!r} not found in {page}")
+
+
+def expect(label: str, actual, expected) -> None:
+    global checks
+    checks += 1
+    if actual != expected:
+        errors.append(f"{label}: computed {actual!r}, site declares {expected!r}")
+
+
+def main() -> int:
+    # ---------------- Unit 1 ----------------
+    # Tenancy 2025-02-01, never increased. First allowance available 2026-02-01.
+    u1_available = date(2026, 2, 1)
+    u1_skipped = rate_on(u1_available)                       # 1.4%
+    expect("Unit 1 skipped allowance", u1_skipped, Decimal("1.4"))
+    expect("Unit 1 banks on", banks_on(u1_available), date(2027, 2, 1))
+
+    u1_anniversary = date(2027, 2, 1)
+    u1_current = rate_on(u1_anniversary)                     # 1.6%
+    u1_total = u1_skipped + u1_current                       # 3.0%
+    expect("Unit 1 total percent", u1_total, Decimal("3.0"))
+
+    u1_inc = money(UNIT1_BASE * u1_total / 100)
+    u1_new = UNIT1_BASE + u1_inc
+    expect("Unit 1 increase", u1_inc, Decimal("119.85"))
+    expect("Unit 1 new rent", u1_new, Decimal("4114.85"))
+
+    # Early scenario: only the current allowance, the skipped 1.4% is lost.
+    u1_early_inc = money(UNIT1_BASE * u1_current / 100)
+    expect("Unit 1 early increase", u1_early_inc, Decimal("63.92"))
+    expect("Unit 1 early new rent", UNIT1_BASE + u1_early_inc, Decimal("4058.92"))
+
+    # 3.0% <= 10% -> 30 days, +5 if mailed.
+    u1_serve = u1_anniversary - timedelta(days=30)
+    u1_serve_mail = u1_anniversary - timedelta(days=35)
+    expect("Unit 1 serve by", u1_serve, date(2027, 1, 2))
+    expect("Unit 1 serve by mail", u1_serve_mail, date(2026, 12, 28))
+
+    # ---------------- Unit 2 ----------------
+    # Tenancy 2019-06-01, assumed never increased. Anniversary 1 June.
+    banked_components = []
+    for year in range(2020, 2027):
+        available = date(year, 6, 1)
+        pct = rate_on(available)
+        if banks_on(available) <= REVIEW_DATE:
+            banked_components.append((available, pct))
+    u2_banked = sum((p for _, p in banked_components), Decimal("0"))
+    expect("Unit 2 banked components", len(banked_components), 6)
+    expect("Unit 2 banked percent", u2_banked, Decimal("11.5"))
+    expect("Unit 2 2026 allowance not yet banked", banks_on(date(2026, 6, 1)) > REVIEW_DATE, True)
+
+    u2_effective = date(2027, 2, 15)
+    u2_current = rate_on(u2_effective)                       # 1.6%, expires 2027-02-28
+    u2_total = u2_banked + u2_current                        # 13.1%
+    expect("Unit 2 total percent", u2_total, Decimal("13.1"))
+
+    u2_inc = money(UNIT2_BASE * u2_total / 100)
+    expect("Unit 2 increase", u2_inc, Decimal("412.65"))
+    expect("Unit 2 new rent", UNIT2_BASE + u2_inc, Decimal("3562.65"))
+
+    # 13.1% > 10% -> 90 days, +5 if mailed.
+    u2_serve = u2_effective - timedelta(days=90)
+    u2_serve_mail = u2_effective - timedelta(days=95)
+    expect("Unit 2 serve by", u2_serve, date(2026, 11, 17))
+    expect("Unit 2 serve by mail", u2_serve_mail, date(2026, 11, 12))
+    expect("Unit 2 earliest effective if served today", REVIEW_DATE + timedelta(days=90), date(2027, 2, 5))
+    expect("Unit 2 last day to serve for 2027-02-28", date(2027, 2, 28) - timedelta(days=90), date(2026, 11, 30))
+
+    # Phased alternative: 10.0% now, remainder stays banked, 30-day notice.
+    u2_phase_pct = Decimal("10.0")
+    u2_phase_inc = money(UNIT2_BASE * u2_phase_pct / 100)
+    expect("Unit 2 phased increase", u2_phase_inc, Decimal("315.00"))
+    expect("Unit 2 phased new rent", UNIT2_BASE + u2_phase_inc, Decimal("3465.00"))
+    expect("Unit 2 remainder banked", u2_total - u2_phase_pct, Decimal("3.1"))
+    expect("Unit 2 phased serve by", u2_effective - timedelta(days=30), date(2027, 1, 16))
+    expect("Unit 2 phased serve by mail", u2_effective - timedelta(days=35), date(2027, 1, 11))
+
+    # Anniversary alternative.
+    u2_anniversary = date(2027, 6, 1)
+    expect("Unit 2 anniversary serve by", u2_anniversary - timedelta(days=90), date(2027, 3, 3))
+    expect("Unit 2 anniversary serve by mail", u2_anniversary - timedelta(days=95), date(2027, 2, 26))
+
+    # Occupancy window.
+    expect("Days since added occupancy", (REVIEW_DATE - date(2026, 4, 1)).days, 220)
+
+    # ---------------- Published-value sweep ----------------
+    analysis = ["analysis.html"]
+    expect_in_pages("Unit 1 increase", usd(u1_inc), analysis + ["executive-summary.html", "checklist.html"])
+    expect_in_pages("Unit 1 new rent", usd(u1_new), analysis + ["executive-summary.html", "checklist.html"])
+    expect_in_pages("Unit 1 early increase", usd(u1_early_inc), analysis)
+    expect_in_pages("Unit 1 early new rent", usd(UNIT1_BASE + u1_early_inc), analysis)
+    expect_in_pages("Unit 2 increase", usd(u2_inc), analysis + ["checklist.html"])
+    expect_in_pages("Unit 2 new rent", usd(UNIT2_BASE + u2_inc), analysis + ["checklist.html"])
+    expect_in_pages("Unit 2 phased increase", usd(u2_phase_inc), ["checklist.html"])
+    expect_in_pages("Unit 2 phased new rent", usd(UNIT2_BASE + u2_phase_inc), ["checklist.html"])
+    expect_in_pages("Unit 1 serve-by date", u1_serve.isoformat(), ["checklist.html"])
+    expect_in_pages("Unit 1 mailed serve-by date", u1_serve_mail.isoformat(), ["checklist.html"])
+    expect_in_pages("Unit 2 serve-by date", u2_serve.isoformat(), ["checklist.html"])
+    expect_in_pages("Unit 2 mailed serve-by date", u2_serve_mail.isoformat(), ["checklist.html"])
+
+    if errors:
+        print("CALCULATION VERIFICATION FAILED", file=sys.stderr)
+        for error in errors:
+            print(f" - {error}", file=sys.stderr)
+        return 1
+
+    print("CALCULATION VERIFICATION PASSED")
+    print(f" - {checks} assertions from official percentages and statutory notice periods")
+    print(f" - Unit 1: {u1_total}% -> {usd(u1_inc)} -> {usd(u1_new)} effective {u1_anniversary}")
+    print(f" - Unit 2: {u2_banked}% banked + {u2_current}% current = {u2_total}% -> {usd(u2_inc)} -> {usd(UNIT2_BASE + u2_inc)}")
+    print(" - every computed value found in the published HTML")
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())
