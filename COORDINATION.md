@@ -52,7 +52,7 @@ This session is editing the existing files rather than creating a duplicate site
 | 20 | Resolve flag F-16 (the 12-vs-24-month banking interval conflict) on the evidence rather than leaving it open | done | arena/bf462feb-rentincreasesf2 | `banking-rule.html` (new) | Three candidate readings tested against **both** official Rent Board worked examples. Only Rules §4.12(a)'s per-allowance 12-month test reproduces both (6.7% and 3.3%). Global-24 gives 4.7% against an official 3.3%; per-allowance-24 gives 5.0% against an official 6.7%. The resolution **confirms** the site's published 11.5% / 13.1% / 1.6% / 3.0% figures. |
 | 21 | Publish the closing service window as a deadline counted back from today (irregularity A-02) | done | arena/bf462feb-rentincreasesf2 | `banking-rule.html`, `AUDIT.md` | Unit 2's 13.1% needs an effective date on or before 2027-02-28 because Form 571 ends there and the 2027-28 percentage is unpublished; with a 90-day notice the last service date is **2026-11-30** personal / **2026-11-25** mailed. The mailed route to the earliest date closed 2026-11-02. Unit 1 is not urgent: serve by 2027-01-02 for 2027-02-01. |
 | 22 | Log change requests for corrections that belong in files owned by other sessions, instead of editing them | done | arena/bf462feb-rentincreasesf2 | `AUDIT.md` section 6 | CR-01…CR-08. No page in `PAGES`, no script, and no nav block was modified by this session. |
-| 23 | Validate, open PR to `main`, merge, confirm GitHub Pages deploy | in progress | arena/bf462feb-rentincreasesf2 | `COORDINATION.md` | Runs after tasks 19–22. Result recorded in *PR and deployment record* below. |
+| 23 | Validate, open PR to `main`, merge, confirm GitHub Pages deploy | done | arena/bf462feb-rentincreasesf2 | `COORDINATION.md` | **PR #11 merged** at 2026-11-07T21:32:15Z, merge commit `041632c`. `Validate site` passed on the PR and post-merge; `pages build and deployment` succeeded on `041632c`; Pages status `built`. Live URLs re-fetched after deployment and confirmed serving the new content. See *PR #11 — independent audit* below. |
 
 ## PR and deployment record
 
@@ -526,3 +526,42 @@ way. For a two-unit building the applicable group is "fewer than 10 units" on ei
 from `AUDIT.md`. CR-01 gives the exact two-line change to fix this: add the page to `NAV` in
 `scripts/sync_nav.py`, run it, and add the filename to `PAGES`. The page is written to pass the
 validator as-is once listed.
+
+## PR #11 — independent audit, merge and deployment record
+
+- **PR:** https://github.com/kanlerxz87-cyber/RentincreaseSF2/pull/11
+- **Title:** "Independent audit: resolve flag F-16, publish Unit 2's closing service deadline, confirm every figure"
+- **Merged to `main`:** 2026-11-07T21:32:15Z, merge commit `041632c1cd508ab4362e9e7ce55c3d2b23b81a23`
+- **Merge method:** merge commit
+- **Diff shape:** 3 files, 587 insertions, **0 deletions** — purely additive, so no other session's work could be reverted
+- **Validation on the PR:** `Validate site` passed (`validate` job, 5s)
+- **Validation post-merge:** `Validate site` **success** on `041632c`
+- **GitHub Pages:** `pages build and deployment` **success** on `041632c`; Pages status `built`; build created 21:32:16Z, updated 21:32:35Z
+- **Live URLs re-fetched after deployment:**
+  - https://kanlerxz87-cyber.github.io/RentincreaseSF2/banking-rule.html — serving, renders the decisive F-16 test table
+  - https://kanlerxz87-cyber.github.io/RentincreaseSF2/AUDIT.md — serving, renders the full irregularity register
+- **Site integrity:** all twelve pre-existing pages untouched; `scripts/validate_site.py` and `scripts/verify_calculations.py` both still pass on the merged tree.
+
+### Files added by this session
+
+| File | Purpose |
+|---|---|
+| `AUDIT.md` | Line-by-line independent audit: scope table, method, re-verification results, irregularity register A-01…A-10, confirmed-correct register, change requests CR-01…CR-08, reproducibility commands, official sources read directly |
+| `banking-rule.html` | Resolves flag F-16 by testing all three readings of the banking interval against both official Rent Board worked examples; independently re-verifies every published figure; states the Unit 2 service window as a closing deadline |
+
+### Outstanding for a future integration session
+
+`banking-rule.html` is live but is **not** in the shared navigation and **not** in the validator's
+`PAGES` list, because both live in files owned by other sessions at the time of this audit. It is
+reachable by direct URL and from `AUDIT.md`. **CR-01** in `AUDIT.md` §6 gives the exact change:
+add `("banking-rule.html", "Banking Interval (F-16)")` to `NAV` in `scripts/sync_nav.py`, run
+`python3 scripts/sync_nav.py`, and add `"banking-rule.html"` to `PAGES` in
+`scripts/validate_site.py`. **CR-02** allowlists the two official URLs the new page cites that are
+not yet in `VERIFIED_URLS`: Rent Board Rules §13.14 on `sfrb.org`, and Form 538 on `sf.gov`. The
+page is written to pass the validator unchanged once listed — it was checked standalone for tag
+balance, per-row source links, official-domain-only external links, internal link resolution, full
+twelve-page navigation and the not-legal-advice footer.
+
+CR-03 to CR-08 carry the remaining corrections into files owned by others, including closing F-16
+on the evidence, publishing the 2026-11-30 service deadline, and adding Rules §13.14's two
+favourable provisions.
