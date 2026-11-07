@@ -205,6 +205,19 @@ def main() -> int:
         _, errors = check_file(page)
         all_errors.extend(f"{page}: {error}" for error in errors)
 
+    # GitHub Pages serves the repository root, so Markdown files are public too.
+    for doc in ("README.md", "COORDINATION.md"):
+        path = os.path.join(ROOT, doc)
+        if not os.path.exists(path):
+            continue
+        with open(path, "r", encoding="utf-8") as handle:
+            body = handle.read()
+        for pattern in PERSONAL_PATTERNS:
+            if re.search(pattern, body):
+                all_errors.append(
+                    f"{doc}: personal identifier pattern found in a publicly served document: {pattern}"
+                )
+
     if all_errors:
         print("VALIDATION FAILED", file=sys.stderr)
         for error in all_errors:
@@ -215,7 +228,7 @@ def main() -> int:
     print(f" - {len(PAGES)} pages checked")
     print(f" - {len(VERIFIED_URLS)} official source URLs on allowlist")
     print(" - every table data row has an official source link")
-    print(" - no tenant initials or personal identifiers found")
+    print(" - no tenant initials or personal identifiers in HTML or public Markdown")
     print(" - all internal links resolve")
     print(" - every table row matches its header column count")
     return 0

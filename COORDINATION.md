@@ -72,7 +72,7 @@ A parallel session opened PR #3, "Rental increase analysis — Outer Sunset SF, 
 
 ### Review findings
 
-- **Privacy violation (blocking):** PR #3 publishes tenant initials (L O, V N, J P, M T, E R, I S) on the site, including in the privacy section and flagged-items page. The user explicitly required all personal information to be anonymized and said privacy is top priority. Initials are personal information and must not be published. This alone makes PR #3 unacceptable as submitted.
+- **Privacy violation (blocking):** PR #3 published the six supplied tenant initial pairs on the site, including in the privacy section and flagged-items page. [Initials redacted from this log on 2026-11-07 — this file is served publicly by GitHub Pages, so reproducing them here was itself a leak.] The user explicitly required all personal information to be anonymized and said privacy is top priority. Initials are personal information and must not be published. This alone makes PR #3 unacceptable as submitted.
 - **Unit 1 calculation conflict:** PR #3 presents $4,114.85 (3.0%) as a maximum for Unit 1 on the February 1, 2026 anniversary, and treats the 1.4% as banked. Under the Rent Board's 24-month banking rule, the 1.4% that became available on February 1, 2026 is not banked until February 1, 2027. For an April 1, 2026 effective date, the maximum is 1.6% ($4,058.92). PR #3's own flagged item F-07 acknowledges the 24-month rule but still presents 3.0% as a lawful outcome for Unit 1 without a clear date qualification. This conflicts with the more conservative analysis in PR #2.
 - **Build artifacts:** PR #3 includes `tools/__pycache__/*.pyc` files. These should not be committed.
 - **Duplicate/conflicting site:** PR #2 is already merged and live. Merging PR #3 would replace the live site with a different structure and would require a full line-by-line re-verification of all 14 pages.
@@ -232,7 +232,7 @@ is the same convention already used by sessions `arena/3eac9d0e`, `arena/81e8c93
   is more than 60 minutes old with no commits. The takeover is recorded here.
 - **Audit performed before takeover:**
   - **Privacy: PASS.** Swept all 34 files for the six supplied tenant initial pairs and for
-    `JP`. No tenant initials, names, addresses or contact details are published. The branch
+    the two-letter initial pair. No tenant initials, names, addresses or contact details are published. The branch
     uses `Tenant A`–`Tenant D` placeholders and preserves dates and dollar amounts.
   - **Build: PASS.** `python3 build.py` exits 0 in a clean extraction: 15 HTML documents,
     256 external links, 48 sources, 24 flags, 11 dollar checks and 8 deadline checks, Census
@@ -396,3 +396,27 @@ standard forbids. The "reasonable and normal" question is answered on `analysis.
 Tasks 13–18 are all `done`. No claim is left in progress by this session, and no other session's
 work was discarded. The eight new flagged items (F-15 … F-22) are published on the Flagged for Review
 page with source links and do not block anything.
+
+
+---
+
+## Privacy remediation (2026-11-07, this session)
+
+**Leak found and closed in the published files.** While doing the final privacy sweep, this session
+found that the PR #3 review section of `COORDINATION.md` — written by an earlier session — quoted the
+six supplied tenant initial pairs verbatim. GitHub Pages serves the repository root, so that Markdown
+file was publicly retrievable at `https://kanlerxz87-cyber.github.io/RentincreaseSF2/COORDINATION.md`.
+Ironically the passage was itself explaining why publishing initials is unacceptable.
+
+Actions taken:
+
+1. Redacted the initials from `COORDINATION.md`, leaving the review finding intact and noting the
+   redaction. Also removed a stray two-letter initial from this session's own audit text.
+2. Extended `scripts/validate_site.py` so the personal-identifier sweep covers `README.md` and
+   `COORDINATION.md`, not just the HTML pages. CI now fails if any public document reintroduces them.
+3. Published the issue as **F-23** on the Flagged for Review page.
+
+**Still outstanding, and deliberately not automated:** the repository is public and the earlier
+commits still contain the initials in history. Rewriting history is destructive and would discard
+other sessions' commits, so it was not performed. The owner's options — make the repo private, rewrite
+history, or accept the exposure — are set out on the Flagged for Review page.

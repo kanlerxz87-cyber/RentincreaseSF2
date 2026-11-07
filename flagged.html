@@ -93,6 +93,14 @@
   </div>
 </div>
 
+<div class="card callout danger">
+  <h3>F-23 — Privacy: tenant initials remain in this repository's git history</h3>
+  <p><strong>Found and fixed in the published files.</strong> An earlier session quoted the six supplied tenant initial pairs inside <code>COORDINATION.md</code> while reviewing a different pull request. Because GitHub Pages serves the repository root, that Markdown file was publicly retrievable at the site URL. The initials have now been <strong>redacted from the live file</strong>, and the automated privacy sweep was extended to cover <code>README.md</code> and <code>COORDINATION.md</code> as well as every HTML page, so this cannot recur undetected.</p>
+  <p><strong>What is still outstanding.</strong> This repository is <strong>public</strong>, and redaction only changes the current version. The earlier commits still contain the initials and remain reachable through the repository's history. No page on this site displays them, and no current file contains them, but history is a separate exposure.</p>
+  <p><strong>Options for the owner to decide.</strong> (1) Make the repository private — GitHub Pages access control depends on the plan, so check the effect on the live site first. (2) Rewrite history to remove the string and force-push, which is destructive and would discard other sessions' commit identities, so it was deliberately <em>not</em> done automatically. (3) Accept the exposure on the basis that initials alone are weak identifiers. This is the owner's call, not an automated one.</p>
+  <p class="small">Context on what the City itself makes public: the Rent Board states that Housing Inventory submissions — including the owner's name and business contact information — are public by law. That is a separate, unavoidable disclosure and is tracked as F-21. <a href="https://www.sf.gov/rent-board-housing-inventory">sf.gov — The Rent Board Housing Inventory</a></p>
+</div>
+
 <div class="callout warn"><strong>No values were inferred.</strong> Where an official source could not confirm a value, the site labels it unverified and leaves the verified value blank. The calculations use the tenant-provided base rents and are labeled as calculated, not verified. <a href="https://www.sf.gov/speak-rent-board-counselor">sf.gov — Rent Board counselor</a></div>
 
 <footer class="footer">
