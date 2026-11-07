@@ -6,7 +6,8 @@ Checks:
 - every external link is on the verified official-source allowlist;
 - every data row in a table contains at least one official source link;
 - no tenant initials or other personal identifiers appear in the HTML;
-- every page has the shared navigation and the not-legal-advice footer.
+- every page has the shared navigation and the not-legal-advice footer;
+- HTML tags are balanced on every page.
 """
 
 from __future__ import annotations
@@ -23,9 +24,11 @@ PAGES = [
     "units.html",
     "analysis.html",
     "laws.html",
+    "rent-board-process.html",
     "process.html",
     "tenant-protections.html",
     "practices.html",
+    "questions.html",
     "flagged.html",
     "sources.html",
 ]
@@ -60,6 +63,9 @@ VERIFIED_URLS = {
     "https://www.sf.gov/information/topic-no-322-operating-and-maintenance-expense-petitions",
     "https://www.sf.gov/landlord-petitions-and-passthroughs",
     "https://www.sf.gov/learn-about-rent-increases-san-francisco",
+    "https://www.sf.gov/information--operating-and-maintenance-expense-petitions",
+    "https://www.sf.gov/information--rent-increases-under-section-614-and-costa-hawkins",
+    "https://www.sf.gov/information--sec-3715-reporting-obligations-licensing",
     "https://www.sf.gov/learn-about-san-francisco-rental-laws",
     "https://www.sf.gov/notice-of-owner-noncompliance-with-housing-inventory",
     "https://www.sf.gov/rent-board-fee",
@@ -83,6 +89,43 @@ PERSONAL_PATTERNS = [
     r"\bE\s*R\b",
     r"\bI\s*S\b",
 ]
+
+
+VOID_TAGS = {
+    "area", "base", "br", "col", "embed", "hr", "img", "input",
+    "link", "meta", "param", "source", "track", "wbr",
+}
+
+
+def check_tag_balance(html: str) -> list[str]:
+    """Return a list of unclosed or unmatched HTML tags."""
+    errors: list[str] = []
+    stack: list[tuple[str, int]] = []
+
+    class Balance(HTMLParser):
+        def handle_starttag(self, tag, attrs):
+            if tag not in VOID_TAGS:
+                stack.append((tag, self.getpos()[0]))
+
+        def handle_endtag(self, tag):
+            if tag in VOID_TAGS:
+                return
+            if not stack:
+                errors.append(f"line {self.getpos()[0]}: closing </{tag}> with no open tag")
+                return
+            open_tag, open_line = stack.pop()
+            if open_tag != tag:
+                errors.append(
+                    f"line {self.getpos()[0]}: closing </{tag}> does not match "
+                    f"<{open_tag}> opened on line {open_line}"
+                )
+
+    parser = Balance()
+    parser.feed(html)
+    parser.close()
+    for open_tag, open_line in stack:
+        errors.append(f"line {open_line}: <{open_tag}> was never closed")
+    return errors
 
 
 class SiteChecker(HTMLParser):
@@ -150,6 +193,8 @@ def check_file(filename: str) -> tuple[list[tuple[str, int]], list[str]]:
         if not os.path.exists(os.path.join(ROOT, target)):
             errors.append(f"line {line}: broken internal link: {href}")
 
+    errors.extend(check_tag_balance(html))
+
     for pattern in PERSONAL_PATTERNS:
         if re.search(pattern, html):
             errors.append(f"personal identifier pattern found in HTML: {pattern}")
@@ -191,6 +236,7 @@ def main() -> int:
     print(" - every table data row has an official source link")
     print(" - no tenant initials or personal identifiers found")
     print(" - all internal links resolve")
+    print(" - HTML tags are balanced on every page")
     return 0
 
 
