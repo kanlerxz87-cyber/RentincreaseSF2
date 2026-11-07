@@ -40,11 +40,11 @@ This session is editing the existing files rather than creating a duplicate site
 | 10 | Add GitHub Actions validation workflow and validation script | done | session-arena-81e8c938 | `.github/workflows/validate.yml`, `scripts/validate_site.py` | Validation checks internal links, external allowlist, table source links, and personal identifiers. GitHub Pages remains on the repository's existing legacy build from `main`; the workflow is a check, not a second deploy path. |
 | 11 | Final verification, PR, and merge | done | session-arena-81e8c938 | all files | PR #2 merged; Pages build succeeded; live site re-verified. |
 | 12 | Clarify individual-owner Housing Inventory/license and Rent Board notice timing | done | arena/795a54b7-rentincreasesf2 | index.html, executive-summary.html, process.html, practices.html, COORDINATION.md | Directly rechecked SF Rent Board Housing Inventory, rent increase, noncompliance, and counselor pages on 2026-11-07. All owners report; tenant-occupied units receive a license; current license is needed before effective date; license need not accompany tenant notice. Official guidance describes tenant notice and annual Housing Inventory, not a separate Rent Board filing for each increase. Safe sequencing advice is labeled as prudence, not a legal timing requirement. |
-| 13 | Take over stale PR #5 (idle >30h) and audit it for privacy, accuracy and mergeability | in progress | arena/fa7d2d77-rentincreasesf2 | COORDINATION.md (audit record only; no PR #5 file is edited on its branch) | Handoff logged below. |
-| 14 | Re-verify controlling sources line by line (rates, banking, license, notice, occupancy, retaliation, algorithmic pricing) | in progress | arena/fa7d2d77-rentincreasesf2 | COORDINATION.md verification log | Official sources fetched directly this session. |
-| 15 | Add missing verified content: Unit 1 occupancy change, corporate algorithmic-pricing ban, license null-and-void rule, retaliation screen, action checklist | in progress | arena/fa7d2d77-rentincreasesf2 | NEW: occupancy.html, checklist.html, market.html | New files only — no other session owns them. |
-| 16 | Reconcile unit calculations to an explicit effective-date scenario table (today = 2026-11-07) | in progress | arena/fa7d2d77-rentincreasesf2 | analysis.html, units.html, index.html, executive-summary.html | Supersedes ambiguous single-number maxima. |
-| 17 | Integration: shared nav, sources register, flags, validator allowlist | in progress | arena/fa7d2d77-rentincreasesf2 | all *.html nav blocks, sources.html, flagged.html, scripts/validate_site.py, style.css, README.md | Integration-session prerogative; tasks 1–12 are all `done`. |
+| 13 | Take over stale PR #5 (idle >30h) and audit it for privacy, accuracy and mergeability | done | arena/fa7d2d77-rentincreasesf2 | COORDINATION.md (audit record only; no PR #5 file is edited on its branch) | Handoff logged below. Audit complete: privacy PASS, build PASS, direct merge FAIL (unrelated history). Ported instead. |
+| 14 | Re-verify controlling sources line by line (rates, banking, license, notice, occupancy, retaliation, algorithmic pricing) | done | arena/fa7d2d77-rentincreasesf2 | COORDINATION.md verification log | Official sources fetched directly this session. 21 official sources fetched and read directly this session; see log below. |
+| 15 | Add missing verified content: Unit 1 occupancy change, corporate algorithmic-pricing ban, license null-and-void rule, retaliation screen, action checklist | done | arena/fa7d2d77-rentincreasesf2 | NEW: occupancy.html, checklist.html, market.html | New files only — no other session owns them. occupancy.html and checklist.html added. market.html dropped from scope: no official source defines a market benchmark for covered units, so a market page would add unsourced inference. |
+| 16 | Reconcile unit calculations to an explicit effective-date scenario table (today = 2026-11-07) | done | arena/fa7d2d77-rentincreasesf2 | analysis.html, units.html, index.html, executive-summary.html | Supersedes ambiguous single-number maxima. analysis.html rewritten as an effective-date scenario table; all figures re-derived by script. |
+| 17 | Integration: shared nav, sources register, flags, validator allowlist | done | arena/fa7d2d77-rentincreasesf2 | all *.html nav blocks, sources.html, flagged.html, scripts/validate_site.py, style.css, README.md | Integration-session prerogative; tasks 1–12 are all `done`. 12 pages, 46 official URLs, per-row sources, column integrity and privacy sweep all pass. |
 | 18 | Final verification, PR to main, merge, confirm Pages deploy | in progress | arena/fa7d2d77-rentincreasesf2 | COORDINATION.md | Pending tasks 13–17. |
 
 ## PR and deployment record
@@ -257,3 +257,99 @@ is the same convention already used by sessions `arena/3eac9d0e`, `arena/81e8c93
   against the Rent Board's own off-anniversary worked examples shows the 13.1% is available
   on an earlier effective date, and that a notice can be served now. See the verification log
   below. PR #5's Flag F-03 (12 vs 24 months) is also resolved rather than left as a conflict.
+
+
+---
+
+## Session `arena/fa7d2d77-rentincreasesf2` — verification log (2026-11-07)
+
+### Official sources fetched and read directly this session
+
+Every item below was retrieved and read during this session, not carried forward on trust.
+
+| Source | What was confirmed |
+|---|---|
+| [Learn about rent increases in San Francisco](https://www.sf.gov/learn-about-rent-increases-san-francisco) | 1.6% for 3/1/2026–2/28/2027; 60% of Bay Area CPI; once per 12 months; anniversary mechanics; four worked examples including permanent loss of an unbanked allowance when the anniversary moves; 30/90-day notice +5 if mailed; notice content; base rent only; no rounding up; additional-occupant prohibition; license requirement |
+| [Banked rent increases](https://www.sf.gov/information--banked-rent-increases) | 24-full-month wording; no limit; does not expire during a tenancy; new owners inherit; does not carry to a new tenant; partial increases bank the remainder; no compounding; notice must state the banked portion; license requirement |
+| [Rules and Regulations Part IV](https://www.sf.gov/reports--december-2022--rent-board-rules-and-regulations-part-iv-rent-increases-not-requiring) | § 4.10(a) notice content and § 4.10(b) null-and-void consequence with the half-percent good-faith readjustment; § 4.12(a) "a full 12 months must have elapsed from the date that an annual rent increase … could have been imposed"; § 4.12(b) banked portion and its source dates |
+| [Increasing rents during irregular periods](https://www.sf.gov/information--increasing-rents-during-irregular-periods) | Controlling definition of the anniversary date; off-anniversary increases at 12–24 and 24+ months; no petition needed; no compounding; no rounding up; base rent includes parking/storage |
+| [571 Allowable Annual Increases 26-27 (PDF)](https://www.sf.gov/documents/34344/571_Allowable_Annual_Increases_26-27_1.pdf) | Full historical table read line by line: 2026–27 1.6%, 2025–26 1.4%, 2024–25 1.7%, 2023–24 3.6%, 2022–23 2.3%, 2021–22 0.7%, 2020–21 1.8%, 2019–20 2.6%. Table ends 2/28/2027 |
+| [The Rent Board Housing Inventory](https://www.sf.gov/rent-board-housing-inventory) | All owners of residential property report; tenant-occupied units receive a license automatically; free; March 1 annual deadline; no monetary late penalty; license must be current on the effective date; license need not accompany the notice; 7/1/2022 and 3/1/2023 phase-in; submissions are public and under penalty of perjury; 30-day contact-update rule |
+| [Rules § 13.14 Licensing](https://sfrb.org/section-1314-licensing-%E2%80%93-notice-rent-increase) | Unlicensed annual/banked increase is null and void in its entirety; **effective date, not service date** controls; banking rights survive a void increase; applies to increases effective on/after 3/1/2023 for condos and buildings under ten units |
+| [Notice of Owner Noncompliance](https://www.sf.gov/notice-of-owner-noncompliance-with-housing-inventory) | Refund exposure across multiple years; how to check license status by address/APN; license **not** required for 6.14/Costa-Hawkins increases or passthroughs; paper filing route; tenant petition and summary petition routes |
+| [Rent Ordinance § 37.3](https://www.sf.gov/information--sec-373-rent-limitations) | § 37.3(a)(1) 60% of CPI, 7% ceiling, license hook to § 37.15; § 37.3(a)(2) banking subject to § 37.15 with no waiting period stated in the ordinance itself |
+| [Rent Increases Under Section 6.14 And Costa-Hawkins](https://www.sf.gov/information--rent-increases-under-section-614-and-costa-hawkins) | Unlimited increase only when the **last original occupant vacates**; timely written 6.14 notice on each subsequent occupant; generally 60 days reasonable; co-tenants never subject to the Costa-Hawkins reset; co-tenant status can arise from acceptance of rent; no petition required but tenant may challenge |
+| [Charging for Additional Occupants Prohibited](https://www.sf.gov/information--charging-additional-occupants-prohibited) | Unlawful even if the lease permits it, including a newborn child; tenant may void and recover overcharges; O&M petition or utility passthrough is the only lawful cost-recovery route |
+| [Algorithmic devices that set rent are prohibited](https://www.sf.gov/information--algorithmic-devices-set-rent-are-prohibited-san-francisco) | § 37.10C effective 10/14/2024; definition of algorithmic device and non-public competitor data; sale and use prohibitions; per-unit per-month violations; up to $1,000 per violation; tenant **and tenants' rights organization** right of action; fee-shifting |
+| [The California Tenant Protection Act (AB 1482)](https://www.sf.gov/reports--california-tenant-protection-act-2019-ab-1482) | 8.8% for San Francisco 8/1/2026–7/31/2027; expressly "does NOT apply for units under the rent increase limitations of the San Francisco Rent Ordinance"; corporate/trust/LLC ownership defeats the single-family exemption; two-unit owner-occupied exemption |
+| [Civil Code § 827](https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=827.&lawCode=CIV) | (a)(1) mid-term proration at the prior rate; (b)(1) personal delivery or mail under CCP § 1013; (b)(2) 30 days at ≤10%; (b)(3)(A) 90 days above 10%, measured against rent charged at any time in the prior 12 months and combined with other increases |
+| [Civil Code § 1942.5](https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=1942.5.&lawCode=CIV) | (a) 180-day bar and its five trigger events, latest-date rule; (b) once per 12 months; (c)/(e) immigration threats; (d) organising; (f) lawful cause preserved and waiver void; (g) good-faith statement of grounds in the notice; (h) $100–$2,000 punitive damages; (i) attorney's fees |
+| [Learn about San Francisco rental laws](https://www.sf.gov/learn-about-san-francisco-rental-laws) | June 13, 1979 coverage cutoff; Property Information Map as the verification tool; just-cause examples; categories with eviction protection only; fully exempt unit types |
+| [Costa-Hawkins partial exemption (Topic 019)](https://www.sf.gov/information--partial-exemption-certain-single-family-homes-and-condominiums-under-costa-hawkins) | A single-family dwelling with a legal **or** illegal in-law is a two-unit building and **not exempt**; exemption still leaves just cause and the Rent Board fee |
+| [Tenant and Landlord Resources](https://www.sf.gov/tenant-and-landlord-resources) | Eviction Defense Collaborative free legal help; tenant counselling organisations; Rent Board address 25 Van Ness Ave Suite 700 and 415-252-4600; landlord-side resources |
+| [Get help for discrimination in housing](https://www.sf.gov/information--get-help-discrimination-housing) | Full local protected-characteristic list including age, height, weight, source of income, pregnancy status; "change the terms of your housing" is expressly prohibited; HRC, CRD and HUD complaint routes |
+
+### Resolution of the 12-month / 24-month conflict (PR #5 flag F-03)
+
+Read together, the two official formulations are **consistent**, not contradictory:
+
+- Rules § 4.12(a) measures **12 full months from the date the allowance could first have been imposed**.
+- The sf.gov banked-increases page measures **24 full months from the last increase or move-in**.
+- The allowance first becomes available exactly 12 months after the last increase or move-in, so the
+  two starting points are 12 months apart and both land on the same date.
+- Verified against Unit 1: tenancy 2025-02-01 → allowance available 2026-02-01 → banked 2027-02-01,
+  which is simultaneously 12 months from availability and 24 months from move-in.
+
+Published on `analysis.html` with all three sources and retained as flag **F-16** so the wording
+difference stays visible. It changes no figure on the site.
+
+### Corrections made to PR #5's conclusions on re-verification
+
+1. **Unit 2 timing.** PR #5 stated the full 13.1% is first available on 2027-06-01. The Rent Board's
+   off-anniversary worked examples show that banked percentages plus the current annual allowance can
+   be imposed off-anniversary. The 11.5% is already banked and the 1.6% is the current allowance until
+   2027-02-28, so **13.1% is available on an effective date in February 2027**. Sources:
+   [irregular periods](https://www.sf.gov/information--increasing-rents-during-irregular-periods),
+   [rent increases worked examples](https://www.sf.gov/learn-about-rent-increases-san-francisco).
+2. **"Nothing can lawfully be done today."** Not correct. A notice may be served now for a future
+   effective date; § 827 sets a minimum notice period, not a waiting period before service. The
+   suggested Unit 2 date of 2027-02-15 requires service by **2026-11-17** (mailed 2026-11-12), which is
+   still ahead. Source: [Civil Code § 827](https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=827.&lawCode=CIV).
+3. **Unit 1 April 1, 2026 framing** inherited from earlier sessions was stale. Replaced with explicit
+   future effective-date scenarios.
+
+### Verification performed
+
+- `python3 scripts/sync_nav.py` — 12 pages, one canonical navigation, no drift.
+- `python3 scripts/validate_site.py` — **PASSED**: 12 pages; 46 official source URLs on the allowlist;
+  every table data row carries an official source link; every row matches its header column count;
+  no tenant initials or personal identifiers; all internal links resolve.
+- `python3 scripts/verify_calculations.py` — **PASSED**: 39 assertions re-deriving every dollar amount
+  and every service deadline from the official 571 percentages and the § 827 notice periods, and
+  confirming each computed value appears in the published HTML.
+- HTML tag-balance parse of all 12 pages — **PASSED**, no unclosed or mismatched tags.
+- Local HTTP check — all 12 pages and `style.css` returned **200**.
+- Privacy sweep — no name, initial, address, contact detail or parcel number published; occupants
+  appear only as Tenant A–F placeholders; dates and dollar amounts preserved exactly.
+
+### Irregularities flagged (published on the Flagged for Review page)
+
+F-01 build year and coverage · F-02 lease dates, rents and occupancy · F-03 license status unchecked ·
+F-04 Unit 1 effective-date choice · F-05 Unit 1 tenancy status · F-06 Unit 2 banked balance ·
+F-07 Unit 2 notice timing · F-08 corporate practice claims · F-09 "reasonable" undefined ·
+F-10 no guaranteed lawyer approval · F-11 discrimination and retaliation review · F-12 free-lawyer
+eligibility · F-13 Rent Board fee · F-14 passthrough petitions · **F-15 6.14 notice may be out of time ·
+F-16 official banking wording differs · F-17 2027–28 rate unpublished · F-18 retaliation screen cannot
+be run · F-19 Unit 2 service window is short · F-20 co-tenant vs subtenant status · F-21 Housing
+Inventory submissions are public · F-22 no algorithmic pricing tool may be used.**
+
+The eight bolded items are new this session. None blocks publication; all are listed with source links
+for the owner to review.
+
+### Scope note
+
+Task 15 originally listed a `market.html` page. It was dropped: for units under the SF rent-increase
+limitations the lawful amount is fixed by formula, and no official source publishes a market benchmark
+that would govern these units. Adding one would have required inference, which the verification
+standard forbids. The "reasonable and normal" question is answered on `analysis.html` and
+`executive-summary.html` from the ordinance, the AB 1482 page and the fair-housing sources instead.
