@@ -22,15 +22,22 @@ PAGES = [
     "executive-summary.html",
     "units.html",
     "analysis.html",
+    "occupancy.html",
     "laws.html",
     "process.html",
     "tenant-protections.html",
     "practices.html",
+    "checklist.html",
     "flagged.html",
     "sources.html",
 ]
 
 VERIFIED_URLS = {
+    "https://sfrb.org/section-1314-licensing-%E2%80%93-notice-rent-increase",
+    "https://www.sf.gov/information--rent-increases-under-section-614-and-costa-hawkins",
+    "https://www.sf.gov/information--charging-additional-occupants-prohibited",
+    "https://www.sf.gov/information--algorithmic-devices-set-rent-are-prohibited-san-francisco",
+    "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=1942.5.&lawCode=CIV",
     "https://calcivilrights.ca.gov/housing/",
     "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=1947.12.&lawCode=CIV",
     "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=1954.50.&lawCode=CIV",
@@ -95,17 +102,27 @@ class SiteChecker(HTMLParser):
         self.row_has_td = False
         self.row_links: list[str] = []
         self.row_line = 0
+        self.header_cols = 0
+        self.expected_cols: list[int] = []
+        self.row_cells = 0
 
     def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
         if tag == "table":
             self.in_table += 1
+            self.header_cols = 0
+            self.expected_cols.append(0)
         elif tag == "tr" and self.in_table:
             self.in_row = True
             self.row_has_td = False
             self.row_links = []
+            self.row_cells = 0
             self.row_line = self.getpos()[0]
+        elif tag == "th" and self.in_row:
+            self.header_cols += 1
         elif tag == "td" and self.in_row:
             self.row_has_td = True
+            span = next((v for k, v in attrs if k == "colspan" and v), "1")
+            self.row_cells += int(span) if span.isdigit() else 1
         elif tag == "a":
             href = next((value for key, value in attrs if key == "href" and value), "")
             if href:
@@ -116,11 +133,20 @@ class SiteChecker(HTMLParser):
     def handle_endtag(self, tag: str) -> None:
         if tag == "table" and self.in_table:
             self.in_table -= 1
+            self.expected_cols.pop()
+            self.header_cols = self.expected_cols[-1] if self.expected_cols else 0
         elif tag == "tr" and self.in_row:
             if self.row_has_td and not self.row_links:
                 self.errors.append(
                     f"table row at line {self.row_line} has no official source link"
                 )
+            if self.row_has_td and self.header_cols and self.row_cells != self.header_cols:
+                self.errors.append(
+                    f"table row at line {self.row_line} has {self.row_cells} cells, "
+                    f"header declares {self.header_cols}"
+                )
+            if not self.row_has_td and self.header_cols:
+                self.expected_cols[-1] = self.header_cols
             self.in_row = False
 
 
@@ -191,6 +217,7 @@ def main() -> int:
     print(" - every table data row has an official source link")
     print(" - no tenant initials or personal identifiers found")
     print(" - all internal links resolve")
+    print(" - every table row matches its header column count")
     return 0
 
 
