@@ -51,6 +51,14 @@ This session is editing the existing files rather than creating a duplicate site
 - **Live site:** https://kanlerxz87-cyber.github.io/RentincreaseSF2/
 - **Live pages verified:** `index.html`, `executive-summary.html`, `units.html`, `analysis.html`, `laws.html`, `process.html`, `tenant-protections.html`, `practices.html`, `flagged.html`, `sources.html`, and `style.css` all returned HTTP 200 locally and were re-fetched from the live site after deployment.
 
+## Follow-up PR #6 — license and notice clarification
+
+- **PR:** https://github.com/kanlerxz87-cyber/RentincreaseSF2/pull/6
+- **Merge result:** merged to `main` at 2026-11-07T20:43:39Z; merge commit `ea942f3533f0ce181d50ade0a509d020c047415d`.
+- **Validation:** PR `Validate site` passed (run 42412404807); post-merge `Validate site` passed (run 42412433323).
+- **GitHub Pages:** deployment run 42412432988 completed successfully.
+- **Live verification:** fetched the public dashboard and executive summary after deployment; both show the individual-owner answer, distinction between Rent Board reporting and tenant notice, and the effective-date license requirement.
+
 ## PR #3 review (session arena/77623c60-rentincreasesf2)
 
 A parallel session opened PR #3, "Rental increase analysis — Outer Sunset SF, ZIP 94122 (verified sources + GitHub Pages site)," while this session was finishing PR #2. PR #3 proposes a 14-page static site with a different structure and a larger source register.
