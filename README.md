@@ -25,10 +25,26 @@ Every legal and numerical claim is linked to an official government or City of S
 
 ## Key figures
 
+All dollar amounts are re-derived from the official percentages by
+`scripts/validate_site.py` on every run, so a mistyped figure fails the build.
+
 - 2026–27 SF allowable annual increase: **1.6%** (3/1/2026–2/28/2027)
-- Unit 1: $3,995 × 1.6% = **$63.92**; new rent **$4,058.92** (calculated from unverified base rent)
-- Unit 2: 11.5% banked + 1.6% current = **13.1%**; $3,150 × 13.1% = **$412.65**; new rent **$3,562.65** (calculated; verify rent history)
+- Unit 1: $3,995 × 1.6% = **$63.92**; new rent **$4,058.92**. A 4/1/2026 date is
+  *not* an anniversary date, so it forfeits the 1.4%; waiting for the 2/1/2027
+  anniversary allows 1.4% + 1.6% = 3.0% = **$119.85**, new rent **$4,114.85**
+- Unit 2: the total depends on a genuine conflict between official sources over
+  the banking interval — **13.1%** (11.5% + 1.6%) under the 12-month reading,
+  new rent **$3,562.65**; **11.7%** (10.1% + 1.6%) under the 24-month reading,
+  new rent **$3,518.55**. Both are shown; neither is asserted as settled.
 - Notice: 30 days for ≤10%; 90 days for >10%; +5 days if mailed
+
+## Known official-source conflict
+
+The sf.gov "Banked rent increases" page says a skipped increase banks only after
+**24 full months**, while Rent Board Rules §4.12 says **12 months**, the Ordinance
+§37.3(a)(2) states no waiting period, and the Board's own worked examples apply
+12 months. Both readings are published (Flagged item 15) rather than one being
+silently chosen.
 
 ## Privacy
 

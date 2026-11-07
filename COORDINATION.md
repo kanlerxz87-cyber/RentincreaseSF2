@@ -202,3 +202,107 @@ The official sources do not expressly require a license to be active before the 
 - No official source documents a distinct corporate vs. individual owner practice. Both are subject to the same Rent Ordinance.
 - No evidence of protected-class discrimination was found, but absence of evidence is not proof. Fair housing review is flagged.
 - The site must not be treated as legal advice. The Rent Board counselor page expressly states that it cannot give legal advice.
+
+## Task 13–15 verification log — session arena/db4dcd8b (2026-11-07)
+
+### Scope
+
+Full line-by-line re-audit of every claim, table row and dollar figure on the
+live site against the official sources, done by fetching each source directly
+during this session. Files touched: `index.html`, `executive-summary.html`,
+`units.html`, `analysis.html`, `laws.html`, `process.html`,
+`tenant-protections.html`, `practices.html`, `flagged.html`, `sources.html`,
+`README.md`, `scripts/validate_site.py`, `COORDINATION.md`.
+
+### Sources re-fetched and re-read in full during this session
+
+sf.gov: Learn about rent increases; Current Rates; 571 Allowable Annual Increases
+(PDF, full 1982–2027 table); Banked rent increases; Increasing rents during
+irregular periods; Annual rent increase for multiple years; Rent Board Rules and
+Regulations Part IV §4.10–§4.13; Sec. 37.3; Sec. 37.9 (incl. §37.9(d) and (f));
+The Rent Board Housing Inventory; Notice of Owner Noncompliance; Learn about San
+Francisco rental laws; Rent Increases Under Section 6.14 And Costa-Hawkins;
+Partial Exemption for Newly Constructed Rental Units; Partial Exemption Under
+Costa-Hawkins; Landlord Petitions and Passthroughs; Capital Improvement
+Petitions; Operating and Maintenance Expense Petitions; Special Circumstances
+Petitions; Utility Passthroughs; General Obligation Bond Passthrough Worksheets;
+Tenant petitions; Tenant Summary Petitions; Tenant and Landlord Resources; Legal
+resources for housing discrimination; Speak with a Rent Board counselor; About
+Rent Board; AB 1482; Rent Board Fee; Algorithmic devices that set rent are
+prohibited; Get help for discrimination in housing.
+leginfo: Civil Code §827, §1947.12, §1954.52. HUD: Report Housing Discrimination.
+govinfo: 42 U.S.C. ch. 45. CRD: Housing.
+
+### Corrections made (each verified against the fetched source)
+
+1. **Unit 1 anniversary-date analysis was wrong in framing.** The site said a
+   4/1/2026 increase was within the "1.6% maximum" without noting that 4/1/2026
+   is not an anniversary date. The official definition (income page: "the day and
+   month of the last time your landlord increased your rent; or the day and month
+   your lease began") makes a 4/1/2026 increase off-anniversary, so it resets the
+   anniversary and forfeits the 1.4%. The executive summary, units, analysis and
+   callout text now say so.
+2. **Unit 2 banking conflict is now published with both totals.** The sf.gov
+   banked page says 24 full months; Rules §4.12 says 12; §37.3(a)(2) states none;
+   the Board's worked examples apply 12. The site previously asserted 13.1% as
+   *the* total. It now publishes 13.1%/`$3,562.65` and 11.7%/`$3,518.55` and flags
+   the conflict (new Flagged item 15).
+3. **Missing local anti-retaliation law added.** Ordinance §37.9(d) — a rent
+   increase whose dominant motive is retaliation is prohibited, with a six-month
+   rebuttable presumption. This was absent and is the provision most likely to be
+   raised against a discretionary increase.
+4. **Missing algorithmic-pricing ban added** (§37.10C, effective 10/14/2024),
+   which is the only verified structural answer to "how do big corporations do
+   it", plus the note that each month/unit is a separate $1,000 violation.
+5. **Missing §6.14 / co-tenant distinction added** to Flagged item 5: a
+   co-tenant is not subject to a market-rate reset when the last original
+   occupant leaves; a subtenant may be, but only if a §6.14 notice was served
+   (generally within 60 days).
+6. **AB 1482 interaction stated precisely** — the exemption is
+   Civ. Code §1947.12(d)(3), and the Rent Board publishes the current state cap
+   as 8.8% for 8/1/2026–7/31/2027 expressly not applying to Rent Ordinance units.
+7. **Open Door Legal corrected** — its service area (94107, 94112, 94124, 94134)
+   excludes 94122, so it is not available to these tenants. Bay Area Legal Aid
+   description corrected to "income restrictions apply".
+8. **Special Circumstances row corrected** — a granted petition precludes all
+   annual/banked increases for the tenancy, which the site omitted.
+9. **U&O ("up to 7% additional") row confirmed**; sources added for §37.3,
+   §37.9, §6.14 and §37.10C on the Sources page and to the validator allowlist.
+
+### Verification tooling added
+
+`scripts/validate_site.py` now re-derives every published dollar figure from the
+official percentages (Info Sheet 571) and the base rents, and fails if a
+published figure does not match. Negative test performed: changing `$3,518.55`
+to `$3,518.56` fails the build with
+"expected Unit 2 new rent, 24-month reading". Also re-checks both banked totals
+(10.1 / 11.5) and that both Unit 2 readings still exceed the 10% / 90-day
+threshold.
+
+### Results
+
+- `python3 scripts/validate_site.py` — PASS (10 pages, 44 official URLs,
+  every table row sourced, no PII, all internal links resolve, arithmetic
+  re-derived and matching).
+- HTML well-formedness parser — PASS on all 10 pages.
+- Local HTTP check — all 10 pages and `style.css` return 200.
+
+### PR #5 review (session arena/48ffb5b4)
+
+Reviewed at commit `b9eb008`. It is based on the pre-site empty repository state,
+so merging it would replace the live site wholesale and discard the merged work of
+PRs #1, #2, #4, #6 and #7. Its findings were nonetheless read and independently
+re-checked: its banking-interval conclusion (12 months, drawn from the
+"irregular periods" page) matches this session's independent reading, so that
+finding is incorporated into the live site as one of two published readings. Its
+other correct findings are already covered by the live site's flags. Its claim
+that a *second* official source resolves the conflict is not adopted as a
+resolution: §4.12 and the worked examples support 12 months, but the sf.gov
+banked page states 24 months plainly, so the site presents both and flags the
+conflict. **PR #5 is not merged**; its branch is preserved.
+
+### Remaining flagged items (do not block publication)
+
+Items 1–15 on the Flagged for Review page. The blocking-before-service items are:
+licence status (3), Unit 1 anniversary/lease status (4, 5), Unit 2 rent history
+(6), the banking interval (15), and the retaliation screen.

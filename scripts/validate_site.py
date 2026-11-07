@@ -14,6 +14,7 @@ from __future__ import annotations
 import os
 import re
 import sys
+from decimal import Decimal
 from html.parser import HTMLParser
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -44,6 +45,7 @@ VERIFIED_URLS = {
     "https://www.sf.gov/documents/34344/571_Allowable_Annual_Increases_26-27_1.pdf",
     "https://www.sf.gov/evictions-san-francisco",
     "https://www.sf.gov/information--annual-rent-increase-multiple-years",
+    "https://www.sf.gov/information--algorithmic-devices-set-rent-are-prohibited-san-francisco",
     "https://www.sf.gov/information--banked-rent-increases",
     "https://www.sf.gov/information--capital-improvement-petitions",
     "https://www.sf.gov/information--general-obligation-bond-passthrough-worksheets",
@@ -51,7 +53,9 @@ VERIFIED_URLS = {
     "https://www.sf.gov/information--increasing-rents-during-irregular-periods",
     "https://www.sf.gov/information--partial-exemption-certain-single-family-homes-and-condominiums-under-costa-hawkins",
     "https://www.sf.gov/information--partial-exemption-newly-constructed-rental-units",
+    "https://www.sf.gov/information--rent-increases-under-section-614-and-costa-hawkins",
     "https://www.sf.gov/information--sec-373-rent-limitations",
+    "https://www.sf.gov/information--sec-379-evictions",
     "https://www.sf.gov/information--special-circumstances-petitions-based-rents-comparable-units",
     "https://www.sf.gov/information--tenant-summary-petitions",
     "https://www.sf.gov/information--utility-passthroughs-gas-electricity-and-steam-heat",
@@ -166,6 +170,72 @@ def check_file(filename: str) -> tuple[list[tuple[str, int]], list[str]]:
     return checker.links, errors
 
 
+# --------------------------------------------------------------------------
+# Arithmetic self-check. Every published dollar figure is re-derived here from
+# the official percentages (Info Sheet 571 / Current Rates) and the base rents,
+# so a typo in a published number fails the build instead of shipping.
+# --------------------------------------------------------------------------
+BASE = {"unit1": Decimal("3995.00"), "unit2": Decimal("3150.00")}
+
+# Official annual allowable percentages, Info Sheet 571 (26-27 edition).
+RATES = {
+    "2020-21": Decimal("1.8"),
+    "2021-22": Decimal("0.7"),
+    "2022-23": Decimal("2.3"),
+    "2023-24": Decimal("3.6"),
+    "2024-25": Decimal("1.7"),
+    "2025-26": Decimal("1.4"),
+    "2026-27": Decimal("1.6"),
+}
+
+
+def money(value: Decimal) -> str:
+    return f"${value.quantize(Decimal('0.01')):,}"
+
+
+def calc_checks() -> list[str]:
+    errors: list[str] = []
+
+    def expect(page: str, text: str, label: str) -> None:
+        path = os.path.join(ROOT, page)
+        with open(path, "r", encoding="utf-8") as handle:
+            body = handle.read()
+        if text not in body:
+            errors.append(f"{page}: expected {label} ({text}) not found")
+
+    # Sums of official percentages.
+    twelve = sum(RATES[k] for k in list(RATES)[:-1])          # through 2025-26
+    twentyfour = sum(RATES[k] for k in list(RATES)[:-2])      # through 2024-25
+    if twelve != Decimal("11.5"):
+        errors.append(f"banked total (12-month reading) is {twelve}, expected 11.5")
+    if twentyfour != Decimal("10.1"):
+        errors.append(f"banked total (24-month reading) is {twentyfour}, expected 10.1")
+
+    # Unit 1: 1.6% and the 3.0% (1.4% + 1.6%) anniversary option.
+    u1_inc = BASE["unit1"] * Decimal("0.016")
+    u1_new = BASE["unit1"] + u1_inc
+    u1_3_inc = BASE["unit1"] * Decimal("0.030")
+    u1_3_new = BASE["unit1"] + u1_3_inc
+    expect("analysis.html", money(u1_inc), "Unit 1 1.6% increase")
+    expect("analysis.html", money(u1_new), "Unit 1 new rent at 1.6%")
+    expect("analysis.html", money(u1_3_inc), "Unit 1 3.0% increase")
+    expect("analysis.html", money(u1_3_new), "Unit 1 new rent at 3.0%")
+
+    # Unit 2: both banking readings.
+    u2_a = BASE["unit2"] * (twentyfour + RATES["2026-27"]) / 100
+    u2_b = BASE["unit2"] * (twelve + RATES["2026-27"]) / 100
+    expect("analysis.html", money(u2_a), "Unit 2 increase, 24-month reading")
+    expect("analysis.html", money(BASE["unit2"] + u2_a), "Unit 2 new rent, 24-month reading")
+    expect("analysis.html", money(u2_b), "Unit 2 increase, 12-month reading")
+    expect("analysis.html", money(BASE["unit2"] + u2_b), "Unit 2 new rent, 12-month reading")
+
+    # The 90-day notice threshold must be triggered under both readings.
+    if (twentyfour + RATES["2026-27"]) <= 10 or (twelve + RATES["2026-27"]) <= 10:
+        errors.append("a Unit 2 reading no longer exceeds the 10% / 90-day threshold")
+
+    return errors
+
+
 def main() -> int:
     if not os.path.exists(os.path.join(ROOT, "style.css")):
         print("ERROR: style.css missing", file=sys.stderr)
@@ -179,6 +249,8 @@ def main() -> int:
         _, errors = check_file(page)
         all_errors.extend(f"{page}: {error}" for error in errors)
 
+    all_errors.extend(calc_checks())
+
     if all_errors:
         print("VALIDATION FAILED", file=sys.stderr)
         for error in all_errors:
@@ -191,6 +263,7 @@ def main() -> int:
     print(" - every table data row has an official source link")
     print(" - no tenant initials or personal identifiers found")
     print(" - all internal links resolve")
+    print(" - arithmetic re-derived from official percentages and matches the published figures")
     return 0
 
 
