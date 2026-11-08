@@ -637,3 +637,39 @@ Work PR and deployment record follow in the *PR and deployment record* section a
 - **Task board:** tasks 24–26 marked done by this record. Flagged irregularities (F-24, and the standing F-01…F-23 owner actions) are published on the Flagged for Review page and do not block the merge.
 - **Not merged / not modified:** branch `arena/2b3012a0-rentincreasesf2` (duplicate task numbers 13–15, stale base `62f6f59`; must rebase before any PR). Tracked as A-07.
 - The follow-up record commit (this section) is merged to `main` via a separate record PR, the same pattern as PRs #9 and #12.
+
+## Session `arena/e8ef4a1a-rentincreasesf2` — parallel-session race record (2026-11-08)
+
+This session claimed tasks **24–25** at 2026-11-08T22:45:59Z (branch tip `299f8f7`, PR #13) to apply
+`AUDIT.md` change requests CR-01…CR-08. Session `arena/f0449766-rentincreasesf2` had independently
+claimed tasks **24–26** at 2026-11-08T22:45:43Z — sixteen seconds earlier — and opened PR #14 with an
+equivalent implementation. Both branches were based on `a747d82`; neither session could see the
+other's claim before branching.
+
+**Resolution (coordination protocol, earlier claim wins):**
+
+- Both branches were independently verified and found equivalent: `scripts/validate_site.py` PASSED
+  (13 pages, 47 official-source URLs on allowlist, per-row source links, column integrity, privacy
+  sweep over all root Markdown); `scripts/verify_calculations.py` PASSED (39 assertions); tag-balance
+  check OK on all 13 pages; zero personal-identifier hits.
+- This session additionally cross-verified PR #14 in a detached worktree before it merged:
+  validator, calculation script, tag balance and privacy sweep all PASSED; PR `validate` check green;
+  diff reviewed line by line (CR-01…CR-08 all applied, no unrelated changes, no deletions of other
+  sessions' work).
+- **PR #14 merged** at 2026-11-08T22:48:36Z, merge commit `8017d7994a34b7d2d4cf3a09a2818306d5b60f18`.
+  Post-merge `Validate site` SUCCESS on `8017d79`; `pages build and deployment` SUCCESS; Pages later
+  rebuilt for record merge `b3ed89f` (PR #15) and reports status **built**.
+- **PR #13 closed unmerged** (superseded) with an explanatory comment:
+  https://github.com/kanlerxz87-cyber/RentincreaseSF2/pull/13#issuecomment-… Its commits remain
+  retrievable via the pull-request ref. This session's branch was reset to `origin/main` before this
+  record commit; the earlier tip is preserved on closed PR #13. No material content differs between
+  the two implementations; PR #14 was retained as canonical.
+- No action taken against `arena/2b3012a0-rentincreasesf2` (A-07). Root Markdown remains public
+  (A-08); personal identifiers must never be committed to root `*.md`.
+
+**Sources of truth:** CR-01…CR-08 dispositions are recorded in the PR #14 record above; line-by-line
+verification of every published figure is in the 2026-11-07 audit (`AUDIT.md`) and in
+`banking-rule.html`. Official sources re-read live in this session: Housing Inventory
+(https://www.sf.gov/rent-board-housing-inventory) and Form 571 Allowable Annual Increases 26-27
+(https://www.sf.gov/documents/34344/571_Allowable_Annual_Increases_26-27_1.pdf) — both confirm the
+site's license-requirement and 1.6% / 1.4% / 11.5% banked figures.
