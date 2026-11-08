@@ -227,6 +227,27 @@ def main() -> int:
                     str((u2_close_personal - REVIEW_DATE).days) + " / "
                     + str((u2_close_mail - REVIEW_DATE).days), ["banking-rule.html"])
 
+    # ------------- Printed day-count strings in the service-window table -------------
+    # banking-rule.html prints "days until the last day to serve" for each scenario as
+    # "<personal> / <mailed>", counted from REVIEW_DATE. The arithmetic above is asserted
+    # on its own; these assertions tie it to the strings a reader actually sees, so a
+    # stale base date or a mis-copied cell fails here.
+    banking = ["banking-rule.html"]
+
+    def daypair(effective: date, notice_days: int) -> str:
+        personal = effective - timedelta(days=notice_days)
+        mailed = effective - timedelta(days=notice_days + 5)
+        return f"{(personal - REVIEW_DATE).days} / {(mailed - REVIEW_DATE).days}"
+
+    for label, effective, notice_days in [
+        ("suggested 2027-02-15", u2_effective, 90),
+        ("closing 2027-02-28", date(2027, 2, 28), 90),
+        ("phased 10.0%", u2_effective, 30),
+        ("Unit 1 anniversary 2027-02-01", u1_anniversary, 30),
+        ("Unit 2 true anniversary 2027-06-01", date(2027, 6, 1), 90),
+    ]:
+        expect_in_pages(f"days left — {label}", daypair(effective, notice_days), banking)
+
     if errors:
         print("CALCULATION VERIFICATION FAILED", file=sys.stderr)
         for error in errors:
