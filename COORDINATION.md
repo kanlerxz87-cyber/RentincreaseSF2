@@ -701,3 +701,13 @@ surgically on this branch instead:
 All checks green after the corrections (validator, 47-assertion calculation script, tag balance,
 privacy sweep over all root Markdown). `PR #16` should be rebased onto current `main` by its
 session or closed; its unique verified content is now on `main`.
+
+## PR #19 — post-merge record and PR #18 salvage, merge and deployment
+
+- **PR:** https://github.com/kanlerxz87-cyber/RentincreaseSF2/pull/19
+- **Merged to `main`:** 2026-11-08T22:56:33Z, merge commit `362b9e31c23ed4c64a4ae93327b4eaee3a2d6d00`
+- **Validation on the PR:** `validate` passed (run 42532673837); post-merge `Validate site` **success** on `362b9e3`; `pages build and deployment` **success**; Pages latest build `362b9e3`, status **built** (updated 22:56:56Z).
+- **Content:** PR #17 deployment record; salvage of PR #18's unique items (base-date consistency assertion nav-stamp == REVIEW_DATE; closing-window assertions on all deadline pages; banking-rule day-count assertions; 2026-11-08 scaffolding stamps in `analysis.html`/`banking-rule.html`/`checklist.html`; F-19 day counts). **47 → 56 assertions pass.**
+- **Not merged:** PR #18 (`arena/b2b8a2de-rentincreasesf2`) — CONFLICTING/DIRTY after #17 merged; its unique content is in #19. Comment posted; left for its session to close.
+- **Open PRs after this record:** #16 (`arena/342c4cc9-rentincreasesf2`, stale base `a747d82`; unique corrections already salvaged in #17 — advised to rebase or close), #18 (as above). Both are owner/session calls; nothing mergeable remains in either.
+- Session `arena/e8ef4a1a-rentincreasesf2` final state: all requested work completed and deployed; flagged items F-01…F-26 remain for the owner on the Flagged for Review page (none block publication).
