@@ -701,3 +701,15 @@ surgically on this branch instead:
 All checks green after the corrections (validator, 47-assertion calculation script, tag balance,
 privacy sweep over all root Markdown). `PR #16` should be rebased onto current `main` by its
 session or closed; its unique verified content is now on `main`.
+
+## PR #17 — post-merge corrections, merge and deployment record
+
+- **PR:** https://github.com/kanlerxz87-cyber/RentincreaseSF2/pull/17
+- **Title:** "Record race resolution + apply PR #16's verified citation corrections"
+- **Merged to `main`:** 2026-11-08T22:54:22Z, merge commit `66ad077de9f0d9ca03ed1d197eaffeeff3ebdb4a`
+- **Merge method:** merge commit
+- **Validation on the PR:** `validate` passed (8s, run 42532483354); post-merge `Validate site` **success** on `66ad077`; `pages build and deployment` **success** on `66ad077` (22:54:44Z); Pages latest build `66ad077`, status **built** (updated 22:54:45Z).
+- **Content:** race-resolution record; PR #16's four findings independently re-verified and applied surgically (§ 37.3(b)(5) citation fix `banking-rule.html`/`AUDIT.md`/`COORDINATION.md`; `sources.html` stamp → 2026-11-08; `laws.html` Costa-Hawkins row rewritten to Civ. Code § 1954.52(a)/1979-06-13 Rent Ordinance attribution; re-stamp of every today-relative date to 2026-11-08; `verify_calculations.py` REVIEW_DATE 2026-11-08 + closing-window assertions — **47 assertions pass**); site flags **F-25** (citation, corrected) and **F-26** (Costa-Hawkins attribution, corrected) added; Civ. Code § 1954.52 allowlisted; README flag range → F-01…F-26; AUDIT.md addendum appended.
+- **Verification:** `validate_site.py` PASSED (13 pages; 48 allowlisted official URLs; per-row source links; column integrity; privacy sweep over all root Markdown); `verify_calculations.py` PASSED (47 assertions); tag balance OK; 0 personal-identifier hits.
+- **Not merged:** PR #16 (stale base `a747d82`, duplicates merged work, would revert #14's F-03 softening). Comment posted on PR #16 explaining what was salvaged; its session can rebase or close.
+- **Flagged items remain open for the owner** (see flagged.html): F-01…F-24 inputs and license status; F-25/F-26 recorded as corrected. None block publication.

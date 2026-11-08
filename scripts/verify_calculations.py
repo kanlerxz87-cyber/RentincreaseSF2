@@ -20,6 +20,7 @@ Run:  python3 scripts/verify_calculations.py
 from __future__ import annotations
 
 import os
+import re
 import sys
 from datetime import date, timedelta
 from decimal import Decimal, ROUND_DOWN
@@ -87,6 +88,18 @@ def expect(label: str, actual, expected) -> None:
 
 
 def main() -> int:
+    # ------------- Base-date consistency -------------
+    # Every page is stamped "Last verified: <LAST_VERIFIED>" by sync_nav.py. If that
+    # stamp and REVIEW_DATE disagree, the published day counts are wrong by the
+    # difference. The two are asserted against each other on every run.
+    with open(os.path.join(ROOT, "scripts", "sync_nav.py"), encoding="utf-8") as handle:
+        stamp = re.search(r'LAST_VERIFIED\s*=\s*"(\d{4}-\d{2}-\d{2})"', handle.read())
+    if not stamp:
+        errors.append("base date: could not read LAST_VERIFIED from scripts/sync_nav.py")
+    else:
+        expect("nav stamp equals the calculation base date",
+               date.fromisoformat(stamp.group(1)), REVIEW_DATE)
+
     # ---------------- Unit 1 ----------------
     # Tenancy 2025-02-01, never increased. First allowance available 2026-02-01.
     u1_available = date(2026, 2, 1)
@@ -192,6 +205,27 @@ def main() -> int:
     expect_in_pages("Unit 2 earliest effective if served today",
                     (REVIEW_DATE + timedelta(days=90)).isoformat(), ["banking-rule.html", "index.html", "executive-summary.html"])
     expect_in_pages("Days since added occupancy", "221 days", ["flagged.html", "occupancy.html"])
+
+    # ---------------- Closing service window (AUDIT.md A-02) ----------------
+    u2_window_close = date(2027, 2, 28)
+    u2_close_personal = u2_window_close - timedelta(days=90)      # 2026-11-30
+    u2_close_mail = u2_window_close - timedelta(days=95)          # 2026-11-25
+    expect("Unit 2 closing service date, personal", u2_close_personal, date(2026, 11, 30))
+    expect("Unit 2 closing service date, mailed", u2_close_mail, date(2026, 11, 25))
+    expect("Unit 2 days left to serve, personal", (u2_close_personal - REVIEW_DATE).days, 22)
+    expect("Unit 2 days left to serve, mailed", (u2_close_mail - REVIEW_DATE).days, 17)
+
+    deadline_pages = ["index.html", "executive-summary.html", "checklist.html",
+                      "flagged.html", "banking-rule.html"]
+    expect_in_pages("Unit 2 closing service date, personal",
+                    u2_close_personal.isoformat(), deadline_pages)
+    expect_in_pages("Unit 2 closing service date, mailed",
+                    u2_close_mail.isoformat(), deadline_pages)
+    expect_in_pages("Unit 2 closing effective date",
+                    u2_window_close.isoformat(), deadline_pages)
+    expect_in_pages("Unit 2 days left to serve, personal",
+                    str((u2_close_personal - REVIEW_DATE).days) + " / "
+                    + str((u2_close_mail - REVIEW_DATE).days), ["banking-rule.html"])
 
     if errors:
         print("CALCULATION VERIFICATION FAILED", file=sys.stderr)
