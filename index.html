@@ -11,7 +11,7 @@
 <div class="layout">
 <nav>
   <h1>Rental Increase Review</h1>
-  <div class="sub">San Francisco &middot; Outer Sunset 94122<br>Last verified: 2026-11-07</div>
+  <div class="sub">San Francisco &middot; Outer Sunset 94122<br>Last verified: 2026-11-08</div>
   <div class="nav-group">Overview</div>
   <a href="index.html" class="active">Dashboard</a>
   <a href="executive-summary.html">Executive Summary</a>
@@ -28,6 +28,7 @@
   <a href="checklist.html">Action Checklist</a>
   <div class="nav-group">Review</div>
   <a href="flagged.html">Flagged for Review</a>
+  <a href="banking-rule.html">Banking Interval (F-16)</a>
   <a href="sources.html">Sources</a>
 </nav>
 <main>
@@ -44,6 +45,13 @@
   <div class="stat"><div class="num">$119.85</div><div class="lbl">Unit 1 at 3.0% effective 2027-02-01 → $4,114.85 (calculated; inputs unverified)</div></div>
   <div class="stat"><div class="num">$412.65</div><div class="lbl">Unit 2 at 13.1% → $3,562.65 (assumes no prior increase; verify ledger)</div></div>
   <div class="stat"><div class="num">30 / 90 days</div><div class="lbl">Written notice: 30 days if ≤10%; 90 days if &gt;10%; +5 days if mailed</div></div>
+  <div class="stat"><div class="num">2026-11-30</div><div class="lbl">Last day to serve any Unit 2 notice that can still price 13.1% (2026-11-25 if mailed)</div></div>
+</div>
+
+<div class="card callout danger" style="margin-top:20px">
+  <h3>Time-critical: Unit 2's service window closes 2026-11-30</h3>
+  <p>Unit 2's 13.1% needs an effective date on or before <strong>2027-02-28</strong>. That is the last day of the published 2026–27 rate; the 2027–28 percentage does not exist yet. With the 90-day notice a 13.1% increase requires, the last date on which <em>any</em> effective date inside that window can still be served is therefore <strong>2026-11-30 by personal delivery</strong>, or <strong>2026-11-25 if mailed</strong>. The earliest effective date still reachable today (2026-11-08) is 2027-02-06; the mailed route to that date closed on 2026-11-03.</p>
+  <p>Missing the window does not destroy the banked 11.5% — banked amounts do not expire during a tenancy — but under Rules § 4.12(a) they may <em>only be given at the time of an annual increase</em>, so the 13.1% cannot be priced again until the Rent Board publishes the 2027–28 allowance. <a href="https://www.sf.gov/documents/34344/571_Allowable_Annual_Increases_26-27_1.pdf">sf.gov — 571 table</a> · <a href="https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=827.&amp;lawCode=CIV">Civ. Code § 827(b)(3)(A)</a> · <a href="https://www.sf.gov/reports--december-2022--rent-board-rules-and-regulations-part-iv-rent-increases-not-requiring">Rules § 4.12(a)</a> · <a href="banking-rule.html">Banking Interval (F-16)</a></p>
 </div>
 
 <div class="card callout" style="margin-top:20px">
@@ -68,7 +76,8 @@
       <tr><td>How often</td><td>Once every 12 months, on the tenant's anniversary date</td><td><span class="tag ok">Verified</span></td><td><a href="https://www.sf.gov/learn-about-rent-increases-san-francisco">sf.gov — Rent increases</a></td></tr>
       <tr><td>Notice</td><td>30-day written notice (≤10%); 90-day if &gt;10%; +5 days if mailed</td><td><span class="tag ok">Verified</span></td><td><a href="https://www.sf.gov/learn-about-rent-increases-san-francisco">sf.gov</a>; <a href="https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=827.&lawCode=CIV">Civ. Code §827</a></td></tr>
       <tr><td>License prerequisite</td><td>Current rent increase license required before an annual/banked increase takes effect</td><td><span class="tag warn">Status unchecked</span></td><td><a href="https://www.sf.gov/rent-board-housing-inventory">sf.gov — Housing Inventory</a></td></tr>
-      <tr><td>Unit 1 maximum at 1.6%</td><td>$3,995 × 1.6% = $63.92; new rent $4,058.92</td><td><span class="tag warn">Calculated from unverified base rent</span></td><td><a href="https://www.sf.gov/learn-about-rent-increases-san-francisco">sf.gov — formula</a></td></tr>
+      <tr><td>Unit 1 at the current 1.6% only</td><td>$3,995 × 1.6% = $63.92; new rent $4,058.92 — and the skipped 1.4% is permanently lost. Waiting to the 2027-02-01 anniversary gives 3.0% ($119.85 → $4,114.85).</td><td><span class="tag warn">Calculated from unverified base rent</span></td><td><a href="https://www.sf.gov/learn-about-rent-increases-san-francisco">sf.gov — formula</a></td></tr>
+      <tr><td><strong>Unit 2 closing deadline</strong></td><td>Serve by <strong>2026-11-30</strong> (personal) or <strong>2026-11-25</strong> (mailed) for any effective date inside the published-rate window, because 13.1% needs 90 days and the rate table ends 2027-02-28</td><td>Calculated from official rates and notice periods</td><td><a href="https://www.sf.gov/documents/34344/571_Allowable_Annual_Increases_26-27_1.pdf">sf.gov — 571 table</a>; <a href="https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=827.&amp;lawCode=CIV">Civ. Code § 827</a></td></tr>
       <tr><td>Unit 2 total if banked</td><td>11.5% banked + 1.6% current = 13.1%; $3,150 × 13.1% = $412.65; new rent $3,562.65</td><td><span class="tag warn">Calculated; verify rent history</span></td><td><a href="https://www.sf.gov/documents/34344/571_Allowable_Annual_Increases_26-27_1.pdf">sf.gov — 571 table</a>; <a href="https://www.sf.gov/information--banked-rent-increases">sf.gov — Banked increases</a></td></tr>
       <tr><td>State cap (if local did not apply)</td><td>5% + regional CPI, max 10% per 12 months (AB 1482); stricter local rule controls covered units</td><td><span class="tag ok">Verified</span></td><td><a href="https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=1947.12.&lawCode=CIV">Civ. Code §1947.12</a></td></tr>
       <tr><td>Federal fair housing</td><td>Fair Housing Act prohibits discrimination in terms/conditions of rental; 7 protected classes</td><td><span class="tag ok">Verified</span></td><td><a href="https://www.hud.gov/reporthousingdiscrimination">HUD — Report Housing Discrimination</a></td></tr>
@@ -127,7 +136,7 @@
       <tr><td>New page — Occupancy</td><td>Unit 1's household change: no market reset, no added-occupant charge, and a 6.14 notice window that may already have passed.</td><td><span class="verified">Verified</span></td><td><a href="https://www.sf.gov/information--rent-increases-under-section-614-and-costa-hawkins">sf.gov — Rules 6.14</a>; <a href="https://www.sf.gov/information--charging-additional-occupants-prohibited">sf.gov — Additional occupants</a></td></tr>
       <tr><td>New page — Checklist</td><td>Gate 0 prerequisites, per-unit service deadlines, notice content, and the pre-service review.</td><td><span class="verified">Verified</span></td><td><a href="https://www.sf.gov/learn-about-rent-increases-san-francisco">sf.gov — Rent increases</a></td></tr>
       <tr><td>Retaliation and pricing</td><td>Added the Civil Code § 1942.5 180-day screen and the § 37.10C ban on algorithmic rent setting.</td><td><span class="verified">Verified</span></td><td><a href="https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=1942.5.&lawCode=CIV">Civ. Code § 1942.5</a>; <a href="https://www.sf.gov/information--algorithmic-devices-set-rent-are-prohibited-san-francisco">sf.gov — § 37.10C</a></td></tr>
-      <tr><td>Flags</td><td>Flag IDs are now F-01 to F-22, including eight new items found during this review.</td><td><span class="verified">Published</span></td><td><a href="flagged.html">Flagged for Review</a></td></tr>
+      <tr><td>Flags</td><td>Flag IDs F-01 to F-25. F-16 is now closed on the evidence; F-24 and F-25 record irregularities found by the final integration review (a wrong subsection citation, corrected, and a date discrepancy between two official Rent Board documents).</td><td><span class="verified">Published</span></td><td><a href="flagged.html">Flagged for Review</a></td></tr>
     </tbody>
   </table>
   </div>
@@ -136,7 +145,7 @@
 <footer class="footer">
   <p><strong>Privacy:</strong> Tenant names and personal identifiers are withheld. Dates and dollar amounts are preserved as provided.</p>
   <p><strong>Not legal advice:</strong> This site is a compliance review based on official sources. It is not legal advice. The SF Rent Board cannot give legal advice. Consult a tenant lawyer or the Rent Board before serving a notice.</p>
-  <p>Last verified: 2026-11-07 · <a href="sources.html">Sources</a> · <a href="flagged.html">Flagged for Review</a></p>
+  <p>Last verified: 2026-11-08 · <a href="sources.html">Sources</a> · <a href="flagged.html">Flagged for Review</a></p>
 </footer>
 </main>
 </div>

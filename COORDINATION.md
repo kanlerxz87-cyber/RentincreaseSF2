@@ -506,8 +506,9 @@ publishes — Unit 1 at 1.6% ($4,058.92) before 2027-02-01 and 3.0% ($4,114.85) 
 Two further primary-source points were verified and are new to the repository: Rules §13.14 fixes
 the license test to the **effective date, not the service date**, and expressly preserves banking
 rights even where an increase is found null and void — which materially softens flag F-03. And
-Rent Ordinance §37.3(a)(5) independently makes a nonconforming increase null and void at the
-ordinance level, not only under Rules §4.10(b).
+Rent Ordinance §37.3(b)(5) independently makes a nonconforming increase null and void at the
+ordinance level, not only under Rules §4.10(b). *(Corrected 2026-11-08: this sentence originally
+cited §37.3(a)(5), which is the water-passthrough subsection. See I-01 below.)*
 
 A new discrepancy between two official Rent Board documents was found and logged as **A-06**: the
 license requirement's start dates are given as 1 July 2022 / 1 March 2023 on the Housing Inventory

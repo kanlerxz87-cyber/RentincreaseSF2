@@ -26,7 +26,7 @@ from decimal import Decimal, ROUND_DOWN
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-REVIEW_DATE = date(2026, 11, 7)
+REVIEW_DATE = date(2026, 11, 8)
 
 # SF Rent Board Info Sheet 571: percentage in effect on each 1 June / 1 February.
 RATE_571 = {
@@ -142,8 +142,12 @@ def main() -> int:
     u2_serve_mail = u2_effective - timedelta(days=95)
     expect("Unit 2 serve by", u2_serve, date(2026, 11, 17))
     expect("Unit 2 serve by mail", u2_serve_mail, date(2026, 11, 12))
-    expect("Unit 2 earliest effective if served today", REVIEW_DATE + timedelta(days=90), date(2027, 2, 5))
+    expect("Unit 2 earliest effective if served today", REVIEW_DATE + timedelta(days=90), date(2027, 2, 6))
+    expect("Unit 2 earliest effective if mailed today", REVIEW_DATE + timedelta(days=95), date(2027, 2, 11))
+    # The closing window: the last date ANY effective date inside the published-rate
+    # window (which ends 2027-02-28) can still be served for.
     expect("Unit 2 last day to serve for 2027-02-28", date(2027, 2, 28) - timedelta(days=90), date(2026, 11, 30))
+    expect("Unit 2 last day to serve for 2027-02-28 (mailed)", date(2027, 2, 28) - timedelta(days=95), date(2026, 11, 25))
 
     # Phased alternative: 10.0% now, remainder stays banked, 30-day notice.
     u2_phase_pct = Decimal("10.0")
@@ -160,7 +164,11 @@ def main() -> int:
     expect("Unit 2 anniversary serve by mail", u2_anniversary - timedelta(days=95), date(2027, 2, 26))
 
     # Occupancy window.
-    expect("Days since added occupancy", (REVIEW_DATE - date(2026, 4, 1)).days, 220)
+    expect("Days since added occupancy", (REVIEW_DATE - date(2026, 4, 1)).days, 221)
+
+    # Earliest effective date reachable from today (Unit 1's 30-day notice).
+    expect("Unit 1 earliest reachable effective date", REVIEW_DATE + timedelta(days=30), date(2026, 12, 8))
+    expect("Unit 1 earliest reachable effective date (mailed)", REVIEW_DATE + timedelta(days=35), date(2026, 12, 13))
 
     # ---------------- Published-value sweep ----------------
     analysis = ["analysis.html"]
@@ -176,6 +184,14 @@ def main() -> int:
     expect_in_pages("Unit 1 mailed serve-by date", u1_serve_mail.isoformat(), ["checklist.html"])
     expect_in_pages("Unit 2 serve-by date", u2_serve.isoformat(), ["checklist.html"])
     expect_in_pages("Unit 2 mailed serve-by date", u2_serve_mail.isoformat(), ["checklist.html"])
+    closing = (date(2027, 2, 28) - timedelta(days=90)).isoformat()
+    closing_mail = (date(2027, 2, 28) - timedelta(days=95)).isoformat()
+    published_closing = ["checklist.html", "index.html", "executive-summary.html", "analysis.html", "flagged.html"]
+    expect_in_pages("Unit 2 closing service date", closing, published_closing)
+    expect_in_pages("Unit 2 closing service date (mailed)", closing_mail, published_closing)
+    expect_in_pages("Unit 2 earliest effective if served today",
+                    (REVIEW_DATE + timedelta(days=90)).isoformat(), ["banking-rule.html", "index.html", "executive-summary.html"])
+    expect_in_pages("Days since added occupancy", "221 days", ["flagged.html", "occupancy.html"])
 
     if errors:
         print("CALCULATION VERIFICATION FAILED", file=sys.stderr)

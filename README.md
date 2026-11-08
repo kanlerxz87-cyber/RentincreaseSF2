@@ -35,7 +35,8 @@ Sources: [Housing Inventory](https://www.sf.gov/rent-board-housing-inventory) ·
 | `tenant-protections.html` | Just cause, free legal help, discrimination, retaliation |
 | `practices.html` | Corporate vs. individual owners, including the § 37.10C algorithm ban |
 | `checklist.html` | Gate 0 prerequisites, computed service deadlines, notice content |
-| `flagged.html` | Every unverified item and irregularity (F-01 … F-22) |
+| `flagged.html` | Every unverified item and irregularity (F-01 … F-25) |
+| `banking-rule.html` | Resolves flag F-16 against both official worked examples; states Unit 2's closing service deadline |
 | `sources.html` | All official sources and the integration method |
 
 ## Key figures
@@ -48,6 +49,10 @@ Computed from the official percentages; **inputs are owner-supplied and unverifi
   30-day notice; serve by 2027-01-02 (mailed 2026-12-28).
 - **Unit 2** — effective 2027-02-15: 11.5% banked + 1.6% current = **13.1%** → **$412.65** → **$3,562.65**.
   90-day notice; serve by 2026-11-17 (mailed 2026-11-12). Assumes no increase was ever imposed.
+  **Closing deadline: 2026-11-30 personal / 2026-11-25 mailed.** That is the last date on which any
+  effective date inside the published-rate window (which ends 2027-02-28) can still be served for,
+  because 13.1% needs 90 days and the 2027–28 percentage is not published. Served today (2026-11-08)
+  the earliest reachable date is 2027-02-06 (2027-02-11 if mailed).
   A phased 10.0% option ($315.00 → $3,465.00) needs only 30 days and leaves 3.1% banked.
 - No market-rate reset on either unit; no surcharge for Unit 1's added occupant.
 
@@ -61,7 +66,7 @@ percentage. Nothing is inferred.
 Three checks run on every push and pull request:
 
 ```bash
-python3 scripts/sync_nav.py            # one canonical navigation across all 12 pages
+python3 scripts/sync_nav.py            # one canonical navigation across all 13 pages
 python3 scripts/validate_site.py       # links, official-source allowlist, per-row sources,
                                        # table column integrity, privacy sweep
 python3 scripts/verify_calculations.py # re-derive every dollar amount and deadline

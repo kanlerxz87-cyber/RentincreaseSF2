@@ -29,6 +29,7 @@ PAGES = [
     "practices.html",
     "checklist.html",
     "flagged.html",
+    "banking-rule.html",
     "sources.html",
 ]
 
@@ -49,6 +50,7 @@ VERIFIED_URLS = {
     "https://www.sf.gov/departments--rent-board",
     "https://www.sf.gov/departments--rent-board--about",
     "https://www.sf.gov/documents/34344/571_Allowable_Annual_Increases_26-27_1.pdf",
+    "https://www.sf.gov/sites/default/files/2024-10/538%202024-25%20Bond%20Measure%20Worksheet%2010.24%20.pdf",
     "https://www.sf.gov/evictions-san-francisco",
     "https://www.sf.gov/information--annual-rent-increase-multiple-years",
     "https://www.sf.gov/information--banked-rent-increases",
@@ -205,8 +207,11 @@ def main() -> int:
         _, errors = check_file(page)
         all_errors.extend(f"{page}: {error}" for error in errors)
 
-    # GitHub Pages serves the repository root, so Markdown files are public too.
-    for doc in ("README.md", "COORDINATION.md"):
+    # GitHub Pages serves the repository root with .nojekyll, so EVERY Markdown
+    # file at the root is public (irregularity A-08). Sweep them all, not just the
+    # two that existed when this check was written.
+    markdown_docs = sorted(f for f in os.listdir(ROOT) if f.lower().endswith(".md"))
+    for doc in markdown_docs:
         path = os.path.join(ROOT, doc)
         if not os.path.exists(path):
             continue
@@ -228,7 +233,7 @@ def main() -> int:
     print(f" - {len(PAGES)} pages checked")
     print(f" - {len(VERIFIED_URLS)} official source URLs on allowlist")
     print(" - every table data row has an official source link")
-    print(" - no tenant initials or personal identifiers in HTML or public Markdown")
+    print(f" - no tenant initials or personal identifiers in HTML or public Markdown ({len(markdown_docs)} files)")
     print(" - all internal links resolve")
     print(" - every table row matches its header column count")
     return 0
