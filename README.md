@@ -35,8 +35,9 @@ Sources: [Housing Inventory](https://www.sf.gov/rent-board-housing-inventory) ·
 | `tenant-protections.html` | Just cause, free legal help, discrimination, retaliation |
 | `practices.html` | Corporate vs. individual owners, including the § 37.10C algorithm ban |
 | `checklist.html` | Gate 0 prerequisites, computed service deadlines, notice content |
-| `flagged.html` | Every unverified item and irregularity (F-01 … F-22) |
+| `flagged.html` | Every unverified item and irregularity (F-01 … F-24) |
 | `sources.html` | All official sources and the integration method |
+| `banking-rule.html` | F-16 resolved: banking-interval decisive test, re-verification, closing service window |
 
 ## Key figures
 
@@ -47,7 +48,9 @@ Computed from the official percentages; **inputs are owner-supplied and unverifi
   Taking it earlier yields only 1.6% ($63.92 → $4,058.92) and the 1.4% is permanently lost.
   30-day notice; serve by 2027-01-02 (mailed 2026-12-28).
 - **Unit 2** — effective 2027-02-15: 11.5% banked + 1.6% current = **13.1%** → **$412.65** → **$3,562.65**.
-  90-day notice; serve by 2026-11-17 (mailed 2026-11-12). Assumes no increase was ever imposed.
+  90-day notice; serve by 2026-11-17 (mailed 2026-11-12). **Closing deadline: to use any effective
+  date inside the published-rate window, serve by 2026-11-30 (personal) or 2026-11-25 (mail).**
+  Assumes no increase was ever imposed.
   A phased 10.0% option ($315.00 → $3,465.00) needs only 30 days and leaves 3.1% banked.
 - No market-rate reset on either unit; no surcharge for Unit 1's added occupant.
 
@@ -61,7 +64,7 @@ percentage. Nothing is inferred.
 Three checks run on every push and pull request:
 
 ```bash
-python3 scripts/sync_nav.py            # one canonical navigation across all 12 pages
+python3 scripts/sync_nav.py            # one canonical navigation across all 13 pages
 python3 scripts/validate_site.py       # links, official-source allowlist, per-row sources,
                                        # table column integrity, privacy sweep
 python3 scripts/verify_calculations.py # re-derive every dollar amount and deadline
