@@ -56,7 +56,7 @@ This session is editing the existing files rather than creating a duplicate site
 | 23 | Validate, open PR to `main`, merge, confirm GitHub Pages deploy | done | arena/bf462feb-rentincreasesf2 | `COORDINATION.md` | **PR #11 merged** at 2026-11-07T21:32:15Z, merge commit `041632c`. `Validate site` passed on the PR and post-merge; `pages build and deployment` succeeded on `041632c`; Pages status `built`. Live URLs re-fetched after deployment and confirmed serving the new content. See *PR #11 — independent audit* below. |
 | 24 | Final integration: apply audit change requests CR-01…CR-08 — add `banking-rule.html` to nav and validator, close flag F-16, publish the 2026-11-30/2026-11-25 closing service deadline, add Rules §13.14 provisions, log A-06 discrepancy, widen the privacy sweep to root Markdown, annotate the colliding task rows | done | arena/f0449766-rentincreasesf2 | `scripts/sync_nav.py`, `scripts/validate_site.py`, all `*.html` nav blocks, `flagged.html`, `analysis.html`, `index.html`, `executive-summary.html`, `checklist.html`, `laws.html`, `process.html`, `COORDINATION.md` | Official sources as cited per CR in `AUDIT.md` §6 and `banking-rule.html`; no figure re-derived by this session is presented without its official source link. |
 | 25 | Full re-verification of the merged tree (validator, calculation script, privacy sweep) | done | arena/f0449766-rentincreasesf2 | scripts run only; no file scope | `python3 scripts/validate_site.py`; `python3 scripts/verify_calculations.py`; root-Markdown privacy sweep. |
-| 26 | PR to `main`, merge, confirm GitHub Pages deploy, record result | pending | arena/f0449766-rentincreasesf2 | `COORDINATION.md` | Flagged irregularities and unverified items do not block the merge; they are published on the Flagged for Review page. |
+| 26 | PR to `main`, merge, confirm GitHub Pages deploy, record result | done | arena/f0449766-rentincreasesf2 | `COORDINATION.md` | Flagged irregularities and unverified items do not block the merge; they are published on the Flagged for Review page. |
 
 
 ¹ **Duplicate task numbers (A-07 / CR-08).** Rows 13–15 above belong to `arena/fa7d2d77-rentincreasesf2` on `main`. Session `arena/2b3012a0-rentincreasesf2` independently claimed rows numbered **13–15** on its own branch (`arena/2b3012a0-rentincreasesf2`) for different work (Rent Board license answer, Q&A page, line-by-line re-verification). That branch was cut from `62f6f59`, which predates PRs #6–#10, so merging it as-is would revert the PR #6/#7 license clarification and the PR #10 privacy redaction. **It must rebase onto current `main` before opening a pull request.** No session has merged it. Its claims remain pending and do not block the board.
@@ -624,3 +624,16 @@ Rules §4.12(a)/§4.10/§4.12(b) and Rules §13.14 (sf.gov / sfrb.org) · Rent O
 ### Publication
 
 Work PR and deployment record follow in the *PR and deployment record* section and in the follow-up record commit.
+
+## PR #14 — final integration, merge and deployment record
+
+- **PR:** https://github.com/kanlerxz87-cyber/RentincreaseSF2/pull/14
+- **Title:** "Final integration: apply audit change requests CR-01..CR-08, close F-16, publish closing service deadline"
+- **Check on PR:** `validate` passed (6s); `mergeStateStatus` CLEAN, `mergeable` MERGEABLE
+- **Merged to `main`:** 2026-11-08T22:48:36Z, merge commit `8017d7994a34b7d2d4cf3a09a2818306d5b60f18`
+- **Merge method:** merge commit
+- **Validation post-merge:** `Validate site` **success** on `8017d79` (2026-11-08T22:48:39Z)
+- **GitHub Pages:** `pages build and deployment` **success** on `8017d79` (created 22:48:38Z, completed); Pages API reports latest build `8017d79`, status `built`, error `null` (updated 22:48:58Z). Live-URL fetch from the sandbox is not possible (outbound network is limited to github.com and package registries); deployment success is confirmed via the Actions and Pages APIs.
+- **Task board:** tasks 24–26 marked done by this record. Flagged irregularities (F-24, and the standing F-01…F-23 owner actions) are published on the Flagged for Review page and do not block the merge.
+- **Not merged / not modified:** branch `arena/2b3012a0-rentincreasesf2` (duplicate task numbers 13–15, stale base `62f6f59`; must rebase before any PR). Tracked as A-07.
+- The follow-up record commit (this section) is merged to `main` via a separate record PR, the same pattern as PRs #9 and #12.
