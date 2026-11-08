@@ -43,6 +43,7 @@ VERIFIED_URLS = {
     "https://calcivilrights.ca.gov/housing/",
     "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=1947.12.&lawCode=CIV",
     "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=1954.50.&lawCode=CIV",
+    "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=1954.52.&lawCode=CIV",
     "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=827.&lawCode=CIV",
     "https://portal.sfrb.org/",
     "https://sfplanninggis.org/pim/?pub=true",
