@@ -134,7 +134,7 @@ official source during this audit.
 | Housing Inventory reporting does **not** waive the Rent Board fee | "Reporting into the Rent Board Housing Inventory does not request an exemption of the Rent Board Fee." | [sf.gov — Housing Inventory](https://www.sf.gov/rent-board-housing-inventory) |
 | Coverage turns on the build date | Units built on or before 13 June 1979 generally have both rent control and eviction protection; a 1940 building is inside that date if the year is confirmed. | [sf.gov — SF rental laws](https://www.sf.gov/learn-about-san-francisco-rental-laws) · [SF Planning PIM](https://sfplanninggis.org/pim/?pub=true) |
 | Algorithmic rent-setting is banned | §37.10C, added by Ord. 224-24 effective 2024-10-14, amended by Ord. 169-25 effective 2025-10-06. Each separate month and each separate unit is a separate violation; penalties up to $1,000 each; the City Attorney, an individual tenant, and (since 2025-10-06) qualifying tenants' rights nonprofits may sue. | [sf.gov — Sec. 37.10C](https://www.sf.gov/information--sec-3710c-use-and-sale-algorithmic-devices-prohibited) · [sf.gov — update notice](https://www.sf.gov/news-update-to-algorithmic-devices-law) |
-| A defective notice voids the **whole** increase, with a narrow tolerance | Rules §4.10(b): non-conforming increases are "null and void" unless the amount requested is no more than the allowable annual and banked increase, with a good-faith tolerance of one-half of one percent of the prior base rent — **$19.98** on Unit 1's $3,995.00 and **$15.75** on Unit 2's $3,150.00. Reinforced by Ordinance §37.3(a)(5). | [Rules Part IV §4.10](https://www.sf.gov/reports--december-2022--rent-board-rules-and-regulations-part-iv-rent-increases-not-requiring) · [sf.gov — Sec. 37.3(a)(5)](https://www.sf.gov/information--sec-373-rent-limitations) |
+| A defective notice voids the **whole** increase, with a narrow tolerance | Rules §4.10(b): non-conforming increases are "null and void" unless the amount requested is no more than the allowable annual and banked increase, with a good-faith tolerance of one-half of one percent of the prior base rent — **$19.98** on Unit 1's $3,995.00 and **$15.75** on Unit 2's $3,150.00. Reinforced by Ordinance §37.3(b)(5). | [Rules Part IV §4.10](https://www.sf.gov/reports--december-2022--rent-board-rules-and-regulations-part-iv-rent-increases-not-requiring) · [sf.gov — Sec. 37.3(b)(5)](https://www.sf.gov/information--sec-373-rent-limitations) |
 | §4.12(b) requires the banked **dates** in the notice | "which portion of the rent increase reflects banked amount, and (2) the dates upon which said banked amount is based". Omission does not void the increase, unlike §4.10. | [Rules Part IV §4.12(b)](https://www.sf.gov/reports--december-2022--rent-board-rules-and-regulations-part-iv-rent-increases-not-requiring) |
 | Retaliation bars an increase | Civ. Code §1942.5(a) bars a rent increase within 180 days of a protected habitability or agency complaint where the tenant is not in default; §1942.5(d) separately bars retaliation for lawful organising; §1942.5(g) preserves a good-faith ground if stated. The site's gate 0.5 and flag F-18 are consistent with the statute it cites. | [Civ. Code §1942.5](https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=1942.5.&lawCode=CIV) |
 | Tenants have free routes to challenge | Tenant petitions carry no filing charge and include an unlawful-rent-increase claim, a lawful-rent determination, and a summary petition based on receipt of an invalid notice. The Rent Board does not adjudicate discrimination, harassment or retaliation. | [sf.gov — Tenant petitions](https://www.sf.gov/tenant-petitions) · [sf.gov — Tenant summary petitions](https://www.sf.gov/information--tenant-summary-petitions) |
@@ -205,7 +205,7 @@ Fetched and read on 2026-11-07, not quoted from memory or from another session's
 
 - Rent Board Rules and Regulations Part IV — §4.10 Notice, §4.11, §4.12 Banking, §4.13 —
   https://www.sf.gov/reports--december-2022--rent-board-rules-and-regulations-part-iv-rent-increases-not-requiring
-- Rent Ordinance §37.3 Rent Limitations — (a)(1) annual, (a)(2) banking, (a)(5) nonconforming —
+- Rent Ordinance §37.3 Rent Limitations — (a)(1) annual, (a)(2) banking, (b)(5) nonconforming —
   https://www.sf.gov/information--sec-373-rent-limitations
 - Rent Ordinance §37.10C Use and Sale of Algorithmic Devices Prohibited —
   https://www.sf.gov/information--sec-3710c-use-and-sale-algorithmic-devices-prohibited
@@ -257,3 +257,34 @@ and **3.0%** for Unit 1, **13.1%** for Unit 2.
 
 **Not legal advice.** This is a documentary audit against official sources. A Rent Board counselor
 cannot give legal advice, and no lawyer's approval can be guaranteed in advance.
+
+---
+
+## Addendum — 2026-11-08, corrections applied after PR #16 review
+
+A parallel session (`arena/342c4cc9-rentincreasesf2`, PR #16, branch based on the pre-integration
+commit `a747d82`) re-verified the site against primary sources and found four defects. Its branch
+duplicates work already merged in PRs #14–#15 and is stale-based, so it was not merged; the
+substantive corrections were re-verified here and applied surgically.
+
+| # | Defect | Official source | Disposition |
+|---|---|---|---|
+| I-01 | This document and `banking-rule.html` quoted "Nonconforming Rent Increases … shall be null and void" as **§ 37.3(a)(5)**. That subsection is the water-charges-and-revenue-bond-passthrough provision. The quoted sentence is **§ 37.3(b)(5)**, inside "Notice of Rent Increase for Tenants in Occupancy". | [sf.gov — Sec. 37.3](https://www.sf.gov/information--sec-373-rent-limitations) (subsection (b)(5), read verbatim 2026-11-08) | Corrected in `banking-rule.html`, `AUDIT.md`, `COORDINATION.md`. Logged on the site as flag **F-25**. |
+| I-02 | `units.html` carried pre-integration rows (past "proposed effective date" 2026-04-01, 24-month banking framing, a Unit 1 total of 1.6% contradicting the 3.0% scenario). | — | **Already resolved on `main`** — grep confirms no such rows remain; no change needed. |
+| I-03 | `sources.html` was stamped "Verified 2026-11-06" against a later site stamp. | — | Corrected to 2026-11-08. |
+| I-04 | `laws.html` said Costa-Hawkins "limits local rent control to units with a certificate of occupancy before 1979". Costa-Hawkins sets no such date; Civ. Code § 1954.52(a) exempts units with a certificate of occupancy issued after 1995-02-01, units already exempt under a local new-construction exemption on or before that date, and separately alienable units. The 1979-06-13 date comes from the Rent Ordinance / Rent Board guidance. | [Civ. Code § 1954.52](https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=1954.52.&lawCode=CIV) (read verbatim 2026-11-08) · [sf.gov — Rental laws](https://www.sf.gov/learn-about-san-francisco-rental-laws) | Rewritten in `laws.html`; logged as flag **F-26**. |
+
+Two further consistency fixes were applied so every published date and stamp reads 2026-11-08:
+
+- `scripts/verify_calculations.py` — `REVIEW_DATE` moved to 2026-11-08; assertions updated
+  (Unit 2 earliest reachable effective date 2027-02-05 → 2027-02-06; days since added occupancy
+  220 → 221) and assertions added for the published closing dates (2026-11-30 personal /
+  2026-11-25 mailed) across the pages. **47 assertions pass.**
+- `banking-rule.html` § 5 ("counted back from today") re-stamped to 2026-11-08 with every
+  onward date and day-count recomputed (closing window 22/17 days; Unit 1 earliest reachable
+  2026-12-08 personal / 2026-12-13 mailed); `flagged.html`, `occupancy.html`, `index.html`,
+  `executive-summary.html`, `checklist.html`, `analysis.html` updated to match.
+
+Full verification after the corrections: `scripts/validate_site.py` PASSED ·
+`scripts/verify_calculations.py` PASSED (47 assertions) · tag-balance check OK on all 13 pages ·
+zero personal-identifier hits in HTML and root Markdown.

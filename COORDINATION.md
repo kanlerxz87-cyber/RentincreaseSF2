@@ -512,7 +512,7 @@ publishes — Unit 1 at 1.6% ($4,058.92) before 2027-02-01 and 3.0% ($4,114.85) 
 Two further primary-source points were verified and are new to the repository: Rules §13.14 fixes
 the license test to the **effective date, not the service date**, and expressly preserves banking
 rights even where an increase is found null and void — which materially softens flag F-03. And
-Rent Ordinance §37.3(a)(5) independently makes a nonconforming increase null and void at the
+Rent Ordinance §37.3(b)(5) independently makes a nonconforming increase null and void at the
 ordinance level, not only under Rules §4.10(b).
 
 A new discrepancy between two official Rent Board documents was found and logged as **A-06**: the
@@ -602,7 +602,7 @@ favourable provisions.
 
 ### Sources (all official, read or re-checked by prior sessions and cited per row)
 
-Rules §4.12(a)/§4.10/§4.12(b) and Rules §13.14 (sf.gov / sfrb.org) · Rent Ordinance §37.3(a)(2), §37.3(a)(5) (sf.gov) · Form 571 Allowable Annual Increases 26-27 (sf.gov PDF) · Form 538 2024-25 Bond Measure Worksheet (sf.gov PDF) · *Learn about rent increases*, *Banked rent increases*, *Increasing rents during irregular periods*, *Annual rent increase for multiple years*, *Housing Inventory*, *Current Rates*, *Notice of Owner Noncompliance* (sf.gov) · Civ. Code §827, §1942.5 (leginfo.legislature.ca.gov). Every added table row carries an official source link; `banking-rule.html` carries the decisive F-16 test with both official worked examples reproduced.
+Rules §4.12(a)/§4.10/§4.12(b) and Rules §13.14 (sf.gov / sfrb.org) · Rent Ordinance §37.3(a)(2), §37.3(b)(5) (sf.gov) · Form 571 Allowable Annual Increases 26-27 (sf.gov PDF) · Form 538 2024-25 Bond Measure Worksheet (sf.gov PDF) · *Learn about rent increases*, *Banked rent increases*, *Increasing rents during irregular periods*, *Annual rent increase for multiple years*, *Housing Inventory*, *Current Rates*, *Notice of Owner Noncompliance* (sf.gov) · Civ. Code §827, §1942.5 (leginfo.legislature.ca.gov). Every added table row carries an official source link; `banking-rule.html` carries the decisive F-16 test with both official worked examples reproduced.
 
 ### Verification performed in this session (2026-11-08)
 
@@ -637,3 +637,67 @@ Work PR and deployment record follow in the *PR and deployment record* section a
 - **Task board:** tasks 24–26 marked done by this record. Flagged irregularities (F-24, and the standing F-01…F-23 owner actions) are published on the Flagged for Review page and do not block the merge.
 - **Not merged / not modified:** branch `arena/2b3012a0-rentincreasesf2` (duplicate task numbers 13–15, stale base `62f6f59`; must rebase before any PR). Tracked as A-07.
 - The follow-up record commit (this section) is merged to `main` via a separate record PR, the same pattern as PRs #9 and #12.
+
+## Session `arena/e8ef4a1a-rentincreasesf2` — parallel-session race record (2026-11-08)
+
+This session claimed tasks **24–25** at 2026-11-08T22:45:59Z (branch tip `299f8f7`, PR #13) to apply
+`AUDIT.md` change requests CR-01…CR-08. Session `arena/f0449766-rentincreasesf2` had independently
+claimed tasks **24–26** at 2026-11-08T22:45:43Z — sixteen seconds earlier — and opened PR #14 with an
+equivalent implementation. Both branches were based on `a747d82`; neither session could see the
+other's claim before branching.
+
+**Resolution (coordination protocol, earlier claim wins):**
+
+- Both branches were independently verified and found equivalent: `scripts/validate_site.py` PASSED
+  (13 pages, 47 official-source URLs on allowlist, per-row source links, column integrity, privacy
+  sweep over all root Markdown); `scripts/verify_calculations.py` PASSED (39 assertions); tag-balance
+  check OK on all 13 pages; zero personal-identifier hits.
+- This session additionally cross-verified PR #14 in a detached worktree before it merged:
+  validator, calculation script, tag balance and privacy sweep all PASSED; PR `validate` check green;
+  diff reviewed line by line (CR-01…CR-08 all applied, no unrelated changes, no deletions of other
+  sessions' work).
+- **PR #14 merged** at 2026-11-08T22:48:36Z, merge commit `8017d7994a34b7d2d4cf3a09a2818306d5b60f18`.
+  Post-merge `Validate site` SUCCESS on `8017d79`; `pages build and deployment` SUCCESS; Pages later
+  rebuilt for record merge `b3ed89f` (PR #15) and reports status **built**.
+- **PR #13 closed unmerged** (superseded) with an explanatory comment:
+  https://github.com/kanlerxz87-cyber/RentincreaseSF2/pull/13#issuecomment-… Its commits remain
+  retrievable via the pull-request ref. This session's branch was reset to `origin/main` before this
+  record commit; the earlier tip is preserved on closed PR #13. No material content differs between
+  the two implementations; PR #14 was retained as canonical.
+- No action taken against `arena/2b3012a0-rentincreasesf2` (A-07). Root Markdown remains public
+  (A-08); personal identifiers must never be committed to root `*.md`.
+
+**Sources of truth:** CR-01…CR-08 dispositions are recorded in the PR #14 record above; line-by-line
+verification of every published figure is in the 2026-11-07 audit (`AUDIT.md`) and in
+`banking-rule.html`. Official sources re-read live in this session: Housing Inventory
+(https://www.sf.gov/rent-board-housing-inventory) and Form 571 Allowable Annual Increases 26-27
+(https://www.sf.gov/documents/34344/571_Allowable_Annual_Increases_26-27_1.pdf) — both confirm the
+site's license-requirement and 1.6% / 1.4% / 11.5% banked figures.
+
+## Session `arena/e8ef4a1a-rentincreasesf2` — post-merge corrections salvaged from PR #16 (2026-11-08)
+
+`arena/342c4cc9-rentincreasesf2` opened PR #16 ("Final integration: apply CR-01–CR-07, correct
+four citation defects…"), based on the pre-integration commit `a747d82`. It duplicates work that
+merged in PRs #14/#15 and would revert #14's F-03 softening if merged as-is, so it is not being
+merged. Its four findings were independently re-verified against official sources and applied
+surgically on this branch instead:
+
+- **I-01** — "Nonconforming Rent Increases" sentence is Rent Ordinance **§ 37.3(b)(5)**, not
+  § 37.3(a)(5) (verified verbatim at sf.gov/information--sec-373-rent-limitations). Fixed in
+  `banking-rule.html`, `AUDIT.md`, `COORDINATION.md`; logged as site flag **F-25**.
+- **I-02** — stale `units.html` rows: confirmed absent on `main`; no change required.
+- **I-03** — `sources.html` verification stamp 2026-11-06 → 2026-11-08 (badge and footer).
+- **I-04** — `laws.html` Costa-Hawkins row rewritten: § 1954.52(a) exempts units with a
+  certificate of occupancy issued after **1995-02-01** (plus the local-exemption and
+  separately-alienable grounds); the **1979-06-13** date comes from the Rent Ordinance / Rent
+  Board rental-laws page. Logged as site flag **F-26**; Civ. Code § 1954.52 added to the
+  validator allowlist.
+- Re-stamp: every published "today"-relative date and count moved to **2026-11-08**
+  (`verify_calculations.py` REVIEW_DATE + new closing-window assertions — **47 assertions
+  pass**; `banking-rule.html` § 5, F-15/F-19 day counts, `occupancy.html`, `index.html`,
+  `executive-summary.html`, `checklist.html`, `analysis.html`).
+- README flag range F-01…F-24 → F-01…F-26.
+
+All checks green after the corrections (validator, 47-assertion calculation script, tag balance,
+privacy sweep over all root Markdown). `PR #16` should be rebased onto current `main` by its
+session or closed; its unique verified content is now on `main`.
