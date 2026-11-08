@@ -713,3 +713,60 @@ session or closed; its unique verified content is now on `main`.
 - **Verification:** `validate_site.py` PASSED (13 pages; 48 allowlisted official URLs; per-row source links; column integrity; privacy sweep over all root Markdown); `verify_calculations.py` PASSED (47 assertions); tag balance OK; 0 personal-identifier hits.
 - **Not merged:** PR #16 (stale base `a747d82`, duplicates merged work, would revert #14's F-03 softening). Comment posted on PR #16 explaining what was salvaged; its session can rebase or close.
 - **Flagged items remain open for the owner** (see flagged.html): F-01…F-24 inputs and license status; F-25/F-26 recorded as corrected. None block publication.
+
+## PR #18 — merge and deployment record (session `arena/b2b8a2de-rentincreasesf2`)
+
+- **PR:** https://github.com/kanlerxz87-cyber/RentincreaseSF2/pull/18
+- **Title:** "Fix the stale 'today' and mis-populated row in banking-rule.html; guard the printed day counts"
+- **Merged to `main`:** 2026-11-08T22:58:25Z, merge commit `0ec790acaffd2ba38c529b629a88649857d81a2e`
+- **Merge method:** merge commit (`gh pr merge 18 --merge`)
+- **`mergeStateStatus` before merge:** `CLEAN` / `MERGEABLE`
+- **Validation on the PR:** `validate` job **pass** (run 42532797769)
+- **Validation post-merge:** `Validate site` **success** on `0ec790a`
+- **GitHub Pages:** `pages build and deployment` **success** on `0ec790a`;
+  `pages/builds/latest` → `{"commit":"0ec790a…","status":"built"}`, created 22:58:27Z, updated 22:58:47Z;
+  `gh api …/pages` → `{"status":"built","build_type":"legacy"}`
+- **Deployed-artifact verification.** The chunked live-page fetch failed at the proxy layer
+  (`SignatureDoesNotMatch`, a fetcher artefact — not a site error), so the deployed file was read
+  back directly at the built commit instead:
+  `gh api repos/.../contents/banking-rule.html?ref=0ec790a…` → **0** occurrences of the stale
+  "7 November 2026", **3** of "8 November 2026", **0** mis-populated `<td>30 / 35</td>` cells, the
+  corrected Unit 1 row present, day counts `9 / 4`, `22 / 17`, `69 / 64`, `55 / 50`, `115 / 110`,
+  and the closing-deadline row `2026-11-30 / 2026-11-25 / 22 / 17`.
+- **Live fetch that did succeed:** https://kanlerxz87-cyber.github.io/RentincreaseSF2/banking-rule.html
+  rendered "counted back from today, **8 November 2026**" and "Banked as of 2026-11-08?".
+
+### Parallel-session races during this task (logged per the coordination rules)
+
+`main` moved **five** times while this session worked: PR #14 → #15 → #17 → #19 → #18.
+Two sessions (`arena/f0449766`, `arena/e8ef4a1a`) independently applied overlapping parts of the
+same correction set, and PR #19 (`cf609b6`) explicitly salvaged this branch's base-date assertion
+before this branch merged.
+
+Resolution used throughout: **never force a divergent tree through.** Twice this branch was reset
+to `origin/main` and re-inspected for what was *still* wrong, so only the residual difference was
+committed. The final PR therefore touches **two files and one log** — `banking-rule.html`,
+`scripts/verify_calculations.py`, `COORDINATION.md` — and reverts nothing. No other session's work
+was discarded, and no session's claim was edited.
+
+One rebase conflict occurred, in this file's task board: `arena/f0449766` had marked task 26 `done`
+(PR #15) where this session's claim still carried the older `pending` row. Resolved by keeping
+their `done` row and only the new rows 27–29.
+
+### Net effect on the published site
+
+Two reader-visible defects removed and one regression guard added:
+
+1. The Banking Interval page no longer says "today is 7 November 2026" under a footer stamped
+   2026-11-08.
+2. The Unit 1 "any date before 2027-02-01" row no longer shows a **mailed** service deadline later
+   than the **personal** one — an impossibility that a tenant's lawyer reviewing the arithmetic
+   would have caught immediately.
+3. `scripts/verify_calculations.py` now fails CI if any printed `<personal> / <mailed>` day count
+   in that table disagrees with a date recomputed from `REVIEW_DATE`, and if the nav stamp
+   disagrees with `REVIEW_DATE`. 48 → 61 assertions across the two additions.
+
+**No legal conclusion, percentage or dollar figure changed.** The substantive analysis — 1.6%
+current, Unit 1 at 3.0% → $4,114.85, Unit 2 at 13.1% → $3,562.65, and the 2026-11-30 closing
+service deadline — was re-verified against primary official sources this session and confirmed
+unchanged.
