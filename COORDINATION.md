@@ -2,7 +2,7 @@
 
 **Repo:** `kanlerxz87-cyber/RentincreaseSF2`  
 **Live site:** https://kanlerxz87-cyber.github.io/RentincreaseSF2/  
-**Last updated:** 2026-11-07
+**Last updated:** 2026-11-08
 
 ## Sessions
 
@@ -12,7 +12,16 @@
 | `session-arena-81e8c938` (this session) | Review, remediation, verification, and final integration | In progress. Reviewing the live site line by line, correcting legal accuracy, adding missing required pages, and re-verifying all sources. |
 | `arena/fa7d2d77-rentincreasesf2` | Final integration: took over stale PR #5, ported its verified findings, re-verified line by line, extended the live site to 12 pages, merged PR #8 and confirmed deployment | **DONE** — completed 2026-11-07. |
 | `arena/2b3012a0-rentincreasesf2` | Rent Board license answer, Q&A page, line-by-line re-verification | In progress on its own branch. **Claimed tasks 13–15 there — those numbers collide with rows 13–18 below; see A-07.** Branched from `62f6f59`, which predates PRs #6–#10, so it must rebase before opening a PR. |
-| `arena/bf462feb-rentincreasesf2` (this session) | Independent primary-source audit of the integrated site; resolution of flag F-16; new verification page | In progress — owns tasks 19–23. New files only: `AUDIT.md`, `banking-rule.html`. No file claimed by another session was edited. |
+| `arena/bf462feb-rentincreasesf2` | Independent primary-source audit of the integrated site; resolution of flag F-16; new verification page | **DONE** — PR #11 merged; tasks 19–23 complete. New files only: `AUDIT.md`, `banking-rule.html`. No file claimed by another session was edited. |
+| `arena/cc6f8b22-rentincreasesf2` (this session) | **Final integration session**: close CR-01…CR-08, bring `banking-rule.html` into shared nav and validator, re-verify line by line against primary official sources, recompute deadlines as of 2026-11-08, PR to `main`, merge, confirm Pages deploy | In progress — owns tasks 24–28. All prior tasks are `done`; no other active branch exists on the remote (checked 2026-11-08). |
+
+## Claim — session `arena/cc6f8b22-rentincreasesf2` (2026-11-08)
+
+**Branch:** platform-assigned `arena/cc6f8b22-rentincreasesf2`, branched from `a747d82` (= `origin/main` at claim time). The standing `session-<id>/<task>` naming is not available because the platform ties a session to one branch; this is the same constraint recorded by the two prior integration sessions. `git fetch --all --prune` at claim time showed **only** `origin/main` and `origin/HEAD` on the remote, so there is no active session whose scope could collide. Tasks 1–23 are all marked `done` on `main`.
+
+**File scope claimed (integration prerogative, tasks 1–23 done):** `COORDINATION.md`, `README.md`, `AUDIT.md`, all `*.html` in the repository root, `style.css`, `scripts/*.py`, `.github/workflows/validate.yml`. **No new task will be started on a file claimed by an in-progress session**; any future session that claims a file should log a change request here instead.
+
+**Handoff received:** `AUDIT.md` §6 change requests CR-01…CR-08, PR #11's "Outstanding for a future integration session" section, and flags F-16 / F-19 / F-23. These are the work items for tasks 24–27.
 
 ## Coordination note / handoff
 
@@ -53,6 +62,11 @@ This session is editing the existing files rather than creating a duplicate site
 | 21 | Publish the closing service window as a deadline counted back from today (irregularity A-02) | done | arena/bf462feb-rentincreasesf2 | `banking-rule.html`, `AUDIT.md` | Unit 2's 13.1% needs an effective date on or before 2027-02-28 because Form 571 ends there and the 2027-28 percentage is unpublished; with a 90-day notice the last service date is **2026-11-30** personal / **2026-11-25** mailed. The mailed route to the earliest date closed 2026-11-02. Unit 1 is not urgent: serve by 2027-01-02 for 2027-02-01. |
 | 22 | Log change requests for corrections that belong in files owned by other sessions, instead of editing them | done | arena/bf462feb-rentincreasesf2 | `AUDIT.md` section 6 | CR-01…CR-08. No page in `PAGES`, no script, and no nav block was modified by this session. |
 | 23 | Validate, open PR to `main`, merge, confirm GitHub Pages deploy | done | arena/bf462feb-rentincreasesf2 | `COORDINATION.md` | **PR #11 merged** at 2026-11-07T21:32:15Z, merge commit `041632c`. `Validate site` passed on the PR and post-merge; `pages build and deployment` succeeded on `041632c`; Pages status `built`. Live URLs re-fetched after deployment and confirmed serving the new content. See *PR #11 — independent audit* below. |
+| 24 | Final integration: close CR-01…CR-08 (nav, validator allowlist, F-16 resolution, §13.14, service deadline) and reconcile the one-day-old "today = 2026-11-07" base date | in progress | arena/cc6f8b22-rentincreasesf2 | `scripts/sync_nav.py`, `scripts/validate_site.py`, `scripts/verify_calculations.py`, all `*.html`, `README.md`, `style.css` | Claimed 2026-11-08. |
+| 25 | Line-by-line re-verification of the combined site against **primary** official sources fetched directly this session; every table row, figure and date | unclaimed | — | `COORDINATION.md` verification log | Depends on 24. |
+| 26 | Confirm site builds with no broken links (validator, calculation script, nav sync, live-URL check) | unclaimed | — | `COORDINATION.md` verification log | Depends on 24–25. |
+| 27 | Publish all unresolved irregularities on the Flagged for Review page with official source links | unclaimed | — | `flagged.html` | Depends on 25. |
+| 28 | PR from this branch to `main` with summary, sources and flagged irregularities; merge without waiting; confirm Pages deploy; record PR link and result here | unclaimed | — | `COORDINATION.md` | Depends on 24–27. |
 
 ## PR and deployment record
 
