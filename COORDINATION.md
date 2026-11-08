@@ -11,8 +11,23 @@
 | `arena/3eac9d0e-rentincreasesf2` | Original build session | Completed tasks 1–8; merged PR #1; site deployed. Work preserved. |
 | `session-arena-81e8c938` (this session) | Review, remediation, verification, and final integration | In progress. Reviewing the live site line by line, correcting legal accuracy, adding missing required pages, and re-verifying all sources. |
 | `arena/fa7d2d77-rentincreasesf2` | Final integration: took over stale PR #5, ported its verified findings, re-verified line by line, extended the live site to 12 pages, merged PR #8 and confirmed deployment | **DONE** — completed 2026-11-07. |
-| `arena/2b3012a0-rentincreasesf2` | Rent Board license answer, Q&A page, line-by-line re-verification | In progress on its own branch. **Claimed tasks 13–15 there — those numbers collide with rows 13–18 below; see A-07.** Branched from `62f6f59`, which predates PRs #6–#10, so it must rebase before opening a PR. |
+| `arena/2b3012a0-rentincreasesf2` | Rent Board license answer, Q&A page, line-by-line re-verification | In progress on its own branch. **Its rows 13–15 are NOT the rows 13–18 in the task board below — the task board belongs to `arena/fa7d2d77-rentincreasesf2`. Its branch is based on `62f6f59`, which predates PRs #6–#10, so it must rebase onto current `main` before opening a PR; merging as-is would revert the license clarification and the privacy redaction (A-07).** Do not merge its PR without that rebase and a fresh review. |
 | `arena/bf462feb-rentincreasesf2` (this session) | Independent primary-source audit of the integrated site; resolution of flag F-16; new verification page | In progress — owns tasks 19–23. New files only: `AUDIT.md`, `banking-rule.html`. No file claimed by another session was edited. |
+
+## Standing rule — root Markdown is public (A-08 / CR-07)
+
+**GitHub Pages publishes the repository root of `main` (`.nojekyll`, legacy build).** Any Markdown
+file at the repository root is therefore publicly served as raw file content. Confirmed empirically
+during the 2026-11-07 audit. Standing constraints for every session:
+
+1. Never commit personal identifiers (names, initials, addresses, contact details) in any root-level
+   `*.md` file.
+2. `scripts/validate_site.py` now sweeps **all** root `*.md` files for the personal-identifier
+   patterns, not only `README.md` and `COORDINATION.md`.
+3. If a sensitive value must be recorded, keep it out of the repository entirely (out-of-band), or
+   redact it before committing.
+4. Redacting a file does not remove it from git history; treat any past exposure as permanent and
+   flag it for the owner (see flagged.html, F-23).
 
 ## Coordination note / handoff
 
@@ -27,6 +42,11 @@ The original session (`arena/3eac9d0e-rentincreasesf2`) created the first site a
 This session is editing the existing files rather than creating a duplicate site. No work from the original session is discarded. The original session's verification log is preserved below.
 
 ## Task board
+
+**Numbering note (CR-08):** rows 13–18 belong to `arena/fa7d2d77-rentincreasesf2`. The rows numbered
+13–15 on the `arena/2b3012a0-rentincreasesf2` branch are a separate, colliding set with different
+meanings and are annotated in the Sessions table above; they are not reflected here and must not be
+merged without a rebase onto current `main`.
 
 | # | Task | Status | Owner session | File scope | Sources / verification notes |
 |---|---|---|---|---|---|
@@ -53,7 +73,7 @@ This session is editing the existing files rather than creating a duplicate site
 | 21 | Publish the closing service window as a deadline counted back from today (irregularity A-02) | done | arena/bf462feb-rentincreasesf2 | `banking-rule.html`, `AUDIT.md` | Unit 2's 13.1% needs an effective date on or before 2027-02-28 because Form 571 ends there and the 2027-28 percentage is unpublished; with a 90-day notice the last service date is **2026-11-30** personal / **2026-11-25** mailed. The mailed route to the earliest date closed 2026-11-02. Unit 1 is not urgent: serve by 2027-01-02 for 2027-02-01. |
 | 22 | Log change requests for corrections that belong in files owned by other sessions, instead of editing them | done | arena/bf462feb-rentincreasesf2 | `AUDIT.md` section 6 | CR-01…CR-08. No page in `PAGES`, no script, and no nav block was modified by this session. |
 | 23 | Validate, open PR to `main`, merge, confirm GitHub Pages deploy | done | arena/bf462feb-rentincreasesf2 | `COORDINATION.md` | **PR #11 merged** at 2026-11-07T21:32:15Z, merge commit `041632c`. `Validate site` passed on the PR and post-merge; `pages build and deployment` succeeded on `041632c`; Pages status `built`. Live URLs re-fetched after deployment and confirmed serving the new content. See *PR #11 — independent audit* below. |
-| 24 | Final integration: apply audit change requests CR-01…CR-08 (nav + validator listing for banking-rule.html, URL allowlist, F-16 closure, Unit 2 closing service deadline, §13.14 favourable provisions, A-06 flag, standing Markdown rule + wider privacy sweep, task-row annotation) | in progress | arena/e8ef4a1a-rentincreasesf2 | `scripts/sync_nav.py`, `scripts/validate_site.py`, `index.html`, `executive-summary.html`, `checklist.html`, `laws.html`, `flagged.html`, `analysis.html`, `COORDINATION.md` | Branch based on `a747d82` (current `origin/main`). `arena/2b3012a0-rentincreasesf2` left untouched; CR-08 note recorded, its PR not merged. |
+| 24 | Final integration: apply audit change requests CR-01…CR-08 (nav + validator listing for banking-rule.html, URL allowlist, F-16 closure, Unit 2 closing service deadline, §13.14 favourable provisions, A-06 flag, standing Markdown rule + wider privacy sweep, task-row annotation) | done | arena/e8ef4a1a-rentincreasesf2 | `scripts/sync_nav.py`, `scripts/validate_site.py`, `index.html`, `executive-summary.html`, `checklist.html`, `laws.html`, `flagged.html`, `analysis.html`, `COORDINATION.md` | Branch based on `a747d82` (current `origin/main`). `arena/2b3012a0-rentincreasesf2` left untouched; CR-08 note recorded, its PR not merged. |
 | 25 | Final verification, PR to `main`, merge, confirm GitHub Pages deploy, record result | in progress | arena/e8ef4a1a-rentincreasesf2 | `COORDINATION.md` | Pending task 24. |
 
 ## PR and deployment record

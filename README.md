@@ -37,6 +37,7 @@ Sources: [Housing Inventory](https://www.sf.gov/rent-board-housing-inventory) ·
 | `checklist.html` | Gate 0 prerequisites, computed service deadlines, notice content |
 | `flagged.html` | Every unverified item and irregularity (F-01 … F-22) |
 | `sources.html` | All official sources and the integration method |
+| `banking-rule.html` | Resolves flag F-16 against both official worked examples |
 
 ## Key figures
 
@@ -61,7 +62,7 @@ percentage. Nothing is inferred.
 Three checks run on every push and pull request:
 
 ```bash
-python3 scripts/sync_nav.py            # one canonical navigation across all 12 pages
+python3 scripts/sync_nav.py            # one canonical navigation across all 13 pages
 python3 scripts/validate_site.py       # links, official-source allowlist, per-row sources,
                                        # table column integrity, privacy sweep
 python3 scripts/verify_calculations.py # re-derive every dollar amount and deadline

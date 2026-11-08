@@ -30,10 +30,12 @@ PAGES = [
     "checklist.html",
     "flagged.html",
     "sources.html",
+    "banking-rule.html",
 ]
 
 VERIFIED_URLS = {
     "https://sfrb.org/section-1314-licensing-%E2%80%93-notice-rent-increase",
+    "https://www.sf.gov/sites/default/files/2024-10/538%202024-25%20Bond%20Measure%20Worksheet%2010.24%20.pdf",
     "https://www.sf.gov/information--rent-increases-under-section-614-and-costa-hawkins",
     "https://www.sf.gov/information--charging-additional-occupants-prohibited",
     "https://www.sf.gov/information--algorithmic-devices-set-rent-are-prohibited-san-francisco",
@@ -205,10 +207,12 @@ def main() -> int:
         _, errors = check_file(page)
         all_errors.extend(f"{page}: {error}" for error in errors)
 
-    # GitHub Pages serves the repository root, so Markdown files are public too.
-    for doc in ("README.md", "COORDINATION.md"):
+    # GitHub Pages serves the repository root, so Markdown files at the root are public too.
+    for doc in sorted(os.listdir(ROOT)):
+        if not doc.lower().endswith(".md"):
+            continue
         path = os.path.join(ROOT, doc)
-        if not os.path.exists(path):
+        if not os.path.isfile(path):
             continue
         with open(path, "r", encoding="utf-8") as handle:
             body = handle.read()
