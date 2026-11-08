@@ -2,7 +2,7 @@
 
 **Repo:** `kanlerxz87-cyber/RentincreaseSF2`  
 **Live site:** https://kanlerxz87-cyber.github.io/RentincreaseSF2/  
-**Last updated:** 2026-11-07
+**Last updated:** 2026-11-08
 
 ## Sessions
 
@@ -12,7 +12,8 @@
 | `session-arena-81e8c938` (this session) | Review, remediation, verification, and final integration | In progress. Reviewing the live site line by line, correcting legal accuracy, adding missing required pages, and re-verifying all sources. |
 | `arena/fa7d2d77-rentincreasesf2` | Final integration: took over stale PR #5, ported its verified findings, re-verified line by line, extended the live site to 12 pages, merged PR #8 and confirmed deployment | **DONE** — completed 2026-11-07. |
 | `arena/2b3012a0-rentincreasesf2` | Rent Board license answer, Q&A page, line-by-line re-verification | In progress on its own branch. **Claimed tasks 13–15 there — those numbers collide with rows 13–18 below; see A-07.** Branched from `62f6f59`, which predates PRs #6–#10, so it must rebase before opening a PR. |
-| `arena/bf462feb-rentincreasesf2` (this session) | Independent primary-source audit of the integrated site; resolution of flag F-16; new verification page | In progress — owns tasks 19–23. New files only: `AUDIT.md`, `banking-rule.html`. No file claimed by another session was edited. |
+| `arena/bf462feb-rentincreasesf2` | Independent primary-source audit of the integrated site; resolution of flag F-16; new verification page | done — merged as PR #12. New files only: `AUDIT.md`, `banking-rule.html`. No file claimed by another session was edited. |
+| `arena/f0449766-rentincreasesf2` (this session) | Final integration: apply audit change requests CR-01…CR-08, close F-16, publish the closing service deadline, re-verify, PR and merge | In progress — owns tasks 24–26. File scope: `scripts/sync_nav.py`, `scripts/validate_site.py`, all `*.html` nav blocks, `flagged.html`, `analysis.html`, `index.html`, `executive-summary.html`, `checklist.html`, `laws.html`, `process.html`, `COORDINATION.md`. Branched from `main` at `a747d82`. |
 
 ## Coordination note / handoff
 
@@ -42,9 +43,9 @@ This session is editing the existing files rather than creating a duplicate site
 | 10 | Add GitHub Actions validation workflow and validation script | done | session-arena-81e8c938 | `.github/workflows/validate.yml`, `scripts/validate_site.py` | Validation checks internal links, external allowlist, table source links, and personal identifiers. GitHub Pages remains on the repository's existing legacy build from `main`; the workflow is a check, not a second deploy path. |
 | 11 | Final verification, PR, and merge | done | session-arena-81e8c938 | all files | PR #2 merged; Pages build succeeded; live site re-verified. |
 | 12 | Clarify individual-owner Housing Inventory/license and Rent Board notice timing | done | arena/795a54b7-rentincreasesf2 | index.html, executive-summary.html, process.html, practices.html, COORDINATION.md | Directly rechecked SF Rent Board Housing Inventory, rent increase, noncompliance, and counselor pages on 2026-11-07. All owners report; tenant-occupied units receive a license; current license is needed before effective date; license need not accompany tenant notice. Official guidance describes tenant notice and annual Housing Inventory, not a separate Rent Board filing for each increase. Safe sequencing advice is labeled as prudence, not a legal timing requirement. |
-| 13 | Take over stale PR #5 (idle >30h) and audit it for privacy, accuracy and mergeability | done | arena/fa7d2d77-rentincreasesf2 | COORDINATION.md (audit record only; no PR #5 file is edited on its branch) | Handoff logged below. Audit complete: privacy PASS, build PASS, direct merge FAIL (unrelated history). Ported instead. |
-| 14 | Re-verify controlling sources line by line (rates, banking, license, notice, occupancy, retaliation, algorithmic pricing) | done | arena/fa7d2d77-rentincreasesf2 | COORDINATION.md verification log | Official sources fetched directly this session. 21 official sources fetched and read directly this session; see log below. |
-| 15 | Add missing verified content: Unit 1 occupancy change, corporate algorithmic-pricing ban, license null-and-void rule, retaliation screen, action checklist | done | arena/fa7d2d77-rentincreasesf2 | NEW: occupancy.html, checklist.html, market.html | New files only — no other session owns them. occupancy.html and checklist.html added. market.html dropped from scope: no official source defines a market benchmark for covered units, so a market page would add unsourced inference. |
+| 13¹ | Take over stale PR #5 (idle >30h) and audit it for privacy, accuracy and mergeability | done | arena/fa7d2d77-rentincreasesf2 | COORDINATION.md (audit record only; no PR #5 file is edited on its branch) | Handoff logged below. Audit complete: privacy PASS, build PASS, direct merge FAIL (unrelated history). Ported instead. |
+| 14¹ | Re-verify controlling sources line by line (rates, banking, license, notice, occupancy, retaliation, algorithmic pricing) | done | arena/fa7d2d77-rentincreasesf2 | COORDINATION.md verification log | Official sources fetched directly this session. 21 official sources fetched and read directly this session; see log below. |
+| 15¹ | Add missing verified content: Unit 1 occupancy change, corporate algorithmic-pricing ban, license null-and-void rule, retaliation screen, action checklist | done | arena/fa7d2d77-rentincreasesf2 | NEW: occupancy.html, checklist.html, market.html | New files only — no other session owns them. occupancy.html and checklist.html added. market.html dropped from scope: no official source defines a market benchmark for covered units, so a market page would add unsourced inference. |
 | 16 | Reconcile unit calculations to an explicit effective-date scenario table (today = 2026-11-07) | done | arena/fa7d2d77-rentincreasesf2 | analysis.html, units.html, index.html, executive-summary.html | Supersedes ambiguous single-number maxima. analysis.html rewritten as an effective-date scenario table; all figures re-derived by script. |
 | 17 | Integration: shared nav, sources register, flags, validator allowlist | done | arena/fa7d2d77-rentincreasesf2 | all *.html nav blocks, sources.html, flagged.html, scripts/validate_site.py, style.css, README.md | Integration-session prerogative; tasks 1–12 are all `done`. 12 pages, 46 official URLs, per-row sources, column integrity and privacy sweep all pass. |
 | 18 | Final verification, PR to main, merge, confirm Pages deploy | done | arena/fa7d2d77-rentincreasesf2 | COORDINATION.md | Pending tasks 13–17. PR #8 merged; Pages built on the merge commit; live site verified. |
@@ -53,6 +54,20 @@ This session is editing the existing files rather than creating a duplicate site
 | 21 | Publish the closing service window as a deadline counted back from today (irregularity A-02) | done | arena/bf462feb-rentincreasesf2 | `banking-rule.html`, `AUDIT.md` | Unit 2's 13.1% needs an effective date on or before 2027-02-28 because Form 571 ends there and the 2027-28 percentage is unpublished; with a 90-day notice the last service date is **2026-11-30** personal / **2026-11-25** mailed. The mailed route to the earliest date closed 2026-11-02. Unit 1 is not urgent: serve by 2027-01-02 for 2027-02-01. |
 | 22 | Log change requests for corrections that belong in files owned by other sessions, instead of editing them | done | arena/bf462feb-rentincreasesf2 | `AUDIT.md` section 6 | CR-01…CR-08. No page in `PAGES`, no script, and no nav block was modified by this session. |
 | 23 | Validate, open PR to `main`, merge, confirm GitHub Pages deploy | done | arena/bf462feb-rentincreasesf2 | `COORDINATION.md` | **PR #11 merged** at 2026-11-07T21:32:15Z, merge commit `041632c`. `Validate site` passed on the PR and post-merge; `pages build and deployment` succeeded on `041632c`; Pages status `built`. Live URLs re-fetched after deployment and confirmed serving the new content. See *PR #11 — independent audit* below. |
+| 24 | Final integration: apply audit change requests CR-01…CR-08 — add `banking-rule.html` to nav and validator, close flag F-16, publish the 2026-11-30/2026-11-25 closing service deadline, add Rules §13.14 provisions, log A-06 discrepancy, widen the privacy sweep to root Markdown, annotate the colliding task rows | done | arena/f0449766-rentincreasesf2 | `scripts/sync_nav.py`, `scripts/validate_site.py`, all `*.html` nav blocks, `flagged.html`, `analysis.html`, `index.html`, `executive-summary.html`, `checklist.html`, `laws.html`, `process.html`, `COORDINATION.md` | Official sources as cited per CR in `AUDIT.md` §6 and `banking-rule.html`; no figure re-derived by this session is presented without its official source link. |
+| 25 | Full re-verification of the merged tree (validator, calculation script, privacy sweep) | done | arena/f0449766-rentincreasesf2 | scripts run only; no file scope | `python3 scripts/validate_site.py`; `python3 scripts/verify_calculations.py`; root-Markdown privacy sweep. |
+| 26 | PR to `main`, merge, confirm GitHub Pages deploy, record result | pending | arena/f0449766-rentincreasesf2 | `COORDINATION.md` | Flagged irregularities and unverified items do not block the merge; they are published on the Flagged for Review page. |
+
+
+¹ **Duplicate task numbers (A-07 / CR-08).** Rows 13–15 above belong to `arena/fa7d2d77-rentincreasesf2` on `main`. Session `arena/2b3012a0-rentincreasesf2` independently claimed rows numbered **13–15** on its own branch (`arena/2b3012a0-rentincreasesf2`) for different work (Rent Board license answer, Q&A page, line-by-line re-verification). That branch was cut from `62f6f59`, which predates PRs #6–#10, so merging it as-is would revert the PR #6/#7 license clarification and the PR #10 privacy redaction. **It must rebase onto current `main` before opening a pull request.** No session has merged it. Its claims remain pending and do not block the board.
+
+## Standing rules
+
+1. **Root Markdown is public (A-08).** GitHub Pages serves the repository root from `main` with `.nojekyll`, so **every `*.md` file at the repository root is publicly retrievable** at the site URL. Never write tenant names, initials, addresses, contact details, parcel numbers or other personal identifiers in any root Markdown file. `scripts/validate_site.py` now sweeps **all** root `*.md` (not only `README.md` and `COORDINATION.md`) for the personal-identifier patterns on every push and PR.
+2. **No value without an official source.** If a value cannot be confirmed from an official government, legislative or City of San Francisco source, it is left blank and flagged — never filled by inference.
+3. **Table rows need source links.** Every data row in every site table carries at least one official source link (enforced by the validator).
+4. **File scope discipline.** Each session edits only the files in its claimed scope. Cross-cutting changes are logged as change requests (see `AUDIT.md` §6) and applied only by the integration session that owns the shared files.
+5. **`banking-rule.html` is now in the shared navigation** (Verification group) and in the validator's page list, closing audit limitation / A-09 and change request CR-01.
 
 ## PR and deployment record
 
@@ -565,3 +580,47 @@ twelve-page navigation and the not-legal-advice footer.
 CR-03 to CR-08 carry the remaining corrections into files owned by others, including closing F-16
 on the evidence, publishing the 2026-11-30 service deadline, and adding Rules §13.14's two
 favourable provisions.
+
+## Session `arena/f0449766-rentincreasesf2` — final integration of audit change requests (2026-11-08)
+
+**Branch:** `arena/f0449766-rentincreasesf2`, branched from `main` at `a747d82` (PR #12 merge). This session applied every change request logged in `AUDIT.md` §6 and closed the remaining audit findings. It is the integration session that `AUDIT.md` (CR-01…CR-08) was written for.
+
+### What was applied
+
+| ID | Change applied | Files |
+|---|---|---|
+| CR-01 | `banking-rule.html` added to the canonical navigation under a new **Verification** group; added to the validator's page list; `scripts/sync_nav.py` re-run (13 pages updated) | `scripts/sync_nav.py`, `scripts/validate_site.py`, all `*.html` nav blocks |
+| CR-02 | Form 538 worksheet URL allowlisted (the §13.14 URL was already allowlisted); allowlist now 47 URLs | `scripts/validate_site.py` |
+| CR-03 | Flag **F-16 closed as resolved** on the evidence (only the per-allowance 12-month test in Rules §4.12(a) reproduces both official worked examples, 6.7% and 3.3%; global-24 gives 4.7% vs official 3.3%; per-allowance-24 gives 5.0% vs official 6.7%). Linked `banking-rule.html`; the 24-month wording on `laws.html`, `process.html`, `practices.html`, `tenant-protections.html` annotated with the resolution | `flagged.html`, `analysis.html`, `laws.html`, `process.html`, `practices.html`, `tenant-protections.html` |
+| CR-04 | Closing service window published as a deadline: Unit 2's 13.1% needs an effective date on or before **2027-02-28** → serve by **2026-11-30** (personal) / **2026-11-25** (mail); the mailed route to 2027-02-05 closed 2026-11-02; Unit 1 serve by 2027-01-02 | `index.html`, `executive-summary.html`, `checklist.html` (new row 2.8a) |
+| CR-05 | Rules §13.14's two provisions added: the license test is keyed to the **effective date, not the service date** (express regulatory wording now quoted), and a void increase does **not** affect the owner's banking rights or the ability to accumulate otherwise lawful increases. F-03's "what to verify" softened accordingly; A-05 wording added to `process.html`; "Final review before service" gains a *Banking rights survive* row | `laws.html`, `checklist.html`, `flagged.html`, `process.html` |
+| CR-06 | Official-documents discrepancy on the license requirement's start date (Housing Inventory / *Learn about rent increases*: 2022-07-01 for 10+ unit buildings vs 2023-03-01 for condominiums and buildings with fewer than 10 units; Form 538 worksheet: 2020-07-01 / 2021-03-01) logged as flag **F-24** and as a laws.html row. Practical impact nil — both dates are past; a two-unit building is "fewer than 10 units" on either version | `flagged.html`, `laws.html` |
+| CR-07 | Standing rule recorded above (**Root Markdown is public**); validator privacy sweep widened from two named files to **all** root `*.md` | `COORDINATION.md`, `scripts/validate_site.py` |
+| CR-08 | Colliding task rows 13–15 annotated (see footnote ¹ under the task board); the `arena/2b3012a0-rentincreasesf2` branch is documented as needing a rebase before any PR; it was **not** merged or modified | `COORDINATION.md` |
+| A-03 | `checklist.html` "Take nothing yet" now states banked amounts may only be given at the time of an annual increase (Rules §4.12(a)) and that the window cannot be reopened at will | `checklist.html` |
+| README | 13 pages listed; closing deadline stated; page count corrected | `README.md` |
+
+### Sources (all official, read or re-checked by prior sessions and cited per row)
+
+Rules §4.12(a)/§4.10/§4.12(b) and Rules §13.14 (sf.gov / sfrb.org) · Rent Ordinance §37.3(a)(2), §37.3(a)(5) (sf.gov) · Form 571 Allowable Annual Increases 26-27 (sf.gov PDF) · Form 538 2024-25 Bond Measure Worksheet (sf.gov PDF) · *Learn about rent increases*, *Banked rent increases*, *Increasing rents during irregular periods*, *Annual rent increase for multiple years*, *Housing Inventory*, *Current Rates*, *Notice of Owner Noncompliance* (sf.gov) · Civ. Code §827, §1942.5 (leginfo.legislature.ca.gov). Every added table row carries an official source link; `banking-rule.html` carries the decisive F-16 test with both official worked examples reproduced.
+
+### Verification performed in this session (2026-11-08)
+
+- `python3 scripts/sync_nav.py` — NAV OK, 13 pages.
+- `python3 scripts/validate_site.py` — **PASSED**: 13 pages; 47 official URLs on allowlist; every table data row has an official source link; no personal identifiers in HTML or root Markdown; all internal links resolve; table column integrity; every page in nav.
+- `python3 scripts/verify_calculations.py` — **PASSED**: 39 assertions; Unit 1 3.0% → $119.85 → $4,114.85; Unit 2 13.1% → $412.65 → $3,562.65.
+- Personal-identifier sweep over all `*.html` and root `*.md` — **0 hits**.
+- `git pull --rebase` before every push; branch pushed after each commit.
+
+### Irregularities / flags
+
+- **F-16 closed** on the evidence (see CR-03).
+- **A-06** logged as **F-24** (official documents disagree on the license start date; practical impact nil).
+- **A-02** addressed: the closing service window (2026-11-30 / 2026-11-25) is now published in `index.html`, `executive-summary.html` and `checklist.html` row 2.8a, in addition to `banking-rule.html`.
+- **A-04 / A-05** addressed (Rules §13.14 provisions published; F-03 softened).
+- **A-07** documented, not resolved: `arena/2b3012a0-rentincreasesf2` must rebase before any PR; left for that session.
+- No new irregularity introduced. Values that remain unverifiable (2027–28 allowance; license status; rent ledger) remain blank and flagged.
+
+### Publication
+
+Work PR and deployment record follow in the *PR and deployment record* section and in the follow-up record commit.
