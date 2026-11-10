@@ -81,7 +81,7 @@ This session is editing the existing files rather than creating a duplicate site
 | 43 | Live primary-source re-verification on `22bf77d` (Rent Ordinance `11-02-26` / §§ 37.3 & 37.15, Form 538 2026–27, 2026–27 Rent Board Fee `$59.00`, File 261020 `Leg Ver1`/`Leg Dig Ver1`, Rules §§ 4.10/4.12/13.14, Topics 152/153/254/268/301/322/323/325/331/351/361, Civ. Code §§ 827/1942.5/1947.12/1954.50/1954.52, SF.gov legal clinics & `arena/2b3012a0` comparison) | done | arena/c71c22cd-rentincreasesf2 | `COORDINATION.md`, `AUDIT.md` | Every official claim checked directly from live sources on 2026-11-10 (renumbered to 43–45 after PRs #28–#33 used 37–42). |
 | 44 | Remediate residual live defects on `22bf77d` while preserving PR #28–#33 improvements (F-29, F-30, `"owner-supplied"`, `Leg Ver1`): fix malformed `<meta name="description">` on 3 pages, replace HTTP-500 Form 538 URL with live 2026–27 Form 538 & update F-24/A-06 (`2021-07-01`/`2022-03-01` vs § 37.15(c) `2022-07-01`/`2023-03-01`), sync `sources.html` with 100% of allowlisted URLs + verified 2026-11-10 timestamps + § 37.15/Leg Ver1/Leg Dig Ver1, fix `units.html` & `index.html` inconsistencies/directory omissions, update `tenant-protections.html` verified legal-clinic details (incl. Open Door Legal 94122 exclusion while retaining F-30 wording), tighten File 261020 wording against exact `Leg Ver1` text & add 2026–27 `$59.00` Rent Board Fee + F-28 cross-links, and harden `validate_site.py` (`<head>`/`<meta>`, tag balance, `sources.html` allowlist sync) | done | arena/c71c22cd-rentincreasesf2 | `scripts/validate_site.py`, `scripts/verify_calculations.py`, `index.html`, `executive-summary.html`, `units.html`, `analysis.html`, `laws.html`, `checklist.html`, `tenant-protections.html`, `practices.html`, `flagged.html`, `sources.html`, `banking-rule.html`, `README.md`, `AUDIT.md` | Zero values inferred; `validate_site.py` (52 URLs), `verify_calculations.py` (122 assertions), CSS check, HTTP 200 smoke test, and PII sweep all pass. |
 | 45 | Run full checks (`sync_nav.py`, `validate_site.py`, `verify_calculations.py`, local HTTP 200 smoke test, PII sweep), open PR to `main`, merge, verify CI & GitHub Pages deployment, record result | in progress | arena/c71c22cd-rentincreasesf2 | `COORDINATION.md` | Runs after tasks 43–44. |
-| 46 | Independent line-by-line re-verification of every cited official URL and every legal/dollar claim; fix any defect found; re-run all validators | in progress | arena/bf8f502a-rentincreasesf2 | `COORDINATION.md`, all `*.html`, `README.md`, `scripts/*.py` | Claimed 2026-11-10. Verifying live: Housing Inventory, Rent increases, Banked increases, Current Rates, Form 571, § 37.3(a)(1)–(2), § 37.15(a)–(e), Rules § 13.14, § 4.10, § 4.12, AB 1482 report, Irregular periods — all confirmed against text read this session. |
+| 46 | Independent line-by-line re-verification of every cited official URL and every legal/dollar claim; fix any defect found; re-run all validators | done | arena/bf8f502a-rentincreasesf2 | `COORDINATION.md`, all `*.html`, `README.md`, `scripts/*.py` | Claimed 2026-11-10. Verifying live: Housing Inventory, Rent increases, Banked increases, Current Rates, Form 571, § 37.3(a)(1)–(2), § 37.15(a)–(e), Rules § 13.14, § 4.10, § 4.12, AB 1482 report, Irregular periods — all confirmed against text read this session. |
 
 
 
@@ -1192,3 +1192,94 @@ rate, dollar amount or deadline is changed by this residual source-hardening wor
 - Latest Pages build at the time of checking was **built** on `d17a5a0834f57deeb5c53c3515c026b533e7de27`; the public executive summary was fetched successfully.
 - **Request to site owner:** the executive summary says “Your building is in scope” and “A two-unit building falls in that second group.” The intake identifies two units but does not independently establish the total number of residential units in the building or all coverage exceptions. Please qualify these as conditional and flag the building unit count and coverage for verification. In the summary table, “Lawful total on that date” should likewise be explicitly conditional on unverified tenancy, rent history, license status and future legislation. Do not treat a source about a calculation method as verification of owner-provided facts. Relevant sources: [Housing Inventory](https://www.sf.gov/rent-board-housing-inventory), [Rent Board increase guidance](https://www.sf.gov/learn-about-rent-increases-san-francisco).
 - Existing uncertainty remains on the [Flagged for Review page](https://kanlerxz87-cyber.github.io/RentincreaseSF2/flagged.html); this review does not guarantee attorney approval or immunity from challenge.
+
+## Task 46 — independent line-by-line source re-verification (session `arena/bf8f502a`)
+
+**Claimed and pushed before any reads**, per the standing observation in the task-30/34/37 records.
+Branch `arena/bf8f502a-rentincreasesf2`, branched from `main` at `d17a5a0` / rebased onto `cd005f7`.
+No file owned by another open PR is contested: PRs #27, #29 and #36 are stale records only
+(#27 `DIRTY`, #29 and #36 superseded by merged PRs); nothing in them is contradicted here.
+
+### Sources read live this session (2026-11-10), text compared line by line
+
+Every URL cited by the site was fetched and its operative wording compared with the claim it
+supports. Not re-typed from memory; each was read during this session.
+
+| # | Source | Claim it supports and result |
+|---|---|---|
+| 1 | [Housing Inventory](https://www.sf.gov/rent-board-housing-inventory) | "All owners of residential property are required to report"; tenant-occupied units receive the license; <10-unit buildings in scope from 2023-03-01; deadline is the **effective date**; license need not accompany the notice. **Confirmed verbatim.** |
+| 2 | [Learn about rent increases](https://www.sf.gov/learn-about-rent-increases-san-francisco) | 1.6% for 3/1/2026–2/28/2027; 12-month rule; 30/90-day notice; +5 days if mailed; notice content; use the rate in effect on the **effective date**; additional-occupant ban; the multi-year worked examples (6.7% / 3.3%). **Confirmed verbatim**, including the F-16 worked example the site relies on. |
+| 3 | [Banked rent increases](https://www.sf.gov/information--banked-rent-increases) | 24-month summary wording, "does not expire", no compounding, no limit, partial increases, does not carry over to a new tenant, notice must state the banked portion. **Confirmed.** |
+| 4 | [Current Rates](https://www.sf.gov/reports--current-rates-including-rent-increase-relocation-sec-deposit) | 1.6% (2026–27), 1.4% (2025–26), 1.7% (2024–25); the 2026-11-09 File 261020 notice reproduced verbatim. **Confirmed.** |
+| 5 | [Form 571 (26–27)](https://www.sf.gov/documents/34344/571_Allowable_Annual_Increases_26-27_1.pdf) | Full rate table 4/1/82 → 2/28/27; 1.8 / 0.7 / 2.3 / 3.6 / 1.7 / 1.4 / 1.6 read off the rows the Unit 2 ledger uses. **Confirmed.** |
+| 6 | [§ 37.3](https://www.sf.gov/information--sec-373-rent-limitations) | (a)(1) 60% of CPI, never >7%; (a)(2) banking; (a)(8) petition route; (a)(11) additional occupants; (b)(5) nonconforming notice void. **Confirmed verbatim.** |
+| 7 | [§ 37.15](https://www.sf.gov/information--sec-3715-reporting-obligations-licensing) | (b)(2)(F) base rent in $250 increments; (c) **2022-07-01** for 10+ non-condo units and **2023-03-01** for condos and <10 units, annual updates by March 1, contact changes within 30 days; (e) license on substantial compliance. **Confirmed verbatim.** |
+| 8 | [Rules § 13.14](https://sfrb.org/section-1314-licensing-%E2%80%93-notice-rent-increase) | effective date, not service date; entire increase null and void if unlicensed; banking rights survive; applies to <10-unit buildings for increases effective on/after **2023-03-01**. **Confirmed verbatim.** |
+| 9 | [Rules Part IV (2 of 4 chunks, §§ 4.10–4.13)](https://www.sf.gov/reports--december-2022--rent-board-rules-and-regulations-part-iv-rent-increases-not-requiring) | § 4.10(a) notice breakdown and § 4.10(b) void rule; § 4.12(a) "a full 12 months must have elapsed…"; § 4.12(b) banked-portion disclosure. **Confirmed verbatim** — this is the controlling text for F-16. |
+| 10 | [Irregular periods](https://www.sf.gov/information--increasing-rents-during-irregular-periods) | off-anniversary increases permitted; "not required to file a petition with the City"; no compounding; no rounding up; base rent only; once every 12 months. **Confirmed.** |
+| 11 | [Multiple years](https://www.sf.gov/information--annual-rent-increase-multiple-years) | adding prior percentages; no compounding; no rounding. **Confirmed.** |
+| 12 | [AB 1482 report](https://www.sf.gov/reports--california-tenant-protection-act-2019-ab-1482) | **8.8%** = 5% + **3.8%** CPI for 2026-08-01→2027-07-31, and "This does NOT apply for units under the rent increase limitations of the San Francisco Rent Ordinance." **Confirmed verbatim.** |
+| 13 | [Civ. Code § 827](https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=827.&lawCode=CIV) | (b)(2) 30 days at ≤10%; (b)(3)(A) 90 days above 10%; (b)(1) personal delivery or mail (§ 1013); (a)(1) mid-term proration. **Confirmed verbatim.** |
+| 14 | [Civ. Code § 1947.12](https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=1947.12.&lawCode=CIV) | 5% + CPI, max 10%, ≤2 increments; (d)(3) exempts housing already under a local ordinance restricting increases to less than that amount. **Confirmed.** |
+| 15 | [Civ. Code § 1942.5](https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=1942.5.&lawCode=CIV) | (a) 180-day bar from the latest listed date, once per 12 months; (d) organising; (g) good-faith ground in the notice; (h)–(i) damages, $100–$2,000 punitive, fees. **Confirmed verbatim.** |
+| 16 | [Civ. Code § 1954.52](https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=1954.52.&lawCode=CIV) | (a)(1) certificate of occupancy after **1995-02-01**; (a)(2) already exempt on/before that date; (a)(3) separately alienable units. **Confirmed** — the site's Costa-Hawkins row is accurate and its 1979-06-13 coverage date is correctly attributed to the Rent Ordinance, not to § 1954.52. |
+| 17 | [§ 6.14 / Costa-Hawkins (Topic 153)](https://www.sf.gov/information--rent-increases-under-section-614-and-costa-hawkins) | trigger is the **last** original occupant vacating; 6.14 notice within a reasonable time, generally 60 days; a co-tenant is never reached by Costa-Hawkins; accepting rent can create co-tenant status. **Confirmed verbatim.** |
+| 18 | [Additional occupants (Topics 152/254)](https://www.sf.gov/information--charging-additional-occupants-prohibited) | unlawful even if the lease permits it; tenant may petition to void and recover; O&M/utility petition is the route for genuine added cost. **Confirmed verbatim.** |
+| 19 | [Owner noncompliance](https://www.sf.gov/notice-of-owner-noncompliance-with-housing-inventory) | license on file before any annual/banked increase takes effect; 2022-07-01 / 2023-03-01; how to check status in the Portal. **Confirmed.** |
+| 20 | [Rent Board Fee](https://www.sf.gov/rent-board-fee) | **$59.00** per dwelling unit and $29.50 per guest unit for 2026–27; 50% ($29.50) recoverable from tenants in occupancy on November 1 once paid in full; exemption request deadline **2026-12-14**; due **2027-03-01**; 5% monthly penalty to 15%. **Confirmed verbatim.** |
+| 21 | [Rental laws](https://www.sf.gov/learn-about-san-francisco-rental-laws) | coverage for units built on or before **1979-06-13**; PIM as the build-year check. **Confirmed.** |
+| 22 | [New-construction exemption](https://www.sf.gov/information--partial-exemption-newly-constructed-rental-units) | first certificate of occupancy after 1979-06-13 ⇒ exempt from rent limits only. **Confirmed.** |
+| 23 | [Costa-Hawkins partial exemption (Topic 019)](https://www.sf.gov/information--partial-exemption-certain-single-family-homes-and-condominiums-under-costa-hawkins) | a single-family dwelling with a legal **or illegal** in-law unit is a two-unit building and is **not** exempt — the site's two-unit row now points here rather than to sf.gov/tenant-petitions. **Confirmed verbatim.** |
+| 24 | [Algorithmic devices § 37.10C](https://www.sf.gov/information--algorithmic-devices-set-rent-are-prohibited-san-francisco) | effective **2024-10-14**; sale and use prohibited; each unit and each month a separate violation; up to **$1,000** per violation; tenant or tenants' rights organisation may sue; fee-limiting clause unenforceable. **Confirmed verbatim.** |
+| 25 | [Landlord petitions](https://www.sf.gov/landlord-petitions-and-passthroughs) | six petition types; no filing charge; worksheet-only routes. **Confirmed.** |
+| 26 | [O&M (Topic 322)](https://www.sf.gov/information/topic-no-322-operating-and-maintenance-expense-petitions) | up to **7%**; petition before notice, else void. **Confirmed.** |
+| 27 | [Capital improvements](https://www.sf.gov/information--capital-improvement-petitions) | petition before notice; passthrough never part of base rent. **Confirmed.** |
+| 28 | [Special circumstances](https://www.sf.gov/information--special-circumstances-petitions-based-rents-comparable-units) | extraordinary circumstances only; a long-standing below-market tenant is not enough; one-time. **Confirmed.** |
+| 29 | [Utility passthroughs](https://www.sf.gov/information--utility-passthroughs-gas-electricity-and-steam-heat) | 12-month limit; not base rent; worksheet or petition. **Confirmed.** |
+| 30 | [GO bond worksheets](https://www.sf.gov/information--general-obligation-bond-passthrough-worksheets) | worksheet required and attached to the notice; anniversary date; 3-year tax-bill limit. **Confirmed.** |
+| 31 | [Water revenue bond](https://www.sf.gov/information--water-revenue-bond-passthroughs) | 50% passthrough; worksheet; notice periods restated. **Confirmed.** |
+| 32 | [Tenant petitions](https://www.sf.gov/tenant-petitions) | no charge; unlawful-rent-increase petition; summary petition; **the Board does not adjudicate harassment, discrimination or retaliation**. **Confirmed.** |
+| 33 | [Tenant summary petitions](https://www.sf.gov/information--tenant-summary-petitions) | notice unlawful on its face; new notice sets a new anniversary date. **Confirmed.** |
+| 34 | [Counselor](https://www.sf.gov/speak-rent-board-counselor) | free; Spanish/Cantonese/Mandarin + interpretation; cannot give legal advice; calls ~5 min, drop-in ~10 min; 415-252-4600, Mon–Fri 9–12 and 1–4; 25 Van Ness Ave #700, drop-in 9–4. **Confirmed verbatim.** |
+| 35 | [Tenant and Landlord Resources](https://www.sf.gov/tenant-and-landlord-resources) | EDC 415-659-9184, 976 Mission St., Mon/Tue/Wed/Fri 10–11:30 & 1–2:30; Housing Rights Committee 415-703-8644, 11 Grove St., M–Th 1–4; Bay Area Legal Aid 415-982-1300 / 800-551-5554, Consumer Rights Clinic 2nd & 4th Thursday; BASF Conflict Intervention 415-782-8940. **Confirmed verbatim.** |
+| 36 | [Legal resources — housing discrimination](https://www.sf.gov/information/legal-resources-housing-discrimination) | Open Door Legal ZIPs **94107, 94112, 94124, 94134** (so 94122 is excluded), 4622 3rd St., 415-735-4124; LAE age 60+, 415-538-3333, 1663 Mission St. #225; THC 415-771-9850; BASF LRIS 415-989-1616; EDC walk-in clinics 1338 Mission St., Mon/Wed/Fri. **Confirmed verbatim.** |
+| 37 | [Discrimination help](https://www.sf.gov/information--get-help-discrimination-housing) | the 17 local protected classes listed on the site match this page exactly. **Confirmed.** |
+| 38 | [About Rent Board](https://www.sf.gov/departments--rent-board--about) | "We cannot arbitrate… cases of discrimination or retaliation"; "We cannot give legal advice." **Confirmed verbatim.** |
+| 39 | [HUD — report discrimination](https://www.hud.gov/reporthousingdiscrimination) | the seven Fair Housing Act classes: race, color, national origin, religion, sex, disability, familial status. **Confirmed.** |
+| 40 | [CRD — Housing](https://calcivilrights.ca.gov/housing/) | the FEHA protected-characteristics list on the site matches. **Confirmed.** |
+| 41 | [Rent Ordinance](https://www.sf.gov/reports--rent-ordinance) | "last amended on **11/2/26**"; § 37.3 and § 37.15 links. **Confirmed.** |
+| 42 | [Legistar File 261020](https://sfgov.legistar.com/LegislationDetail.aspx?ID=8217304&GUID=7EDA4662-EBFB-4AF5-962F-C669B64AA770) | Status **Pending Committee Action**; introduced **9/15/2026**; Land Use and Transportation; enactment date blank; history ends at the 10/7/2026 Youth Commission response, i.e. **no committee hearing has occurred** (diligence addendum to F-27 below). **Confirmed.** |
+| 43 | [Leg Ver1 (draft § 37.3(h))](https://sfgov.legistar.com/View.ashx?M=F&ID=15865646&GUID=0E2E6936-000B-4597-A4EE-FBB17C19636E) | quoted text confirmed verbatim; **and see F-31** — the cap covers § 37.3(a)(2) **and** § 37.3(a)(3). **Confirmed.** |
+| 44 | [Form 538 (2026–27)](https://www.sf.gov/documents/64370/538_2026-2027_Bond_Measure_Worksheet_10.26.pdf) | restates § 13.14; prints **2021-07-01 / 2022-03-01**. **Confirmed.** |
+| 45 | [Form 538 (2024–25)](https://www.sf.gov/documents/32769/538_2024-2025_Bond_Measure_Worksheet_3.25.pdf) | **fetched successfully**; prints **2020-07-01 / 2021-03-01**. See F-32. |
+
+Not re-fetched: `govinfo.gov` (42 U.S.C. ch. 45 — unchanged compiled statute, cited only for the
+existence of the Fair Housing Act, which HUD's page above confirms), `sfplanninggis.org` and
+`sfassessor.org` (interactive tools with no citable text), `portal.sfrb.org` (login-gated), and the
+`sfrb.org` § 4.12 old-style URL, which the site does not cite (it cites the sf.gov Part IV page).
+
+### Arithmetic re-derived independently
+
+`90+90` / `95+95` / `30+30` / `35+35` day counts from the 2026-11-10 base date, the 2026-11-30 and
+2026-11-25 closing dates, 2027-01-02 and 2026-12-28 service dates, 2027-02-08 / 2027-02-13 earliest
+reachable effective dates, `223` days since the added occupancy, `$3,995 × 1.6% = $63.92`,
+`$3,995 × 3.0% = $119.85`, `$4,114.85`, `$3,150 × 1.6% = $50.40`, `$3,150 × 13.1% = $412.65`,
+`$3,562.65`, `$3,150 × 10.0% = $315.00 → $3,465.00`, banked `1.8+0.7+2.3+3.6+1.7+1.4 = 11.5`.
+**All reproduce exactly.** `verify_calculations.py`: 122 assertions pass.
+
+### Defects found and fixed this session
+
+| # | Defect | Fix |
+|---|---|---|
+| 1 | One table row on the dashboard (the "Flags" row) cited **only internal pages**, so it had no official source — the validator's "every data row has a source link" check passed it because an internal link counted. | Row now carries four official links (Housing Inventory, Rules § 13.14, § 37.15, Legistar). **The validator was hardened**: a data row containing only internal links is now an error. The guard was proved to fail on the old markup and pass on the fix. |
+| 2 | Three pages said the 2024–25 Form 538 "now returns HTTP 500". It does not — the file loads and is linked from the live GO-bond page. | Claim removed on `laws.html`, `flagged.html`, `banking-rule.html`; the actual discrepancy (a third pair of dates) is recorded as **F-32**. |
+| 3 | The File 261020 proposal was summarised as a cap on **banked** increases only. Draft § 37.3(h) also reaches § 37.3(a)(3) **capital-improvement passthroughs**, for petitions filed on or after 2026-09-15. | `process.html` capital-improvement row corrected and given the *Leg Ver1* link; **F-31** records the correction. No dollar figure changes — neither unit has a CI petition. |
+| 4 | "Request for Exemption (Form **599**)" — the form number is not stated on the cited official page (it appears only on third-party form-mirror sites). | Form number removed on `laws.html` and `flagged.html`; the verified deadline (2026-12-14) and the Portal route are kept. |
+
+### Irregularities published, not blocking
+
+F-31 (draft scope of the proposed cap; corrected) and F-32 (three different Form 538 start-date pairs
++ the corrected HTTP-500 claim) are on the Flagged for Review page with their official links.
+F-01 … F-30 remain open for the owner. None of them blocks publication.
+
+**Not legal advice.** Documentary verification against official sources only.
