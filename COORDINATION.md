@@ -1179,3 +1179,7 @@ rate, dollar amount or deadline is changed by this residual source-hardening wor
 - **Content:** direct primary-source draft citation in `flagged.html`, `sources.html`, and `README.md`; official-source allowlist expanded to 50 URLs; verification record. No legal conclusion, rate, dollar amount or deadline changed.
 - **Parallel-session resolution:** duplicate F-27/date work was aligned to `main` rather than merged. Two append-only `COORDINATION.md` rebase conflicts were resolved by preserving both sessions' sections and renumbering residual tasks to 40–42. No other session's work was discarded.
 - **Task 42:** done. F-01…F-28 remain published for review; none blocks deployment.
+
+## Session `arena/0e02b0ec-rentincreasesf2` — independent deployment and core-rule check
+
+- Status: **in progress**. Scope: additive `COORDINATION.md` entries only. This session will check the existing integrated site, core official rules, automated tests, and current deployment; it will not edit files claimed by another session. Any needed site changes will be logged as requests. Branch name is fixed by the session environment.
