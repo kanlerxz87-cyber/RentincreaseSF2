@@ -77,7 +77,8 @@ which needs the unpublished 2027–28 rate. Put the date to a counselor or couns
 
 Sources: [Current Rates](https://www.sf.gov/reports--current-rates-including-rent-increase-relocation-sec-deposit) ·
 [Banked rent increases](https://www.sf.gov/information--banked-rent-increases) ·
-[Legistar File 261020](https://sfgov.legistar.com/LegislationDetail.aspx?ID=8217304&GUID=7EDA4662-EBFB-4AF5-962F-C669B64AA770)
+[Legistar File 261020](https://sfgov.legistar.com/LegislationDetail.aspx?ID=8217304&GUID=7EDA4662-EBFB-4AF5-962F-C669B64AA770) ·
+[Official draft § 37.3(h)](https://sfgov.legistar.com/View.ashx?M=F&ID=15865646&GUID=0E2E6936-000B-4597-A4EE-FBB17C19636E)
 
 ## Verification standard
 
