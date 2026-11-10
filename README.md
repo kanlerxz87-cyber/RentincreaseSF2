@@ -35,7 +35,7 @@ Sources: [Housing Inventory](https://www.sf.gov/rent-board-housing-inventory) ·
 | `tenant-protections.html` | Just cause, free legal help, discrimination, retaliation |
 | `practices.html` | Corporate vs. individual owners, including the § 37.10C algorithm ban |
 | `checklist.html` | Gate 0 prerequisites, computed service deadlines, notice content |
-| `flagged.html` | Every unverified item and irregularity (F-01 … F-30) |
+| `flagged.html` | Every unverified item and irregularity (F-01 … F-32) |
 | `sources.html` | All official sources and the integration method |
 | `banking-rule.html` | F-16 resolved: banking-interval decisive test, re-verification, closing service window |
 
