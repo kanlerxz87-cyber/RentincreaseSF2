@@ -1614,3 +1614,13 @@ is recursive across all public text files. The older F-01/F-26, checklist, proce
 and units rows now consistently state both coverage conditions. Post-integration checks are the
 14-page / 17-resource / 315-assertion results above; the negative privacy test was repeated with a
 generic probe under `internal/` and passed.
+
+### PR #49 integration note
+
+PR #49's independent verification record, executive-summary caution and checklist unit-count work
+were preserved in the final rebase. Its older marker guard overlapped the newer recursive guard;
+the duplicate was removed after a combined-tree test exposed an undefined `glob` dependency. The
+unit-count requirement remains in Gate 0.3a and coverage/exceptions remain in Gate 0.3, so the
+separate duplicate Gate 0.7 row was consolidated without dropping the requirement. After that
+integration fix, validation again passed 14 pages / 52 official URLs and 315 calculations; all 17
+public resources returned HTTP 200 and the recursive negative privacy/marker test passed.
