@@ -69,7 +69,7 @@ This session is editing the existing files rather than creating a duplicate site
 | 33 | Final integration: verify the combined data, confirm the site builds with no broken links, PR to `main`, merge, confirm GitHub Pages deploy, record the result | done — PR #24 merged, Pages built, live content read back | arena/d086cb8e-rentincreasesf2 | `COORDINATION.md`, `README.md` | Blocked only on rows 30–32. |
 | 34 | Residual integration for session `arena/d2474b1d`: re-read every controlling official source live and diff the result against `main` rather than against this session's own draft | done | arena/d2474b1d-rentincreasesf2 | `COORDINATION.md`, `AUDIT.md` | 14 sources fetched 2026-11-10; confirmations and the exact list of what was *not* re-fetched are in the `AUDIT.md` addendum dated 2026-11-10. |
 | 35 | Correct C-01 (banked increases do not expire — the wrong reason for the deadline), C-03 and C-04 (`units.html`), and add F-28 (non-anniversary effective date); add a CI guard so C-01 cannot return | done | arena/d2474b1d-rentincreasesf2 | `checklist.html`, `banking-rule.html`, `executive-summary.html`, `units.html`, `flagged.html`, `scripts/verify_calculations.py`, `AUDIT.md` | [Banked increases](https://www.sf.gov/information--banked-rent-increases) (“does not expire”); [§ 37.3](https://www.sf.gov/information--sec-373-rent-limitations) (a)(2) anniversary wording; [Irregular periods](https://www.sf.gov/information--increasing-rents-during-irregular-periods). 61 → 105 assertions. |
-| 36 | Validate, PR to `main`, merge, confirm GitHub Pages deploy, record PR link and result | in progress | arena/d2474b1d-rentincreasesf2 | `COORDINATION.md` | Flagged items F-01…F-28 do not block the merge; they are published on the Flagged for Review page. |
+| 36 | Validate, PR to `main`, merge, confirm GitHub Pages deploy, record PR link and result | done | arena/d2474b1d-rentincreasesf2 | `COORDINATION.md` | Flagged items F-01…F-28 do not block the merge; they are published on the Flagged for Review page. |
 
 | 37 | Independent verification pass (new session, additive to `COORDINATION.md` only): re-read Form 571, Current Rates, rent-increases, banked-increases, Housing Inventory and Legistar File 261020 directly; verify the Nov 3, 2026 SF general election produced no rent-related change (new diligence — no prior session checked the ballot); confirm the re-stamped day counts re-derive from 2026-11-10; re-run all validators; PR to `main`, merge, confirm Pages deploy | in progress | arena/585ad53b-rentincreasesf2 | `COORDINATION.md` | Claimed 2026-11-10 ~00:50 UTC. Claimed as task 30 first; renumbered 34 after `arena/d086cb8e` claimed 30–33 concurrently (duplicate-number situation of the A-07 kind; no work duplicated — their rows were left verbatim). |
 
@@ -1119,3 +1119,17 @@ clean merge, and the PR status settled to `MERGEABLE` without any further action
   the Flagged for Review page and none of them blocks publication.
 
 **Not legal advice.** Documentary verification against official sources only.
+## PR #25 — merge and deployment record (session `arena/d2474b1d-rentincreasesf2`)
+
+- **PR:** https://github.com/kanlerxz87-cyber/RentincreaseSF2/pull/25
+- **Title:** "Residual integration: correct banked-expiry wording (C-01), fix units.html banking/April-2026 rows, add F-28, tighten F-27"
+- **Base / head:** `main` ← `arena/d2474b1d-rentincreasesf2` (branch reset to `3701b1c`, then one residual commit `18cc4d7`)
+- **`mergeStateStatus` before merge:** `CLEAN` / `MERGEABLE`
+- **Check on the PR:** `validate` **pass** (run 42730231744)
+- **Merged:** 2026-11-10, merge commit **`e538d59681e304d8a847f5f25de647eb7efea307`**
+- **Merge method:** merge commit (`gh pr merge 25 --merge`)
+- **Post-merge validation:** `Validate site` **success** on `e538d59` (run 42730301294)
+- **GitHub Pages:** `pages/builds/latest` → commit `e538d59`, status **built**; `gh api …/pages` → `build_type` legacy, source `main` `/`, public
+- **Deployed-artifact verification:** the live page https://kanlerxz87-cyber.github.io/RentincreaseSF2/flagged.html was fetched after the build and renders the refined F-27 text (including the 11.6% / $365.40 / $3,515.40 conditional) and the F-19 counts "20 and 15 days from 2026-11-10". The deployed `flagged.html` at `e538d59` contains **2** occurrences of `F-28` and **0** of the withdrawn phrases; the deployed `checklist.html` contains the corrected "What closes is the 2026–27 annual component" sentence.
+- **Task board:** rows **34–36** are `done`. Flagged items **F-01…F-28** are published on the Flagged for Review page and do not block; **F-27** (check File 261020's status) and **F-28** (non-anniversary effective date) are the two new ones for the owner to review.
+- **Not touched:** PRs #22 and #24 content (only the additive F-27 paragraph), and no other session's claims.
