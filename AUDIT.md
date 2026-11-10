@@ -392,7 +392,9 @@ underlying primary legislative/agency sources directly on 2026-11-10.
 | D-05 | `tenant-protections.html` attributed `"proof of income may be required"` to Housing Rights Committee (absent from `sf.gov/tenant-and-landlord-resources`) and omitted Open Door Legal's published limited ZIP coverage (`94107, 94112, 94124, & 94134`, excluding 94122). | Verbatim SF.gov clinic pages | Corrected HRC, flagged Open Door Legal's ZIP-94122 exclusion, updated Bay Area Legal Aid / EDC / Rent Board hours, and added Legal Assistance to the Elderly and BASF LRIS / Conflict Intervention Service. |
 | D-06 | `sources.html` omitted allowlisted URLs (`Civ. Code § 1954.52`, `departments--rent-board`, Form 538) and kept `2026-11-07` stamps on six sources re-fetched today; Rent Board Fee 2026–27 rate (`$59.00/unit`, `2026-12-14` exemption, `2027-03-01` due) was absent from F-13 / `laws.html` / `executive-summary.html`. | Allowlist diff & `sf.gov/rent-board-fee` | Synced `sources.html` with 100% of `VERIFIED_URLS` (enforced by `validate_site.py`), updated stamps for sources re-verified today to `2026-11-10`, added `§ 37.15`, and added verified 2026–27 Rent Board Fee details across F-13, `laws.html`, `executive-summary.html`, `sources.html`. |
 
->>>>>>> 97aadef (Apply live source/HTML/validator fixes (D-01..D-06) before rebasing onto origin/main)
+
+
+---
 
 ---
 
@@ -456,5 +458,71 @@ site against the text it had just read.
 
 - `answers.html` — every owner question answered in turn, one row each, with a status and an official source on every row, and an explicit "still open" table. Assertions added to `scripts/verify_calculations.py` so its figures cannot drift from the rest of the site.
 - `internal/README.md` — how personal information is handled, and why the identity mapping is deliberately **not** in this repository (GitHub Pages publishes the repository root, so an "internal" file here would be public). No personal data in it.
+
+## Addendum — independent verification pass on `cd005f7` (session `arena/22c8ef1e`, 2026-11-10)
+
+Branch: `arena/22c8ef1e-rentincreasesf2`, branched from `main` at `cd005f7` (PR #36 merge).
+Method: every source below was fetched and read **directly on 2026-11-10**. Nothing in this
+addendum is inferred from an earlier session's notes; where a value could not be confirmed it is
+left blank or flagged.
+
+### Primary sources read live this session
+
+| Source | What was confirmed verbatim |
+|---|---|
+| [sf.gov — Rent Board Housing Inventory](https://www.sf.gov/rent-board-housing-inventory) | "All owners of residential property are required to report." Reporting a tenant-occupied unit generates the licence; the licence is **automatically generated**; "A landlord must have a current rent increase license on file with the Rent Board before any annual or banked rent increase can go into effect. The rent increase license does not need to be included with your rent increase notice." Deadline **March 1 of every year**; late filing still produces a licence but "your rent increase notice will not be enforceable without having a rent increase license on the effective date of the notice." Tier dates: **2022-07-01** for units (other than condominiums) in buildings with **10+** units; **2023-03-01** for condominiums and buildings with **fewer than 10** units. Contact changes within 30 days. Submissions are public and under penalty of perjury. |
+| [sf.gov — Learn about rent increases](https://www.sf.gov/learn-about-rent-increases-san-francisco) | Allowable increase **1.6%**, effective **2026-03-01 through 2027-02-28**, based on 60% of Bay Area CPI. 30-day notice; **90-day if the increase (by itself or combined with another increase in the same year) is more than 10%**; **+5 days if mailed**. Notice must state dollar amount, percentage and effective date. "The landlord should use the percentage that will be in effect on the date of the increase, not the percentage in effect on the date they serve the notice." No extra rent for an additional occupant. File 261020 notice **posted 2026-11-09**. |
+| [sf.gov — Banked rent increases](https://sf.gov/information/banked-rent-increases) | "A skipped increase is only banked if **at least 24 full months pass** without any rent increase." "Once an increase is properly banked, it **does not expire**." Banked increases may be imposed "on a future anniversary date, **or at another time when they are allowed to raise the rent** (as long as at least 12 months have passed since the last increase)… This may create a new anniversary date." Banked amounts cannot be compounded or prorated; add the yearly percentages, then multiply by current base rent. Notice must also state **which part of the increase is banked**. |
+| [Form 571 Allowable Annual Increases 26-27](https://www.sf.gov/documents/34344/571_Allowable_Annual_Increases_26-27_1.pdf) | Rate table read directly: 3/1/26–2/28/27 **1.6%**; 3/1/25–2/28/26 **1.4%**; 3/1/24–2/28/25 **1.7%**; 3/1/23–2/29/24 **3.6%**; 3/1/22–2/28/23 **2.3%**; 3/1/21–2/28/22 **0.7%**; 3/1/20–2/28/21 **1.8%**; 3/1/19–2/29/20 **2.6%**. |
+| [Legistar — File No. 261020](https://sfgov.legistar.com/LegislationDetail.aspx?ID=8217304&GUID=7EDA4662-EBFB-4AF5-962F-C669B64AA770) | Re-checked 2026-11-10: Type **Ordinance**; Status **Pending Committee Action**; Introduced **9/15/2026**; In control: Land Use and Transportation Committee; **Enactment date blank; Enactment # blank**. Latest action **10/7/2026 Youth Commission RESPONSE RECEIVED**. Confirms the site's "not enacted" wording is still correct. |
+| [Civ. Code § 827](https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=827.&lawCode=CIV) | (b)(2) **30 days** where the increase is "10 percent or less … either in and of itself or when combined with any other rent increases for the 12 months before the effective date"; (b)(3)(A) **90 days** where it is "greater than 10 percent"; (b)(1)(B) service by mail under CCP § 1013. |
+| [sf.gov — AB 1482](https://www.sf.gov/reports--california-tenant-protection-act-2019-ab-1482) | "The maximum rent increase for units under AB 1482 from **August 1, 2026 to July 31, 2027 is 8.8%** in San Francisco. **This does NOT apply for units under the rent increase limitations of the San Francisco Rent Ordinance.**" (5% + 3.8% CPI). |
+| [sf.gov — Learn about San Francisco rental laws](https://www.sf.gov/learn-about-san-francisco-rental-laws) | Coverage threshold **1979-06-13**. Units with eviction protection but **no** rent control: built after 1979-06-13; most single-family homes and condos (occupancy on/after 1996-01-01); substantial rehabilitation; units regulated by another government agency. Eight categories fully exempt from the Rent Ordinance. |
+
+### Independent re-derivation of every published figure (base date 2026-11-10)
+
+**Unit 1** — base rent $3,995.00, tenancy began 2025-02-01.
+- Anniversary 2026-02-01 fell in 3/1/25–2/28/26 → allowance **1.4%**; skipped.
+- 2025-02-01 → 2027-02-01 is **24 full months**, so the skipped 1.4% is banked ("at least 24 full months pass without any rent increase"). ✔
+- Current annual at 2027-02-01 = **1.6%**. Total **3.0%**.
+- $3,995.00 × 0.030 = **$119.85** → new base rent **$4,114.85**. ✔ matches site.
+- 3.0% ≤ 10% → 30 days (§ 827(b)(2)). 2027-02-01 − 30 d = **2027-01-02**; mailed +5 d = **2026-12-28**. ✔ matches site.
+
+**Unit 2** — base rent $3,150.00, tenancy began 2019-06-01, no increase ever imposed (owner-supplied, F-06).
+- Banked anniversaries 6/1/2020 … 6/1/2025: 1.8 + 0.7 + 2.3 + 3.6 + 1.7 + 1.4 = **11.5%**. ✔ (each of these has had ≥24 months pass)
+- Current annual component = the percentage in effect on the effective date = **1.6%**.
+- Total **13.1%**. $3,150.00 × 0.131 = **$412.65** → new base rent **$3,562.65**. ✔ matches site.
+- 13.1% > 10% → **90 days** (§ 827(b)(3)(A)). 2027-02-15 − 90 d = **2026-11-17**; mailed +5 d = **2026-11-12**. ✔ matches site.
+- Last day of the published 1.6% window is 2027-02-28; 2027-02-28 − 90 d = **2026-11-30** (personal) / **2026-11-25** (mail). ✔ matches site.
+- Earliest reachable effective date from 2026-11-10: +90 d = **2027-02-08** (personal), +95 d = **2027-02-13** (mail). ✔ matches site.
+- Phased option: $3,150.00 × 0.100 = **$315.00** → **$3,465.00**, 30-day notice (10.0% is not "greater than 10 percent"). ✔ matches site.
+
+**Nothing was inferred.** Where the owner's intake is the only evidence (build year, unit count,
+rent ledger, licence status, occupancy), the figure is flagged, not verified.
+
+### Defects found and fixed this session
+
+| # | Defect | Evidence / cause | Fix | Status after rebase |
+|---|---|---|---|---|
+| D-07 | `AUDIT.md` carried a stray, unresolved git merge marker (the `97aadef` conflict-resolution line). On `cd005f7` it was the last line of the file; by the time of this session's rebase a concurrent session had appended its own record after it, leaving raw conflict text **mid-file**, still published on the public site. | Direct read of `AUDIT.md` (line 395 on `cd005f7`; still present on `a791240`) | Marker line removed. Added a merge-marker guard to `scripts/validate_site.py` covering `*.html`, `*.md`, `*.css` and `scripts/*.py`, so this class of defect fails CI instead of shipping. Guard verified to fail on an injected `<<<<<<<` marker and to pass once removed. | **Fixed — still unique to this session.** No other session had removed it or guarded against it. |
+| D-08 | `executive-summary.html` asserted as fact that "Your building is in scope" and "A two-unit building falls in that second group." The intake names two units, but no official source establishes the building's **total** residential unit count, which is what selects the 1-9 vs 10+ licensing tier, nor does it rule out a coverage exception. Raised as a review request by session `arena/0e02b0ec` (PR #36). | Housing Inventory tier dates; rental-laws coverage-exception list | **Superseded, not published.** Session `arena/f6a65204` reached the same finding independently and published it as **F-31** (PR #40, `d6d565e`). Their wording is preserved verbatim on `main`; this session dropped its duplicate F-31 row during the rebase rather than shipping two flags with one ID. | **Superseded by F-31 (PR #40).** |
+| D-09 | The executive summary's "Lawful total on that date" row read as an unconditional entitlement. | Same review request | Partly superseded. `main` already labels the row `(conditional)` and lists conditions (1)-(4) plus F-27. This session kept `main`'s text and appended the two points it did not have: **F-28** (Unit 2's 2027-02-15 effective date is a non-anniversary date pending Rent Board counselor review) and an explicit statement that no official source guarantees a tenant lawyer, the Rent Board or a court would approve the notices. | **Merged additively - both sessions' text retained.** |
+| D-10 | `index.html` and `README.md` described the flag range as F-01-F-30. | Cross-page consistency | Superseded: `main` now runs F-01-F-34 (F-33 coverage condition and F-34 federal label, both from `arena/d2789389`). | **Superseded.** |
+
+### Concurrency note
+
+This session began work on `cd005f7`. By the time it rebased, four other sessions had landed
+PRs #37-#44 on `main`. The rebase produced conflicts in `COORDINATION.md`, `AUDIT.md`,
+`executive-summary.html`, `flagged.html`, `index.html` and `README.md`. Every conflict was resolved
+by keeping **main's** version where the two overlapped and adding only what was genuinely missing.
+A line-by-line check confirmed that no line of `main`'s `AUDIT.md` was lost except the stray
+conflict marker (D-07, intended) and the closing line, which was moved to the end of the file. No
+other session's flag, page or wording was altered.
+
+### Not changed
+
+No percentage, dollar amount, statutory citation or deadline was altered. Every published figure
+re-derived identically from the live sources above. File 261020 remains **not enacted** as of
+2026-11-10.
 
 **Not legal advice.** Documentary verification against official sources only.
