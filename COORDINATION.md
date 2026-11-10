@@ -1557,3 +1557,18 @@ Flagged items F-01…F-34 remain published for the owner on [`flagged.html`](htt
   **F-01 … F-34** remain published on the Flagged for Review page; none blocks deployment.
 
 **Not legal advice.** Documentary verification against official sources only.
+## Session `arena/54e7f654-rentincreasesf2` — final residual integration claim (2026-11-10)
+
+The platform fixes this session to branch `arena/54e7f654-rentincreasesf2`; separate session branches are unavailable. Earlier claims ending in merged PRs #35/#36 and stale conflicting PRs #27/#29 are not being duplicated. This session claims the following residual final-integration tasks and commits this claim before source review:
+
+| # | Task | Status | Owner session | File scope | Sources / verification notes |
+|---|---|---|---|---|---|
+| 46 | Full residual line-by-line audit: verify PR #40’s coverage/conditional-language integration, repair the public Markdown conflict marker, inspect every page and source mapping, and re-read controlling official sources | in progress | arena/54e7f654-rentincreasesf2 | all root `*.html`, `AUDIT.md`, `README.md`, `scripts/*.py`, `COORDINATION.md` | Integration scope; no active non-stale overlapping claim found. Owner-supplied facts remain unverified and no personal identifiers will be published. |
+| 47 | Apply only verified residual corrections; strengthen validation for conflict markers, fragments, privacy, source rows, and conditional calculations | in progress | arena/54e7f654-rentincreasesf2 | same as task 46 | Every substantive correction must cite an official source; unsupported values remain blank/flagged. |
+| 48 | Final integrated build, local HTTP/link checks, calculations, PR from the fixed session branch to `main`, merge without waiting, Pages deployment and live read-back | unclaimed | arena/54e7f654-rentincreasesf2 | `COORDINATION.md` deployment record | Blocked on tasks 46–47; flagged factual/legal review items do not block a valid build. |
+
+### Rebase conflict log
+
+The initial `git pull --rebase origin main` replayed the shallow base merge and conflicted only at the append boundary of `COORDINATION.md`. The PR #36 record was preserved verbatim, the conflict markers were removed, and this session's claim was appended. No site content or other session record was discarded.
+
+A second integration check found PR #40 merged concurrently. Its F-31 scope/calculation conditions and F-01 coverage flag are adopted rather than duplicated; this session's task 46 is narrowed to verifying that integration. This session retains only residual privacy/validator, legal-wording and source-gap corrections. The second append-boundary rebase conflict preserves the PR #40 records and this claim verbatim. Commit `bb77458` removes tenant-specific public-code matching examples, checks every public text file for conflict markers, and requires an external official link in every table row. No tenant-specific pattern is retained in the repository.
