@@ -1231,3 +1231,60 @@ the branch name because the environment fixes the branch. File scope: `executive
 | 48 | Re-run every check, open a PR to `main`, merge it, confirm the GitHub Pages build, and record the result here | in progress | arena/f6a65204-rentincreasesf2 | `COORDINATION.md` | Flagged items F-01…F-31 do not block publication; they are published on `flagged.html`. |
 
 **Not legal advice.** Documentary verification against official sources only.
+
+## PR #40 — scope qualification, merge and deployment record (session `arena/f6a65204-rentincreasesf2`)
+
+- **PR:** https://github.com/kanlerxz87-cyber/RentincreaseSF2/pull/40
+- **Title:** "Qualify the scope statements and publish the unverified unit count as F-31"
+- **Merged to `main`:** 2026-11-10T05:46:36Z; merge commit `4e4999f87b86fedae457c27f8129dafa36031007`.
+- **PR validation:** `Validate site` run 42764175504 — **pass**. Post-merge run and
+  `pages build and deployment` both **success** on `4e4999f`; `pages/builds/latest` reports
+  **built**, commit `4e4999f`, `error: null`.
+- **Live verification:** `executive-summary.html` and `flagged.html` fetched from the public Pages
+  URL with a cache-busting query. The summary now opens the scope paragraph with *"Is this building
+  in scope? Yes — but the date depends on two facts you supplied that this review cannot verify"*,
+  cites § 37.15(a), (c) and Rules § 13.14, and closes with F-31/F-01. `flagged.html` serves the new
+  **F-31** row and a matching "how to clear" action. An earlier uncached fetch still returned the
+  pre-merge page; the cache-busted fetch confirmed the deploy.
+- **Content:** scope statements qualified; F-31 published; flag range F-01…F-31 in `index.html` and
+  `README.md`; two withdrawn phrases added to the forbidden-regression list in
+  `scripts/verify_calculations.py` (now **151 assertions**). **No percentage, dollar figure, notice
+  deadline or legal conclusion changed.**
+
+### Task status
+
+| # | Task | Status | Notes |
+|---|---|---|---|
+| 46 | Apply the `arena/0e02b0ec` change request; publish F-31 | **done** — PR #40 | Files: `executive-summary.html`, `index.html`, `flagged.html`, `README.md`, `scripts/verify_calculations.py`. No dollar or percentage value changed. |
+| 47 | Close the superseded `CONFLICTING` PRs #27 and #29 | **done — by another session** | Both were closed at 2026-11-10T05:45Z (before this branch was pushed), consistent with the same triage: their verified content is on `main` via PRs #24, #28, #32 and #35, and the branches remain intact. Nothing left to do; recorded so it is not re-attempted. |
+| 48 | Validate, PR, merge, confirm Pages, record | **done** — PR #40, Pages built on `4e4999f` | See above. |
+
+### Sources re-read live this session (2026-11-10)
+
+| Source | Confirmed |
+|---|---|
+| [Housing Inventory](https://www.sf.gov/rent-board-housing-inventory) | All owners report; licence auto-generated for tenant-occupied units; reporting for condominiums and units in buildings with fewer than 10 units began 2023-03-01; licence current on the **effective date**, not required with the notice; submissions public, under penalty of perjury |
+| [§ 37.15](https://www.sf.gov/information--sec-3715-reporting-obligations-licensing) | Verbatim (a), (c), (e): scope is units subject to Chapter 37; 2022-07-01 / 2023-03-01 split; licence suspended during noncompliance |
+| [Rules § 13.14](https://sfrb.org/section-1314-licensing-%E2%80%93-notice-rent-increase) | Verbatim: unlicensed increase null and void; effective date controls; applicability 2022-07-01, and 2023-03-01 for condominiums and buildings with fewer than ten residential units |
+| [Learn about SF rental laws](https://www.sf.gov/learn-about-san-francisco-rental-laws) | Coverage turns on construction on/before 1979-06-13 and not being a single-family dwelling; exemption list |
+| [Form 571, 26-27](https://www.sf.gov/documents/34344/571_Allowable_Annual_Increases_26-27_1.pdf) | 1.6 / 1.4 / 1.7 / 3.6 / 2.3 / 0.7 / 1.8 / 2.6 — re-derives Unit 2's 11.5% and Unit 1's 1.4%; table ends 2027-02-28 |
+| [Current Rates](https://www.sf.gov/reports--current-rates-including-rent-increase-relocation-sec-deposit) | 1.6%; File 261020 notice dated 2026-11-09, "has not been enacted" |
+| [Legistar File 261020](https://sfgov.legistar.com/LegislationDetail.aspx?ID=8217304&GUID=7EDA4662-EBFB-4AF5-962F-C669B64AA770) | **Pending Committee Action**; introduced 2026-09-15; Land Use and Transportation Committee; no final action — F-27 unchanged |
+
+### Duplicate-claim note
+
+Session `arena/69f0c0e5` claimed `69f0-B` for this same review request in PR #37 (board record only;
+PR #37 and #38 changed `COORDINATION.md` and nothing else). No branch or PR for that session existed
+when this work was pushed, so the request was implemented here. A later session must **rebase, not
+revert**: task 46's wording is now guarded by the forbidden-regression assertions, and F-31 must stay
+on `flagged.html`. The rebase conflict this session hit was an append-only collision in this file;
+both sides were kept and no other session's record was discarded.
+
+### Irregularities still published for the owner (do not block publication)
+
+F-01 (build year/coverage), F-02 (lease facts), F-03 (licence status unchecked), F-06 (Unit 2 rent
+ledger), F-17 (2027–28 percentage unpublished), F-27 (pending File 261020), F-28 (Unit 2
+non-anniversary effective date) and **F-31 (building unit count)** — all on
+[`flagged.html`](https://kanlerxz87-cyber.github.io/RentincreaseSF2/flagged.html) with source links.
+
+**Not legal advice.** Documentary verification against official sources only.
