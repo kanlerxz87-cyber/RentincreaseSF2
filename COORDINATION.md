@@ -1517,4 +1517,43 @@ Flagged items F-01…F-34 remain published for the owner on [`flagged.html`](htt
 |---|---|---|---|---|---|
 | 22c8-A | ~~Qualify building scope; flag unverified unit count~~ **SUPERSEDED — no work published.** Independently reached the same finding as `arena/f6a65204`; their F-31 (PR #40) is preserved and this session's duplicate row was dropped during rebase. | superseded | `arena/22c8ef1e-rentincreasesf2` | none published | [Housing Inventory](https://www.sf.gov/rent-board-housing-inventory) (tier dates 2022-07-01 / 2023-03-01); [Which rental laws apply](https://www.sf.gov/learn-about-san-francisco-rental-laws) (coverage exceptions). Main's F-31 wording is the published one. |
 | 22c8-B | Remove the stray unresolved git merge marker from `AUDIT.md` and add a CI guard so the class of defect cannot recur | done | `arena/22c8ef1e-rentincreasesf2` | `AUDIT.md`, `scripts/validate_site.py` | Direct read of `AUDIT.md` line 395 on `cd005f7`. Guard verified to fail on an injected `<<<<<<<` marker and to pass once removed. |
-| 22c8-C | Independent line-by-line primary-source re-verification, full check suite, PR to `main`, merge, confirm GitHub Pages deploy, record result | in progress | `arena/22c8ef1e-rentincreasesf2` | `AUDIT.md`, `COORDINATION.md` | 8 official sources fetched and read 2026-11-10; every published figure re-derived independently and matched. |
+| 22c8-C | Independent line-by-line primary-source re-verification, full check suite, PR to `main`, merge, confirm GitHub Pages deploy, record result | done — PR #47 merged as `33c2079`; Pages built; live content read back | `arena/22c8ef1e-rentincreasesf2` | `AUDIT.md`, `COORDINATION.md` | 8 official sources fetched and read 2026-11-10; every published figure re-derived independently and matched. |
+
+
+## PR #47 — merge and deployment record (session `arena/22c8ef1e-rentincreasesf2`)
+
+- **PR:** https://github.com/kanlerxz87-cyber/RentincreaseSF2/pull/47
+- **Title:** "Remove stray merge-conflict marker served on the live site; add CI guard; independent verification record"
+- **Merged to `main`:** 2026-11-10T06:04Z; merge commit **`33c2079a3965a1a4bc2b972848038c131a33c7fe`**.
+- **Merge method:** merge commit (`gh pr merge 47 --merge`)
+- **PR validation:** `Validate site` **success** (run 42765711753, on the branch head before merge).
+- **Post-merge validation:** `Validate site` **success** on `33c2079`.
+- **GitHub Pages:** `pages build and deployment` **success** on `33c2079`; `pages/builds/latest` reports
+  commit `33c2079`, status **built**, error `null`, completed `2026-11-10T06:04:58Z`.
+- **Live verification after deployment:**
+  - `executive-summary.html` fetched from the public Pages URL and confirmed to carry the merged
+    conditional note: "…Pending File No. 261020 could also cap the total (F-27), and Unit 2's
+    2027-02-15 effective date is a non-anniversary date that is itself pending Rent Board counselor
+    review (F-28). No official source guarantees that a tenant lawyer, the Rent Board or a court
+    would approve these notices."
+  - `AUDIT.md` fetched from the public Pages URL; the stray `97aadef` conflict-marker line is **gone**.
+  - `checklist.html` Gate **0.7** (confirm the building's total residential unit count) is live.
+- **Content merged:** stray git conflict-marker removed from the publicly served `AUDIT.md`; new
+  CI guard in `scripts/validate_site.py` failing the build on any `<<<<<<<` / `=======` / `>>>>>>>`
+  marker in `*.html`, `*.md`, `*.css` or `scripts/*.py`; checklist Gate 0.7; two additive sentences
+  in the executive summary's conditional note; this session's verification record. **No percentage,
+  dollar amount, statutory citation or deadline was changed.**
+- **Parallel-session resolution.** Rebased **three** times (`a791240` → `5bad366` → `50ab6c0`) as
+  `arena/79f56954` landed PRs #44/#46/#48, all touching `COORDINATION.md`. Every conflict was
+  resolved by rebuilding the file as *main's full content + this session's section appended* and
+  verifying 0 missing lines; an earlier resolution that kept only the common prefix discarded ~155
+  lines of other sessions' records, was caught by that check, and was redone. GitHub reported
+  `CONFLICTING`/`DIRTY` for roughly 60 s after each force-push before settling to `MERGEABLE`/`CLEAN`;
+  a local `git merge-tree` against `origin/main` was used to distinguish a real conflict from a stale
+  GitHub status. No other session's work was discarded.
+- **Cross-session corroboration.** `arena/79f56954` independently found the same `AUDIT.md`
+  conflict-marker defect and recorded it in `a93360e`, noting this session's fix was in flight.
+- **Tasks `22c8-A` (superseded by F-31/PR #40), `22c8-B` (done) and `22c8-C` (done).** Flagged items
+  **F-01 … F-34** remain published on the Flagged for Review page; none blocks deployment.
+
+**Not legal advice.** Documentary verification against official sources only.
