@@ -88,6 +88,8 @@ def expect(label: str, actual, expected) -> None:
 
 
 def main() -> int:
+    global checks
+
     # ------------- Base-date consistency -------------
     # Every page is stamped "Last verified: <LAST_VERIFIED>" by sync_nav.py. If that
     # stamp and REVIEW_DATE disagree, the published day counts are wrong by the
@@ -176,6 +178,18 @@ def main() -> int:
     expect("Unit 2 anniversary serve by", u2_anniversary - timedelta(days=90), date(2027, 3, 3))
     expect("Unit 2 anniversary serve by mail", u2_anniversary - timedelta(days=95), date(2027, 2, 26))
 
+    # Proposed ordinance File No. 261020 (flag F-27). NOT law. If enacted as proposed it would
+    # cap the banked + capital-improvement components at 10%/year; the annual allowance is not
+    # in that list, so the ceiling would be 10% + 1.6% = 11.6%. Published only as a labelled
+    # conditional on flagged.html.
+    u2_proposed_pct = Decimal("10.0") + u2_current
+    expect("Proposed-cap conditional percent", u2_proposed_pct, Decimal("11.6"))
+    u2_proposed_inc = money(UNIT2_BASE * u2_proposed_pct / 100)
+    expect("Proposed-cap conditional increase", u2_proposed_inc, Decimal("365.40"))
+    expect("Proposed-cap conditional new rent", UNIT2_BASE + u2_proposed_inc, Decimal("3515.40"))
+    expect_in_pages("Proposed-cap conditional increase", usd(u2_proposed_inc), ["flagged.html"])
+    expect_in_pages("Proposed-cap conditional new rent", usd(UNIT2_BASE + u2_proposed_inc), ["flagged.html"])
+
     # Occupancy window.
     expect("Days since added occupancy", (REVIEW_DATE - date(2026, 4, 1)).days, 223)
 
@@ -247,6 +261,24 @@ def main() -> int:
         ("Unit 2 true anniversary 2027-06-01", date(2027, 6, 1), 90),
     ]:
         expect_in_pages(f"days left — {label}", daypair(effective, notice_days), banking)
+
+    # ---------------- Forbidden regressions (C-01, 2026-11-10) ----------------
+    # The site must never again assert that banked amounts can only be given at the time of an
+    # annual increase, or that a banked balance cannot be imposed later. sf.gov states that a
+    # properly banked increase "does not expire" and may be imposed on a future anniversary date
+    # or at another time when a rent increase is allowed.
+    forbidden = [
+        "may only be given at the time of an annual increase",
+        "cannot be imposed on its own later",
+        "cannot be imposed on its own on a date",
+    ]
+    for page in sorted(f for f in os.listdir(ROOT) if f.endswith(".html")):
+        with open(os.path.join(ROOT, page), encoding="utf-8") as handle:
+            body = handle.read()
+        for phrase in forbidden:
+            checks += 1
+            if phrase in body:
+                errors.append(f"forbidden regression: {phrase!r} found in {page}")
 
     if errors:
         print("CALCULATION VERIFICATION FAILED", file=sys.stderr)

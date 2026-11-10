@@ -288,3 +288,57 @@ Two further consistency fixes were applied so every published date and stamp rea
 Full verification after the corrections: `scripts/validate_site.py` PASSED ·
 `scripts/verify_calculations.py` PASSED (47 assertions) · tag-balance check OK on all 13 pages ·
 zero personal-identifier hits in HTML and root Markdown.
+
+## Addendum — 2026-11-10, residual integration pass (session `arena/d2474b1d-rentincreasesf2`)
+
+This session began its own 2026-11-10 verification pass before knowing that two other sessions had
+already published overlapping work. `main` moved twice while it read sources: **PR #22**
+(`arena/9b0747eb`, which created flag F-27) and **PR #24** (`arena/d086cb8e`, which re-stamped every
+page to 2026-11-10 and corrected its own F-27 citation note). Both are sound and were **not**
+re-litigated. This branch was reset to `main` and only the residual differences below were applied.
+
+### Sources fetched and read directly by this session (2026-11-10)
+
+Learn about rent increases · Form 571 (26-27 PDF, full table) · Banked rent increases · Annual rent
+increase for multiple years · Increasing rents during irregular periods · Rent Ordinance § 37.3 ·
+Housing Inventory · Rules § 13.14 · Civ. Code § 827 · AB 1482 report · Rules 6.14 / Costa-Hawkins ·
+Algorithmic devices § 37.10C · Legistar File No. 261020.
+
+Confirmations relevant to the residual work:
+
+- **Banked increases do not expire.** "Once an increase is properly banked, it does not expire. A
+  landlord may impose it on a future anniversary date, or at another time when they are allowed to
+  raise the rent (as long as at least 12 months have passed since the last increase)."
+  ([sf.gov — Banked increases](https://www.sf.gov/information--banked-rent-increases))
+- **The percentage is the one in effect on the effective date**, not on the service date.
+  ([sf.gov — Learn about rent increases](https://www.sf.gov/learn-about-rent-increases-san-francisco))
+- **§ 37.3(a)(2)** ties a banked amount to "the tenant's subsequent rent increase anniversary
+  dates". ([sf.gov — § 37.3](https://www.sf.gov/information--sec-373-rent-limitations))
+- **A non-anniversary increase is allowed** once 12+ months have passed since the last increase or
+  move-in, with 12–24-month and 24-month-plus methods worked out.
+  ([sf.gov — Irregular periods](https://www.sf.gov/information--increasing-rents-during-irregular-periods))
+- **Legistar File No. 261020** — status **Pending Committee Action**; introduced 2026-09-15;
+  Land Use and Transportation Committee; title limits *banked and capital-improvement* increases to
+  a total of 10% per year for three years; no enactment date.
+
+### Residual defects corrected on this branch
+
+| # | Defect on `main` | Evidence | Disposition |
+|---|---|---|---|
+| C-01 | Three pages still said banked amounts "may only be given at the time of an annual increase" and that "the banked 11.5% cannot be imposed on its own later" (`checklist.html` ×2, `banking-rule.html`, `executive-summary.html`). This contradicts the Rent Board: banked increases do not expire during a tenancy and may be imposed on a future anniversary date or another permitted time. It is also the wrong reason for urgency — the owner could act on it and believe the bank itself is forfeited. | [sf.gov — Banked increases](https://www.sf.gov/information--banked-rent-increases) | Rewritten in all four places. What actually closes on 2027-02-28 is the **2026–27 annual component**, because the percentage charged is the one in effect on the effective date. The deadline, the dollar figures and the urgency are unchanged. A forbidden-phrase assertion in `scripts/verify_calculations.py` now fails CI if either sentence returns. |
+| C-03 | `units.html` said Unit 1's 1.4% was not banked "because less than 24 full months have passed since the 1.4% … became available". Measured from 2026-02-01 that would put banking at 2028-02-01; the rule is 12 months from availability (Rules § 4.12(a)), which coincides with 24 months from the 2025-02-01 move-in. | [Rules § 4.12](https://www.sf.gov/reports--december-2022--rent-board-rules-and-regulations-part-iv-rent-increases-not-requiring) | Re-measured and restated in `units.html`. |
+| C-04 | `units.html` labelled **April 1, 2026** a "Proposed effective date". That date is in the past, and the intake reports it as the continuing tenancy at the unchanged $3,995 — not a proposed increase. Unit 2's row also named the already-passed "June 1, 2026 anniversary". | Intake facts (unverified) | Relabelled "Intake date for the current rent … not a proposed effective date (see F-04)"; Unit 2 now reads "the next reachable anniversary is 2027-06-01". |
+| C-06 / F-28 | Not on `main`: § 37.3(a)(2) ties a banked amount to anniversary dates, but the site's suggested Unit 2 effective date (2027-02-15) is not the June 1 anniversary, and the Rent Board's irregular-period guidance allows a non-anniversary date. | [§ 37.3](https://www.sf.gov/information--sec-373-rent-limitations); [Irregular periods](https://www.sf.gov/information--increasing-rents-during-irregular-periods) | New flag **F-28** with both texts, the conservative alternative (2027-06-01, needs the unpublished 2027–28 rate) and a clear-the-flag action row. Not resolved by this session. |
+| C-05 | F-27 on `main` said that if the bill were enacted "the phased 10.0% option would be the lawful path", without stating the cap's components. The Legistar title caps **banked + capital-improvement** increases; the annual allowance is not in that list. | [Legistar 261020](https://sfgov.legistar.com/LegislationDetail.aspx?ID=8217304&GUID=7EDA4662-EBFB-4AF5-962F-C669B64AA770) | F-27's existing text is kept; one paragraph added giving the labelled conditional **10% banked + 1.6% annual = 11.6% → $365.40 → $3,515.40**, stated as arithmetic on a bill draft, not law, and asserted by script. The "check immediately before serving" instruction was tightened. |
+
+### Verification
+
+`scripts/validate_site.py` PASSED (13 pages, 49 allowlisted official URLs, per-row sources, column
+integrity, privacy sweep over HTML and all root Markdown) · `scripts/verify_calculations.py` PASSED
+(**105 assertions**, up from 61: the new conditional, the closing-window arithmetic, and 39
+forbidden-phrase checks) · tag balance OK on all 13 pages · all 13 pages, `style.css` and the three
+root Markdown files return HTTP 200 from a local static server · zero personal-identifier hits.
+
+**Race record.** No work from PRs #22 or #24 was reverted or edited away; the only edits to
+another session's text on this branch are the additive F-27 refinements above, made under the
+integration-session prerogative after every other task reached `done`.

@@ -35,7 +35,7 @@ Sources: [Housing Inventory](https://www.sf.gov/rent-board-housing-inventory) ·
 | `tenant-protections.html` | Just cause, free legal help, discrimination, retaliation |
 | `practices.html` | Corporate vs. individual owners, including the § 37.10C algorithm ban |
 | `checklist.html` | Gate 0 prerequisites, computed service deadlines, notice content |
-| `flagged.html` | Every unverified item and irregularity (F-01 … F-27) |
+| `flagged.html` | Every unverified item and irregularity (F-01 … F-28) |
 | `sources.html` | All official sources and the integration method |
 | `banking-rule.html` | F-16 resolved: banking-interval decisive test, re-verification, closing service window |
 
@@ -63,9 +63,17 @@ On 2026-11-09 the Rent Board posted a notice on its **Current Rates**, **Banked 
 which would temporarily cap combined **banked + capital improvement** increases on rent-controlled
 units at **10% per year** for three years, applying to banked increases noticed on or after
 **2026-09-15**. The official Legistar record shows **Pending Committee Action — not enacted**.
-Under current law Unit 2's 13.1% is unaffected; if enacted as proposed, the phased 10.0% option
-($315.00 → $3,465.00) would be the lawful path. Re-check the Legistar status immediately before
-serving any Unit 2 notice.
+Under current law Unit 2's 13.1% is unaffected. If enacted as proposed the cap would apply to the
+**banked** and **capital-improvement** components — the annual allowance is not in that list — so
+the ceiling in one year would be 10% banked + 1.6% annual = **11.6% ($365.40 → $3,515.40)**, and
+the phased 10.0% option ($315.00 → $3,465.00) stays inside the cap either way. That 11.6% is
+arithmetic on a bill draft, not law. Re-check the Legistar status immediately before serving any
+Unit 2 notice.
+
+Related flag: **F-28** — Unit 2's suggested effective date (2027-02-15) is not the June 1
+anniversary. Rent Ordinance § 37.3(a)(2) ties a banked amount to anniversary dates while the Rent
+Board's irregular-period guidance allows another date; the conservative alternative is 2027-06-01,
+which needs the unpublished 2027–28 rate. Put the date to a counselor or counsel.
 
 Sources: [Current Rates](https://www.sf.gov/reports--current-rates-including-rent-increase-relocation-sec-deposit) ·
 [Banked rent increases](https://www.sf.gov/information--banked-rent-increases) ·
