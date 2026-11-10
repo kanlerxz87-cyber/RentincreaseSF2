@@ -2,7 +2,7 @@
 
 **Repo:** `kanlerxz87-cyber/RentincreaseSF2`  
 **Live site:** https://kanlerxz87-cyber.github.io/RentincreaseSF2/  
-**Last updated:** 2026-11-08
+**Last updated:** 2026-11-10
 
 ## Sessions
 
@@ -14,6 +14,7 @@
 | `arena/2b3012a0-rentincreasesf2` | Rent Board license answer, Q&A page, line-by-line re-verification | In progress on its own branch. **Claimed tasks 13–15 there — those numbers collide with rows 13–18 below; see A-07.** Branched from `62f6f59`, which predates PRs #6–#10, so it must rebase before opening a PR. |
 | `arena/bf462feb-rentincreasesf2` | Independent primary-source audit of the integrated site; resolution of flag F-16; new verification page | done — merged as PR #12. New files only: `AUDIT.md`, `banking-rule.html`. No file claimed by another session was edited. |
 | `arena/f0449766-rentincreasesf2` (this session) | Final integration: apply audit change requests CR-01…CR-08, close F-16, publish the closing service deadline, re-verify, PR and merge | In progress — owns tasks 24–26. File scope: `scripts/sync_nav.py`, `scripts/validate_site.py`, all `*.html` nav blocks, `flagged.html`, `analysis.html`, `index.html`, `executive-summary.html`, `checklist.html`, `laws.html`, `process.html`, `COORDINATION.md`. Branched from `main` at `a747d82`. |
+| `arena/9b0747eb-rentincreasesf2` (this session) | Line-by-line re-verification against official sources; new-development check (File 261020); close stale PRs #16/#20; final PR, merge and deploy confirmation | In progress — owns tasks 27–29. File scope: `scripts/validate_site.py` (allowlist only), `flagged.html`, `analysis.html`, `executive-summary.html`, `sources.html`, `README.md`, `COORDINATION.md`. Branched from `main` at `a91dc78` (PR #21 merge). |
 
 ## Coordination note / handoff
 
@@ -57,6 +58,9 @@ This session is editing the existing files rather than creating a duplicate site
 | 24 | Final integration: apply audit change requests CR-01…CR-08 — add `banking-rule.html` to nav and validator, close flag F-16, publish the 2026-11-30/2026-11-25 closing service deadline, add Rules §13.14 provisions, log A-06 discrepancy, widen the privacy sweep to root Markdown, annotate the colliding task rows | done | arena/f0449766-rentincreasesf2 | `scripts/sync_nav.py`, `scripts/validate_site.py`, all `*.html` nav blocks, `flagged.html`, `analysis.html`, `index.html`, `executive-summary.html`, `checklist.html`, `laws.html`, `process.html`, `COORDINATION.md` | Official sources as cited per CR in `AUDIT.md` §6 and `banking-rule.html`; no figure re-derived by this session is presented without its official source link. |
 | 25 | Full re-verification of the merged tree (validator, calculation script, privacy sweep) | done | arena/f0449766-rentincreasesf2 | scripts run only; no file scope | `python3 scripts/validate_site.py`; `python3 scripts/verify_calculations.py`; root-Markdown privacy sweep. |
 | 26 | PR to `main`, merge, confirm GitHub Pages deploy, record result | done | arena/f0449766-rentincreasesf2 | `COORDINATION.md` | Flagged irregularities and unverified items do not block the merge; they are published on the Flagged for Review page. |
+| 27 | Line-by-line re-verification of the live site against official sources (Housing Inventory, rent increases, banked increases, Form 571, Tenant Petitions, Legistar File 261020) | done | arena/9b0747eb-rentincreasesf2 | `COORDINATION.md` (verification record) | All key claims confirmed: license required on effective date for <10-unit buildings since 2023-03-01; 1.6% (2026–27); Unit 2 banked 11.5% = 1.8+0.7+2.3+3.6+1.7+1.4 (Form 571); 13.1% total; 30/90-day +5 mail; tenant petitions free, no discrimination adjudication. New development found: File 261020 proposed 10% cap (see task 28). |
+| 28 | Publish new development as flag F-27: proposed 10% cap on banked increases (File 261020, Pending Committee Action, not enacted) | done | arena/9b0747eb-rentincreasesf2 | `flagged.html`, `analysis.html`, `executive-summary.html`, `sources.html`, `scripts/validate_site.py`, `README.md` | Legistar record read directly 2026-11-10: introduced 2026-09-15, Land Use and Transportation Committee, status Pending Committee Action. Rent Board notice posted 2026-11-09 on rent-increases and banked-increases pages. Under current law 13.1% remains lawful; phased 10.0% is the fallback if enacted. |
+| 29 | Close stale PRs #16 and #20 (CONFLICTING, content already salvaged/merged), validate, PR to `main`, merge, confirm Pages deploy | in progress | arena/9b0747eb-rentincreasesf2 | `COORDINATION.md` | PR #16 duplicates PRs #14/#15/#17 (salvaged in #17); PR #20 is a PR #19 record whose text is not on `main` and whose branch conflicts after PRs #18/#21. Both closed unmerged with explanatory comments; PR #19 record summary preserved in this session's record below. |
 
 
 ¹ **Duplicate task numbers (A-07 / CR-08).** Rows 13–15 above belong to `arena/fa7d2d77-rentincreasesf2` on `main`. Session `arena/2b3012a0-rentincreasesf2` independently claimed rows numbered **13–15** on its own branch (`arena/2b3012a0-rentincreasesf2`) for different work (Rent Board license answer, Q&A page, line-by-line re-verification). That branch was cut from `62f6f59`, which predates PRs #6–#10, so merging it as-is would revert the PR #6/#7 license clarification and the PR #10 privacy redaction. **It must rebase onto current `main` before opening a pull request.** No session has merged it. Its claims remain pending and do not block the board.
@@ -770,3 +774,62 @@ Two reader-visible defects removed and one regression guard added:
 current, Unit 1 at 3.0% → $4,114.85, Unit 2 at 13.1% → $3,562.65, and the 2026-11-30 closing
 service deadline — was re-verified against primary official sources this session and confirmed
 unchanged.
+
+## Session `arena/9b0747eb-rentincreasesf2` — line-by-line re-verification and new-development check (2026-11-10)
+
+This session arrived with `main` at `a91dc78` (PR #21 merge), all checks green (validator PASSED,
+61 calculation assertions PASSED, Pages status `built`). Its job was to re-verify the live site
+line by line against official sources, check for developments since the 2026-11-08 verification,
+and close out the two stale open PRs.
+
+### Official sources read directly this session
+
+| Source | What was confirmed |
+|---|---|
+| [sf.gov — The Rent Board Housing Inventory](https://www.sf.gov/rent-board-housing-inventory) | All owners of residential property must report; tenant-occupied units receive a license; license must be current on the effective date; license need not be included with the notice; buildings with fewer than 10 units in scope since 2023-03-01; submissions are public and under penalty of perjury. Matches the site's license-first summary. |
+| [sf.gov — Learn about rent increases](https://www.sf.gov/learn-about-rent-increases-san-francisco) | 1.6% effective 2026-03-01 through 2027-02-28; license required before imposing; 30-day / 90-day (>10%) notice +5 if mailed; base rent only; no rounding up; additional occupant may not be charged. Matches the site. **Also carries the 2026-11-09 File 261020 notice (see below).** |
+| [sf.gov — Banked rent increases](https://www.sf.gov/information--banked-rent-increases) | Banking mechanics, partial increases, worked example 5.3% + 1.4% = 6.7% (Example A of the F-16 test). Summary-page 24-month language noted; the site's `banking-rule.html` resolution (Rules §4.12(a) per-allowance 12-month test) stands. **Also carries the File 261020 notice.** |
+| [sf.gov — Form 571 Allowable Annual Increases 26-27 (PDF)](https://www.sf.gov/documents/34344/571_Allowable_Annual_Increases_26-27_1.pdf) | Full table read line by line. Unit 2 banked re-derived: 1.8% (2020–21) + 0.7% (2021–22) + 2.3% (2022–23) + 3.6% (2023–24) + 1.7% (2024–25) + 1.4% (2025–26) = **11.5%**; + 1.6% current = **13.1%**. Unit 1: 1.4% banked + 1.6% current = **3.0%**. All confirmed. |
+| [sf.gov — Tenant Petitions](https://www.sf.gov/tenant-petitions) | No filing charge; unlawful-rent-increase claim and summary petition for invalid notice; Rent Board does not adjudicate harassment, discrimination or retaliation. Matches the site's tenant-protections page. |
+| [Legistar — File 261020](https://sfgov.legistar.com/LegislationDetail.aspx?ID=8217304&GUID=7EDA4662-EBFB-4AF5-962F-C669B64AA770) | "Administrative Code — Cap On Rent Increases for Rent-Controlled Units"; introduced 2026-09-15; Land Use and Transportation Committee; status **Pending Committee Action**; no enactment date. **Not enacted.** |
+
+### New development: File 261020 proposed 10% cap (flag F-27)
+
+One day after the site's last full verification (2026-11-08), the Rent Board posted a notice
+(2026-11-09) on both the rent-increases and banked-increases pages: Board of Supervisors
+File No. 261020 would temporarily limit combined banked + capital improvement increases to
+10% per year for three years, applying to banked increases noticed on or after 2026-09-15.
+The site did not mention it (correctly — it did not exist at verification time). It is now
+published as **flag F-27** on `flagged.html`, with notes on `analysis.html` and
+`executive-summary.html`, a `sources.html` entry, and the Legistar URL added to the validator
+allowlist. Under current law Unit 2's 13.1% remains lawful; if the ordinance were enacted as
+proposed, the phased 10.0% option ($315.00 → $3,465.00) would be the lawful path. The global
+"Last verified: 2026-11-08" stamps were deliberately left unchanged (the day-count assertions
+are computed from `REVIEW_DATE` = 2026-11-08); F-27 is dated explicitly as verified 2026-11-10.
+
+### Stale PRs closed
+
+- **PR #16** (`arena/342c4cc9-rentincreasesf2`, base `a747d82`): CONFLICTING. Duplicates work
+  merged in PRs #14/#15; its four verified findings were salvaged in PR #17 (see the
+  post-merge corrections record above). Closed unmerged with an explanatory comment.
+- **PR #20** (`arena/e8ef4a1a-rentincreasesf2`, "Record PR #19 merge and Pages deployment"):
+  CONFLICTING after PRs #18/#21 merged. Its only content is a PR #19 deployment record whose
+  text is not on `main`. Closed unmerged; the PR #19 record is summarised here instead:
+  PR #19 merged 2026-11-08T22:56:33Z at `362b9e3`, `Validate site` success, Pages built on
+  `362b9e3`; content was the PR #17 deployment record plus salvage of PR #18's unique items
+  (47 → 56 assertions). No code was lost by closing either PR.
+
+### Validation performed
+
+- `python3 scripts/sync_nav.py` — NAV OK, 13 pages, 0 updated.
+- `python3 scripts/validate_site.py` — PASSED (13 pages, 49 official-source URLs on allowlist
+  including the Legistar URL, per-row source links, column integrity, privacy sweep over all
+  root Markdown).
+- `python3 scripts/verify_calculations.py` — PASSED (61 assertions; no figure changed).
+
+**No legal conclusion, percentage or dollar figure changed.** The only site change is the
+addition of flag F-27 and its cross-references. Flagged items F-01…F-27 remain for the owner
+on the Flagged for Review page; none block publication.
+
+**Not legal advice.** This is a documentary re-verification against official sources. A Rent
+Board counselor cannot give legal advice, and no lawyer's approval can be guaranteed in advance.
