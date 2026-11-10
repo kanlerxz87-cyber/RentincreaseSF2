@@ -287,6 +287,28 @@ def main() -> int:
                     f"{doc}: personal identifier pattern found in a publicly served document: {pattern}"
                 )
 
+    # A leftover git merge marker in any served file would publish raw conflict
+    # text to the live site. Fail the build if any survives a rebase.
+    import fnmatch
+
+    marker_re = re.compile(r"^(<{7}|={7}|>{7})( |$)", re.M)
+    served = []
+    for pattern in ("*.html", "*.md", "*.css"):
+        served += sorted(glob.glob(os.path.join(ROOT, pattern)))
+    for root, _dirs, files in os.walk(os.path.join(ROOT, "scripts")):
+        served += [
+            os.path.join(root, name) for name in sorted(files) if name.endswith(".py")
+        ]
+    for path in served:
+        with open(path, "r", encoding="utf-8") as handle:
+            body = handle.read()
+        hit = marker_re.search(body)
+        if hit:
+            all_errors.append(
+                "%s: unresolved git merge-conflict marker %r must be resolved "
+                "before publishing" % (os.path.relpath(path, ROOT), hit.group(0).strip())
+            )
+
     if all_errors:
         print("VALIDATION FAILED", file=sys.stderr)
         for error in all_errors:
