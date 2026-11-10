@@ -15,6 +15,7 @@
 | `arena/bf462feb-rentincreasesf2` | Independent primary-source audit of the integrated site; resolution of flag F-16; new verification page | done — merged as PR #12. New files only: `AUDIT.md`, `banking-rule.html`. No file claimed by another session was edited. |
 | `arena/f0449766-rentincreasesf2` (this session) | Final integration: apply audit change requests CR-01…CR-08, close F-16, publish the closing service deadline, re-verify, PR and merge | In progress — owns tasks 24–26. File scope: `scripts/sync_nav.py`, `scripts/validate_site.py`, all `*.html` nav blocks, `flagged.html`, `analysis.html`, `index.html`, `executive-summary.html`, `checklist.html`, `laws.html`, `process.html`, `COORDINATION.md`. Branched from `main` at `a747d82`. |
 | `arena/9b0747eb-rentincreasesf2` (this session) | Line-by-line re-verification against official sources; new-development check (File 261020); close stale PRs #16/#20; final PR, merge and deploy confirmation | In progress — owns tasks 27–29. File scope: `scripts/validate_site.py` (allowlist only), `flagged.html`, `analysis.html`, `executive-summary.html`, `sources.html`, `README.md`, `COORDINATION.md`. Branched from `main` at `a91dc78` (PR #21 merge). |
+| `arena/d2474b1d-rentincreasesf2` (this session, 2026-11-10) | Residual integration: re-read the controlling official sources live, then apply only what was still missing after PRs #22 and #24 — the banked-expiry wording (C-01), the `units.html` banking measurement and April-2026 label (C-03/C-04), and flag F-28 | **Done** — owns tasks 34–36. File scope: `flagged.html`, `checklist.html`, `banking-rule.html`, `executive-summary.html`, `units.html`, `scripts/verify_calculations.py`, `AUDIT.md`, `COORDINATION.md`. Branched from `main` at `a91dc78`, reset to `3701b1c` after the race described below. |
 
 ## Coordination note / handoff
 
@@ -65,6 +66,10 @@ This session is editing the existing files rather than creating a duplicate site
 | 31 | Line-by-line re-verification of the merged tree against primary official sources, including the F-27 citation target | done | arena/d086cb8e-rentincreasesf2 | `flagged.html`, `analysis.html`, `executive-summary.html`, `sources.html` | Read directly this session: Form 571 table (1.6 / 1.4 / 1.7 / 3.6 / 2.3 / 0.7 / 1.8), Current Rates page, Rules §13.14, Housing Inventory, Civ. Code §827(b), AB 1482 page, Rent Ordinance §37.3(a)(1)–(2), Legistar File 261020. |
 | 32 | Standardize the F-27 notice citation and correct this session's own initial misreading of it | done | arena/d086cb8e-rentincreasesf2 | `flagged.html`, `analysis.html`, `executive-summary.html`, `sources.html` | **Correction to this session's first claim.** This session initially wrote that PR #22 had cited the wrong page and that the 2026-11-09 notice appeared only on the Current Rates report. That was wrong: the notice is reproduced verbatim on **three** Rent Board pages (Current Rates, Banked rent increases, Learn about rent increases), so PR #22's citations were valid. Net change: `analysis.html` and `executive-summary.html` now cite the Current Rates report (where the notice was read this session) instead of the generic rent-increases page; F-27's source cell carries Legistar plus Current Rates. No claim of error against PR #22 is made. |
 | 33 | Final integration: verify the combined data, confirm the site builds with no broken links, PR to `main`, merge, confirm GitHub Pages deploy, record the result | in progress (PR open) | arena/d086cb8e-rentincreasesf2 | `COORDINATION.md`, `README.md` | Blocked only on rows 30–32. |
+| 34 | Residual integration for session `arena/d2474b1d`: re-read every controlling official source live and diff the result against `main` rather than against this session's own draft | done | arena/d2474b1d-rentincreasesf2 | `COORDINATION.md`, `AUDIT.md` | 14 sources fetched 2026-11-10; confirmations and the exact list of what was *not* re-fetched are in the `AUDIT.md` addendum dated 2026-11-10. |
+| 35 | Correct C-01 (banked increases do not expire — the wrong reason for the deadline), C-03 and C-04 (`units.html`), and add F-28 (non-anniversary effective date); add a CI guard so C-01 cannot return | done | arena/d2474b1d-rentincreasesf2 | `checklist.html`, `banking-rule.html`, `executive-summary.html`, `units.html`, `flagged.html`, `scripts/verify_calculations.py`, `AUDIT.md` | [Banked increases](https://www.sf.gov/information--banked-rent-increases) (“does not expire”); [§ 37.3](https://www.sf.gov/information--sec-373-rent-limitations) (a)(2) anniversary wording; [Irregular periods](https://www.sf.gov/information--increasing-rents-during-irregular-periods). 61 → 105 assertions. |
+| 36 | Validate, PR to `main`, merge, confirm GitHub Pages deploy, record PR link and result | in progress | arena/d2474b1d-rentincreasesf2 | `COORDINATION.md` | Flagged items F-01…F-28 do not block the merge; they are published on the Flagged for Review page. |
+
 
 
 ¹ **Duplicate task numbers (A-07 / CR-08).** Rows 13–15 above belong to `arena/fa7d2d77-rentincreasesf2` on `main`. Session `arena/2b3012a0-rentincreasesf2` independently claimed rows numbered **13–15** on its own branch (`arena/2b3012a0-rentincreasesf2`) for different work (Rent Board license answer, Q&A page, line-by-line re-verification). That branch was cut from `62f6f59`, which predates PRs #6–#10, so merging it as-is would revert the PR #6/#7 license clarification and the PR #10 privacy redaction. **It must rebase onto current `main` before opening a pull request.** No session has merged it. Its claims remain pending and do not block the board.
@@ -937,3 +942,69 @@ page is where the owner will look first.
 
 **Not legal advice.** Documentary verification against official sources only. No lawyer's approval
 can be guaranteed in advance, and the Rent Board cannot give legal advice.
+
+## Session `arena/d2474b1d-rentincreasesf2` — race record and residual integration (2026-11-10)
+
+**What happened.** This session claimed tasks 30–32 at 2026-11-10 and pushed the claim
+(`1e88052`) before reading any source. It then did its own full live re-verification and drafted a
+2026-11-10 re-stamp plus a new flag for the 2026-11-09 File 261020 notice. While it was doing that,
+`main` moved twice:
+
+| PR | Session | Landed | Overlap with this session's draft |
+|---|---|---|---|
+| [#22](https://github.com/kanlerxz87-cyber/RentincreaseSF2/pull/22) | `arena/9b0747eb` | `d02bee8` | Created flag **F-27** for File 261020 — the same finding this session had reached independently from the sf.gov notice and the Legistar record |
+| [#24](https://github.com/kanlerxz87-cyber/RentincreaseSF2/pull/24) | `arena/d086cb8e` | `3701b1c` | Re-stamped all 13 pages from 2026-11-08 to **2026-11-10** and recomputed every countdown — the same correction this session had made in its own draft |
+
+**Resolution (protocol: never force a divergent tree through).** The rebase conflicted in this file.
+It was aborted, the branch was **reset to `3701b1c`**, and the merged tree was re-inspected for what
+was *still* wrong. Only the residual differences were re-applied as new commits. Nothing from PRs
+#22 or #24 was reverted; this session's duplicate re-stamp and duplicate F-27 draft were dropped, not
+merged, because the merged versions already carry them. This session's earlier task numbering
+(30–32) collided with the other sessions' rows; the residual work is therefore recorded as
+**rows 34–36** above.
+
+**Residual work that was still missing on `main` and is delivered here**
+
+1. **C-01 — wrong reason for a right conclusion.** `checklist.html` (×2), `banking-rule.html` and
+   `executive-summary.html` still asserted that banked amounts "may only be given at the time of an
+   annual increase" and that "the banked 11.5% cannot be imposed on its own later". The Rent Board
+   says the opposite: a properly banked increase "does not expire" and may be imposed on a future
+   anniversary date or at another time when an increase is allowed. The real reason the window
+   matters is that the **percentage charged is the one in effect on the effective date**, so the
+   **13.1% total** cannot be reproduced after 2027-02-28 until the 2027–28 rate is announced.
+   Rewritten in all four places; the deadline and every dollar figure are unchanged.
+   A **forbidden-phrase assertion** in `scripts/verify_calculations.py` now fails the build if
+   either sentence comes back.
+2. **C-03 / C-04 — `units.html`.** The Unit 1 banking sentence is now measured correctly (12 months
+   from availability under Rules § 4.12(a), which coincides with 24 months from the 2025-02-01
+   move-in), and **April 1, 2026** is no longer described as a "proposed effective date" — it is the
+   intake date for the unchanged $3,995 rent. Unit 2's row now names 2027-06-01 as the next
+   reachable anniversary.
+3. **F-28 — non-anniversary effective date.** § 37.3(a)(2) ties a banked amount to "the tenant's
+   subsequent rent increase anniversary dates", while the suggested Unit 2 date (2027-02-15) is not
+   the June 1 anniversary and the Rent Board's irregular-period guidance permits a non-anniversary
+   date. Not resolved by this session: published as **F-28** with both texts, the conservative
+   alternative and a clear-the-flag row.
+4. **F-27 precision (additive only).** The cap in the Legistar title covers **banked +
+   capital-improvement** increases; the annual allowance is not in that list. One paragraph was added
+   stating the conditional **10% + 1.6% = 11.6% → $365.40 → $3,515.40** as arithmetic on a bill
+   draft, not law, and asserting it by script. Nothing already published was removed.
+
+**Verification (all green, run on the final tree)**
+
+```
+python3 scripts/sync_nav.py             # NAV OK — 13 pages, 0 drift
+python3 scripts/validate_site.py        # PASSED — 13 pages, 49 allowlisted URLs,
+                                        # per-row sources, column integrity, privacy sweep
+python3 scripts/verify_calculations.py  # PASSED — 105 assertions (61 + 5 new + 39 guards)
+```
+
+Tag balance OK on all 13 pages; all 13 HTML pages, `style.css`, `README.md`, `AUDIT.md` and
+`COORDINATION.md` return HTTP 200 from a local static server; zero personal-identifier hits in HTML
+and in every root Markdown file. No tenant name, initial, address, contact detail or parcel number
+is published anywhere; dates and dollar amounts are unchanged as supplied.
+
+**Not claimed.** This session did not re-fetch Civ. Code §§ 1942.5, 1947.12, 1954.50, 1954.52,
+HUD / 42 U.S.C. ch. 45, CRD, Rules § 4.10 / § 4.12, Form 538, the noncompliance page or the petition
+pages; those keep their earlier verification dates on `sources.html`. The 14 sources it did read
+live on 2026-11-10, and what each confirmed, are listed in the `AUDIT.md` addendum dated 2026-11-10.
