@@ -1478,3 +1478,43 @@ re-appended on the then-current `main` at `a791240`). Task IDs use the `79f5-x` 
 Flagged items F-01…F-34 remain published for the owner on [`flagged.html`](https://kanlerxz87-cyber.github.io/RentincreaseSF2/flagged.html) and do not block publication.
 
 **Not legal advice.** Documentary verification against official sources only.
+
+## Session `arena/22c8ef1e-rentincreasesf2` — final integration (2026-11-10)
+
+- **Status: in progress.** Claimed at 2026-11-10T05:45Z on branch `arena/22c8ef1e-rentincreasesf2`,
+  branched from `main` at `cd005f7` (PR #36). Branch name is fixed by the platform.
+- **Task IDs.** Following the convention proposed by `arena/69f0c0e5`, this session uses
+  session-prefixed IDs `22c8-A/B/C`; the duplicate-number pattern (A-07) has now collided on
+  rows 13–15, 24, 30, 34, 37, 40 **and 46** (this session's row 46 collides with
+  `arena/d2789389`'s row 46 on `main`). The row below is therefore renumbered to `22c8-A`.
+- **Concurrency outcome — task `22c8-A` was superseded while in flight.** This session set out to
+  qualify the "your building is in scope" statement and flag the unverified building unit count.
+  While it was working, `arena/f6a65204` (PR #40, commit `d6d565e`) published that finding as
+  **F-31** and `arena/d2789389` (PR #44, commit `b1d2be3`) added **F-33** (coverage condition) and
+  **F-34** (federal label). **Both sessions' work is preserved verbatim.** This session dropped its
+  own duplicate F-31 row rather than publishing a second flag with the same ID, and kept only the
+  residual items below that no other session had taken.
+- **Rebase history.** Rebased **three** times: onto `a791240` (PR #44), `5bad366` (PR #46) and `50ab6c0` (PR #48) — all three by `arena/79f56954` and all three touching `COORDINATION.md` only. Every rebase conflicted in `COORDINATION.md` and every one was resolved by rebuilding the file as **main's full content + this session's section appended**, verified line by line at **0 missing lines** each time. An earlier resolution attempt that kept only the common prefix discarded ~155 lines of other sessions' records; it was caught by the preservation check and redone. **No other session's content was lost.**
+- **Cross-session corroboration.** `arena/79f56954` independently found the same `AUDIT.md` conflict-marker defect and recorded it in `a93360e`, noting this session's PR #47 fix was in flight. Two sessions reached the defect independently; PR #47 carries the fix and the CI guard.
+- **Residual, still-unique work after rebasing onto `50ab6c0`:**
+  - **D-07** — `AUDIT.md` still ended with a stray unresolved git merge marker
+    (`>>>>>>> 97aadef (...)`), publishing raw conflict text on the public site. Removed.
+  - **CI guard** — `scripts/validate_site.py` had no check for merge-conflict markers, so the
+    defect could silently return. Added, covering `*.html`, `*.md`, `*.css` and `scripts/*.py`.
+  - **Independent verification record** — 8 primary sources read live on 2026-11-10 and every
+    published figure re-derived from the official Form 571 table and Civ. Code § 827 (see
+    `AUDIT.md` addendum). All figures reproduced exactly; no percentage, dollar amount or
+    deadline changed.
+- **Stale-PR triage.** PRs #27 (`arena/1e7b5ce1`) and #29 (`arena/d2474b1d`) were both open and
+  `CONFLICTING` at 05:45Z. Both were closed by their owning sessions / by concurrent triage before
+  this session's comment landed; this session confirmed no unique content was lost (File 261020 is
+  on 10 pages, the `units.html` rows are corrected, the PR #25 record is present) and it did not
+  merge either branch.
+- **Privacy rule acknowledged.** This file is served publicly by GitHub Pages. Nothing but
+  placeholders, dates and dollar amounts is written here.
+
+| # | Task | Status | Owner session | File scope | Sources / verification notes |
+|---|---|---|---|---|---|
+| 22c8-A | ~~Qualify building scope; flag unverified unit count~~ **SUPERSEDED — no work published.** Independently reached the same finding as `arena/f6a65204`; their F-31 (PR #40) is preserved and this session's duplicate row was dropped during rebase. | superseded | `arena/22c8ef1e-rentincreasesf2` | none published | [Housing Inventory](https://www.sf.gov/rent-board-housing-inventory) (tier dates 2022-07-01 / 2023-03-01); [Which rental laws apply](https://www.sf.gov/learn-about-san-francisco-rental-laws) (coverage exceptions). Main's F-31 wording is the published one. |
+| 22c8-B | Remove the stray unresolved git merge marker from `AUDIT.md` and add a CI guard so the class of defect cannot recur | done | `arena/22c8ef1e-rentincreasesf2` | `AUDIT.md`, `scripts/validate_site.py` | Direct read of `AUDIT.md` line 395 on `cd005f7`. Guard verified to fail on an injected `<<<<<<<` marker and to pass once removed. |
+| 22c8-C | Independent line-by-line primary-source re-verification, full check suite, PR to `main`, merge, confirm GitHub Pages deploy, record result | in progress | `arena/22c8ef1e-rentincreasesf2` | `AUDIT.md`, `COORDINATION.md` | 8 official sources fetched and read 2026-11-10; every published figure re-derived independently and matched. |
