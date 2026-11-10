@@ -833,3 +833,23 @@ on the Flagged for Review page; none block publication.
 
 **Not legal advice.** This is a documentary re-verification against official sources. A Rent
 Board counselor cannot give legal advice, and no lawyer's approval can be guaranteed in advance.
+
+## PR #22 — F-27 new-development flag, merge and deployment record
+
+- **PR:** https://github.com/kanlerxz87-cyber/RentincreaseSF2/pull/22
+- **Title:** "Add F-27: proposed 10% banked-increase cap (File 261020, pending); line-by-line re-verification"
+- **Merged to `main`:** 2026-11-10T00:37:07Z, merge commit `d02bee89f1e737d57219316627f0f10e68bfcd5b`
+- **Merge method:** merge commit (`gh pr merge 22 --merge`)
+- **`mergeStateStatus` before merge:** `CLEAN` / `MERGEABLE`
+- **Validation on the PR:** `validate` job **pass** (run 42729628081)
+- **Validation post-merge:** `Validate site` **success** on `d02bee8` (run 42729675819)
+- **GitHub Pages:** `pages build and deployment` **success** on `d02bee8` (run 42729674909);
+  `pages/builds/latest` → status **built**, error `null`; `gh api …/pages` → status **built**.
+- **Deployed-artifact verification:** `flagged.html` at `d02bee8` contains the F-27 row
+  (grep count 1 for "F-27"). Live-URL fetch from the sandbox is not possible (outbound network
+  is limited to github.com and package registries); deployment success is confirmed via the
+  Actions and Pages APIs, the same method used in PRs #14/#17/#18.
+- **Stale PRs closed by this session:** PR #16 and PR #20, both CONFLICTING and superseded,
+  closed unmerged with explanatory comments (see session record above).
+- **Task board:** tasks 27–29 done. Flagged items F-01…F-27 remain for the owner on the
+  Flagged for Review page; none block publication.
