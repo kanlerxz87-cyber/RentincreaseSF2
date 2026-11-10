@@ -269,6 +269,33 @@ def main() -> int:
     expect("Service window still open on the review date",
            REVIEW_DATE <= u2_close_personal, True)
 
+    # ---------------- Pending 10% cap (Board of Supervisors File 261020) ----------------
+    # The bill is NOT enacted, so nothing here is published as a limit. What is
+    # checked is the arithmetic the site prints to compare the planned increase
+    # against the proposed cap, and the fact that the site calls the bill pending.
+    # Sources: Legistar File 261020 (status "Pending Committee Action") and the
+    # Leg Ver1 text of proposed Administrative Code sec. 37.3(h).
+    cap_pct = Decimal("10")
+    cap_dollars = money(UNIT2_BASE * cap_pct / 100)
+    expect("Proposed 10% cap in dollars, Unit 2", cap_dollars, Decimal("315.00"))
+    expect("Unit 2 planned increase exceeds the proposed cap", u2_inc > cap_dollars, True)
+    expect("Unit 2 excess over the proposed cap", u2_inc - cap_dollars, Decimal("97.65"))
+    expect("Unit 2 phased option equals the proposed cap", u2_phase_inc, cap_dollars)
+    expect("Unit 1 total is under the proposed cap", u1_total < cap_pct, True)
+
+    published_cap_pages = ["index.html", "executive-summary.html", "analysis.html",
+                           "laws.html", "flagged.html", "sources.html"]
+    expect_in_pages("proposed cap in dollars", usd(cap_dollars), published_cap_pages)
+    expect_in_pages("excess over the proposed cap", usd(u2_inc - cap_dollars),
+                    ["index.html", "executive-summary.html", "analysis.html", "flagged.html"])
+    # The bill must never be described as enacted on any page that mentions it.
+    for page in published_cap_pages:
+        with open(os.path.join(ROOT, page), "r", encoding="utf-8") as handle:
+            body = handle.read()
+        globals()["checks"] = globals().get("checks", 0) + 1
+        if "261020" in body and "not enacted" not in body and "has not been enacted" not in body                 and "Pending Committee Action" not in body and "pending, not enacted" not in body:
+            errors.append(f"{page}: mentions File 261020 without marking it not enacted")
+
     if errors:
         print("CALCULATION VERIFICATION FAILED", file=sys.stderr)
         for error in errors:

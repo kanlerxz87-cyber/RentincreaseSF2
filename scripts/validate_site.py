@@ -82,6 +82,13 @@ VERIFIED_URLS = {
     "https://www.sf.gov/tenant-and-landlord-resources",
     "https://www.sf.gov/tenant-petitions",
     "https://www.sfassessor.org/property-information/homeowners/property-search-tool",
+    # San Francisco Board of Supervisors legislation — File No. 261020, the pending
+    # 10% cap on combined banked + capital-improvement increases. Both URLs were
+    # fetched and read directly on 2026-11-10: the Legistar record reports status
+    # "Pending Committee Action" (introduced 2026-09-15) and the Leg Ver1 PDF is
+    # the bill text containing proposed Administrative Code sec. 37.3(h).
+    "https://sfgov.legistar.com/LegislationDetail.aspx?ID=8217304&GUID=7EDA4662-EBFB-4AF5-962F-C669B64AA770",
+    "https://sfgov.legistar.com/View.ashx?M=F&ID=15865646&GUID=0E2E6936-000B-4597-A4EE-FBB17C19636E",
 }
 
 # Tenant initials supplied in the intake. They must never appear in published HTML.
