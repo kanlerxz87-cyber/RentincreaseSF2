@@ -357,3 +357,39 @@ Final checks on the integrated tree: 13 pages; 50 allowlisted official URLs; eve
 column counts valid; no broken internal links or local fragments; balanced HTML; 17 public files
 served locally with HTTP 200 and non-empty bodies; no personal identifiers in HTML or public
 Markdown; all 105 calculation and forbidden-phrase assertions passed; `git diff --check` passed.
+
+## Addendum — 2026-11-10, final audit and live-defect remediation (session `arena/c71c22cd-rentincreasesf2`)
+
+Arriving on `main` at `9f0531d` and rebasing onto `22bf77d` (after PRs #22–#33), this session inspected every HTML page, CSS
+rule, Python validator/calculator script, unmerged branch `arena/2b3012a0-rentincreasesf2`, and the
+underlying primary legislative/agency sources directly on 2026-11-10.
+
+### Additional primary official sources read verbatim this session
+
+- [Rent Ordinance § 37.15 — Reporting Obligations; Licensing](https://www.sf.gov/information--sec-3715-reporting-obligations-licensing)
+  and [The Rent Ordinance (last amended 11/2/26)](https://www.sf.gov/reports--rent-ordinance)
+- [Form 538 — 2026–2027 Bond Measure Worksheet (10.26 PDF)](https://www.sf.gov/documents/64370/538_2026-2027_Bond_Measure_Worksheet_10.26.pdf)
+- [The Rent Board Fee (2026–27)](https://www.sf.gov/rent-board-fee)
+- File No. 261020 [Leg Ver1](https://sfgov.legistar.com/View.ashx?M=F&ID=15865646&GUID=0E2E6936-000B-4597-A4EE-FBB17C19636E)
+  and [Leg Dig Ver1](https://sfgov.legistar.com/View.ashx?M=F&ID=15865647&GUID=CC09B796-4675-4A7D-9960-85FE239F7FBB)
+- [Speak with a Rent Board counselor](https://www.sf.gov/speak-rent-board-counselor),
+  [Tenant and Landlord Resources](https://www.sf.gov/tenant-and-landlord-resources),
+  [Legal resources for housing discrimination](https://www.sf.gov/information/legal-resources-housing-discrimination),
+  [Get help for discrimination in housing](https://www.sf.gov/information--get-help-discrimination-housing),
+  [Landlord Petitions and Passthroughs](https://www.sf.gov/landlord-petitions-and-passthroughs),
+  [Tenant Petitions](https://www.sf.gov/tenant-petitions),
+  [Tenant Summary Petitions](https://www.sf.gov/information--tenant-summary-petitions),
+  [About Rent Board](https://www.sf.gov/departments--rent-board--about)
+
+### Live defects remediated on `9f0531d`
+
+| # | Defect on `9f0531d` | Evidence / cause | Fix applied |
+|---|---|---|---|
+| D-01 | `<meta name="description">` missing `content="` attribute in `practices.html:7`, `flagged.html:7`, and `sources.html:7`, causing raw description text inside `<head>`. | Direct HTML parse | Fixed `<meta name="description" content="...">` in all 3 files and added strict `<head>`/`<meta>` & HTML tag-balance checking to `scripts/validate_site.py`. |
+| D-02 | Broken Form 538 URL (`2024-10/538%202024-25%20Bond%20Measure%20Worksheet%2010.24%20.pdf`) returned HTTP 500; F-24 / A-06 still printed `2020 / 2021` from the dead PDF while the live Oct 2026 Form 538 prints `July 1, 2021` / `March 1, 2022` (vs. § 37.15(c) `July 1, 2022` / `March 1, 2023`). | Direct fetch (`538_2026-2027_Bond_Measure_Worksheet_10.26.pdf`, `§ 37.15`) | Replaced broken URL across `scripts/validate_site.py`, `flagged.html`, `laws.html`, `banking-rule.html`, `checklist.html`, `sources.html`; updated F-24 / A-06 text; added forbidden check in `verify_calculations.py`. (Historical 2026-11-07 `AUDIT.md` entries preserved with this addendum.) |
+| D-03 | C-05 / F-27 in `flagged.html` & `README.md` relied on the Legistar bill title without reading `Leg Ver1` (`ID=15865646`) or `Leg Dig Ver1` (`ID=15865647`). Proposed **§ 37.3(h)** literally bars banked/CI increases *"that cause a tenant's rent to increase by more than a total of 10% of the lowest base rent ... during the 12 months immediately preceding"* through `2029-12-31` (deferred to `2030-01-01+`, retroactive to notices/petitions `>= 2026-09-15`) and adds `§ 37.15(b)(2)(F)` banked-increase Inventory reporting. | Verbatim text of `Leg Ver1` & `Leg Dig Ver1` | Updated F-27, `index.html`, `executive-summary.html`, `analysis.html`, `laws.html`, `checklist.html`, `README.md` to state the exact § 37.3(h) & § 37.15(b)(2)(F) terms, explain why literal § 37.3(h) puts even 11.6% (`10% banked + 1.6% annual`) at risk vs. phased **10.0% ($315.00 → $3,465.00)**, and add `Leg Ver1`/`Leg Dig Ver1` links. |
+| D-04 | `units.html` (`Total allowable if banked` + `Calculation inputs and results` table) and `index.html` (`Unit 1 maximum at 1.6%` key-findings row) omitted Unit 1's `2027-02-01` `3.0%` (`$119.85 → $4,114.85`) option; `index.html` directory omitted `occupancy.html`, `checklist.html`, `banking-rule.html`; `index.html` Flags row said `F-01 to F-24` instead of `F-01 to F-28`. | Cross-page consistency audit | Reconciled both tables in `units.html` & `index.html`, completed the 13-page directory in `index.html`, updated Flags row to `F-01 to F-28`, and added `units.html` dollar assertions to `verify_calculations.py`. |
+| D-05 | `tenant-protections.html` attributed `"proof of income may be required"` to Housing Rights Committee (absent from `sf.gov/tenant-and-landlord-resources`) and omitted Open Door Legal's published limited ZIP coverage (`94107, 94112, 94124, & 94134`, excluding 94122). | Verbatim SF.gov clinic pages | Corrected HRC, flagged Open Door Legal's ZIP-94122 exclusion, updated Bay Area Legal Aid / EDC / Rent Board hours, and added Legal Assistance to the Elderly and BASF LRIS / Conflict Intervention Service. |
+| D-06 | `sources.html` omitted allowlisted URLs (`Civ. Code § 1954.52`, `departments--rent-board`, Form 538) and kept `2026-11-07` stamps on six sources re-fetched today; Rent Board Fee 2026–27 rate (`$59.00/unit`, `2026-12-14` exemption, `2027-03-01` due) was absent from F-13 / `laws.html` / `executive-summary.html`. | Allowlist diff & `sf.gov/rent-board-fee` | Synced `sources.html` with 100% of `VERIFIED_URLS` (enforced by `validate_site.py`), updated stamps for sources re-verified today to `2026-11-10`, added `§ 37.15`, and added verified 2026–27 Rent Board Fee details across F-13, `laws.html`, `executive-summary.html`, `sources.html`. |
+
+>>>>>>> 97aadef (Apply live source/HTML/validator fixes (D-01..D-06) before rebasing onto origin/main)
