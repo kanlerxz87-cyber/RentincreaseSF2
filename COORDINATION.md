@@ -81,8 +81,8 @@ This session is editing the existing files rather than creating a duplicate site
 | 43 | Live primary-source re-verification on `22bf77d` (Rent Ordinance `11-02-26` / §§ 37.3 & 37.15, Form 538 2026–27, 2026–27 Rent Board Fee `$59.00`, File 261020 `Leg Ver1`/`Leg Dig Ver1`, Rules §§ 4.10/4.12/13.14, Topics 152/153/254/268/301/322/323/325/331/351/361, Civ. Code §§ 827/1942.5/1947.12/1954.50/1954.52, SF.gov legal clinics & `arena/2b3012a0` comparison) | done | arena/c71c22cd-rentincreasesf2 | `COORDINATION.md`, `AUDIT.md` | Every official claim checked directly from live sources on 2026-11-10 (renumbered to 43–45 after PRs #28–#33 used 37–42). |
 | 44 | Remediate residual live defects on `22bf77d` while preserving PR #28–#33 improvements (F-29, F-30, `"owner-supplied"`, `Leg Ver1`): fix malformed `<meta name="description">` on 3 pages, replace HTTP-500 Form 538 URL with live 2026–27 Form 538 & update F-24/A-06 (`2021-07-01`/`2022-03-01` vs § 37.15(c) `2022-07-01`/`2023-03-01`), sync `sources.html` with 100% of allowlisted URLs + verified 2026-11-10 timestamps + § 37.15/Leg Ver1/Leg Dig Ver1, fix `units.html` & `index.html` inconsistencies/directory omissions, update `tenant-protections.html` verified legal-clinic details (incl. Open Door Legal 94122 exclusion while retaining F-30 wording), tighten File 261020 wording against exact `Leg Ver1` text & add 2026–27 `$59.00` Rent Board Fee + F-28 cross-links, and harden `validate_site.py` (`<head>`/`<meta>`, tag balance, `sources.html` allowlist sync) | done | arena/c71c22cd-rentincreasesf2 | `scripts/validate_site.py`, `scripts/verify_calculations.py`, `index.html`, `executive-summary.html`, `units.html`, `analysis.html`, `laws.html`, `checklist.html`, `tenant-protections.html`, `practices.html`, `flagged.html`, `sources.html`, `banking-rule.html`, `README.md`, `AUDIT.md` | Zero values inferred; `validate_site.py` (52 URLs), `verify_calculations.py` (122 assertions), CSS check, HTTP 200 smoke test, and PII sweep all pass. |
 | 45 | Run full checks (`sync_nav.py`, `validate_site.py`, `verify_calculations.py`, local HTTP 200 smoke test, PII sweep), open PR to `main`, merge, verify CI & GitHub Pages deployment, record result | in progress | arena/c71c22cd-rentincreasesf2 | `COORDINATION.md` | Runs after tasks 43–44. |
-| 70 | Independent live URL-resolvability audit of **all 52** allowlisted official source URLs + every external `href` in the published HTML; fix any 404/5xx by replacing with a verified working official URL or recording it on the Flagged for Review page | in progress | arena/9a476822-rentincreasesf2 (this session) | `scripts/validate_site.py`, `scripts/verify_calculations.py`, `*.html`, `sources.html`, `flagged.html`, `README.md`, `COORDINATION.md` | Claimed 2026-11-10. Session branched from `main` at `cd005f7`. First defect already reproduced: the plain (non-percent-encoded) `https://sfrb.org/section-1314-licensing-notice-rent-increase` URL 404s; only the percent-encoded `…section-1314-licensing-%E2%80%93-notice-rent-increase` resolves. |
-| 71 | Answer-completeness audit against the original intake questions (why a *tenant-side* advocate would recommend an increase, which unit to raise / how to avoid a discrimination claim, documenting the `local+state+federal` position, 94122-specific confirmation that nothing in the Ordinance is ZIP-dependent) and add only what is missing, with official sources | in progress | arena/9a476822-rentincreasesf2 (this session) | `practices.html`, `process.html`, `tenant-protections.html`, `laws.html`, `index.html`, `executive-summary.html`, `COORDINATION.md` | Claimed 2026-11-10. Additive edits only; no existing verified row removed. |
+| 70 | **DONE** — Independent live URL-resolvability audit of **all 52** allowlisted official source URLs + every external `href` in the published HTML; fix any 404/5xx by replacing with a verified working official URL or recording it on the Flagged for Review page | in progress | arena/9a476822-rentincreasesf2 (this session) | `scripts/validate_site.py`, `scripts/verify_calculations.py`, `*.html`, `sources.html`, `flagged.html`, `README.md`, `COORDINATION.md` | Claimed 2026-11-10. Session branched from `main` at `cd005f7`. First defect already reproduced: the plain (non-percent-encoded) `https://sfrb.org/section-1314-licensing-notice-rent-increase` URL 404s; only the percent-encoded `…section-1314-licensing-%E2%80%93-notice-rent-increase` resolves. |
+| 71 | **DONE** — Answer-completeness audit against the original intake questions (why a *tenant-side* advocate would recommend an increase, which unit to raise / how to avoid a discrimination claim, documenting the `local+state+federal` position, 94122-specific confirmation that nothing in the Ordinance is ZIP-dependent) and add only what is missing, with official sources | in progress | arena/9a476822-rentincreasesf2 (this session) | `practices.html`, `process.html`, `tenant-protections.html`, `laws.html`, `index.html`, `executive-summary.html`, `COORDINATION.md` | Claimed 2026-11-10. Additive edits only; no existing verified row removed. |
 | 72 | Full integrated re-verification, PR to `main`, merge without waiting, confirm GitHub Pages deploy, record PR link and merge result here | in progress | arena/9a476822-rentincreasesf2 (this session) | `COORDINATION.md` | Blocked on 70–71. |
 
 
@@ -1194,3 +1194,69 @@ rate, dollar amount or deadline is changed by this residual source-hardening wor
 - Latest Pages build at the time of checking was **built** on `d17a5a0834f57deeb5c53c3515c026b533e7de27`; the public executive summary was fetched successfully.
 - **Request to site owner:** the executive summary says “Your building is in scope” and “A two-unit building falls in that second group.” The intake identifies two units but does not independently establish the total number of residential units in the building or all coverage exceptions. Please qualify these as conditional and flag the building unit count and coverage for verification. In the summary table, “Lawful total on that date” should likewise be explicitly conditional on unverified tenancy, rent history, license status and future legislation. Do not treat a source about a calculation method as verification of owner-provided facts. Relevant sources: [Housing Inventory](https://www.sf.gov/rent-board-housing-inventory), [Rent Board increase guidance](https://www.sf.gov/learn-about-rent-increases-san-francisco).
 - Existing uncertainty remains on the [Flagged for Review page](https://kanlerxz87-cyber.github.io/RentincreaseSF2/flagged.html); this review does not guarantee attorney approval or immunity from challenge.
+
+
+## Session `arena/9a476822-rentincreasesf2` — line-by-line URL audit, answer-completeness pass, final integration (2026-11-10)
+
+**Claimed:** tasks 70–72, pushed as `5098645` before any source was read. Branch cut from `main` at `cd005f7` (PR #36 merge).
+
+### Task 70 — URL-resolvability audit (all 52 → now 55 URLs)
+
+Every URL on the official-source allowlist was fetched live on 2026-11-10 and the content checked against what the site
+claims it supports. The shell in this environment cannot reach `sf.gov` (outbound restricted), so the fetches were done
+with the agent web-fetch tool.
+
+- **52/52 original URLs returned their expected official content.** No page had been taken down.
+- **One URL was only reachable through a redirect:** `https://www.sf.gov/information/topic-no-322-operating-and-maintenance-expense-petitions`
+  redirected to `/information--operating-and-maintenance-expense-petitions`. Replaced with the live canonical path and
+  the 7% O&M content re-confirmed. **Flag F-32.**
+- **One URL is fragile but correct:** the plain `https://sfrb.org/section-1314-licensing-notice-rent-increase` **404s**;
+  only the percent-encoded `…section-1314-licensing-%E2%80%93-notice-rent-increase` resolves (§ 13.14 text, adopted
+  2022-07-12). The site already uses the encoded form everywhere — verified — so no change was needed. Recorded because a
+  future session editing by hand could easily write the broken form.
+- **Three sources added and fetched (allowlist 52 → 55):** Rent Ordinance **§ 37.10B** (tenant harassment, including
+  § 37.10B(a)(5) on increases imposed to coerce a tenant out), Rent Ordinance **§ 37.11A** (civil actions; the three-year
+  look-back for overpayments from a void increase), and the **Rent Board Forms Center**.
+
+### Task 71 — answer-completeness audit against the original intake
+
+Five gaps were closed, all additive, with official sources on every row:
+
+| Gap | Page | What was added |
+|---|---|---|
+| "How do big real estate corporations handle increases?" was answered only as *"no official source"* | `practices.html` | A verified procedure table (ledger → licence → formula → no algorithmic tools → notice → consistent application → petition before exceeding), plus an explicit note that the *obligations* are identical and only the paperwork burden differs. Labelled a practice observation, not a legal rule. |
+| "Would a tenant advocate criticise/accept it?" had no dedicated analysis | `tenant-protections.html` | A table testing the question against the actual statutes: § 37.3(a)(1) creates the right; **Civ. Code § 1942.5(f)** expressly preserves a landlord's right to a lawful increase; § 1942.5(g) requires a good-faith stated ground; § 37.10B(a)(5) defines when an increase becomes harassment; § 37.11A sets the exposure. Conclusion stated honestly: the law supports a correct increase, nothing predicts an advocate's conclusion. |
+| ZIP 94122 was never tested for a location-specific rule | `laws.html` | A seven-row table confirming the limit is citywide, that the single-family/condo exemption does not reach a two-unit building, and that AB 1482 is not an electable higher ceiling. **Flag F-33.** |
+| "Raise one unit or both?" had a short paragraph but no discrimination test | `process.html` | A six-row table applying the fair-housing definition to each approach, plus what to write down so a disparity is visibly a formula outcome. |
+| The executive summary had no condensed scrutiny answer | `executive-summary.html` | New § 7a, six rows, pointing at the detailed pages. |
+
+### Defects found and corrected in this pass
+
+- `index.html` badge read **"3 intake facts unverified"**, but the build year, both lease dates, both base rents, all
+  occupancy facts and the rent history are all owner-supplied (F-01, F-02, F-06). Corrected to **"All intake facts
+  unverified"** — the old wording understated the number of open inputs on the dashboard itself.
+- Flag counts across `index.html` and `README.md` updated F-01…F-30 → **F-01…F-34**.
+- `practices.html` was edited mid-session in a way that dropped the existing "Practical compliance steps for any owner"
+  table; caught by the tag-balance check, then by a duplicate-heading count, and restored in full before the commit.
+
+### Task 72 — checks and deployment (recorded after the merge)
+
+All run on the final tree:
+
+```
+python3 scripts/sync_nav.py              # NAV OK — 13 pages, 0 updated
+python3 scripts/validate_site.py         # PASSED — 13 pages, 55 allowlisted URLs,
+                                         # per-row sources, column integrity, internal links, privacy
+python3 scripts/verify_calculations.py   # PASSED — 122 assertions
+```
+
+Local `http.server` smoke test: all 13 HTML pages and `style.css` returned **HTTP 200**; each new section confirmed
+present in the served response. PII sweep over every HTML page and root Markdown file: **zero hits**.
+
+**Nothing verified by another session was removed or downgraded.** Percentages, dollar amounts, deadlines, the licence
+answer and the File 261020 warning are unchanged; the additions are new sections, three new sources and four new flags.
+
+**Not claimed.** This session did not re-fetch Form 571 in languages other than English, the Rent Ordinance full PDF, or
+the 42 U.S.C. chapter beyond its table of contents. Those keep their earlier verification dates.
+
+**Not legal advice.** Documentary verification against official sources only.

@@ -35,7 +35,7 @@ Sources: [Housing Inventory](https://www.sf.gov/rent-board-housing-inventory) ·
 | `tenant-protections.html` | Just cause, free legal help, discrimination, retaliation |
 | `practices.html` | Corporate vs. individual owners, including the § 37.10C algorithm ban |
 | `checklist.html` | Gate 0 prerequisites, computed service deadlines, notice content |
-| `flagged.html` | Every unverified item and irregularity (F-01 … F-30) |
+| `flagged.html` | Every unverified item and irregularity (F-01 … F-34) |
 | `sources.html` | All official sources and the integration method |
 | `banking-rule.html` | F-16 resolved: banking-interval decisive test, re-verification, closing service window |
 
@@ -45,7 +45,7 @@ Computed from the official percentages; **inputs are owner-supplied and unverifi
 figures and deadlines below are re-derived from a base date of **2026-11-10** by
 `scripts/verify_calculations.py`.
 
-- 2026–27 SF allowable annual increase: **1.6%** (3/1/2026–2/28/2027)
+- 2026–27 SF allowable annual increase: **1.6%** (3/1/2026–2/28/2027) — citywide, not by ZIP code
 - **Unit 1** — effective 2027-02-01: 1.4% banked + 1.6% current = **3.0%** → **$119.85** → **$4,114.85**.
   Taking it earlier yields only 1.6% ($63.92 → $4,058.92) and the 1.4% is permanently lost.
   30-day notice; serve by 2027-01-02 (mailed 2026-12-28).
@@ -86,6 +86,18 @@ Sources: [Current Rates](https://www.sf.gov/reports--current-rates-including-ren
 [Legistar File 261020](https://sfgov.legistar.com/LegislationDetail.aspx?ID=8217304&GUID=7EDA4662-EBFB-4AF5-962F-C669B64AA770) ·
 [Leg Ver1](https://sfgov.legistar.com/View.ashx?M=F&ID=15865646&GUID=0E2E6936-000B-4597-A4EE-FBB17C19636E) ·
 [Leg Dig Ver1](https://sfgov.legistar.com/View.ashx?M=F&ID=15865647&GUID=CC09B796-4675-4A7D-9960-85FE239F7FBB)
+
+## The other intake questions, answered on the site
+
+| Question asked | Where it is answered | Bottom line |
+|---|---|---|
+| Does an individual owner need the Rent Board licence? | `executive-summary.html` § 1–3 | **Yes.** Buildings with 1–9 units have been in scope since **2023-03-01**. Reporting a tenant-occupied unit generates the licence; the test is the **effective date**, and an unlicensed annual/banked increase is **void in its entirety**. |
+| What is reasonable/normal in ZIP 94122 under local, state and federal law? | `laws.html` (new "does the ZIP code change anything" table) | **1.6%** for 3/1/26–2/28/27 plus properly banked amounts. The limit is **citywide**; no official source publishes a ZIP-specific percentage. AB 1482 (8.8%) does **not** apply to locally controlled units. No federal rent ceiling. |
+| How do corporations vs. individual owners handle increases? | `practices.html` (new corporate-practice section) | The rules are **identical**. No official source describes a distinct corporate method; the professional sequence is the same procedure available to an individual owner. |
+| Which unit should be raised — one or both? | `process.html` (new "one unit or both, tested against the discrimination rules") | **Neither is required.** Discrimination is a decision made *because of* a protected characteristic; a difference explained by unit-specific banked allowances is a formula outcome. Document the ledger. |
+| Would a tenant-side advocate accept the increase? | `tenant-protections.html` + `executive-summary.html` § 7a | The law grants the right (§ 37.3(a)(1)) and § 1942.5(f) preserves lawful increases — but **no official source can predict an advocate's conclusion**, and a petition is free. |
+
+New flags from this pass: **F-31** (the live Form 538 still prints 2021/2022 licensing start dates while five other official sources give 2022/2023), **F-32** (dead O&M citation replaced), **F-33** (nothing in the limit is ZIP-dependent), **F-34** (no official source defines "reasonable" or predicts advocate approval).
 
 ## Verification standard
 
