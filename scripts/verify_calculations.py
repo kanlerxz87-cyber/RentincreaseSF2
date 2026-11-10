@@ -27,7 +27,7 @@ from decimal import Decimal, ROUND_DOWN
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-REVIEW_DATE = date(2026, 11, 8)
+REVIEW_DATE = date(2026, 11, 10)
 
 # SF Rent Board Info Sheet 571: percentage in effect on each 1 June / 1 February.
 RATE_571 = {
@@ -155,8 +155,8 @@ def main() -> int:
     u2_serve_mail = u2_effective - timedelta(days=95)
     expect("Unit 2 serve by", u2_serve, date(2026, 11, 17))
     expect("Unit 2 serve by mail", u2_serve_mail, date(2026, 11, 12))
-    expect("Unit 2 earliest effective if served today", REVIEW_DATE + timedelta(days=90), date(2027, 2, 6))
-    expect("Unit 2 earliest effective if mailed today", REVIEW_DATE + timedelta(days=95), date(2027, 2, 11))
+    expect("Unit 2 earliest effective if served today", REVIEW_DATE + timedelta(days=90), date(2027, 2, 8))
+    expect("Unit 2 earliest effective if mailed today", REVIEW_DATE + timedelta(days=95), date(2027, 2, 13))
     # The closing window: the last date ANY effective date inside the published-rate
     # window (which ends 2027-02-28) can still be served for.
     expect("Unit 2 last day to serve for 2027-02-28", date(2027, 2, 28) - timedelta(days=90), date(2026, 11, 30))
@@ -177,11 +177,11 @@ def main() -> int:
     expect("Unit 2 anniversary serve by mail", u2_anniversary - timedelta(days=95), date(2027, 2, 26))
 
     # Occupancy window.
-    expect("Days since added occupancy", (REVIEW_DATE - date(2026, 4, 1)).days, 221)
+    expect("Days since added occupancy", (REVIEW_DATE - date(2026, 4, 1)).days, 223)
 
     # Earliest effective date reachable from today (Unit 1's 30-day notice).
-    expect("Unit 1 earliest reachable effective date", REVIEW_DATE + timedelta(days=30), date(2026, 12, 8))
-    expect("Unit 1 earliest reachable effective date (mailed)", REVIEW_DATE + timedelta(days=35), date(2026, 12, 13))
+    expect("Unit 1 earliest reachable effective date", REVIEW_DATE + timedelta(days=30), date(2026, 12, 10))
+    expect("Unit 1 earliest reachable effective date (mailed)", REVIEW_DATE + timedelta(days=35), date(2026, 12, 15))
 
     # ---------------- Published-value sweep ----------------
     analysis = ["analysis.html"]
@@ -204,7 +204,7 @@ def main() -> int:
     expect_in_pages("Unit 2 closing service date (mailed)", closing_mail, published_closing)
     expect_in_pages("Unit 2 earliest effective if served today",
                     (REVIEW_DATE + timedelta(days=90)).isoformat(), ["banking-rule.html", "index.html", "executive-summary.html"])
-    expect_in_pages("Days since added occupancy", "221 days", ["flagged.html", "occupancy.html"])
+    expect_in_pages("Days since added occupancy", "223 days", ["flagged.html", "occupancy.html"])
 
     # ---------------- Closing service window (AUDIT.md A-02) ----------------
     u2_window_close = date(2027, 2, 28)
@@ -212,8 +212,8 @@ def main() -> int:
     u2_close_mail = u2_window_close - timedelta(days=95)          # 2026-11-25
     expect("Unit 2 closing service date, personal", u2_close_personal, date(2026, 11, 30))
     expect("Unit 2 closing service date, mailed", u2_close_mail, date(2026, 11, 25))
-    expect("Unit 2 days left to serve, personal", (u2_close_personal - REVIEW_DATE).days, 22)
-    expect("Unit 2 days left to serve, mailed", (u2_close_mail - REVIEW_DATE).days, 17)
+    expect("Unit 2 days left to serve, personal", (u2_close_personal - REVIEW_DATE).days, 20)
+    expect("Unit 2 days left to serve, mailed", (u2_close_mail - REVIEW_DATE).days, 15)
 
     deadline_pages = ["index.html", "executive-summary.html", "checklist.html",
                       "flagged.html", "banking-rule.html"]
@@ -247,6 +247,27 @@ def main() -> int:
         ("Unit 2 true anniversary 2027-06-01", date(2027, 6, 1), 90),
     ]:
         expect_in_pages(f"days left — {label}", daypair(effective, notice_days), banking)
+
+    # ---------------- Earliest reachable effective dates ----------------
+    # A notice served today cannot take effect sooner than today + the notice
+    # period. These strings appear on the pages a reader acts on, so they are
+    # asserted against REVIEW_DATE rather than typed.
+    u2_earliest = REVIEW_DATE + timedelta(days=90)
+    u2_earliest_mail = REVIEW_DATE + timedelta(days=95)
+    u1_earliest = REVIEW_DATE + timedelta(days=30)
+    u1_earliest_mail = REVIEW_DATE + timedelta(days=35)
+    expect("Unit 2 earliest reachable, personal", u2_earliest, date(2027, 2, 8))
+    expect("Unit 2 earliest reachable, mailed", u2_earliest_mail, date(2027, 2, 13))
+    expect("Unit 1 earliest reachable, personal", u1_earliest, date(2026, 12, 10))
+    expect("Unit 1 earliest reachable, mailed", u1_earliest_mail, date(2026, 12, 15))
+    expect("Unit 2 earliest date is inside the published-rate window",
+           u2_earliest <= date(2027, 2, 28), True)
+    expect("Unit 2 earliest mailed date is inside the published-rate window",
+           u2_earliest_mail <= date(2027, 2, 28), True)
+    # If this ever fails, the closing window has closed and the site must say so
+    # rather than publish an unreachable plan.
+    expect("Service window still open on the review date",
+           REVIEW_DATE <= u2_close_personal, True)
 
     if errors:
         print("CALCULATION VERIFICATION FAILED", file=sys.stderr)
