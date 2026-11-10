@@ -5,7 +5,7 @@ Checks:
 - every internal link resolves to a file in the repo;
 - every external link is on the verified official-source allowlist;
 - every data row in a table contains at least one official source link;
-- no tenant initials or other personal identifiers appear in the HTML;
+- public text files contain no privately supplied identifier patterns or merge markers;
 - every page has the shared navigation and the not-legal-advice footer.
 """
 
@@ -89,15 +89,17 @@ VERIFIED_URLS = {
     "https://www.sfassessor.org/property-information/homeowners/property-search-tool",
 }
 
-# Tenant initials supplied in the intake. They must never appear in published HTML.
-PERSONAL_PATTERNS = [
-    r"\bL\s*O\b",
-    r"\bV\s*N\b",
-    r"\bJP\b",
-    r"\bM\s*T\b",
-    r"\bE\s*R\b",
-    r"\bI\s*S\b",
+# Optional privacy patterns may be supplied privately by a reviewer, one regex per
+# line. No tenant-specific identifier is embedded in this public repository.
+PRIVATE_PATTERNS = [
+    pattern for pattern in os.environ.get("PRIVATE_IDENTIFIER_PATTERNS", "").splitlines()
+    if pattern.strip()
 ]
+PUBLIC_TEXT_SUFFIXES = {
+    ".css", ".html", ".js", ".json", ".md", ".py", ".txt", ".yaml", ".yml",
+}
+MERGE_MARKERS = ("<<<<<<< ", "=======", ">>>>>>> ")
+
 
 
 VOID_TAGS = {
@@ -111,6 +113,7 @@ class SiteChecker(HTMLParser):
         super().__init__()
         self.errors: list[str] = []
         self.links: list[tuple[str, int]] = []
+        self.ids: set[str] = set()
         self.in_table = 0
         self.in_row = False
         self.row_has_td = False
@@ -125,6 +128,11 @@ class SiteChecker(HTMLParser):
         self.has_meta_description = False
 
     def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
+        element_id = next((value for key, value in attrs if key == "id" and value), "")
+        if element_id:
+            if element_id in self.ids:
+                self.errors.append(f"line {self.getpos()[0]}: duplicate id: {element_id}")
+            self.ids.add(element_id)
         if tag not in VOID_TAGS:
             self.tag_stack.append((tag, self.getpos()[0]))
         if tag == "head":
@@ -189,9 +197,11 @@ class SiteChecker(HTMLParser):
             self.expected_cols.pop()
             self.header_cols = self.expected_cols[-1] if self.expected_cols else 0
         elif tag == "tr" and self.in_row:
-            if self.row_has_td and not self.row_links:
+            if self.row_has_td and not any(
+                href.startswith(("https://", "http://")) for href in self.row_links
+            ):
                 self.errors.append(
-                    f"table row at line {self.row_line} has no official source link"
+                    f"table row at line {self.row_line} has no external official source link"
                 )
             if self.row_has_td and self.header_cols and self.row_cells != self.header_cols:
                 self.errors.append(
@@ -210,7 +220,7 @@ class SiteChecker(HTMLParser):
             self.errors.append("missing valid <meta name=\"description\" content=\"...\">")
 
 
-def check_file(filename: str) -> tuple[list[tuple[str, int]], list[str]]:
+def check_file(filename: str) -> tuple[list[tuple[str, int]], list[str], set[str]]:
     path = os.path.join(ROOT, filename)
     with open(path, "r", encoding="utf-8") as handle:
         html = handle.read()
@@ -236,9 +246,9 @@ def check_file(filename: str) -> tuple[list[tuple[str, int]], list[str]]:
         if not os.path.exists(os.path.join(ROOT, target)):
             errors.append(f"line {line}: broken internal link: {href}")
 
-    for pattern in PERSONAL_PATTERNS:
+    for pattern in PRIVATE_PATTERNS:
         if re.search(pattern, html):
-            errors.append(f"personal identifier pattern found in HTML: {pattern}")
+            errors.append("privately supplied identifier pattern found in HTML")
 
     link_targets = {href.split("#", 1)[0].split("?", 1)[0] for href, _ in checker.links}
     for page in PAGES:
@@ -249,7 +259,7 @@ def check_file(filename: str) -> tuple[list[tuple[str, int]], list[str]]:
     if "Not legal advice" not in html:
         errors.append("missing not-legal-advice footer")
 
-    return checker.links, errors
+    return checker.links, errors, checker.ids
 
 
 def main() -> int:
@@ -259,11 +269,15 @@ def main() -> int:
 
     all_errors: list[str] = []
     sources_external_links: set[str] = set()
+    page_links: dict[str, list[tuple[str, int]]] = {}
+    page_ids: dict[str, set[str]] = {}
     for page in PAGES:
         if not os.path.exists(os.path.join(ROOT, page)):
             all_errors.append(f"missing page: {page}")
             continue
-        links, errors = check_file(page)
+        links, errors, ids = check_file(page)
+        page_links[page] = links
+        page_ids[page] = ids
         if page == "sources.html":
             sources_external_links = {
                 href for href, _ in links
@@ -271,43 +285,41 @@ def main() -> int:
             }
         all_errors.extend(f"{page}: {error}" for error in errors)
 
+    for source, links in page_links.items():
+        for href, line in links:
+            if "#" not in href or href.startswith(("http://", "https://", "mailto:", "tel:")):
+                continue
+            target, fragment = href.split("#", 1)
+            target = target.split("?", 1)[0] or source
+            if target in page_ids and fragment not in page_ids[target]:
+                all_errors.append(
+                    f"{source}: line {line}: unresolved fragment {fragment!r} in {target}"
+                )
+
     for url in sorted(VERIFIED_URLS - sources_external_links):
         all_errors.append(f"sources.html: missing allowlisted official URL: {url}")
 
-    # GitHub Pages serves the repository root, so every root Markdown file is public.
-    import glob
-
-    for path in sorted(glob.glob(os.path.join(ROOT, "*.md"))):
-        doc = os.path.basename(path)
+    # GitHub Pages serves the repository root. Check every public text file, not
+    # only HTML/Markdown: a script or audit example can leak identifiers too.
+    public_paths = set()
+    for directory, dirnames, filenames in os.walk(ROOT):
+        dirnames[:] = [name for name in dirnames if name not in {".git", "__pycache__"}]
+        for filename in filenames:
+            path = os.path.join(directory, filename)
+            if os.path.splitext(filename)[1] in PUBLIC_TEXT_SUFFIXES:
+                public_paths.add(path)
+    for path in sorted(public_paths):
+        doc = os.path.relpath(path, ROOT)
         with open(path, "r", encoding="utf-8") as handle:
             body = handle.read()
-        for pattern in PERSONAL_PATTERNS:
+        for marker in MERGE_MARKERS:
+            if any(line.startswith(marker) for line in body.splitlines()):
+                all_errors.append(f"{doc}: unresolved merge conflict marker: {marker}")
+        for pattern in PRIVATE_PATTERNS:
             if re.search(pattern, body):
                 all_errors.append(
-                    f"{doc}: personal identifier pattern found in a publicly served document: {pattern}"
+                    f"{doc}: privately supplied identifier pattern found in a public file"
                 )
-
-    # A leftover git merge marker in any served file would publish raw conflict
-    # text to the live site. Fail the build if any survives a rebase.
-    import fnmatch
-
-    marker_re = re.compile(r"^(<{7}|={7}|>{7})( |$)", re.M)
-    served = []
-    for pattern in ("*.html", "*.md", "*.css"):
-        served += sorted(glob.glob(os.path.join(ROOT, pattern)))
-    for root, _dirs, files in os.walk(os.path.join(ROOT, "scripts")):
-        served += [
-            os.path.join(root, name) for name in sorted(files) if name.endswith(".py")
-        ]
-    for path in served:
-        with open(path, "r", encoding="utf-8") as handle:
-            body = handle.read()
-        hit = marker_re.search(body)
-        if hit:
-            all_errors.append(
-                "%s: unresolved git merge-conflict marker %r must be resolved "
-                "before publishing" % (os.path.relpath(path, ROOT), hit.group(0).strip())
-            )
 
     if all_errors:
         print("VALIDATION FAILED", file=sys.stderr)
@@ -318,9 +330,10 @@ def main() -> int:
     print("VALIDATION PASSED")
     print(f" - {len(PAGES)} pages checked (HTML tag balance & <head>/<meta> valid)")
     print(f" - {len(VERIFIED_URLS)} official source URLs on allowlist (all listed on sources.html)")
-    print(" - every table data row has an official source link")
-    print(" - no tenant initials or personal identifiers in HTML or public Markdown")
-    print(" - all internal links resolve")
+    print(" - every table data row has an external official source link")
+    print(f" - {len(PRIVATE_PATTERNS)} optional private patterns configured; all public text files scanned")
+    print(" - no unresolved merge-conflict markers in public text files")
+    print(" - all internal links and fragments resolve; element IDs are unique")
     print(" - every table row matches its header column count")
     return 0
 

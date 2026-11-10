@@ -45,14 +45,16 @@ to check the arithmetic.
 
 ## Automated enforcement
 
-`scripts/validate_site.py` runs a privacy sweep on every push and pull request. It scans every
-HTML page **and** the public Markdown files (`README.md`, `COORDINATION.md`, `AUDIT.md`) for the
-supplied tenant initial pairs and fails the build if any appear. The sweep is the reason the
-initial-pair list below is written as a description rather than as the values themselves.
+`scripts/validate_site.py` runs on every push and pull request. It recursively scans all public
+text files, including this folder, for merge markers. A reviewer may also supply private identifier
+regexes through the `PRIVATE_IDENTIFIER_PATTERNS` environment variable, one per line. The validator
+reports only that a privately supplied pattern matched; it never prints the pattern.
 
-The sweep is a pattern check, not a guarantee. It cannot detect a *new* personal identifier that
-nobody has told it about. If the intake is ever extended with a new name or identifier, add its
-pattern to `PERSONAL_PATTERNS` in `scripts/validate_site.py` in the same commit.
+**Do not commit identifier patterns to this repository.** The former `PERSONAL_PATTERNS` list was
+removed because public code is not a safe place for tenant-specific matching rules. Supply any new
+private patterns only through a local environment variable or another private secret channel, and
+check that logs do not echo them. The pattern check is not a guarantee that an unknown identifier
+will be detected.
 
 ## Known residual exposure (F-23)
 
@@ -63,13 +65,13 @@ the repository history.
 
 Nothing on the site displays them and no current file contains them, but history is a separate
 exposure. The options — and why none of them was applied automatically — are set out under F-23 on
-the [Flagged for Review](../flagged.html) page:
+the [Flagged for Review](../flagged.html#F-23) page:
 
 1. Make the repository private. Check the effect on GitHub Pages first; access control depends on
    the plan.
 2. Rewrite history and force-push. Destructive, and it would discard other sessions' commit
    identities, so it is the owner's decision, not an automated one.
-3. Accept the exposure on the basis that initials alone are weak identifiers.
+3. Document and accept the residual exposure only after assessing the privacy risk.
 
 ## Interaction with the Rent Board's own publication duty
 
@@ -84,4 +86,4 @@ and cannot be avoided by anonymising this site. It is tracked as F-21.
   including `COORDINATION.md` and `AUDIT.md`. Quote the intake by placeholder only.
 - Do not "improve" this file by adding the identity mapping. That would convert the one internal
   dataset in this project into public data.
-- Run `python3 scripts/validate_site.py` before any push. It checks the public Markdown too.
+- Run `python3 scripts/validate_site.py` before any push. It checks public text files recursively; private patterns belong only in the environment.
