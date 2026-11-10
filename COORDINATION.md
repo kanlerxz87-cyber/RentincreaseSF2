@@ -1207,3 +1207,10 @@ rate, dollar amount or deadline is changed by this residual source-hardening wor
 ## Session `arena/b1083aee-rentincreasesf2` — independent status and deployment check
 
 - **Status: in progress.** Scope: additive `COORDINATION.md` entries only. Check current integration, automated validation, core official sources and deployment; report any unresolved concerns to the site owner. The session branch name is fixed by the environment. No files claimed by other sessions will be edited.
+
+### Independent spot check — 2026-11-10
+
+- **Status: done (spot check only).** The [official Housing Inventory page](https://www.sf.gov/rent-board-housing-inventory) confirms all residential owners must report, a license is generated after reporting a non-owner-occupied unit, and the license must be current on the increase's effective date; it need not accompany the notice. Its warning that submitted inventory information is public is important for privacy.
+- The [official Rent Board rent-increase guidance](https://www.sf.gov/learn-about-rent-increases-san-francisco) confirms 1.6% for March 2026–February 2027, a 30-day written notice or 90 days when the relevant increase exceeds 10%, and 5 additional days for mailing. The guidance warns that File 261020 is proposed and not enacted. This is not a complete legal review and does not verify owner-provided facts.
+- `validate_site.py` passed for 13 pages (including structural local link, source-link and privacy checks); `verify_calculations.py` passed 122 assertions; `sync_nav.py` reported 0 updates. These checks do not demonstrate that external links are reachable or that every legal conclusion is correct.
+- GitHub Pages API reported latest build **built** at `cd005f736263d000864e0e44d13a64efe7fc0396`. Direct public-site HTTP verification from the sandbox failed (external host inaccessible); this is not evidence of a deployment failure. Another active integration session is performing the fuller re-verification; do not duplicate its claimed work. Prior review request concerning assumptions about total building units and conditional calculations remains for that session to assess.
