@@ -62,14 +62,13 @@ This session is editing the existing files rather than creating a duplicate site
 | 27 | Line-by-line re-verification of the live site against official sources (Housing Inventory, rent increases, banked increases, Form 571, Tenant Petitions, Legistar File 261020) | done | arena/9b0747eb-rentincreasesf2 | `COORDINATION.md` (verification record) | All key claims confirmed: license required on effective date for <10-unit buildings since 2023-03-01; 1.6% (2026–27); Unit 2 banked 11.5% = 1.8+0.7+2.3+3.6+1.7+1.4 (Form 571); 13.1% total; 30/90-day +5 mail; tenant petitions free, no discrimination adjudication. New development found: File 261020 proposed 10% cap (see task 28). |
 | 28 | Publish new development as flag F-27: proposed 10% cap on banked increases (File 261020, Pending Committee Action, not enacted) | done | arena/9b0747eb-rentincreasesf2 | `flagged.html`, `analysis.html`, `executive-summary.html`, `sources.html`, `scripts/validate_site.py`, `README.md` | Legistar record read directly 2026-11-10: introduced 2026-09-15, Land Use and Transportation Committee, status Pending Committee Action. Rent Board notice posted 2026-11-09 on rent-increases and banked-increases pages. Under current law 13.1% remains lawful; phased 10.0% is the fallback if enacted. |
 | 29 | Close stale PRs #16 and #20 (CONFLICTING, content already salvaged/merged), validate, PR to `main`, merge, confirm Pages deploy | in progress | arena/9b0747eb-rentincreasesf2 | `COORDINATION.md` | PR #16 duplicates PRs #14/#15/#17 (salvaged in #17); PR #20 is a PR #19 record whose text is not on `main` and whose branch conflicts after PRs #18/#21. Both closed unmerged with explanatory comments; PR #19 record summary preserved in this session's record below. |
-| 30 | Re-stamp the whole site to the 2026-11-10 verification date and re-derive every today-relative figure (day counts, earliest reachable effective dates, days since the added occupancy) | done | arena/d086cb8e-rentincreasesf2 | `scripts/sync_nav.py`, `scripts/verify_calculations.py`, all 13 `*.html` pages | `REVIEW_DATE` and `LAST_VERIFIED` asserted against each other by `verify_calculations.py`; every printed `<personal> / <mailed>` day pair re-derived from the official 90/30-day notice periods. |
-| 31 | Line-by-line re-verification of the merged tree against primary official sources, including the F-27 citation target | done | arena/d086cb8e-rentincreasesf2 | `flagged.html`, `analysis.html`, `executive-summary.html`, `sources.html` | Read directly this session: Form 571 table (1.6 / 1.4 / 1.7 / 3.6 / 2.3 / 0.7 / 1.8), Current Rates page, Rules §13.14, Housing Inventory, Civ. Code §827(b), AB 1482 page, Rent Ordinance §37.3(a)(1)–(2), Legistar File 261020. |
+| 30 | Re-stamp the whole site to the 2026-11-10 verification date and re-derive every today-relative figure (day counts, earliest reachable effective dates, days since the added occupancy) | done — PR #24 | arena/d086cb8e-rentincreasesf2 | `scripts/sync_nav.py`, `scripts/verify_calculations.py`, all 13 `*.html` pages | `REVIEW_DATE` and `LAST_VERIFIED` asserted against each other by `verify_calculations.py`; every printed `<personal> / <mailed>` day pair re-derived from the official 90/30-day notice periods. |
+| 31 | Line-by-line re-verification of the merged tree against primary official sources, including the F-27 citation target | done — PR #24 | arena/d086cb8e-rentincreasesf2 | `flagged.html`, `analysis.html`, `executive-summary.html`, `sources.html` | Read directly this session: Form 571 table (1.6 / 1.4 / 1.7 / 3.6 / 2.3 / 0.7 / 1.8), Current Rates page, Rules §13.14, Housing Inventory, Civ. Code §827(b), AB 1482 page, Rent Ordinance §37.3(a)(1)–(2), Legistar File 261020. |
 | 32 | Standardize the F-27 notice citation and correct this session's own initial misreading of it | done | arena/d086cb8e-rentincreasesf2 | `flagged.html`, `analysis.html`, `executive-summary.html`, `sources.html` | **Correction to this session's first claim.** This session initially wrote that PR #22 had cited the wrong page and that the 2026-11-09 notice appeared only on the Current Rates report. That was wrong: the notice is reproduced verbatim on **three** Rent Board pages (Current Rates, Banked rent increases, Learn about rent increases), so PR #22's citations were valid. Net change: `analysis.html` and `executive-summary.html` now cite the Current Rates report (where the notice was read this session) instead of the generic rent-increases page; F-27's source cell carries Legistar plus Current Rates. No claim of error against PR #22 is made. |
-| 33 | Final integration: verify the combined data, confirm the site builds with no broken links, PR to `main`, merge, confirm GitHub Pages deploy, record the result | in progress (PR open) | arena/d086cb8e-rentincreasesf2 | `COORDINATION.md`, `README.md` | Blocked only on rows 30–32. |
+| 33 | Final integration: verify the combined data, confirm the site builds with no broken links, PR to `main`, merge, confirm GitHub Pages deploy, record the result | done — PR #24 merged, Pages built, live content read back | arena/d086cb8e-rentincreasesf2 | `COORDINATION.md`, `README.md` | Blocked only on rows 30–32. |
 | 34 | Residual integration for session `arena/d2474b1d`: re-read every controlling official source live and diff the result against `main` rather than against this session's own draft | done | arena/d2474b1d-rentincreasesf2 | `COORDINATION.md`, `AUDIT.md` | 14 sources fetched 2026-11-10; confirmations and the exact list of what was *not* re-fetched are in the `AUDIT.md` addendum dated 2026-11-10. |
 | 35 | Correct C-01 (banked increases do not expire — the wrong reason for the deadline), C-03 and C-04 (`units.html`), and add F-28 (non-anniversary effective date); add a CI guard so C-01 cannot return | done | arena/d2474b1d-rentincreasesf2 | `checklist.html`, `banking-rule.html`, `executive-summary.html`, `units.html`, `flagged.html`, `scripts/verify_calculations.py`, `AUDIT.md` | [Banked increases](https://www.sf.gov/information--banked-rent-increases) (“does not expire”); [§ 37.3](https://www.sf.gov/information--sec-373-rent-limitations) (a)(2) anniversary wording; [Irregular periods](https://www.sf.gov/information--increasing-rents-during-irregular-periods). 61 → 105 assertions. |
 | 36 | Validate, PR to `main`, merge, confirm GitHub Pages deploy, record PR link and result | in progress | arena/d2474b1d-rentincreasesf2 | `COORDINATION.md` | Flagged items F-01…F-28 do not block the merge; they are published on the Flagged for Review page. |
-
 
 
 ¹ **Duplicate task numbers (A-07 / CR-08).** Rows 13–15 above belong to `arena/fa7d2d77-rentincreasesf2` on `main`. Session `arena/2b3012a0-rentincreasesf2` independently claimed rows numbered **13–15** on its own branch (`arena/2b3012a0-rentincreasesf2`) for different work (Rent Board license answer, Q&A page, line-by-line re-verification). That branch was cut from `62f6f59`, which predates PRs #6–#10, so merging it as-is would revert the PR #6/#7 license clarification and the PR #10 privacy redaction. **It must rebase onto current `main` before opening a pull request.** No session has merged it. Its claims remain pending and do not block the board.
@@ -1008,3 +1007,59 @@ is published anywhere; dates and dollar amounts are unchanged as supplied.
 HUD / 42 U.S.C. ch. 45, CRD, Rules § 4.10 / § 4.12, Form 538, the noncompliance page or the petition
 pages; those keep their earlier verification dates on `sources.html`. The 14 sources it did read
 live on 2026-11-10, and what each confirmed, are listed in the `AUDIT.md` addendum dated 2026-11-10.
+
+## PR #24 — 2026-11-10 re-stamp, merge and deployment record (session `arena/d086cb8e-rentincreasesf2`)
+
+- **PR:** https://github.com/kanlerxz87-cyber/RentincreaseSF2/pull/24
+- **Title:** "Re-stamp the site to 2026-11-10 and re-derive every countdown; add the F-27 watch item to the dashboard"
+- **Merged to `main`:** 2026-11-10T00:41Z, merge commit `3701b1c8a08405bb3b68a99e4bb38d869e9f0d7f`
+- **Merge method:** merge commit (`gh pr merge 24 --merge`)
+- **`mergeStateStatus` before merge:** `CLEAN` / `MERGEABLE`, `validate` job **SUCCESS**
+- **Validation post-merge:** `Validate site` **success** on `3701b1c`;
+  `pages build and deployment` **success** on `3701b1c`;
+  `pages/builds/latest` → commit `3701b1c`, status **built**
+- **Deployed-artifact check:** `index.html` read back from the deployed ref via the Contents API
+  contains 3 occurrences of `261020` and the corrected 2027-02-08 sentence.
+- **Live-page check (this session read the live site, not just the API):**
+  `banking-rule.html` rendered "Today is **10 November 2026**", the day pairs `7 / 2`, `20 / 15`,
+  `67 / 62`, `53 / 48`, `113 / 108`, and the row "**2027-02-08** — the earliest date a 90-day
+  notice served today can reach"; `index.html` rendered the `Pending legislation (F-27)` badge,
+  the File 261020 watch-item callout and its key-findings row.
+  **Correction to the PR #22 record above:** that record says a live-URL fetch "is not possible"
+  from this environment. It is not possible from the **shell** (outbound is restricted to
+  github.com and package registries), but the agent's **web-fetch tool reaches both sf.gov and
+  github.io**, so deployed pages can be, and now have been, read back directly. Future sessions
+  should verify the deploy this way rather than relying on the Actions API alone.
+- **CDN note:** the first live fetch of `index.html` after the build returned the *previous*
+  deployment's HTML even though the deployed artifact was already correct. A cache-busted re-fetch
+  (`index.html?v=3701b1c`) returned the new content. Treat a single stale live fetch immediately
+  after a build as a caching artefact; re-check with a query string before treating it as a defect.
+
+### Parallel-session race during this task (logged per the coordination rules)
+
+`main` moved three times between this session's claim and its final merge: PR #22 (F-27, `d02bee8`)
+merged at 00:37:07Z while this session was reading sources; its record commit PR #23 (`0f6347d`)
+merged before this session could push; and PR #25 (`e538d59`, session `arena/d2474b1d`) merged
+while this record's own pull request was waiting on CI, conflicting in this file a second time.
+**Consequence for this record:** PR #25 corrected the reason given for the Unit 2 deadline (C-01)
+and added F-28. Where this record and PR #25 describe the deadline, **PR #25's wording is the
+current one** — the banked 11.5% does not expire, and the binding reason for the 2026-11-30 service
+date is that the 13.1% total is priced at the rate in effect on the effective date. The deadline and
+every dollar figure are the same under either explanation. `git pull --rebase` then hit a conflict **in this file only** —
+both sides appended a section at the end of `COORDINATION.md`. Resolution: kept **both** sections
+(PR #22's record first, this session's claim second); nothing from the other session was discarded
+and no row it owned was edited. Each rebased branch was force-pushed with `--force-with-lease` to
+the session's own branch only, re-validated, and merged; the second rebase (onto `e538d59`) kept
+both sides of the conflict again, so no session's record was lost. GitHub reported `CONFLICTING`/`DIRTY` for
+about 30 seconds after the force-push; a local `git merge-tree` against `origin/main` reported a
+clean merge, and the PR status settled to `MERGEABLE` without any further action.
+
+### Net effect on the published site
+
+- Every page now stamped **2026-11-10**, and every countdown re-derived from that date.
+- Unit 2's remaining service window is published as **20 days** (personal) / **15 days** (mailed).
+- The landing dashboard carries the F-27 pending-legislation watch item with its Legistar source.
+- No percentage, dollar figure or legal conclusion changed. F-01…F-27 stay open for the owner on
+  the Flagged for Review page and none of them blocks publication.
+
+**Not legal advice.** Documentary verification against official sources only.
