@@ -272,6 +272,17 @@ def main() -> int:
     expect_in_pages("corrected tenant-resource description",
                     "small claims court papers for rental debt", ["tenant-protections.html", "flagged.html"])
 
+    # ---------------- Scope is conditional on unverified intake (F-31, 2026-11-10) ----------------
+    # § 37.15(a) reaches units "subject to this Chapter 37" and § 37.15(c) splits the phase-in by
+    # building size. The published site must not assert that this particular building is in scope
+    # as a fact: the unit count and the build year are owner-supplied.
+    expect_in_pages("scope condition published as F-31", "F-31",
+                    ["executive-summary.html", "index.html", "flagged.html"])
+    expect_in_pages("u15(c) under-ten phase-in date stated", "2023-03-01",
+                    ["flagged.html", "index.html"])
+    expect_in_pages("u15(c) under-ten phase-in date stated (prose)", "March 1, 2023",
+                    ["executive-summary.html"])
+
     # ---------------- Forbidden regressions (C-01, 2026-11-10) ----------------
     # The site must never again assert that banked amounts can only be given at the time of an
     # annual increase, or that a banked balance cannot be imposed later. sf.gov states that a
@@ -282,6 +293,10 @@ def main() -> int:
         "cannot be imposed on its own later",
         "cannot be imposed on its own on a date",
         "2024-10/538%202024-25",
+        # Unconditional scope assertion withdrawn under F-31 (2026-11-10): the unit count and
+        # build year are owner-supplied, so the site states the rule, not the conclusion of fact.
+        "Your building is in scope",
+        "A two-unit building falls in that second group",
     ]
     for page in sorted(f for f in os.listdir(ROOT) if f.endswith(".html")):
         with open(os.path.join(ROOT, page), encoding="utf-8") as handle:
