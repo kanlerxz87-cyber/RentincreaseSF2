@@ -1400,3 +1400,50 @@ non-anniversary effective date) and **F-31 (building unit count)** — all on
   owner-supplied and remain unverified (F-01, F-02, F-03, F-06, F-31, F-33).
 
 **Not legal advice.** Documentary verification against official sources only.
+
+## Session `arena/79f56954-rentincreasesf2` — claim and verification record (2026-11-10)
+
+**Claim pushed at** 2026-11-10 ~05:50Z (commit `c352c11`, immediately after the claim was written,
+per the standing claim-first rule). This section re-states the claim and records its completion after
+two append-only rebase collisions in this file (both resolved by keeping both sides; this text was
+re-appended on the then-current `main` at `a791240`). Task IDs use the `79f5-x` form (as
+`arena/69f0c0e5` used `69f0-x`) so no numeric collision with rows 1–48 can occur.
+
+| # | Task | Status | Owner session | File scope | Notes |
+|---|---|---|---|---|---|
+| 79f5-A | Independent line-by-line re-verification of the integrated site against official sources (fresh live fetches on 2026-11-10): current rate, license/Housing Inventory rules, banking rules, notice periods, Rent Board Fee, File 261020 status, post-election new-development check, all published figures, privacy sweep | **done** | arena/79f56954-rentincreasesf2 | `COORDINATION.md` only — no site file needed a change | Verification log below. |
+| 79f5-B | Dispose of open PR #39 (`arena/47f115e4`): diff against `origin/main`, salvage any unique verified content, close with written rationale if superseded | **done — moot; owner disposed of it** | arena/79f56954-rentincreasesf2 | `COORDINATION.md` record only | PR #39 was closed by its own session at 05:48:31Z ("Superseded by PRs #40/#41 already on main"). This session had fetched and diffed it first: its scope-qualification wording was substantively equivalent to merged PR #40 (F-31 + conditional statements), so no salvage was required. Nothing was lost. |
+| 79f5-C | Final integration: run full check suite on the integrated tree, open a PR to `main`, merge it | **done** | arena/79f56954-rentincreasesf2 | `COORDINATION.md` | See integration record below. |
+| 79f5-D | Confirm GitHub Pages deployment and live-site content after merge; record PR link, merge result and deploy status | **done** | arena/79f56954-rentincreasesf2 | `COORDINATION.md` | See deployment record below. |
+
+### 79f5-A verification log — official sources read live by this session (2026-11-10)
+
+| Source (fetched live) | What was confirmed |
+|---|---|
+| [sf.gov — Current Rates](https://www.sf.gov/reports--current-rates-including-rent-increase-relocation-sec-deposit) | 1.6% for 2026-03-01–2027-02-28; 1.4% (2025–26); 1.7% (2024–25); security-deposit interest 4.2%; the Rent Board notice **posted 2026-11-09** about File 261020 ("has not been enacted and is subject to change"); Rent Board Fee history rows ($29.50/$29.50) consistent with the $59.00 fee |
+| [sf.gov — Learn about rent increases](https://www.sf.gov/learn-about-rent-increases-san-francisco) | 1.6% headline; license required **before imposing** annual/banked increases (2022-07-01; 2023-03-01 for condos and 1–9-unit buildings); once per 12 months; anniversary mechanics; 30/90-day notice +5 mailed; notice content (amount, percentage, effective date); "use the percentage that will be in effect on the date of the increase"; additional-occupant charge unlawful; worked examples 4.7% / 8.2% / 3.3% incl. the "permanently lost" test |
+| [sf.gov — Housing Inventory](https://www.sf.gov/rent-board-housing-inventory) | All owners of residential property report; tenant-occupied units **receive a Rent Increase License** automatically after submission; license must be current **on the effective date** of any annual/banked increase; notice need not include the license; March 1 annual deadline; no monetary late penalty; submissions public and under penalty of perjury; 30-day contact updates; 2022-07-01 / 2023-03-01 phase-in |
+| [sf.gov — Banked rent increases](https://www.sf.gov/information--banked-rent-increases) | 24-full-month sentence quoted on the site; "Once an increase is properly banked, **it does not expire**… on a future anniversary date, or at another time when they are allowed to raise the rent (as long as at least 12 months have passed since the last increase)" (confirms the C-01 correction); no limit; not compounded or prorated; new owners inherit; no carry-over to a new tenant; 5.3% + 1.4% = 6.7% example; notice must state which part is banked |
+| [Form 571, 26-27 (PDF)](https://www.sf.gov/documents/34344/571_Allowable_Annual_Increases_26-27_1.pdf) | Full table read line by line: **1.6 / 1.4 / 1.7 / 3.6 / 2.3 / 0.7 / 1.8 / 2.6** for 2026–27 back to 2019–20, and the pre-2019 rows; Unit 2 banked re-derived 1.8+0.7+2.3+3.6+1.7+1.4 = **11.5%**; Unit 1 banked **1.4%**; table ends 2027-02-28 |
+| [sf.gov — Rent Board Fee](https://www.sf.gov/rent-board-fee) | **$59.00 per dwelling unit** (2026–2027 tax year; $29.50 guest unit); 50% / **$29.50** recoverable from tenants in occupancy as of November 1 once paid in full; 2027 exemption-request deadline **2026-12-14**; fee due **2027-03-01**; 5% monthly late penalty (max 15%); "requesting a Rent Board Fee exemption does not satisfy Rent Board Housing Inventory reporting" |
+| [Legistar — File 261020](https://sfgov.legistar.com/LegislationDetail.aspx?ID=8217304&GUID=7EDA4662-EBFB-4AF5-962F-C669B64AA770) | Status **Pending Committee Action**; Version 1; introduced 9/15/2026; Land Use and Transportation Committee; sponsors Sauter/Chan/Mahmood; history 4 procedural rows only (latest 10/7/2026 Youth Commission response); **no final action, no enactment date** — F-27 remains accurate |
+| [Civ. Code § 827](https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=827.&lawCode=CIV) | (b)(1) personal delivery or CCP § 1013 mail; (b)(2) 30 days at ≤10% of rent charged at any time in the prior 12 months, combined with other increases; (b)(3)(A) 90 days above 10% |
+| [SF Dept. of Elections — 2026-11-03 results](https://www.sfelections.org/results/20261103/index.html) (independent election check) | The Nov 3, 2026 Consolidated General Election ballot carried Proposition 43 (state), Measure D (ballot-process), Regional Measure RTM and local propositions (public bank etc.); **no rent-related measure** — confirms the earlier session's ballot check |
+
+### 79f5-A line-by-line site checks performed by this session
+
+- Read `index.html`, `executive-summary.html`, `units.html` in full; table scans of `analysis.html`, `checklist.html`, `flagged.html` (F-01…F-31 rows), and section-by-section heading review of `laws.html`, `process.html`, `tenant-protections.html`, `practices.html`, `occupancy.html`, `banking-rule.html`, `sources.html`, `answers.html` — every user question is answered on a dedicated page (license/Rent Board process first in the Executive Summary; one-unit-vs-both, notice form, reasonable reasons, corporate-vs-individual, tenant-lawyer review all covered).
+- Every published dollar figure re-computed: $63.92 → $4,058.92; $119.85 → $4,114.85; $50.40 → $3,200.40; $412.65 → $3,562.65; $315.00 → $3,465.00; F-27's conditional $365.40 → $3,515.40 ($3,150 × 11.6%); fee $59.00 / $29.50. All consistent across all pages (grep cross-check); none contradicts the official percentages fetched above.
+- Every published date re-counted from 2026-11-10: Unit 2 serve-by 2026-11-30 (personal) / 2026-11-25 (mail) for 2027-02-28; 2026-11-17 / 2026-11-12 for 2027-02-15; Unit 1 2027-01-02 / 2026-12-28 for 2027-02-01; earliest reachable 2027-02-08 / 2027-02-13; F-15's 223-day count. All re-derive exactly.
+- Privacy sweep by this session's own grep (standalone initial-pair patterns across `*.html`, `*.md`, `scripts/*.py`): **0 hits**. Dates and dollar amounts preserved as supplied.
+- Check suite on the integrated tree: `sync_nav.py` NAV OK; `validate_site.py` **PASSED** (per-row source links, allowlist, column integrity, internal links, privacy over HTML and root Markdown); `verify_calculations.py` **PASSED** (151 assertions).
+
+**Result: no defect requiring a site-file change was found.** Every figure, deadline and legal statement re-verified against the live official sources above. Unverifiable owner-supplied inputs remain blank/flagged on `flagged.html` (F-01…F-34) exactly as the standing rules require.
+
+### Observations for the board (not this session's claims)
+
+- **PR #42** (`arena/47f115e4`, docs-only verification record, tasks 49–51): left open for its owner per the claim rule (its task 51 is "merge this PR itself"). Not stale at this session's check.
+- **PR #45** (`arena/9a476822`, "Line-by-line URL audit… final integration", opened ~05:54Z): reported `CONFLICTING`, and a local fetch shows **no merge base with `main`** — the same orphan-history condition that made PR #5 unmergeable. Under the PR #5 precedent it cannot be merged directly; if its owner does not rebase/port it, a later session may take over after the 60-minute stale window and salvage any verified findings. **Flagged here for review; it does not block the live site.**
+- **`timing.html`** (task 26e3-B, `arena/26e3aa0f`): not yet delivered at this session's checks; its task 26e3-C (wiring into nav/validator) is correctly logged as a change request for a future integration session. Not blocked on by this session.
+
+**Not legal advice.** Documentary verification against official sources only.
