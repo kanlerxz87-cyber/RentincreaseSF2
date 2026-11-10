@@ -41,7 +41,9 @@ Sources: [Housing Inventory](https://www.sf.gov/rent-board-housing-inventory) ·
 
 ## Key figures
 
-Computed from the official percentages; **inputs are owner-supplied and unverified**.
+Computed from the official percentages; **inputs are owner-supplied and unverified**. All
+figures and deadlines below are re-derived from a base date of **2026-11-10** by
+`scripts/verify_calculations.py`.
 
 - 2026–27 SF allowable annual increase: **1.6%** (3/1/2026–2/28/2027)
 - **Unit 1** — effective 2027-02-01: 1.4% banked + 1.6% current = **3.0%** → **$119.85** → **$4,114.85**.
@@ -53,6 +55,21 @@ Computed from the official percentages; **inputs are owner-supplied and unverifi
   Assumes no increase was ever imposed.
   A phased 10.0% option ($315.00 → $3,465.00) needs only 30 days and leaves 3.1% banked.
 - No market-rate reset on either unit; no surcharge for Unit 1's added occupant.
+
+## Watch item: File 261020 (F-27)
+
+On 2026-11-09 the Rent Board posted a notice on its **Current Rates**, **Banked rent increases** and
+**Learn about rent increases** pages: the Board of Supervisors is considering **File No. 261020**,
+which would temporarily cap combined **banked + capital improvement** increases on rent-controlled
+units at **10% per year** for three years, applying to banked increases noticed on or after
+**2026-09-15**. The official Legistar record shows **Pending Committee Action — not enacted**.
+Under current law Unit 2's 13.1% is unaffected; if enacted as proposed, the phased 10.0% option
+($315.00 → $3,465.00) would be the lawful path. Re-check the Legistar status immediately before
+serving any Unit 2 notice.
+
+Sources: [Current Rates](https://www.sf.gov/reports--current-rates-including-rent-increase-relocation-sec-deposit) ·
+[Banked rent increases](https://www.sf.gov/information--banked-rent-increases) ·
+[Legistar File 261020](https://sfgov.legistar.com/LegislationDetail.aspx?ID=8217304&GUID=7EDA4662-EBFB-4AF5-962F-C669B64AA770)
 
 ## Verification standard
 

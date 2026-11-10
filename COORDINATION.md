@@ -61,10 +61,10 @@ This session is editing the existing files rather than creating a duplicate site
 | 27 | Line-by-line re-verification of the live site against official sources (Housing Inventory, rent increases, banked increases, Form 571, Tenant Petitions, Legistar File 261020) | done | arena/9b0747eb-rentincreasesf2 | `COORDINATION.md` (verification record) | All key claims confirmed: license required on effective date for <10-unit buildings since 2023-03-01; 1.6% (2026–27); Unit 2 banked 11.5% = 1.8+0.7+2.3+3.6+1.7+1.4 (Form 571); 13.1% total; 30/90-day +5 mail; tenant petitions free, no discrimination adjudication. New development found: File 261020 proposed 10% cap (see task 28). |
 | 28 | Publish new development as flag F-27: proposed 10% cap on banked increases (File 261020, Pending Committee Action, not enacted) | done | arena/9b0747eb-rentincreasesf2 | `flagged.html`, `analysis.html`, `executive-summary.html`, `sources.html`, `scripts/validate_site.py`, `README.md` | Legistar record read directly 2026-11-10: introduced 2026-09-15, Land Use and Transportation Committee, status Pending Committee Action. Rent Board notice posted 2026-11-09 on rent-increases and banked-increases pages. Under current law 13.1% remains lawful; phased 10.0% is the fallback if enacted. |
 | 29 | Close stale PRs #16 and #20 (CONFLICTING, content already salvaged/merged), validate, PR to `main`, merge, confirm Pages deploy | in progress | arena/9b0747eb-rentincreasesf2 | `COORDINATION.md` | PR #16 duplicates PRs #14/#15/#17 (salvaged in #17); PR #20 is a PR #19 record whose text is not on `main` and whose branch conflicts after PRs #18/#21. Both closed unmerged with explanatory comments; PR #19 record summary preserved in this session's record below. |
-| 30 | Re-stamp the whole site to the 2026-11-10 verification date and re-derive every today-relative figure (day counts, earliest reachable effective dates, days since the added occupancy) | in progress | arena/d086cb8e-rentincreasesf2 | `scripts/sync_nav.py`, `scripts/verify_calculations.py`, all 13 `*.html` pages | `REVIEW_DATE` and `LAST_VERIFIED` asserted against each other by `verify_calculations.py`; every printed `<personal> / <mailed>` day pair re-derived from the official 90/30-day notice periods. |
-| 31 | Line-by-line re-verification of the merged tree against primary official sources, including the F-27 citation target | in progress | arena/d086cb8e-rentincreasesf2 | `flagged.html`, `analysis.html`, `executive-summary.html`, `sources.html` | Read directly this session: Form 571 table (1.6 / 1.4 / 1.7 / 3.6 / 2.3 / 0.7 / 1.8), Current Rates page, Rules §13.14, Housing Inventory, Civ. Code §827(b), AB 1482 page, Rent Ordinance §37.3(a)(1)–(2), Legistar File 261020. |
-| 32 | Correct the F-27 notice citation: the 2026-11-09 proposed-legislation notice appears on the Rent Board **Current Rates** report, not on the rent-increase or banking info pages | in progress | arena/d086cb8e-rentincreasesf2 | `flagged.html`, `analysis.html`, `executive-summary.html`, `sources.html`, `scripts/validate_site.py` | Notice text read verbatim on https://www.sf.gov/reports--current-rates-including-rent-increase-relocation-sec-deposit ("Posted November 9, 2026"). |
-| 33 | Final integration: verify the combined data, confirm the site builds with no broken links, PR to `main`, merge, confirm GitHub Pages deploy, record the result | in progress | arena/d086cb8e-rentincreasesf2 | `COORDINATION.md`, `README.md` | Blocked only on rows 30–32. |
+| 30 | Re-stamp the whole site to the 2026-11-10 verification date and re-derive every today-relative figure (day counts, earliest reachable effective dates, days since the added occupancy) | done | arena/d086cb8e-rentincreasesf2 | `scripts/sync_nav.py`, `scripts/verify_calculations.py`, all 13 `*.html` pages | `REVIEW_DATE` and `LAST_VERIFIED` asserted against each other by `verify_calculations.py`; every printed `<personal> / <mailed>` day pair re-derived from the official 90/30-day notice periods. |
+| 31 | Line-by-line re-verification of the merged tree against primary official sources, including the F-27 citation target | done | arena/d086cb8e-rentincreasesf2 | `flagged.html`, `analysis.html`, `executive-summary.html`, `sources.html` | Read directly this session: Form 571 table (1.6 / 1.4 / 1.7 / 3.6 / 2.3 / 0.7 / 1.8), Current Rates page, Rules §13.14, Housing Inventory, Civ. Code §827(b), AB 1482 page, Rent Ordinance §37.3(a)(1)–(2), Legistar File 261020. |
+| 32 | Standardize the F-27 notice citation and correct this session's own initial misreading of it | done | arena/d086cb8e-rentincreasesf2 | `flagged.html`, `analysis.html`, `executive-summary.html`, `sources.html` | **Correction to this session's first claim.** This session initially wrote that PR #22 had cited the wrong page and that the 2026-11-09 notice appeared only on the Current Rates report. That was wrong: the notice is reproduced verbatim on **three** Rent Board pages (Current Rates, Banked rent increases, Learn about rent increases), so PR #22's citations were valid. Net change: `analysis.html` and `executive-summary.html` now cite the Current Rates report (where the notice was read this session) instead of the generic rent-increases page; F-27's source cell carries Legistar plus Current Rates. No claim of error against PR #22 is made. |
+| 33 | Final integration: verify the combined data, confirm the site builds with no broken links, PR to `main`, merge, confirm GitHub Pages deploy, record the result | in progress (PR open) | arena/d086cb8e-rentincreasesf2 | `COORDINATION.md`, `README.md` | Blocked only on rows 30–32. |
 
 
 ¹ **Duplicate task numbers (A-07 / CR-08).** Rows 13–15 above belong to `arena/fa7d2d77-rentincreasesf2` on `main`. Session `arena/2b3012a0-rentincreasesf2` independently claimed rows numbered **13–15** on its own branch (`arena/2b3012a0-rentincreasesf2`) for different work (Rent Board license answer, Q&A page, line-by-line re-verification). That branch was cut from `62f6f59`, which predates PRs #6–#10, so merging it as-is would revert the PR #6/#7 license clarification and the PR #10 privacy redaction. **It must rebase onto current `main` before opening a pull request.** No session has merged it. Its claims remain pending and do not block the board.
@@ -878,3 +878,62 @@ correct counts are "20 / 15". A reader relying on a two-day-old countdown for a 
 deadline would mis-plan the only irreversible step in this file. All such counts are recomputed
 by `scripts/verify_calculations.py`, which fails if any printed cell disagrees with
 `REVIEW_DATE`.
+
+## Session `arena/d086cb8e-rentincreasesf2` — verification log (2026-11-10)
+
+**Sequence.** PR #22 (session `arena/9b0747eb`) merged at 00:37:14Z as `d02bee8` while this session
+was still reading sources. This session then rebased onto `d02bee8` and executed only the residual
+work: tasks 30–33. Nothing in PR #22 was reverted, and this session did not re-do it.
+
+### Primary official sources fetched and read directly this session
+
+| Source | Read at | What it confirmed on the site |
+|---|---|---|
+| Form 571 Allowable Annual Increases 26-27 (PDF) | `sf.gov/documents/34344/571_...pdf` | Full historical rate table. **1.6 / 1.4 / 1.7 / 3.6 / 2.3 / 0.7 / 1.8 / 2.6** for 3/1/26 back to 3/1/19. The 0.7% for 3/1/21–2/28/22 is the row most often mis-stated; it confirms Unit 2's 11.5% (1.8+0.7+2.3+3.6+1.7+1.4). |
+| Current Rates report | `sf.gov/reports--current-rates-...` | 1.6% current allowance; security deposit 4.2%; **the 2026-11-09 File 261020 notice**; the 2027-28 percentage is still unpublished (table ends 2027-02-28). |
+| Rent Board Rules § 13.14 | `sfrb.org/section-1314-...` | Verbatim: unlicensed increase "null and void"; "effective date … not the date of service"; banking rights survive; <10-unit buildings from **2023-03-01**. |
+| Housing Inventory | `sf.gov/rent-board-housing-inventory` | All owners must report; license auto-generated for tenant-occupied units; March 1 deadline; **no monetary penalty**; data is **public** and under **penalty of perjury**; $250 rent increments; 30-day contact updates; license need not accompany the notice. |
+| Civ. Code § 827(b)(2),(b)(3)(A) | `leginfo.legislature.ca.gov` | 30 days ≤10%; 90 days >10%; personal delivery or CCP § 1013 mail. |
+| AB 1482 report | `sf.gov/reports--california-tenant-protection-act-...` | 8.8% for SF 2026-08-01–2027-07-31 (5% + 3.8% CPI); states it "does NOT apply" to units under the SF Rent Ordinance. |
+| Rent Ordinance § 37.3 | `sf.gov/information--sec-373-rent-limitations` | (a)(1) 60% of CPI, **7% cap**, license hook; (a)(2) banking on anniversary dates. |
+| Banked rent increases | `sf.gov/information--banked-rent-increases` | The 24-full-month sentence the site quotes; "cannot be compounded or prorated"; no cap on banked amount; partial increases; the **6.7%** worked example. |
+| Learn about rent increases (both chunks) | `sf.gov/learn-about-rent-increases-san-francisco` | 1.6%; 60% of Bay Area CPI; no rounding up; base rent only; additional-occupant charge unlawful; the **4.7%**, **8.2%** and **3.3%** worked examples — the 3.3% page text expressly says the 1.4% is "permanently lost", which is the R1 test the site relies on. |
+| Annual rent increase for multiple years | `sf.gov/information--annual-rent-increase-multiple-years` | 8.2% example; no compounding; no rounding up; 30/35-day notice. |
+| Increasing rents during irregular periods | `sf.gov/information--increasing-rents-during-irregular-periods` | 12–24-month and 24-month-plus methods; once every 12 months. |
+| Algorithmic devices § 37.10C | `sf.gov/information--algorithmic-devices-...` | Effective **2024-10-14**; sale and use prohibited; per-unit and per-month violations; up to **$1,000** per violation; tenant and tenants'-organisation right of action. |
+| Legistar File 261020 | `sfgov.legistar.com/LegislationDetail.aspx?ID=8217304` | **Pending Committee Action**; introduced 9/15/2026; Land Use and Transportation Committee; 10%/year for three years; no enactment date. |
+
+### Result of this session's verification
+
+**No published figure is wrong.** Every percentage, dollar amount and notice deadline on the site
+was independently re-derived and matched the official source (see the table above; the arithmetic
+is asserted by `scripts/verify_calculations.py`, 61 assertions).
+
+Two defects found and fixed, both created by the calendar rather than by any earlier session:
+
+1. **Every page was stamped 2026-11-08 and every countdown was anchored to that date.** On
+   2026-11-10 the Unit 2 closing deadline is **20 days** away (15 by mail), not the 22/17 printed
+   on `main`. All nine date-derived values were recomputed and the script's own expected literals
+   updated so the two cannot drift apart again.
+2. **`analysis.html` and `executive-summary.html` left a stale hand-typed sentence** — "the mailed
+   route to the earliest reachable effective date (2027-02-06) closed on 2026-11-03". On 2026-11-10
+   no route has closed yet; the sentence now states the earliest reachable date by each service
+   method, which is true on any base date the reader picks up.
+
+`index.html` gained the F-27 watch item (badge, callout, key-findings row) because the pending
+10% cap is the one external event that could change the recommendation for Unit 2, and the landing
+page is where the owner will look first.
+
+### Checks run (all green)
+
+- `python3 scripts/sync_nav.py` — NAV OK, 13 pages, 0 drift
+- `python3 scripts/validate_site.py` — PASSED: 13 pages, 49 allowlisted official URLs, every table
+  row carries a source link, column counts match headers, internal links resolve, privacy sweep over
+  all root Markdown and HTML
+- `python3 scripts/verify_calculations.py` — PASSED: 61 assertions, every computed value found in
+  the published HTML
+- Tag-balance parse of all 13 pages — OK
+- Zero personal-identifier hits
+
+**Not legal advice.** Documentary verification against official sources only. No lawyer's approval
+can be guaranteed in advance, and the Rent Board cannot give legal advice.
