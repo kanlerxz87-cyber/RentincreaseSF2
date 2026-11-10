@@ -35,7 +35,8 @@ Sources: [Housing Inventory](https://www.sf.gov/rent-board-housing-inventory) ·
 | `tenant-protections.html` | Just cause, free legal help, discrimination, retaliation |
 | `practices.html` | Corporate vs. individual owners, including the § 37.10C algorithm ban |
 | `checklist.html` | Gate 0 prerequisites, computed service deadlines, notice content |
-| `flagged.html` | Every unverified item and irregularity (F-01 … F-31) |
+| `answers.html` | Every owner question answered in turn, with a status and an official source on every row |
+| `flagged.html` | Every unverified item and irregularity (F-01 … F-34) |
 | `sources.html` | All official sources and the integration method |
 | `banking-rule.html` | F-16 resolved: banking-interval decisive test, re-verification, closing service window |
 
@@ -97,7 +98,7 @@ percentage. Nothing is inferred.
 Three checks run on every push and pull request:
 
 ```bash
-python3 scripts/sync_nav.py            # one canonical navigation across all 13 pages
+python3 scripts/sync_nav.py            # one canonical navigation across all 14 pages
 python3 scripts/validate_site.py       # links, official-source allowlist synced to sources.html,
                                        # HTML tag balance & <head>/<meta> check, per-row sources,
                                        # table column integrity, privacy sweep

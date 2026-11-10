@@ -282,6 +282,34 @@ def main() -> int:
                     ["flagged.html", "index.html"])
     expect_in_pages("u15(c) under-ten phase-in date stated (prose)", "March 1, 2023",
                     ["executive-summary.html"])
+    # ---------------- answers.html (task 47, 2026-11-10) ----------------
+    # The Q&A page restates answers already published elsewhere. These assertions tie it to the
+    # same official percentages and dates, so a figure cannot be typed into it by hand and drift.
+    answers = ["answers.html"]
+    expect_in_pages("Q&A: current annual percentage", "1.6%", answers)
+    expect_in_pages("Q&A: Unit 1 total percentage", "3.0%", answers)
+    expect_in_pages("Q&A: Unit 1 increase", usd(u1_inc), answers)
+    expect_in_pages("Q&A: Unit 1 new rent", usd(u1_new), answers)
+    expect_in_pages("Q&A: Unit 1 early increase", usd(u1_early_inc), answers)
+    expect_in_pages("Q&A: Unit 2 total percentage", "13.1%", answers)
+    expect_in_pages("Q&A: Unit 2 increase", usd(u2_inc), answers)
+    expect_in_pages("Q&A: Unit 2 new rent", usd(UNIT2_BASE + u2_inc), answers)
+    expect_in_pages("Q&A: Unit 2 phased new rent", usd(UNIT2_BASE + u2_phase_inc), answers)
+    expect_in_pages("Q&A: license phase-in start date", "March 1, 2023", answers)
+    expect_in_pages("Q&A: coverage date", "June 14, 1979", answers)
+    expect_in_pages("Q&A: Rent Board Fee amount", "$59.00", answers)
+    expect_in_pages("Q&A: exemption deadline", "December 14, 2026", answers)
+    expect_in_pages("Q&A: File 261020 status", "Pending Committee Action", answers)
+    expect_in_pages("Q&A: 2027-28 rate left blank", "2027-02-28", answers)
+
+    # ---------------- Coverage condition (F-33) and federal label (F-34) ----------------
+    # The Rent Board's coverage test has two limbs. The site must state both, and must not present
+    # the federal "no ceiling" point as a verified rule.
+    coverage_pages = ["laws.html", "answers.html"]
+    expect_in_pages("coverage: pre-1979-06-14 limb", "June 14, 1979", coverage_pages)
+    expect_in_pages("coverage: not-a-single-family-dwelling limb", "not used as a single family dwelling", coverage_pages)
+    expect_in_pages("coverage: two-unit building not exempt", "two-unit building", coverage_pages)
+    expect_in_pages("federal rule labelled as no-source-located", "no federal", ["laws.html"])
 
     # ---------------- Forbidden regressions (C-01, 2026-11-10) ----------------
     # The site must never again assert that banked amounts can only be given at the time of an

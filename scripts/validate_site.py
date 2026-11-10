@@ -28,6 +28,7 @@ PAGES = [
     "tenant-protections.html",
     "practices.html",
     "checklist.html",
+    "answers.html",
     "flagged.html",
     "sources.html",
     "banking-rule.html",
