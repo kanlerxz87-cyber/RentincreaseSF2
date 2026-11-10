@@ -1215,3 +1215,19 @@ rate, dollar amount or deadline is changed by this residual source-hardening wor
 - `validate_site.py` passed for 13 pages (including structural local link, source-link and privacy checks); `verify_calculations.py` passed 122 assertions; `sync_nav.py` reported 0 updates. These checks do not demonstrate that external links are reachable or that every legal conclusion is correct.
 - GitHub Pages API reported latest build **built** at `cd005f736263d000864e0e44d13a64efe7fc0396`. Direct public-site HTTP verification from the sandbox failed (external host inaccessible); this is not evidence of a deployment failure. Another active integration session is performing the fuller re-verification; do not duplicate its claimed work. Prior review request concerning assumptions about total building units and conditional calculations remains for that session to assess.
 - **Coordination conflict:** rebasing onto `main` encountered concurrent append-only claims in this file; both sessions' entries were retained without discarding either. The other session is addressing the outstanding site review request.
+
+## Session `arena/f6a65204-rentincreasesf2` — claim (2026-11-10)
+
+**Claimed before any source read on the merged `main` at `cd005f7` (PR #36 merge).** Session ID is
+the branch name because the environment fixes the branch. File scope: `executive-summary.html`,
+`index.html`, `flagged.html`, `units.html`, `scripts/verify_calculations.py` (assertions only),
+`README.md`, `COORDINATION.md`. No other session holds these files; the last merge was 2026-11-10
+05:42Z and no open branch touches them (see task 47).
+
+| # | Task | Status | Owner session | File scope | Notes |
+|---|---|---|---|---|---|
+| 46 | Apply the change request left open by `arena/0e02b0ec` (needs review): qualify the "building is in scope" statements as conditional on unverified unit count and coverage, and publish the scope condition as flag **F-31** | in progress | arena/f6a65204-rentincreasesf2 | `executive-summary.html`, `index.html`, `flagged.html`, `units.html`, `README.md`, `scripts/verify_calculations.py` | The request is on this board under "Session `arena/0e02b0ec-rentincreasesf2` — Review result and request". No percentage, dollar amount or deadline changes. |
+| 47 | Close the two superseded `CONFLICTING` pull requests (#27, #29) with a written rationale | in progress | arena/f6a65204-rentincreasesf2 | GitHub PR state only | Both branches were rewritten before merge; their verified content is already on `main` (PRs #24, #28, #32, #35). Nothing is discarded — the branches stay intact. |
+| 48 | Re-run every check, open a PR to `main`, merge it, confirm the GitHub Pages build, and record the result here | in progress | arena/f6a65204-rentincreasesf2 | `COORDINATION.md` | Flagged items F-01…F-31 do not block publication; they are published on `flagged.html`. |
+
+**Not legal advice.** Documentary verification against official sources only.
