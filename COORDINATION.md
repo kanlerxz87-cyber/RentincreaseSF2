@@ -71,7 +71,7 @@ This session is editing the existing files rather than creating a duplicate site
 | 35 | Correct C-01 (banked increases do not expire — the wrong reason for the deadline), C-03 and C-04 (`units.html`), and add F-28 (non-anniversary effective date); add a CI guard so C-01 cannot return | done | arena/d2474b1d-rentincreasesf2 | `checklist.html`, `banking-rule.html`, `executive-summary.html`, `units.html`, `flagged.html`, `scripts/verify_calculations.py`, `AUDIT.md` | [Banked increases](https://www.sf.gov/information--banked-rent-increases) (“does not expire”); [§ 37.3](https://www.sf.gov/information--sec-373-rent-limitations) (a)(2) anniversary wording; [Irregular periods](https://www.sf.gov/information--increasing-rents-during-irregular-periods). 61 → 105 assertions. |
 | 36 | Validate, PR to `main`, merge, confirm GitHub Pages deploy, record PR link and result | in progress | arena/d2474b1d-rentincreasesf2 | `COORDINATION.md` | Flagged items F-01…F-28 do not block the merge; they are published on the Flagged for Review page. |
 
-| 37 | Independent verification pass (new session, additive to `COORDINATION.md` only): re-read Form 571, Current Rates, rent-increases, banked-increases, Housing Inventory and Legistar File 261020 directly; verify the Nov 3, 2026 SF general election produced no rent-related change (new diligence — no prior session checked the ballot); confirm the re-stamped day counts re-derive from 2026-11-10; re-run all validators; PR to `main`, merge, confirm Pages deploy | in progress | arena/585ad53b-rentincreasesf2 | `COORDINATION.md` | Claimed 2026-11-10 ~00:50 UTC. Claimed as task 30 first; renumbered 34 after `arena/d086cb8e` claimed 30–33 concurrently (duplicate-number situation of the A-07 kind; no work duplicated — their rows were left verbatim). |
+| 37 | Independent verification pass (new session, additive to `COORDINATION.md` only): re-read Form 571, Current Rates, rent-increases, banked-increases, Housing Inventory and Legistar File 261020 directly; verify the Nov 3, 2026 SF general election produced no rent-related change (new diligence — no prior session checked the ballot); confirm the re-stamped day counts re-derive from 2026-11-10; re-run all validators; PR to `main`, merge, confirm Pages deploy | done | arena/585ad53b-rentincreasesf2 | `COORDINATION.md` | Claimed 2026-11-10 ~00:50 UTC. Claimed as task 30 first; renumbered 34 after `arena/d086cb8e` claimed 30–33 concurrently (duplicate-number situation of the A-07 kind; no work duplicated — their rows were left verbatim). |
 
 ¹ **Duplicate task numbers (A-07 / CR-08).** Rows 13–15 above belong to `arena/fa7d2d77-rentincreasesf2` on `main`. Session `arena/2b3012a0-rentincreasesf2` independently claimed rows numbered **13–15** on its own branch (`arena/2b3012a0-rentincreasesf2`) for different work (Rent Board license answer, Q&A page, line-by-line re-verification). That branch was cut from `62f6f59`, which predates PRs #6–#10, so merging it as-is would revert the PR #6/#7 license clarification and the PR #10 privacy redaction. **It must rebase onto current `main` before opening a pull request.** No session has merged it. Its claims remain pending and do not block the board.
 
@@ -1117,5 +1117,20 @@ clean merge, and the PR status settled to `MERGEABLE` without any further action
 - The landing dashboard carries the F-27 pending-legislation watch item with its Legistar source.
 - No percentage, dollar figure or legal conclusion changed. F-01…F-27 stay open for the owner on
   the Flagged for Review page and none of them blocks publication.
+
+**Not legal advice.** Documentary verification against official sources only.
+
+## PR #30 — independent verification pass, merge and deployment record (session `arena/585ad53b`)
+
+- **PR:** https://github.com/kanlerxz87-cyber/RentincreaseSF2/pull/30
+- **Title:** "Independent verification pass (2026-11-10): election check, File 261020 re-verified, every figure re-derived — documentation only"
+- **Content:** documentation only — this session's verification record (election check, File 261020 re-check, Form 571 / Current Rates / banked-increases / Housing Inventory re-reads, independent figure re-derivation, validator runs, dual claim-collision log). **No site file changed.**
+- **Merged to `main`:** 2026-11-10, merge commit `8571294d51d5a1d30e2ef14b43d99538667ae572`
+- **Merge method:** merge commit (`gh pr merge 30 --merge`)
+- **Check on the PR:** `Validate site` **passed** (run 42730463669)
+- **GitHub Pages:** `pages build and deployment` completed; `pages/builds/latest` → status **built** on `8571294`
+- **Live verification:** `https://kanlerxz87-cyber.github.io/RentincreaseSF2/index.html` fetched after deployment — dashboard serving with the license-first answer, the Unit 2 service-window deadline (2026-11-30 personal / 2026-11-25 mailed), sourced key-findings table, and privacy notices intact.
+- **Task 37:** done. Flagged items F-01…F-28 remain for the owner on the Flagged for Review page; none block publication.
+- **Standing observation for future sessions:** task numbers 30 and 34 were each claimed by two sessions within minutes on 2026-11-10 (both resolved without loss; this session renumbered to 37). Consider claiming by appending a row and pushing **before** starting any reads, and re-checking `origin/main` immediately before writing the row.
 
 **Not legal advice.** Documentary verification against official sources only.
