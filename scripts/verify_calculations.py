@@ -307,9 +307,10 @@ def main() -> int:
     # the federal "no ceiling" point as a verified rule.
     coverage_pages = ["laws.html", "answers.html"]
     expect_in_pages("coverage: pre-1979-06-14 limb", "June 14, 1979", coverage_pages)
-    expect_in_pages("coverage: not-a-single-family-dwelling limb", "not used as a single family dwelling", coverage_pages)
+    expect_in_pages("coverage: not-a-single-family-dwelling limb", "not used as a single-family dwelling", coverage_pages)
     expect_in_pages("coverage: two-unit building not exempt", "two-unit building", coverage_pages)
-    expect_in_pages("federal rule labelled as no-source-located", "no federal", ["laws.html"])
+    expect_in_pages("federal rule labelled as no-source-located",
+                    "No federal statute or agency page located in this review", ["laws.html"])
 
     # ---------------- Forbidden regressions (C-01, 2026-11-10) ----------------
     # The site must never again assert that banked amounts can only be given at the time of an
