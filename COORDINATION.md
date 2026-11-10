@@ -867,7 +867,12 @@ Board counselor cannot give legal advice, and no lawyer's approval can be guaran
 ## Session `arena/585ad53b-rentincreasesf2` — independent verification pass (2026-11-10)
 
 **Position.** This session arrived as PR #24 merged (`3701b1c`) and PRs #22/#23 were already
-recorded. It is an independent verification pass, not a content change: **file scope is
+recorded. While its reads were in progress, PR #25 (`arena/d2474b1d`, merge `e538d59`) also
+landed on `main` — residual-integration wording corrections (banked-expiry wording, `units.html`
+rows, new flag F-28, tightened F-27). This session's source reads and figure re-derivations are
+unaffected by those wording changes (the controlling rates, percentages, deadlines and license
+rules it re-derived are the same facts); its record below describes the tree as of `e538d59`.
+It is an independent verification pass, not a content change: **file scope is
 `COORDINATION.md` only, additive edits.** No site file was touched. This record is inserted
 before `arena/d086cb8e`'s sections so the two sessions' appends do not overlap textually.
 
@@ -875,10 +880,12 @@ before `arena/d086cb8e`'s sections so the two sessions' appends do not overlap t
 
 This session first wrote its claim as **task 30** at ~00:45 UTC and pushed it. The push's
 `git pull --rebase` hit a conflict because `arena/d086cb8e` had claimed **tasks 30–33** at
-00:38 UTC (PR #24, merged 00:39 UTC) — the A-07 kind of duplicate task number. Resolution:
-their rows were kept **verbatim**, this session's rows were renumbered to **task 34**, and no
-line of the other session's work was altered or discarded. The rebase was completed and the
-branch force-pushed over this session's own earlier push only.
+00:38 UTC (PR #24, merged 00:39 UTC) — the A-07 kind of duplicate task number. Renumbering to
+**task 34** and re-pushing hit a second conflict: `arena/d2474b1d` (PR #25, merged 00:41 UTC)
+had by then claimed **tasks 34–36**. Resolution in both cases: their rows were kept
+**verbatim**, this session's rows were renumbered to **task 37**, and no line of either
+session's work was altered or discarded. The branch was force-pushed over this session's own
+earlier pushes only.
 
 ### Official sources fetched and read directly (2026-11-10, ~00:38–00:50 UTC)
 
