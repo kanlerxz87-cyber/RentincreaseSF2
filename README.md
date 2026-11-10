@@ -35,9 +35,33 @@ Sources: [Housing Inventory](https://www.sf.gov/rent-board-housing-inventory) ·
 | `tenant-protections.html` | Just cause, free legal help, discrimination, retaliation |
 | `practices.html` | Corporate vs. individual owners, including the § 37.10C algorithm ban |
 | `checklist.html` | Gate 0 prerequisites, computed service deadlines, notice content |
-| `flagged.html` | Every unverified item and irregularity (F-01 … F-26) |
+| `flagged.html` | Every unverified item and irregularity (F-01 … F-27) |
 | `sources.html` | All official sources and the integration method |
 | `banking-rule.html` | F-16 resolved: banking-interval decisive test, re-verification, closing service window |
+
+## New: a pending ordinance would cap Unit 2's banked increase at 10%
+
+On **2026-11-09** the Rent Board added a *Notice: Proposed Changes to Rent Increase Limitations*
+to its rent-increase pages. It refers to Board of Supervisors **File No. 261020**, which Legistar
+reports as **Pending Committee Action** (introduced 2026-09-15). The bill would add Administrative
+Code **§ 37.3(h)**: combined banked and capital-improvement increases capped at **10% of the lowest
+base rent in effect in the prior 12 months**, reaching banked increases noticed on or after
+**2026-09-15**, through 2029-12-31, with the excess accruing to 2030-01-01.
+
+| | Unit 1 | Unit 2 |
+|---|---|---|
+| Planned | 3.0% = $119.85 → $4,114.85 | 13.1% = $412.65 → $3,562.65 |
+| Under the proposed cap | unaffected | **exceeds it by $97.65** (10% = $315.00) |
+
+**No published figure has changed** — the Rent Board states the legislation *"has not been enacted
+and is subject to change."* The trigger is the date the notice is *provided*, not the effective
+date, which is why it matters for a decision made now. The site's existing phased option of exactly
+**10.0%** ($315.00 → $3,465.00, 30-day notice) already sits at the proposed cap. The bill text does
+not state how the cap interacts with the separate annual allowance; that value is left blank.
+Published on `index.html`, `executive-summary.html`, `analysis.html`, `laws.html`, `flagged.html`
+(**F-27**) and `sources.html`. Sources: [Legistar File 261020](https://sfgov.legistar.com/LegislationDetail.aspx?ID=8217304&GUID=7EDA4662-EBFB-4AF5-962F-C669B64AA770) ·
+[Leg Ver1 — proposed § 37.3(h)](https://sfgov.legistar.com/View.ashx?M=F&ID=15865646&GUID=0E2E6936-000B-4597-A4EE-FBB17C19636E) ·
+[sf.gov — Rent increases (the notice)](https://www.sf.gov/learn-about-rent-increases-san-francisco)
 
 ## Key figures
 
@@ -49,7 +73,8 @@ Computed from the official percentages; **inputs are owner-supplied and unverifi
   30-day notice; serve by 2027-01-02 (mailed 2026-12-28).
 - **Unit 2** — effective 2027-02-15: 11.5% banked + 1.6% current = **13.1%** → **$412.65** → **$3,562.65**.
   90-day notice; serve by 2026-11-17 (mailed 2026-11-12). **Closing deadline: to use any effective
-  date inside the published-rate window, serve by 2026-11-30 (personal) or 2026-11-25 (mail).**
+  date inside the published-rate window, serve by 2026-11-30 (personal) or 2026-11-25 (mail)
+  — 20 and 15 days from the 2026-11-10 review.**
   Assumes no increase was ever imposed.
   A phased 10.0% option ($315.00 → $3,465.00) needs only 30 days and leaves 3.1% banked.
 - No market-rate reset on either unit; no surcharge for Unit 1's added occupant.
@@ -67,7 +92,7 @@ Three checks run on every push and pull request:
 python3 scripts/sync_nav.py            # one canonical navigation across all 13 pages
 python3 scripts/validate_site.py       # links, official-source allowlist, per-row sources,
                                        # table column integrity, privacy sweep
-python3 scripts/verify_calculations.py # re-derive every dollar amount and deadline
+python3 scripts/verify_calculations.py # re-derive every dollar amount and deadline (81 assertions)
 ```
 
 ## Privacy
