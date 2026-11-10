@@ -171,18 +171,12 @@ python3 scripts/validate_site.py
 # Independent re-derivation of every figure and every notice deadline
 python3 scripts/verify_calculations.py
 
-# Personal-identifier sweep across HTML and Markdown
-python3 - <<'PY'
-import re, glob
-pats = [r"\bL\s*O\b", r"\bV\s*N\b", r"\bJP\b", r"\bM\s*T\b", r"\bE\s*R\b", r"\bI\s*S\b"]
-hits = 0
-for f in sorted(glob.glob("*.html") + glob.glob("*.md")):
-    t = open(f, encoding="utf-8").read()
-    for p in pats:
-        for m in re.finditer(p, t):
-            print(f, p, repr(t[max(0, m.start()-40):m.end()+40])); hits += 1
-print("PII hits:", hits)
-PY
+# Public-file checks and merge-marker scan (no tenant-specific pattern is stored publicly)
+python3 scripts/validate_site.py
+
+# A reviewer may additionally supply private identifier regexes without committing them.
+# Example shell syntax only; do not put actual identifiers in a public file or command log:
+# PRIVATE_IDENTIFIER_PATTERNS="$private_patterns" python3 scripts/validate_site.py
 
 # Arithmetic used for section 3 and A-02
 python3 - <<'PY'

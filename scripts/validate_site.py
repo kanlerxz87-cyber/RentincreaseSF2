@@ -5,7 +5,7 @@ Checks:
 - every internal link resolves to a file in the repo;
 - every external link is on the verified official-source allowlist;
 - every data row in a table contains at least one official source link;
-- no tenant initials or other personal identifiers appear in the HTML;
+- public text files contain no privately supplied identifier patterns or merge markers;
 - every page has the shared navigation and the not-legal-advice footer.
 """
 
@@ -89,15 +89,17 @@ VERIFIED_URLS = {
     "https://www.sfassessor.org/property-information/homeowners/property-search-tool",
 }
 
-# Tenant initials supplied in the intake. They must never appear in published HTML.
-PERSONAL_PATTERNS = [
-    r"\bL\s*O\b",
-    r"\bV\s*N\b",
-    r"\bJP\b",
-    r"\bM\s*T\b",
-    r"\bE\s*R\b",
-    r"\bI\s*S\b",
+# Optional privacy patterns may be supplied privately by a reviewer, one regex per
+# line. No tenant-specific identifier is embedded in this public repository.
+PRIVATE_PATTERNS = [
+    pattern for pattern in os.environ.get("PRIVATE_IDENTIFIER_PATTERNS", "").splitlines()
+    if pattern.strip()
 ]
+PUBLIC_TEXT_SUFFIXES = {
+    ".css", ".html", ".js", ".json", ".md", ".py", ".txt", ".yaml", ".yml",
+}
+MERGE_MARKERS = ("<<<<<<< ", "=======", ">>>>>>> ")
+
 
 
 VOID_TAGS = {
@@ -189,9 +191,11 @@ class SiteChecker(HTMLParser):
             self.expected_cols.pop()
             self.header_cols = self.expected_cols[-1] if self.expected_cols else 0
         elif tag == "tr" and self.in_row:
-            if self.row_has_td and not self.row_links:
+            if self.row_has_td and not any(
+                href.startswith(("https://", "http://")) for href in self.row_links
+            ):
                 self.errors.append(
-                    f"table row at line {self.row_line} has no official source link"
+                    f"table row at line {self.row_line} has no external official source link"
                 )
             if self.row_has_td and self.header_cols and self.row_cells != self.header_cols:
                 self.errors.append(
@@ -236,9 +240,9 @@ def check_file(filename: str) -> tuple[list[tuple[str, int]], list[str]]:
         if not os.path.exists(os.path.join(ROOT, target)):
             errors.append(f"line {line}: broken internal link: {href}")
 
-    for pattern in PERSONAL_PATTERNS:
+    for pattern in PRIVATE_PATTERNS:
         if re.search(pattern, html):
-            errors.append(f"personal identifier pattern found in HTML: {pattern}")
+            errors.append("privately supplied identifier pattern found in HTML")
 
     link_targets = {href.split("#", 1)[0].split("?", 1)[0] for href, _ in checker.links}
     for page in PAGES:
@@ -274,17 +278,27 @@ def main() -> int:
     for url in sorted(VERIFIED_URLS - sources_external_links):
         all_errors.append(f"sources.html: missing allowlisted official URL: {url}")
 
-    # GitHub Pages serves the repository root, so every root Markdown file is public.
+    # GitHub Pages serves the repository root. Check every public text file, not
+    # only HTML/Markdown: a script or audit example can leak identifiers too.
     import glob
 
-    for path in sorted(glob.glob(os.path.join(ROOT, "*.md"))):
-        doc = os.path.basename(path)
+    public_paths = set()
+    for path in sorted(glob.glob(os.path.join(ROOT, "*"))):
+        if os.path.isfile(path) and os.path.splitext(path)[1] in PUBLIC_TEXT_SUFFIXES:
+            public_paths.add(path)
+    public_paths.update(glob.glob(os.path.join(ROOT, "scripts", "*.py")))
+    public_paths.update(glob.glob(os.path.join(ROOT, ".github", "workflows", "*.yml")))
+    for path in sorted(public_paths):
+        doc = os.path.relpath(path, ROOT)
         with open(path, "r", encoding="utf-8") as handle:
             body = handle.read()
-        for pattern in PERSONAL_PATTERNS:
+        for marker in MERGE_MARKERS:
+            if any(line.startswith(marker) for line in body.splitlines()):
+                all_errors.append(f"{doc}: unresolved merge conflict marker: {marker}")
+        for pattern in PRIVATE_PATTERNS:
             if re.search(pattern, body):
                 all_errors.append(
-                    f"{doc}: personal identifier pattern found in a publicly served document: {pattern}"
+                    f"{doc}: privately supplied identifier pattern found in a public file"
                 )
 
     # A leftover git merge marker in any served file would publish raw conflict
@@ -318,8 +332,9 @@ def main() -> int:
     print("VALIDATION PASSED")
     print(f" - {len(PAGES)} pages checked (HTML tag balance & <head>/<meta> valid)")
     print(f" - {len(VERIFIED_URLS)} official source URLs on allowlist (all listed on sources.html)")
-    print(" - every table data row has an official source link")
-    print(" - no tenant initials or personal identifiers in HTML or public Markdown")
+    print(" - every table data row has an external official source link")
+    print(f" - {len(PRIVATE_PATTERNS)} privately supplied privacy patterns checked across all public text files")
+    print(" - no unresolved merge-conflict markers in public text files")
     print(" - all internal links resolve")
     print(" - every table row matches its header column count")
     return 0
