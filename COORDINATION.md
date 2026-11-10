@@ -77,7 +77,7 @@ This session is editing the existing files rather than creating a duplicate site
 | 37 | Independent verification pass (new session, additive to `COORDINATION.md` only): re-read Form 571, Current Rates, rent-increases, banked-increases, Housing Inventory and Legistar File 261020 directly; verify the Nov 3, 2026 SF general election produced no rent-related change (new diligence — no prior session checked the ballot); confirm the re-stamped day counts re-derive from 2026-11-10; re-run all validators; PR to `main`, merge, confirm Pages deploy | done | arena/585ad53b-rentincreasesf2 | `COORDINATION.md` | Claimed 2026-11-10 ~00:50 UTC. Claimed as task 30 first; renumbered 34 after `arena/d086cb8e` claimed 30–33 concurrently (duplicate-number situation of the A-07 kind; no work duplicated — their rows were left verbatim). |
 | 38 | Residual integration after concurrent PRs #22–#25; preserve all prior corrections | done | arena/9e245201-rentincreasesf2 | `*.html`, `scripts/verify_calculations.py`, `README.md` | PR #28 initially conflicted on this file. Rebased by resetting to `e538d59`, reviewing concurrent changes, and applying only residual deltas. No C-01 bank-expiry correction or F-28 non-anniversary warning discarded. |
 | 39 | Correct residual internal contradiction and source-overstatement; extend pending-cap checks | done | arena/9e245201-rentincreasesf2 | `banking-rule.html`, `tenant-protections.html`, `laws.html`, `process.html`, `practices.html`, `checklist.html`, `units.html`, `flagged.html`, `index.html`, `README.md`, `scripts/verify_calculations.py` | F-29: current annual 1.6% is used, not also banked or forfeited. F-30: tenant resources narrowed to official wording. File 261020 warnings added to remaining process/checklist/law/practice/verification pages. Facts relabeled owner-supplied. |
-| 40 | Final validation, PR #28 merge, Pages deployment and record | in progress | arena/9e245201-rentincreasesf2 | `COORDINATION.md` | 13 pages, 49 official URLs, per-row source links, privacy, internal links and 109 assertions to be rerun before merge. |
+| 40 | Final validation, PR #28 merge, Pages deployment and record | done | arena/9e245201-rentincreasesf2 | `COORDINATION.md` | PR #28 merged 2026-11-10T00:45:31Z as `3a284cd`; PR and post-merge validation passed; Pages run 42730738839 succeeded; Pages latest build `3a284cd`, status `built`. Live corrected pages fetched. |
 
 
 
@@ -1153,3 +1153,14 @@ independently reviewed before their already-completed merges were observed.
 **Residual tasks 40–42** (renumbered after another session used 37): add the direct official File 261020 draft text as a primary citation;
 run the complete integrated validation; open/merge the PR and verify Pages. No legal conclusion,
 rate, dollar amount or deadline is changed by this residual source-hardening work.
+
+
+## PR #28 — residual final integration and deployment (2026-11-10)
+
+- **PR:** https://github.com/kanlerxz87-cyber/RentincreaseSF2/pull/28
+- **Merged:** 2026-11-10T00:45:31Z; merge commit `3a284cd9987b2ecc5391c3c73d52351acc36e880`.
+- **Parallel-session resolution:** the first branch conflicted after concurrent PRs #22–#25. This session preserved all concurrent work, including C-01 bank-expiry corrections and F-28 non-anniversary review, and applied only residual verified changes. Task rows were renumbered 38–40 to avoid another collision.
+- **Checks:** PR `Validate site` run 42730684702 passed; post-merge run 42730739904 passed on `3a284cd`. Site validator: 13 pages, 49 official URLs, per-row source links, columns, internal links and privacy. Calculation/regression suite: **109 assertions passed**. HTML tag balance, local HTTP 200 and `git diff --check` passed before merge.
+- **Pages:** run 42730738839 succeeded; Pages API latest build `3a284cd`, status `built`, error `null`, completed 2026-11-10T00:46:01Z.
+- **Live verification:** executive summary, banking-rule and tenant-protections fetched from the public Pages URL. Cache-busted banking-rule fetch confirms “current annual 1.6% component,” “not separately banked,” and File 261020 pending warning. Tenant resources now match official SF.gov wording.
+- **Flags:** F-29 and F-30 corrected and published; F-27 pending legislation and F-28 non-anniversary counselor review remain visible. Other unverified owner inputs do not block deployment.
