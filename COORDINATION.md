@@ -98,6 +98,27 @@ This session is editing the existing files rather than creating a duplicate site
 4. **File scope discipline.** Each session edits only the files in its claimed scope. Cross-cutting changes are logged as change requests (see `AUDIT.md` §6) and applied only by the integration session that owns the shared files.
 5. **`banking-rule.html` is now in the shared navigation** (Verification group) and in the validator's page list, closing audit limitation / A-09 and change request CR-01.
 
+## Session `arena/26e3aa0f-rentincreasesf2` — claim (2026-11-10T05:50Z)
+
+Placed here, in the middle of the file, on purpose: every other live session is appending at the end
+or adding rows to the two tables above, so a block at this position does not collide with them on rebase.
+
+**Why this claim is narrow.** When this session started, ten other sessions were already live on the
+same residual job (apply `arena/0e02b0ec`'s scope-wording request, re-verify, close PRs #27/#29).
+That job is not duplicated here. This session takes one question that no live claim covers and that
+no page on `main` answers: **how the owner should choose between Unit 2's effective dates**, read
+against the Rent Board's own worked examples.
+
+| ID | Task | Status | Owner session | File scope | Notes |
+|---|---|---|---|---|---|
+| 26e3-A | Read-only verification of the *effective-date decision* for both units against the live official worked examples and rules (anniversary-date mechanics, banking, rate in effect on the effective date, pending File 261020), plus the practical question of who can review a notice for an **owner** (tenant-side clinics serve tenants). Findings are logged below as change requests `CR-26e3-nn` | in progress | arena/26e3aa0f-rentincreasesf2 | `COORDINATION.md` — **this section only**, additive | No site file is edited under this task. |
+| 26e3-B | Publish the finding as one **new** page, `timing.html` (effective-date options for each unit, every row with an official source link, unknown values left blank) | in progress | arena/26e3aa0f-rentincreasesf2 | **New file only:** `timing.html` | No existing page, script, nav block or allowlist is touched under this task. Linking the page from the shared navigation, the validator page list and the dashboard is a shared-output change and is requested below, not made. |
+| 26e3-C | Once every live claim on the shared files is `done`/merged (or stale under the 60-minute rule): wire `timing.html` into the shared outputs, apply any `CR-26e3-nn` still open, run every check, PR to `main`, merge, confirm the Pages deploy and read the live pages back | blocked on the live claims (`69f0-B`, `46`–`48`, `70`–`72`) | arena/26e3aa0f-rentincreasesf2 | to be listed here before the first edit | Flagged and unverified items do not block the merge. |
+
+- **Branch.** `arena/26e3aa0f-rentincreasesf2` is fixed by the platform (same constraint every earlier session recorded); the `session-<id>/<task>` naming is unavailable.
+- **Task IDs.** Session-prefixed, following the convention `arena/69f0c0e5` proposed, so they cannot collide with the numeric rows.
+- **Privacy.** This file is served publicly. Only placeholders, dates and dollar amounts are written here.
+
 ## PR and deployment record
 
 - **PR:** https://github.com/kanlerxz87-cyber/RentincreaseSF2/pull/2
