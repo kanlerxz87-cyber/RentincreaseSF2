@@ -85,6 +85,34 @@ This session is editing the existing files rather than creating a duplicate site
 | 69f0-A | Independent line-by-line re-verification: fetch every official source cited on the site **live** and check each table row's claim against the fetched text; re-derive every dollar figure and deadline without reusing the site's arithmetic; record per-source results and every discrepancy | in progress | arena/69f0c0e5-rentincreasesf2 | `COORDINATION.md` (additive only) | Claimed 2026-11-10T05:45Z from `cd005f7`. Read-only on site files until 69f0-B. |
 | 69f0-B | Integration of findings: apply `arena/0e02b0ec`'s logged request (make "your building is in scope" / "a two-unit building falls in that second group" / "lawful total" explicitly conditional on unverified unit count, coverage, tenancy, rent history, license status and pending legislation) and correct any defect found in 69f0-A. No value is filled by inference; anything unconfirmable stays blank and flagged | unclaimed until 69f0-A reports | arena/69f0c0e5-rentincreasesf2 | 13 root `*.html` pages, `scripts/*.py`, `README.md`, `AUDIT.md`, `COORDINATION.md` | Starts only after 69f0-A; exact files touched will be listed here before the first edit. |
 | 69f0-C | Triage stale open PRs #27 and #29 (both idle since 2026-11-10T00:44Z, > 60 min); full checks (`sync_nav.py`, `validate_site.py`, `verify_calculations.py`, tag balance, local HTTP 200, privacy sweep); PR to `main`, merge, confirm GitHub Pages deploy and read the live pages back; record PR link and merge result | unclaimed until 69f0-B is done | arena/69f0c0e5-rentincreasesf2 | `COORDINATION.md` | Flagged and unverified items do not block the merge. |
+| 46 | Re-verify every controlling source live on 2026-11-10 and record the result; add the coverage qualifier (unit must not be used as a single-family dwelling) to `laws.html`, `units.html` and the executive summary. **Renumbered to F-33/F-34** after concurrent PR #40 published its own F-31/F-32. | done | arena/d2789389-rentincreasesf2 | `laws.html`, `units.html`, `executive-summary.html`, `flagged.html` | SF.gov — Learn about San Francisco rental laws ("built before June 14, 1979, and is not used as a single family dwelling"); sf.gov — Costa-Hawkins partial exemption (two-unit building not exempt). Federal row re-labelled as absence-of-source, not a verified ceiling. |
+| 47 | Add a "Your Questions, Answered" page mapping every question the owner asked to a verified answer, status and official source; wire it into the canonical nav and validators | done — `answers.html` live, 14 pages, 176 assertions | arena/d2789389-rentincreasesf2 | NEW `answers.html`, `scripts/sync_nav.py`, `scripts/validate_site.py`, `scripts/verify_calculations.py`, `index.html` | Answers reuse only figures already asserted by `scripts/verify_calculations.py` from the 571 table and Civ. Code §§ 827/1942.5. No new value inferred. |
+| 48 | Internal-only personal-information handling note (no personal data committed); full checks; PR, merge, Pages deploy verification and record | in progress — note written (`internal/README.md`); PR pending | arena/d2789389-rentincreasesf2 | NEW `internal/README.md`, `README.md`, `AUDIT.md`, `COORDINATION.md` | Privacy: real tenant names/initials are deliberately NOT written to this public repository; the identity mapping stays offline with the owner. F-23 remains the record of the historical history exposure. |
+
+### Scope note from `arena/d2789389-rentincreasesf2` (tasks 46–48) to `arena/69f0c0e5-rentincreasesf2` (tasks 69f0-A/B/C)
+
+Both sessions are live on 2026-11-10 and their file scopes overlap. Logged rather than silently
+edited, per the standing rules:
+
+- **This session (46–48) is touching, and only touching:** new `answers.html`; new
+  `internal/README.md`; `scripts/sync_nav.py`, `scripts/validate_site.py`,
+  `scripts/verify_calculations.py`; and small targeted edits to `laws.html`, `units.html`,
+  `executive-summary.html`, `flagged.html`, `index.html`, `README.md`, `AUDIT.md`, this file.
+- **`69f0-B` plans to touch all 13 root `*.html` pages and `scripts/*.py`.** That is a superset of
+  the above. **Recommendation to 69f0-B:** branch from this session's merge commit (it will be
+  logged below with its PR number) and `git pull --rebase` before editing, or the two branches will
+  conflict on `laws.html`, `units.html`, `executive-summary.html`, `flagged.html`, `index.html`
+  and all three scripts.
+- **What this session's edits consist of, so 69f0-B can preserve them without re-deriving them:**
+  (1) the coverage qualifier from `sf.gov — Learn about San Francisco rental laws` — coverage
+  attaches where the unit was built before June 14, 1979 **and is not used as a single-family
+  dwelling** — which is the official anchor for the existing "two-unit buildings are not exempt"
+  statement; (2) a federal row that is labelled as *absence of an official source* rather than as a
+  verified ceiling; (3) new `answers.html`, which maps each owner question to an existing verified
+  answer and infers no new value; (4) `internal/README.md`, which contains **no** personal data.
+- **69f0-C's PR triage (#27, #29):** this session did not touch either PR and did not reset or
+  force-push any other session's branch. If 69f0-C closes them, that is compatible with this
+  session's work — nothing in those two branches is required by tasks 46–48.
 
 
 
@@ -1307,5 +1335,68 @@ F-01 (build year/coverage), F-02 (lease facts), F-03 (licence status unchecked),
 ledger), F-17 (2027–28 percentage unpublished), F-27 (pending File 261020), F-28 (Unit 2
 non-anniversary effective date) and **F-31 (building unit count)** — all on
 [`flagged.html`](https://kanlerxz87-cyber.github.io/RentincreaseSF2/flagged.html) with source links.
+
+**Not legal advice.** Documentary verification against official sources only.
+
+## Session `arena/d2789389-rentincreasesf2` — tasks 46–48 (2026-11-10)
+
+### Concurrency events handled (logged per the standing rules)
+
+1. **Claim collision on task numbers.** This session appended rows 46–48 while another session
+   (`arena/69f0c0e5`) was appending 69f0-A/B/C to the same file. `git pull --rebase` conflicted in
+   this file. Resolution: **kept both sides** — their three rows first, this session's three rows
+   after — and recorded a scope note there telling 69f0-B that its planned scope (all 13 root
+   `*.html` pages and `scripts/*.py`) is a superset of this session's, with an explicit list of
+   what this session changed so their work can preserve it rather than re-derive it. Nothing from
+   their session was discarded or edited.
+2. **Flag-ID collision on F-31/F-32.** PR #40 (session `arena/f6a65204`) merged to `main` while this
+   session was working and published its own **F-31** (owner-supplied *unit count*) and **F-32**.
+   This session had drafted F-31 (coverage condition) and F-32 (federal label). Resolution:
+   **re-read `origin/main` and took their IDs as authoritative.** This session's two items are now
+   **F-33** and **F-34**, the `answers.html` cross-reference was corrected, and `index.html` /
+   `README.md` / `flagged.html` now say F-01 to F-34. No row of theirs was renumbered or edited.
+3. **PR #38 and #41 also merged mid-task**, moving `main` twice while this session was rebasing.
+   Each rebase preserved the concurrent work; `executive-summary.html`, `flagged.html`,
+   `index.html`, `laws.html`, `units.html` and `scripts/verify_calculations.py` were re-derived
+   **from `origin/main`** and this session's delta re-applied on top, rather than merging two
+   hand-edited copies. The concurrent session's stronger scope wording on
+   `executive-summary.html` was kept verbatim and this session's coverage sentence appended to it.
+4. This session force-pushed **only its own branch** (`--force-with-lease` against its own last
+   pushed commit `39c7538`) after a rebase, which is the permitted use.
+
+### What this session changed
+
+| File | Change | Why |
+|---|---|---|
+| `answers.html` | **New page.** Every owner question answered in turn — 6 sections, 29 rows, a status and an official source on every row, plus an explicit "still open" table. | The owner asked specific questions; before this, some were answered only in passing across 13 pages. |
+| `laws.html` | Coverage row rewritten to the two-limb test; federal row relabelled. | F-33, F-34. |
+| `units.html` | Coverage row rewritten to the same two-limb test, labelled conditional. | F-33. |
+| `executive-summary.html` | Appended the coverage condition, distinct from the licensing phase-in. | F-33. |
+| `flagged.html` | Added F-33 and F-34. | Publication of the two corrections. |
+| `index.html` | "Start here" callout, `answers.html` in the directory, flag range → F-01 to F-34. | Navigation to the new page; stale range. |
+| `scripts/sync_nav.py`, `scripts/validate_site.py` | New page wired into the canonical nav and the page list. | The nav is generated; a page outside it would fail validation. |
+| `scripts/verify_calculations.py` | +15 assertions for `answers.html`, +4 for the coverage/federal wording. 122 → **176**. | The Q&A page must not be able to drift from the figures the rest of the site asserts. |
+| `internal/README.md` | **New file**, no personal data. | Records how personal information is handled and why the identity mapping is deliberately absent from a public repository. |
+| `README.md`, `AUDIT.md` | Page list, flag range, full 2026-11-10 verification record. | Documentation of the above. |
+
+### Verification performed
+
+- **29 official sources read verbatim this session** (listed in the `AUDIT.md` addendum dated
+  2026-11-10). None of the site's legal claims was accepted on another session's authority.
+- `python3 scripts/sync_nav.py` — NAV OK, **14 pages**, 0 drift.
+- `python3 scripts/validate_site.py` — **PASSED**: 14 pages, HTML tag balance and `<head>/<meta>`,
+  52 allowlisted official URLs all present on `sources.html`, an official source on every table
+  data row, column integrity, all internal links resolve, privacy sweep clean.
+- `python3 scripts/verify_calculations.py` — **PASSED, 176 assertions**.
+- Local static server: **all 14 HTML pages, `style.css` and `internal/README.md` return HTTP 200.**
+- Privacy: real tenant names and initials appear **nowhere** in the tree — not in the new page,
+  not in the new internal note, not in this log. Dates and dollar amounts unchanged as supplied.
+
+### Two facts this session could not close (not defects)
+
+- The **2027–28** allowable percentage is still unpublished; the 571 table ends at 2027-02-28.
+  Left blank (F-17). No value inferred.
+- The **build year, unit count, base rents, tenancy dates, rent history and licence status** are all
+  owner-supplied and remain unverified (F-01, F-02, F-03, F-06, F-31, F-33).
 
 **Not legal advice.** Documentary verification against official sources only.
