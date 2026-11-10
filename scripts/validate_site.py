@@ -193,7 +193,54 @@ def check_file(filename: str) -> tuple[list[tuple[str, int]], list[str]]:
     if "Not legal advice" not in html:
         errors.append("missing not-legal-advice footer")
 
+    errors.extend(unbalanced_tags(html))
+
     return checker.links, errors
+
+
+VOID_TAGS = {"br", "img", "meta", "link", "hr", "input", "area", "base", "col", "embed", "source", "track", "wbr"}
+
+
+class _BalanceChecker(HTMLParser):
+    """Report tags that are opened and never closed, closed out of order, or stray.
+
+    Added 2026-11-10 after an edit left an <h3> unclosed on flagged.html and the
+    link, table-row, column-count and privacy checks all passed anyway.
+    """
+
+    def __init__(self) -> None:
+        super().__init__()
+        self.stack: list[tuple[str, int]] = []
+        self.errors: list[str] = []
+
+    def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
+        if tag not in VOID_TAGS:
+            self.stack.append((tag, self.getpos()[0]))
+
+    def handle_endtag(self, tag: str) -> None:
+        if tag in VOID_TAGS:
+            return
+        if not self.stack:
+            self.errors.append(f"stray </{tag}> at line {self.getpos()[0]}")
+            return
+        opened, line = self.stack[-1]
+        if opened == tag:
+            self.stack.pop()
+        else:
+            self.errors.append(
+                f"<{opened}> opened at line {line} is closed by </{tag}> at line {self.getpos()[0]}"
+            )
+            self.stack.pop()
+
+
+def unbalanced_tags(html: str) -> list[str]:
+    checker = _BalanceChecker()
+    checker.feed(html)
+    checker.close()
+    errors = list(checker.errors)
+    for tag, line in checker.stack:
+        errors.append(f"<{tag}> opened at line {line} is never closed")
+    return errors
 
 
 def main() -> int:

@@ -248,6 +248,44 @@ def main() -> int:
     ]:
         expect_in_pages(f"days left — {label}", daypair(effective, notice_days), banking)
 
+    # ---------- Proposed 10% cap on banked increases (File No. 261020) ----------
+    # NOT enacted (Legistar: Pending Committee Action). Source: the introduced
+    # ordinance text, new Sec. 37.3(h) - a 10% limit on combined banked +
+    # capital-improvement increases, for banked increases based on notices
+    # provided on or after 2026-09-15, until 2029-12-31.
+    #
+    # The amount a cap binds at was not previously published anywhere on the
+    # site, so it is derived here rather than typed.
+    cap_pct = Decimal("10.0")
+    expect("Proposed cap binds on Unit 2, not Unit 1",
+           (u2_banked > cap_pct, u1_total < cap_pct), (True, True))
+    # Reading 1 - the cap names only Sec. 37.3(a)(2)/(a)(3), so the annual
+    # 1.6% under (a)(1) sits outside it: 10.0% banked + 1.6% annual.
+    u2_capped_total = cap_pct + u2_current
+    expect("Unit 2 under the proposed cap, annual component outside it", u2_capped_total, Decimal("11.6"))
+    u2_capped_inc = money(UNIT2_BASE * u2_capped_total / 100)
+    expect("Unit 2 amount under the proposed cap", u2_capped_inc, Decimal("365.40"))
+    expect("Unit 2 new rent under the proposed cap", UNIT2_BASE + u2_capped_inc, Decimal("3515.40"))
+    # Reading 2 - the whole increase is held to 10.0%.
+    u2_flat_inc = money(UNIT2_BASE * cap_pct / 100)
+    expect("Unit 2 amount if the whole increase is capped", u2_flat_inc, Decimal("315.00"))
+    expect("Unit 2 new rent if the whole increase is capped", UNIT2_BASE + u2_flat_inc, Decimal("3465.00"))
+    expect("Unit 2 banked remainder deferred past the cap", u2_total - cap_pct, Decimal("3.1"))
+    # The difference the proposal would make, in dollars per month.
+    expect("Monthly difference, reading 1", u2_inc - u2_capped_inc, Decimal("47.25"))
+    expect("Monthly difference, reading 2", u2_inc - u2_flat_inc, Decimal("97.65"))
+    # 11.6% still exceeds 10%, so the 90-day notice is unaffected either way.
+    expect("Proposed cap does not shorten Unit 2's notice", u2_capped_total > Decimal("10"), True)
+    # Trigger and sunset from the ordinance text.
+    expect("Proposed cap trigger date", date(2026, 9, 15) < REVIEW_DATE, True)
+    expect("Proposed cap sunset", date(2029, 12, 31) > REVIEW_DATE, True)
+
+    cap_pages = ["flagged.html", "analysis.html", "executive-summary.html"]
+    expect_in_pages("Proposed cap amount, reading 1", usd(UNIT2_BASE + u2_capped_inc), cap_pages)
+    expect_in_pages("Proposed cap amount, reading 2", usd(UNIT2_BASE + u2_flat_inc), cap_pages)
+    expect_in_pages("Proposed cap trigger date", "2026-09-15", cap_pages)
+    expect_in_pages("Ordinance file number", "261020", cap_pages)
+
     if errors:
         print("CALCULATION VERIFICATION FAILED", file=sys.stderr)
         for error in errors:
