@@ -301,14 +301,13 @@ def main() -> int:
 
     # GitHub Pages serves the repository root. Check every public text file, not
     # only HTML/Markdown: a script or audit example can leak identifiers too.
-    import glob
-
     public_paths = set()
-    for path in sorted(glob.glob(os.path.join(ROOT, "*"))):
-        if os.path.isfile(path) and os.path.splitext(path)[1] in PUBLIC_TEXT_SUFFIXES:
-            public_paths.add(path)
-    public_paths.update(glob.glob(os.path.join(ROOT, "scripts", "*.py")))
-    public_paths.update(glob.glob(os.path.join(ROOT, ".github", "workflows", "*.yml")))
+    for directory, dirnames, filenames in os.walk(ROOT):
+        dirnames[:] = [name for name in dirnames if name not in {".git", "__pycache__"}]
+        for filename in filenames:
+            path = os.path.join(directory, filename)
+            if os.path.splitext(filename)[1] in PUBLIC_TEXT_SUFFIXES:
+                public_paths.add(path)
     for path in sorted(public_paths):
         doc = os.path.relpath(path, ROOT)
         with open(path, "r", encoding="utf-8") as handle:

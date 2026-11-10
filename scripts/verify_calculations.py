@@ -213,8 +213,8 @@ def main() -> int:
     expect_in_pages("Unit 1 early new rent", usd(UNIT1_BASE + u1_early_inc), analysis + ["units.html"])
     expect_in_pages("Unit 2 increase", usd(u2_inc), analysis + ["checklist.html", "units.html"])
     expect_in_pages("Unit 2 new rent", usd(UNIT2_BASE + u2_inc), analysis + ["checklist.html", "units.html"])
-    expect_in_pages("Unit 2 annual-only increase", usd(u2_annual_only_inc), ["analysis.html", "checklist.html", "executive-summary.html", "units.html"])
-    expect_in_pages("Unit 2 annual-only new rent", usd(UNIT2_BASE + u2_annual_only_inc), ["analysis.html", "checklist.html", "executive-summary.html", "units.html"])
+    expect_in_pages("Unit 2 annual-only increase", usd(u2_annual_only_inc), ["analysis.html", "checklist.html", "executive-summary.html", "units.html", "answers.html"])
+    expect_in_pages("Unit 2 annual-only new rent", usd(UNIT2_BASE + u2_annual_only_inc), ["analysis.html", "checklist.html", "executive-summary.html", "units.html", "answers.html"])
     expect_in_pages("Unit 2 phased increase", usd(u2_phase_inc), ["checklist.html", "units.html"])
     expect_in_pages("Unit 2 phased new rent", usd(UNIT2_BASE + u2_phase_inc), ["checklist.html", "units.html"])
     expect_in_pages("Unit 1 serve-by date", u1_serve.isoformat(), ["checklist.html"])
@@ -328,7 +328,9 @@ def main() -> int:
     # another permitted time. F-28 records that wording difference and the paired annual scenario.
     expect_in_pages("Rules 4.12 annual-increase wording disclosed",
                     "This banked amount may only be given at the time of an annual increase",
-                    ["flagged.html", "banking-rule.html", "laws.html"])
+                    ["flagged.html", "banking-rule.html", "laws.html", "answers.html"])
+    expect_in_pages("Q&A annual-only option avoids banked-timing issue",
+                    "because it uses no banked amount", ["answers.html"])
     expect_in_pages("Unit 2 pairs banked amount with current annual component",
                     "pairs the banked 11.5% with the current annual 1.6%",
                     ["flagged.html", "banking-rule.html"])
@@ -337,7 +339,7 @@ def main() -> int:
                     ["index.html", "executive-summary.html", "practices.html", "checklist.html", "flagged.html"])
     expect_in_pages("off-anniversary creates new anniversary", "becomes the new anniversary",
                     ["index.html", "laws.html", "practices.html"])
-    expect_in_pages("residual corrections published", "F-33", ["flagged.html", "index.html"])
+    expect_in_pages("residual corrections published", "F-36", ["flagged.html", "index.html"])
 
     # Forbidden overstatements and superseded owner-fact conclusions.
     forbidden = [
@@ -356,6 +358,8 @@ def main() -> int:
         "13.1% remains lawful",
         "Yes — the most defensible course",
         "Your building is in scope? Yes",
+        "It is lawful under current law",
+        "13.1% stands if the ledger is right",
     ]
     for page in sorted(f for f in os.listdir(ROOT) if f.endswith(".html")):
         with open(os.path.join(ROOT, page), encoding="utf-8") as handle:

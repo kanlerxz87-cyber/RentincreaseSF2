@@ -1579,7 +1579,7 @@ A second integration check found PR #40 merged concurrently. Its F-31 scope/calc
   13.14, the current/historical Form 571 rates, banking and irregular-period guidance, Civil Code
   §§ 827, 1942.5 and 1947.12, the algorithmic-device page, File 261020 plus its official text/digest,
   petition pages, and federal/state/local fair-housing sources. Source-specific corrections are in
-  `AUDIT.md` Addendum E and public flags F-32/F-33.
+  `AUDIT.md` Addendum E and public flags F-35/F-36.
 - PR #40's F-31 integration is retained. This branch adds no duplicate building-count flag and does
   not alter its arithmetic. Open PR #39 is a separate conflicting branch and has not been merged or
   used as a source of truth.
@@ -1592,12 +1592,25 @@ A second integration check found PR #40 merged concurrently. Its F-31 scope/calc
   petition/worksheet routes, and add the conservative Unit 2 annual-only 1.6% scenario
   ($50.40 → $3,200.40). The annual-only option leaves 11.5% banked and does not depend on F-28's
   banked-timing issue; ordinary legal gates still apply.
-- Final pre-commit checks: navigation 13 pages / 0 changes; validator 13 pages / 52 official URLs /
+- Final pre-commit checks: navigation 14 pages / 0 changes; validator 14 pages / 52 official URLs /
   every row externally sourced / unique IDs / resolving links and fragments / no public-text merge
-  markers; calculation suite **254 assertions passed**; `git diff --check` passed. A negative test
+  markers; calculation suite **315 assertions passed**; `git diff --check` passed. A negative test
   injected only generic probe data and confirmed that the validator catches a private pattern without
   echoing it, merge markers, and an unresolved cross-page fragment; all probe content was removed.
-  Direct flag anchors F-01…F-33 (including the separate F-23 privacy card) were added and checked.
-- Local HTTP: all **13 pages and 15 unique internal resources returned HTTP 200**, including
-  `style.css`; every page has a title, one H1 and one main landmark; parsed local fragments resolve.
+  Direct flag anchors through F-36 (including the separate F-23 privacy card) were added and checked; F-35/F-36 are this session’s non-colliding IDs.
+- Local HTTP: all **14 pages and 17 unique internal/public resources returned HTTP 200**, including
+  `style.css`, `AUDIT.md` and `internal/README.md`; every page has a title, one H1 and one main landmark; parsed local fragments resolve.
   The temporary HTTP server was stopped after the check. Tasks 46–47 are done; task 48 is in progress.
+
+### Concurrent Q&A integration record
+
+PRs #44/#48 merged while this branch was awaiting its final push. Their `answers.html`, two-limb
+coverage finding (F-33), federal-source finding (F-34), and `internal/README.md` were preserved.
+The rebase conflicts were resolved by keeping those additions and this session's corrections; no
+other session's rows were discarded. This session's new flags were renumbered to F-35/F-36 to avoid
+collisions. The Q&A now carries the same conditional wording and annual-only alternative, and the
+internal privacy note no longer instructs editors to commit identifier patterns. Privacy scanning
+is recursive across all public text files. The older F-01/F-26, checklist, process, summary, laws
+and units rows now consistently state both coverage conditions. Post-integration checks are the
+14-page / 17-resource / 315-assertion results above; the negative privacy test was repeated with a
+generic probe under `internal/` and passed.

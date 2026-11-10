@@ -2,8 +2,10 @@
 
 Verified rent-increase review for two rent-controlled units in a 1940 building in San Francisco's
 Outer Sunset, ZIP 94122.
+
 ## Live site
 https://kanlerxz87-cyber.github.io/RentincreaseSF2/
+
 ## The first question, answered
 **An individual owner of a tenant-occupied, rent-controlled unit does need a Rent Increase License.**
 For this property, that conclusion is conditional on the owner-supplied construction/coverage facts
@@ -17,6 +19,7 @@ annual or banked increase.
 Sources: [Housing Inventory](https://www.sf.gov/rent-board-housing-inventory) ·
 [Rules § 13.14](https://sfrb.org/section-1314-licensing-%E2%80%93-notice-rent-increase) ·
 [Notice of Owner Noncompliance](https://www.sf.gov/notice-of-owner-noncompliance-with-housing-inventory)
+
 ## Pages
 | Page | Contents |
 |---|---|
@@ -31,10 +34,11 @@ Sources: [Housing Inventory](https://www.sf.gov/rent-board-housing-inventory) ·
 | `practices.html` | Corporate vs. individual owners, including the § 37.10C algorithm ban |
 | `checklist.html` | Gate 0 prerequisites, computed service deadlines, notice content |
 | `answers.html` | Every owner question answered in turn, with a status and an official source on every row |
-| `flagged.html` | Every unverified item and irregularity (F-01 … F-34) |
-| `flagged.html` | Every unverified item and irregularity (F-01 … F-33) |
+| `flagged.html` | Every unverified item and irregularity (published IDs through F-36) |
 | `sources.html` | All official sources and the integration method |
 | `banking-rule.html` | F-16 resolved: banking-interval decisive test, re-verification, closing service window |
+
+
 ## Key figures
 Computed from the official percentages; **inputs are owner-supplied and unverified**. All
 figures and deadlines below are re-derived from a base date of **2026-11-10** by
@@ -50,6 +54,7 @@ figures and deadlines below are re-derived from a base date of **2026-11-10** by
   A phased 10.0% option ($315.00 → $3,465.00) needs only 30 days and leaves 3.1% banked.
   A conservative annual-only option uses 1.6% (**$50.40 → $3,200.40**) and leaves 11.5% banked; ordinary legal gates apply, but F-28&rsquo;s banked-timing issue does not arise because no banked amount is imposed.
 - No market-rate reset on either unit; no surcharge for Unit 1's added occupant.
+
 ## Watch item: File 261020 (F-27)
 On 2026-11-09 the Rent Board posted a notice on its **Current Rates**, **Banked rent increases** and
 **Learn about rent increases** pages: the Board of Supervisors is considering **File No. 261020**
@@ -77,6 +82,7 @@ Sources: [Current Rates](https://www.sf.gov/reports--current-rates-including-ren
 [Legistar File 261020](https://sfgov.legistar.com/LegislationDetail.aspx?ID=8217304&GUID=7EDA4662-EBFB-4AF5-962F-C669B64AA770) ·
 [Leg Ver1](https://sfgov.legistar.com/View.ashx?M=F&ID=15865646&GUID=0E2E6936-000B-4597-A4EE-FBB17C19636E) ·
 [Leg Dig Ver1](https://sfgov.legistar.com/View.ashx?M=F&ID=15865647&GUID=CC09B796-4675-4A7D-9960-85FE239F7FBB)
+
 ## Verification standard
 Every legal and numerical claim links to an official government, legislative or City of San Francisco
 source. Owner-supplied lease dates, rents, occupancy and build year are marked **unverified**. Values
@@ -91,18 +97,22 @@ python3 scripts/validate_site.py       # links, official-source allowlist synced
                                        # optional private privacy patterns (never stored or echoed)
 python3 scripts/verify_calculations.py # re-derive every dollar amount and deadline
 ```
+
 ## Privacy
 No tenant or owner name, initial, address, contact detail or parcel number is published. Occupants
 appear only as Tenant A–F placeholders. Dates and dollar amounts are preserved exactly as supplied.
 Note that the Rent Board's Housing Inventory submission is itself public — that is a legal filing
 obligation, and none of it is reproduced here.
+
 ## Not legal advice
 This is a compliance review based on official sources. It is not legal advice. The SF Rent Board
 expressly cannot give legal advice, and no one can guarantee that a tenant lawyer will approve an
 increase. Consult a tenant lawyer or a Rent Board counselor before serving a notice.
+
 ## Coordination
 Parallel sessions coordinate through [COORDINATION.md](COORDINATION.md), which records every claim,
 handoff, verification log, flagged irregularity and deployment.
+
 ## Deployment
 GitHub Pages serves the static files from the repository root on `main`. The
 `Validate site` workflow is a check, not a second deploy path.
