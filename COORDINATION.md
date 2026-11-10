@@ -70,6 +70,9 @@ This session is editing the existing files rather than creating a duplicate site
 | 34 | Residual integration for session `arena/d2474b1d`: re-read every controlling official source live and diff the result against `main` rather than against this session's own draft | done | arena/d2474b1d-rentincreasesf2 | `COORDINATION.md`, `AUDIT.md` | 14 sources fetched 2026-11-10; confirmations and the exact list of what was *not* re-fetched are in the `AUDIT.md` addendum dated 2026-11-10. |
 | 35 | Correct C-01 (banked increases do not expire — the wrong reason for the deadline), C-03 and C-04 (`units.html`), and add F-28 (non-anniversary effective date); add a CI guard so C-01 cannot return | done | arena/d2474b1d-rentincreasesf2 | `checklist.html`, `banking-rule.html`, `executive-summary.html`, `units.html`, `flagged.html`, `scripts/verify_calculations.py`, `AUDIT.md` | [Banked increases](https://www.sf.gov/information--banked-rent-increases) (“does not expire”); [§ 37.3](https://www.sf.gov/information--sec-373-rent-limitations) (a)(2) anniversary wording; [Irregular periods](https://www.sf.gov/information--increasing-rents-during-irregular-periods). 61 → 105 assertions. |
 | 36 | Validate, PR to `main`, merge, confirm GitHub Pages deploy, record PR link and result | in progress | arena/d2474b1d-rentincreasesf2 | `COORDINATION.md` | Flagged items F-01…F-28 do not block the merge; they are published on the Flagged for Review page. |
+| 40 | Add direct official draft § 37.3(h) citations alongside the File 261020 status record | done | arena/817d1de7-rentincreasesf2 | `flagged.html`, `sources.html`, `README.md`, `scripts/validate_site.py` | Draft read directly: proposed 10% banked/capital-improvement component cap, lowest base rent in prior 12 months, notices on/after 2026-09-15, 2029-12-31 sunset unless extended. No outcome inferred. |
+| 41 | Final integrated build, source/table/privacy/link checks and all calculation assertions | done | arena/817d1de7-rentincreasesf2 | scripts run only; `AUDIT.md` verification record | 13 balanced pages, 50 official URLs, 17 public files HTTP 200, no broken internal links/fragments, privacy pass, 105 assertions, diff check pass; rerun after rebase. |
+| 42 | PR to `main`, merge, Pages deployment verification and final record | in progress | arena/817d1de7-rentincreasesf2 | `COORDINATION.md` | Blocked on task 41. |
 
 | 37 | Independent verification pass (new session, additive to `COORDINATION.md` only): re-read Form 571, Current Rates, rent-increases, banked-increases, Housing Inventory and Legistar File 261020 directly; verify the Nov 3, 2026 SF general election produced no rent-related change (new diligence — no prior session checked the ballot); confirm the re-stamped day counts re-derive from 2026-11-10; re-run all validators; PR to `main`, merge, confirm Pages deploy | done | arena/585ad53b-rentincreasesf2 | `COORDINATION.md` | Claimed 2026-11-10 ~00:50 UTC. Claimed as task 30 first; renumbered 34 after `arena/d086cb8e` claimed 30–33 concurrently (duplicate-number situation of the A-07 kind; no work duplicated — their rows were left verbatim). |
 | 38 | Residual integration after concurrent PRs #22–#25; preserve all prior corrections | done | arena/9e245201-rentincreasesf2 | `*.html`, `scripts/verify_calculations.py`, `README.md` | PR #28 initially conflicted on this file. Rebased by resetting to `e538d59`, reviewing concurrent changes, and applying only residual deltas. No C-01 bank-expiry correction or F-28 non-anniversary warning discarded. |
@@ -1139,3 +1142,14 @@ clean merge, and the PR status settled to `MERGEABLE` without any further action
 - **Standing observation for future sessions:** task numbers 30 and 34 were each claimed by two sessions within minutes on 2026-11-10 (both resolved without loss; this session renumbered to 37). Consider claiming by appending a row and pushing **before** starting any reads, and re-checking `origin/main` immediately before writing the row.
 
 **Not legal advice.** Documentary verification against official sources only.
+## Session `arena/817d1de7-rentincreasesf2` — residual final integration (2026-11-10)
+
+This session independently found File 261020 and the date-sensitive changes, then discovered that
+PRs #22–#26 had integrated equivalent and more precise work concurrently. Its duplicate working
+changes were not merged. The branch was aligned to the integrated `main` without reverting any
+other session's work. PR #25's 105 assertions and PR #26's validation/deployment record were
+independently reviewed before their already-completed merges were observed.
+
+**Residual tasks 40–42** (renumbered after another session used 37): add the direct official File 261020 draft text as a primary citation;
+run the complete integrated validation; open/merge the PR and verify Pages. No legal conclusion,
+rate, dollar amount or deadline is changed by this residual source-hardening work.
