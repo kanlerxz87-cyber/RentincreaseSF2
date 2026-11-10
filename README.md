@@ -59,16 +59,22 @@ figures and deadlines below are re-derived from a base date of **2026-11-10** by
 ## Watch item: File 261020 (F-27)
 
 On 2026-11-09 the Rent Board posted a notice on its **Current Rates**, **Banked rent increases** and
-**Learn about rent increases** pages: the Board of Supervisors is considering **File No. 261020**,
-which would temporarily cap combined **banked + capital improvement** increases on rent-controlled
-units at **10% per year** for three years, applying to banked increases noticed on or after
-**2026-09-15**. The official Legistar record shows **Pending Committee Action — not enacted**.
-Under current law Unit 2's 13.1% is unaffected. If enacted as proposed the cap would apply to the
-**banked** and **capital-improvement** components — the annual allowance is not in that list — so
-the ceiling in one year would be 10% banked + 1.6% annual = **11.6% ($365.40 → $3,515.40)**, and
-the phased 10.0% option ($315.00 → $3,465.00) stays inside the cap either way. That 11.6% is
-arithmetic on a bill draft, not law. Re-check the Legistar status immediately before serving any
-Unit 2 notice.
+**Learn about rent increases** pages: the Board of Supervisors is considering **File No. 261020**
+(introduced 2026-09-15; Land Use and Transportation Committee; status **Pending Committee Action —
+not enacted**). Proposed **§ 37.3(h)** in the legislative text (`Leg Ver1`) would bar banked
+(§ 37.3(a)(2)) and/or capital-improvement (§ 37.3(a)(3)) increases *"that cause a tenant's rent to
+increase by more than a total of 10% of the lowest base rent that was in effect at any time during
+the 12 months immediately preceding the date the increase takes effect"* through **2029-12-31**
+(excess deferred to **on or after 2030-01-01**), applying retroactively to banked notices provided
+on or after **2026-09-15** and capital-improvement petitions filed on or after that date, and would
+amend **§ 37.15(b)(2)(F)** to require Housing Inventory reporting of prior-12-month banked
+increases. Under current law Unit 2's 13.1% is unaffected if the rent history is verified. If enacted
+as drafted, the literal text of § 37.3(h) measures the *total rent increase* against 10% of the
+lowest prior-12-month base rent, so only the phased **10.0% option ($315.00 → $3,465.00)** stays at
+or below 10% total under every reading (a narrower title-only reading capping only the banked+CI
+components yields theoretical bill-draft arithmetic of 10% banked + 1.6% annual = **11.6% ($365.40 →
+$3,515.40)**, which is **not law and is uncertain under § 37.3(h)'s literal wording**). Re-check
+Legistar status immediately before serving any Unit 2 notice.
 
 Related flag: **F-28** — Unit 2's suggested effective date (2027-02-15) is not the June 1
 anniversary. Rent Ordinance § 37.3(a)(2) ties a banked amount to anniversary dates while the Rent
@@ -78,7 +84,8 @@ which needs the unpublished 2027–28 rate. Put the date to a counselor or couns
 Sources: [Current Rates](https://www.sf.gov/reports--current-rates-including-rent-increase-relocation-sec-deposit) ·
 [Banked rent increases](https://www.sf.gov/information--banked-rent-increases) ·
 [Legistar File 261020](https://sfgov.legistar.com/LegislationDetail.aspx?ID=8217304&GUID=7EDA4662-EBFB-4AF5-962F-C669B64AA770) ·
-[Official draft § 37.3(h)](https://sfgov.legistar.com/View.ashx?M=F&ID=15865646&GUID=0E2E6936-000B-4597-A4EE-FBB17C19636E)
+[Leg Ver1](https://sfgov.legistar.com/View.ashx?M=F&ID=15865646&GUID=0E2E6936-000B-4597-A4EE-FBB17C19636E) ·
+[Leg Dig Ver1](https://sfgov.legistar.com/View.ashx?M=F&ID=15865647&GUID=CC09B796-4675-4A7D-9960-85FE239F7FBB)
 
 ## Verification standard
 
@@ -91,7 +98,8 @@ Three checks run on every push and pull request:
 
 ```bash
 python3 scripts/sync_nav.py            # one canonical navigation across all 13 pages
-python3 scripts/validate_site.py       # links, official-source allowlist, per-row sources,
+python3 scripts/validate_site.py       # links, official-source allowlist synced to sources.html,
+                                       # HTML tag balance & <head>/<meta> check, per-row sources,
                                        # table column integrity, privacy sweep
 python3 scripts/verify_calculations.py # re-derive every dollar amount and deadline
 ```

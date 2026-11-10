@@ -34,10 +34,11 @@ PAGES = [
 ]
 
 VERIFIED_URLS = {
-    "https://sfgov.legistar.com/View.ashx?M=F&ID=15865646&GUID=0E2E6936-000B-4597-A4EE-FBB17C19636E",
     "https://sfgov.legistar.com/LegislationDetail.aspx?ID=8217304&GUID=7EDA4662-EBFB-4AF5-962F-C669B64AA770",
+    "https://sfgov.legistar.com/View.ashx?M=F&ID=15865646&GUID=0E2E6936-000B-4597-A4EE-FBB17C19636E",
+    "https://sfgov.legistar.com/View.ashx?M=F&ID=15865647&GUID=CC09B796-4675-4A7D-9960-85FE239F7FBB",
     "https://sfrb.org/section-1314-licensing-%E2%80%93-notice-rent-increase",
-    "https://www.sf.gov/sites/default/files/2024-10/538%202024-25%20Bond%20Measure%20Worksheet%2010.24%20.pdf",
+    "https://www.sf.gov/documents/64370/538_2026-2027_Bond_Measure_Worksheet_10.26.pdf",
     "https://www.sf.gov/information--rent-increases-under-section-614-and-costa-hawkins",
     "https://www.sf.gov/information--charging-additional-occupants-prohibited",
     "https://www.sf.gov/information--algorithmic-devices-set-rent-are-prohibited-san-francisco",
@@ -64,6 +65,7 @@ VERIFIED_URLS = {
     "https://www.sf.gov/information--partial-exemption-certain-single-family-homes-and-condominiums-under-costa-hawkins",
     "https://www.sf.gov/information--partial-exemption-newly-constructed-rental-units",
     "https://www.sf.gov/information--sec-373-rent-limitations",
+    "https://www.sf.gov/information--sec-3715-reporting-obligations-licensing",
     "https://www.sf.gov/information--special-circumstances-petitions-based-rents-comparable-units",
     "https://www.sf.gov/information--tenant-summary-petitions",
     "https://www.sf.gov/information--utility-passthroughs-gas-electricity-and-steam-heat",
@@ -97,6 +99,12 @@ PERSONAL_PATTERNS = [
 ]
 
 
+VOID_TAGS = {
+    "area", "base", "br", "col", "embed", "hr", "img", "input",
+    "link", "meta", "param", "source", "track", "wbr",
+}
+
+
 class SiteChecker(HTMLParser):
     def __init__(self) -> None:
         super().__init__()
@@ -110,8 +118,27 @@ class SiteChecker(HTMLParser):
         self.header_cols = 0
         self.expected_cols: list[int] = []
         self.row_cells = 0
+        self.tag_stack: list[tuple[str, int]] = []
+        self.in_head = False
+        self.head_text_allowed = 0
+        self.has_meta_description = False
 
     def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
+        if tag not in VOID_TAGS:
+            self.tag_stack.append((tag, self.getpos()[0]))
+        if tag == "head":
+            self.in_head = True
+        elif self.in_head and tag in ("title", "style", "script"):
+            self.head_text_allowed += 1
+        elif tag == "meta":
+            attr_map = {k.lower(): (v or "") for k, v in attrs}
+            if attr_map.get("name", "").lower() == "description":
+                if not attr_map.get("content", "").strip():
+                    self.errors.append(
+                        f"line {self.getpos()[0]}: <meta name=\"description\"> missing non-empty content attribute"
+                    )
+                else:
+                    self.has_meta_description = True
         if tag == "table":
             self.in_table += 1
             self.header_cols = 0
@@ -135,7 +162,27 @@ class SiteChecker(HTMLParser):
                 if self.in_row:
                     self.row_links.append(href)
 
+    def handle_data(self, data: str) -> None:
+        if self.in_head and not self.head_text_allowed and data.strip():
+            self.errors.append(
+                f"line {self.getpos()[0]}: unexpected text inside <head>: {data.strip()[:60]!r}"
+            )
+
     def handle_endtag(self, tag: str) -> None:
+        if tag not in VOID_TAGS:
+            if not self.tag_stack:
+                self.errors.append(f"line {self.getpos()[0]}: unexpected closing </{tag}>")
+            elif self.tag_stack[-1][0] != tag:
+                open_tag, open_line = self.tag_stack[-1]
+                self.errors.append(
+                    f"line {self.getpos()[0]}: closing </{tag}> mismatches <{open_tag}> from line {open_line}"
+                )
+            else:
+                self.tag_stack.pop()
+        if tag == "head":
+            self.in_head = False
+        elif self.in_head and tag in ("title", "style", "script") and self.head_text_allowed:
+            self.head_text_allowed -= 1
         if tag == "table" and self.in_table:
             self.in_table -= 1
             self.expected_cols.pop()
@@ -153,6 +200,13 @@ class SiteChecker(HTMLParser):
             if not self.row_has_td and self.header_cols:
                 self.expected_cols[-1] = self.header_cols
             self.in_row = False
+
+    def close(self) -> None:
+        super().close()
+        for tag, line in self.tag_stack:
+            self.errors.append(f"line {line}: unclosed <{tag}>")
+        if not self.has_meta_description:
+            self.errors.append("missing valid <meta name=\"description\" content=\"...\">")
 
 
 def check_file(filename: str) -> tuple[list[tuple[str, int]], list[str]]:
@@ -203,12 +257,21 @@ def main() -> int:
         return 1
 
     all_errors: list[str] = []
+    sources_external_links: set[str] = set()
     for page in PAGES:
         if not os.path.exists(os.path.join(ROOT, page)):
             all_errors.append(f"missing page: {page}")
             continue
-        _, errors = check_file(page)
+        links, errors = check_file(page)
+        if page == "sources.html":
+            sources_external_links = {
+                href for href, _ in links
+                if href.startswith("http://") or href.startswith("https://")
+            }
         all_errors.extend(f"{page}: {error}" for error in errors)
+
+    for url in sorted(VERIFIED_URLS - sources_external_links):
+        all_errors.append(f"sources.html: missing allowlisted official URL: {url}")
 
     # GitHub Pages serves the repository root, so every root Markdown file is public.
     import glob
@@ -230,8 +293,8 @@ def main() -> int:
         return 1
 
     print("VALIDATION PASSED")
-    print(f" - {len(PAGES)} pages checked")
-    print(f" - {len(VERIFIED_URLS)} official source URLs on allowlist")
+    print(f" - {len(PAGES)} pages checked (HTML tag balance & <head>/<meta> valid)")
+    print(f" - {len(VERIFIED_URLS)} official source URLs on allowlist (all listed on sources.html)")
     print(" - every table data row has an official source link")
     print(" - no tenant initials or personal identifiers in HTML or public Markdown")
     print(" - all internal links resolve")

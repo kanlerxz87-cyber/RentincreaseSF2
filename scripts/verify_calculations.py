@@ -199,14 +199,14 @@ def main() -> int:
 
     # ---------------- Published-value sweep ----------------
     analysis = ["analysis.html"]
-    expect_in_pages("Unit 1 increase", usd(u1_inc), analysis + ["executive-summary.html", "checklist.html"])
-    expect_in_pages("Unit 1 new rent", usd(u1_new), analysis + ["executive-summary.html", "checklist.html"])
-    expect_in_pages("Unit 1 early increase", usd(u1_early_inc), analysis)
-    expect_in_pages("Unit 1 early new rent", usd(UNIT1_BASE + u1_early_inc), analysis)
-    expect_in_pages("Unit 2 increase", usd(u2_inc), analysis + ["checklist.html"])
-    expect_in_pages("Unit 2 new rent", usd(UNIT2_BASE + u2_inc), analysis + ["checklist.html"])
-    expect_in_pages("Unit 2 phased increase", usd(u2_phase_inc), ["checklist.html"])
-    expect_in_pages("Unit 2 phased new rent", usd(UNIT2_BASE + u2_phase_inc), ["checklist.html"])
+    expect_in_pages("Unit 1 increase", usd(u1_inc), analysis + ["executive-summary.html", "checklist.html", "units.html"])
+    expect_in_pages("Unit 1 new rent", usd(u1_new), analysis + ["executive-summary.html", "checklist.html", "units.html"])
+    expect_in_pages("Unit 1 early increase", usd(u1_early_inc), analysis + ["units.html"])
+    expect_in_pages("Unit 1 early new rent", usd(UNIT1_BASE + u1_early_inc), analysis + ["units.html"])
+    expect_in_pages("Unit 2 increase", usd(u2_inc), analysis + ["checklist.html", "units.html"])
+    expect_in_pages("Unit 2 new rent", usd(UNIT2_BASE + u2_inc), analysis + ["checklist.html", "units.html"])
+    expect_in_pages("Unit 2 phased increase", usd(u2_phase_inc), ["checklist.html", "units.html"])
+    expect_in_pages("Unit 2 phased new rent", usd(UNIT2_BASE + u2_phase_inc), ["checklist.html", "units.html"])
     expect_in_pages("Unit 1 serve-by date", u1_serve.isoformat(), ["checklist.html"])
     expect_in_pages("Unit 1 mailed serve-by date", u1_serve_mail.isoformat(), ["checklist.html"])
     expect_in_pages("Unit 2 serve-by date", u2_serve.isoformat(), ["checklist.html"])
@@ -281,6 +281,7 @@ def main() -> int:
         "may only be given at the time of an annual increase",
         "cannot be imposed on its own later",
         "cannot be imposed on its own on a date",
+        "2024-10/538%202024-25",
     ]
     for page in sorted(f for f in os.listdir(ROOT) if f.endswith(".html")):
         with open(os.path.join(ROOT, page), encoding="utf-8") as handle:
