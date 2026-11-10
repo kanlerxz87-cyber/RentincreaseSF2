@@ -1563,12 +1563,41 @@ The platform fixes this session to branch `arena/54e7f654-rentincreasesf2`; sepa
 
 | # | Task | Status | Owner session | File scope | Sources / verification notes |
 |---|---|---|---|---|---|
-| 46 | Full residual line-by-line audit: verify PR #40’s coverage/conditional-language integration, repair the public Markdown conflict marker, inspect every page and source mapping, and re-read controlling official sources | in progress | arena/54e7f654-rentincreasesf2 | all root `*.html`, `AUDIT.md`, `README.md`, `scripts/*.py`, `COORDINATION.md` | Integration scope; no active non-stale overlapping claim found. Owner-supplied facts remain unverified and no personal identifiers will be published. |
-| 47 | Apply only verified residual corrections; strengthen validation for conflict markers, fragments, privacy, source rows, and conditional calculations | in progress | arena/54e7f654-rentincreasesf2 | same as task 46 | Every substantive correction must cite an official source; unsupported values remain blank/flagged. |
-| 48 | Final integrated build, local HTTP/link checks, calculations, PR from the fixed session branch to `main`, merge without waiting, Pages deployment and live read-back | unclaimed | arena/54e7f654-rentincreasesf2 | `COORDINATION.md` deployment record | Blocked on tasks 46–47; flagged factual/legal review items do not block a valid build. |
+| 46 | Full residual line-by-line audit: verify PR #40’s coverage/conditional-language integration, repair the public Markdown conflict marker, inspect every page and source mapping, and re-read controlling official sources | done | arena/54e7f654-rentincreasesf2 | all root `*.html`, `AUDIT.md`, `README.md`, `scripts/*.py`, `COORDINATION.md` | Integration scope; no active non-stale overlapping claim found. Owner-supplied facts remain unverified and no personal identifiers will be published. |
+| 47 | Apply only verified residual corrections; strengthen validation for conflict markers, fragments, privacy, source rows, and conditional calculations | done | arena/54e7f654-rentincreasesf2 | same as task 46 | Every substantive correction must cite an official source; unsupported values remain blank/flagged. |
+| 48 | Final integrated build, local HTTP/link checks, calculations, PR from the fixed session branch to `main`, merge without waiting, Pages deployment and live read-back | in progress | arena/54e7f654-rentincreasesf2 | `COORDINATION.md` deployment record | Blocked on tasks 46–47; flagged factual/legal review items do not block a valid build. |
 
 ### Rebase conflict log
 
 The initial `git pull --rebase origin main` replayed the shallow base merge and conflicted only at the append boundary of `COORDINATION.md`. The PR #36 record was preserved verbatim, the conflict markers were removed, and this session's claim was appended. No site content or other session record was discarded.
 
-A second integration check found PR #40 merged concurrently. Its F-31 scope/calculation conditions and F-01 coverage flag are adopted rather than duplicated; this session's task 46 is narrowed to verifying that integration. This session retains only residual privacy/validator, legal-wording and source-gap corrections. The second append-boundary rebase conflict preserves the PR #40 records and this claim verbatim. Commit `bb77458` removes tenant-specific public-code matching examples, checks every public text file for conflict markers, and requires an external official link in every table row. No tenant-specific pattern is retained in the repository.
+A second integration check found PR #40 merged concurrently. Its F-31 scope/calculation conditions and F-01 coverage flag are adopted rather than duplicated; task 46 verified that integration. This session retains only residual privacy/validator, legal-wording and source-gap corrections. The second append-boundary rebase conflict preserves the PR #40 records and this claim verbatim. Commit `bb77458` removes tenant-specific public-code matching examples, checks every public text file for conflict markers, and requires an external official link in every table row. No tenant-specific pattern is retained in the repository.
+
+### Task 46–47 residual correction record
+
+- Directly re-read the Housing Inventory page, Rent Ordinance §§ 37.3 and 37.15, Rules §§ 4.12 and
+  13.14, the current/historical Form 571 rates, banking and irregular-period guidance, Civil Code
+  §§ 827, 1942.5 and 1947.12, the algorithmic-device page, File 261020 plus its official text/digest,
+  petition pages, and federal/state/local fair-housing sources. Source-specific corrections are in
+  `AUDIT.md` Addendum E and public flags F-32/F-33.
+- PR #40's F-31 integration is retained. This branch adds no duplicate building-count flag and does
+  not alter its arithmetic. Open PR #39 is a separate conflicting branch and has not been merged or
+  used as a source of truth.
+- `888470a` removed public tenant-specific matching examples, added public-text merge-marker checks,
+  required external official links in table rows, and added an optional private-pattern interface
+  that does not print the patterns. No tenant-specific pattern is stored in the repository.
+- Residual site edits correct AB 1482 cap/local-exemption wording, narrow the algorithm warning to
+  covered non-public competitor-data devices, publish off-anniversary/new-anniversary guidance,
+  qualify all Unit 2 “lawful” conclusions, disclose Rules § 4.12(a) verbatim, distinguish authorized
+  petition/worksheet routes, and add the conservative Unit 2 annual-only 1.6% scenario
+  ($50.40 → $3,200.40). The annual-only option leaves 11.5% banked and does not depend on F-28's
+  banked-timing issue; ordinary legal gates still apply.
+- Final pre-commit checks: navigation 13 pages / 0 changes; validator 13 pages / 52 official URLs /
+  every row externally sourced / unique IDs / resolving links and fragments / no public-text merge
+  markers; calculation suite **254 assertions passed**; `git diff --check` passed. A negative test
+  injected only generic probe data and confirmed that the validator catches a private pattern without
+  echoing it, merge markers, and an unresolved cross-page fragment; all probe content was removed.
+  Direct flag anchors F-01…F-33 (including the separate F-23 privacy card) were added and checked.
+- Local HTTP: all **13 pages and 15 unique internal resources returned HTTP 200**, including
+  `style.css`; every page has a title, one H1 and one main landmark; parsed local fragments resolve.
+  The temporary HTTP server was stopped after the check. Tasks 46–47 are done; task 48 is in progress.

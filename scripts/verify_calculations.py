@@ -164,6 +164,14 @@ def main() -> int:
     expect("Unit 2 last day to serve for 2027-02-28", date(2027, 2, 28) - timedelta(days=90), date(2026, 11, 30))
     expect("Unit 2 last day to serve for 2027-02-28 (mailed)", date(2027, 2, 28) - timedelta(days=95), date(2026, 11, 25))
 
+    # Conservative annual-only alternative: use 1.6%, leave all 11.5% banked.
+    u2_annual_only_pct = u2_current
+    u2_annual_only_inc = money(UNIT2_BASE * u2_annual_only_pct / 100)
+    expect("Unit 2 annual-only percent", u2_annual_only_pct, Decimal("1.6"))
+    expect("Unit 2 annual-only increase", u2_annual_only_inc, Decimal("50.40"))
+    expect("Unit 2 annual-only new rent", UNIT2_BASE + u2_annual_only_inc, Decimal("3200.40"))
+    expect("Unit 2 annual-only remainder banked", u2_banked, Decimal("11.5"))
+
     # Phased alternative: 10.0% now, remainder stays banked, 30-day notice.
     u2_phase_pct = Decimal("10.0")
     u2_phase_inc = money(UNIT2_BASE * u2_phase_pct / 100)
@@ -179,9 +187,9 @@ def main() -> int:
     expect("Unit 2 anniversary serve by mail", u2_anniversary - timedelta(days=95), date(2027, 2, 26))
 
     # Proposed ordinance File No. 261020 (flag F-27). NOT law. If enacted as proposed it would
-    # cap the banked + capital-improvement components at 10%/year; the annual allowance is not
-    # in that list, so the ceiling would be 10% + 1.6% = 11.6%. Published only as a labelled
-    # conditional on flagged.html.
+    # cap banked + capital-improvement increases. The digest describes a component cap while
+    # the literal draft refers to the tenant's total rent increase. 11.6% is only the narrower
+    # theoretical arithmetic; 10.0% total is the conservative bill-draft scenario. Neither is law.
     u2_proposed_pct = Decimal("10.0") + u2_current
     expect("Proposed-cap conditional percent", u2_proposed_pct, Decimal("11.6"))
     u2_proposed_inc = money(UNIT2_BASE * u2_proposed_pct / 100)
@@ -205,6 +213,8 @@ def main() -> int:
     expect_in_pages("Unit 1 early new rent", usd(UNIT1_BASE + u1_early_inc), analysis + ["units.html"])
     expect_in_pages("Unit 2 increase", usd(u2_inc), analysis + ["checklist.html", "units.html"])
     expect_in_pages("Unit 2 new rent", usd(UNIT2_BASE + u2_inc), analysis + ["checklist.html", "units.html"])
+    expect_in_pages("Unit 2 annual-only increase", usd(u2_annual_only_inc), ["analysis.html", "checklist.html", "executive-summary.html", "units.html"])
+    expect_in_pages("Unit 2 annual-only new rent", usd(UNIT2_BASE + u2_annual_only_inc), ["analysis.html", "checklist.html", "executive-summary.html", "units.html"])
     expect_in_pages("Unit 2 phased increase", usd(u2_phase_inc), ["checklist.html", "units.html"])
     expect_in_pages("Unit 2 phased new rent", usd(UNIT2_BASE + u2_phase_inc), ["checklist.html", "units.html"])
     expect_in_pages("Unit 1 serve-by date", u1_serve.isoformat(), ["checklist.html"])
@@ -313,12 +323,24 @@ def main() -> int:
                     "No federal statute or agency page located in this review", ["laws.html"])
 
     # ---------------- Forbidden regressions (C-01, 2026-11-10) ----------------
-    # The site must never again assert that banked amounts can only be given at the time of an
-    # annual increase, or that a banked balance cannot be imposed later. sf.gov states that a
-    # properly banked increase "does not expire" and may be imposed on a future anniversary date
-    # or at another time when a rent increase is allowed.
+    # The exact Rules 4.12(a) timing sentence must be disclosed, not suppressed. Current guidance
+    # separately states that a properly banked increase "does not expire" and may be imposed at
+    # another permitted time. F-28 records that wording difference and the paired annual scenario.
+    expect_in_pages("Rules 4.12 annual-increase wording disclosed",
+                    "This banked amount may only be given at the time of an annual increase",
+                    ["flagged.html", "banking-rule.html", "laws.html"])
+    expect_in_pages("Unit 2 pairs banked amount with current annual component",
+                    "pairs the banked 11.5% with the current annual 1.6%",
+                    ["flagged.html", "banking-rule.html"])
+    expect_in_pages("AB 1482 cap/local exemption corrected", "§1947.12(d)(3)", ["laws.html"])
+    expect_in_pages("ordinary management software not prohibited", "unit-management software",
+                    ["index.html", "executive-summary.html", "practices.html", "checklist.html", "flagged.html"])
+    expect_in_pages("off-anniversary creates new anniversary", "becomes the new anniversary",
+                    ["index.html", "laws.html", "practices.html"])
+    expect_in_pages("residual corrections published", "F-33", ["flagged.html", "index.html"])
+
+    # Forbidden overstatements and superseded owner-fact conclusions.
     forbidden = [
-        "may only be given at the time of an annual increase",
         "cannot be imposed on its own later",
         "cannot be imposed on its own on a date",
         "2024-10/538%202024-25",
@@ -326,6 +348,14 @@ def main() -> int:
         # build year are owner-supplied, so the site states the rule, not the conclusion of fact.
         "Your building is in scope",
         "A two-unit building falls in that second group",
+        "AB 1482 is a floor",
+        "statewide floor",
+        "prohibited outright in San Francisco",
+        "Once every 12 months, on the tenant's anniversary date",
+        "Under current law 13.1% is lawful",
+        "13.1% remains lawful",
+        "Yes — the most defensible course",
+        "Your building is in scope? Yes",
     ]
     for page in sorted(f for f in os.listdir(ROOT) if f.endswith(".html")):
         with open(os.path.join(ROOT, page), encoding="utf-8") as handle:

@@ -113,6 +113,7 @@ class SiteChecker(HTMLParser):
         super().__init__()
         self.errors: list[str] = []
         self.links: list[tuple[str, int]] = []
+        self.ids: set[str] = set()
         self.in_table = 0
         self.in_row = False
         self.row_has_td = False
@@ -127,6 +128,11 @@ class SiteChecker(HTMLParser):
         self.has_meta_description = False
 
     def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
+        element_id = next((value for key, value in attrs if key == "id" and value), "")
+        if element_id:
+            if element_id in self.ids:
+                self.errors.append(f"line {self.getpos()[0]}: duplicate id: {element_id}")
+            self.ids.add(element_id)
         if tag not in VOID_TAGS:
             self.tag_stack.append((tag, self.getpos()[0]))
         if tag == "head":
@@ -214,7 +220,7 @@ class SiteChecker(HTMLParser):
             self.errors.append("missing valid <meta name=\"description\" content=\"...\">")
 
 
-def check_file(filename: str) -> tuple[list[tuple[str, int]], list[str]]:
+def check_file(filename: str) -> tuple[list[tuple[str, int]], list[str], set[str]]:
     path = os.path.join(ROOT, filename)
     with open(path, "r", encoding="utf-8") as handle:
         html = handle.read()
@@ -253,7 +259,7 @@ def check_file(filename: str) -> tuple[list[tuple[str, int]], list[str]]:
     if "Not legal advice" not in html:
         errors.append("missing not-legal-advice footer")
 
-    return checker.links, errors
+    return checker.links, errors, checker.ids
 
 
 def main() -> int:
@@ -263,17 +269,32 @@ def main() -> int:
 
     all_errors: list[str] = []
     sources_external_links: set[str] = set()
+    page_links: dict[str, list[tuple[str, int]]] = {}
+    page_ids: dict[str, set[str]] = {}
     for page in PAGES:
         if not os.path.exists(os.path.join(ROOT, page)):
             all_errors.append(f"missing page: {page}")
             continue
-        links, errors = check_file(page)
+        links, errors, ids = check_file(page)
+        page_links[page] = links
+        page_ids[page] = ids
         if page == "sources.html":
             sources_external_links = {
                 href for href, _ in links
                 if href.startswith("http://") or href.startswith("https://")
             }
         all_errors.extend(f"{page}: {error}" for error in errors)
+
+    for source, links in page_links.items():
+        for href, line in links:
+            if "#" not in href or href.startswith(("http://", "https://", "mailto:", "tel:")):
+                continue
+            target, fragment = href.split("#", 1)
+            target = target.split("?", 1)[0] or source
+            if target in page_ids and fragment not in page_ids[target]:
+                all_errors.append(
+                    f"{source}: line {line}: unresolved fragment {fragment!r} in {target}"
+                )
 
     for url in sorted(VERIFIED_URLS - sources_external_links):
         all_errors.append(f"sources.html: missing allowlisted official URL: {url}")
@@ -333,9 +354,9 @@ def main() -> int:
     print(f" - {len(PAGES)} pages checked (HTML tag balance & <head>/<meta> valid)")
     print(f" - {len(VERIFIED_URLS)} official source URLs on allowlist (all listed on sources.html)")
     print(" - every table data row has an external official source link")
-    print(f" - {len(PRIVATE_PATTERNS)} privately supplied privacy patterns checked across all public text files")
+    print(f" - {len(PRIVATE_PATTERNS)} optional private patterns configured; all public text files scanned")
     print(" - no unresolved merge-conflict markers in public text files")
-    print(" - all internal links resolve")
+    print(" - all internal links and fragments resolve; element IDs are unique")
     print(" - every table row matches its header column count")
     return 0
 
