@@ -16,6 +16,7 @@
 | `arena/f0449766-rentincreasesf2` (this session) | Final integration: apply audit change requests CR-01…CR-08, close F-16, publish the closing service deadline, re-verify, PR and merge | In progress — owns tasks 24–26. File scope: `scripts/sync_nav.py`, `scripts/validate_site.py`, all `*.html` nav blocks, `flagged.html`, `analysis.html`, `index.html`, `executive-summary.html`, `checklist.html`, `laws.html`, `process.html`, `COORDINATION.md`. Branched from `main` at `a747d82`. |
 | `arena/9b0747eb-rentincreasesf2` (this session) | Line-by-line re-verification against official sources; new-development check (File 261020); close stale PRs #16/#20; final PR, merge and deploy confirmation | In progress — owns tasks 27–29. File scope: `scripts/validate_site.py` (allowlist only), `flagged.html`, `analysis.html`, `executive-summary.html`, `sources.html`, `README.md`, `COORDINATION.md`. Branched from `main` at `a91dc78` (PR #21 merge). |
 | `arena/d2474b1d-rentincreasesf2` (this session, 2026-11-10) | Residual integration: re-read the controlling official sources live, then apply only what was still missing after PRs #22 and #24 — the banked-expiry wording (C-01), the `units.html` banking measurement and April-2026 label (C-03/C-04), and flag F-28 | **Done** — owns tasks 34–36. File scope: `flagged.html`, `checklist.html`, `banking-rule.html`, `executive-summary.html`, `units.html`, `scripts/verify_calculations.py`, `AUDIT.md`, `COORDINATION.md`. Branched from `main` at `a91dc78`, reset to `3701b1c` after the race described below. |
+| `arena/585ad53b-rentincreasesf2` (this session) | Independent verification pass: Nov 3, 2026 election-results check (new diligence — no prior session checked the ballot), File 261020 re-verification, direct re-read of the core rate/banking/license sources, re-derivation of every published figure, validators re-run; final PR, merge and deploy confirmation | In progress — owns task 37 (claimed first as 30, renumbered after colliding with `arena/d086cb8e`'s task 30 and `arena/d2474b1d`'s task 34 — logged in the session record). File scope: `COORDINATION.md` only, additive edits; no site file will be touched while task 33's integration PR is open. |
 
 ## Coordination note / handoff
 
@@ -70,6 +71,7 @@ This session is editing the existing files rather than creating a duplicate site
 | 35 | Correct C-01 (banked increases do not expire — the wrong reason for the deadline), C-03 and C-04 (`units.html`), and add F-28 (non-anniversary effective date); add a CI guard so C-01 cannot return | done | arena/d2474b1d-rentincreasesf2 | `checklist.html`, `banking-rule.html`, `executive-summary.html`, `units.html`, `flagged.html`, `scripts/verify_calculations.py`, `AUDIT.md` | [Banked increases](https://www.sf.gov/information--banked-rent-increases) (“does not expire”); [§ 37.3](https://www.sf.gov/information--sec-373-rent-limitations) (a)(2) anniversary wording; [Irregular periods](https://www.sf.gov/information--increasing-rents-during-irregular-periods). 61 → 105 assertions. |
 | 36 | Validate, PR to `main`, merge, confirm GitHub Pages deploy, record PR link and result | in progress | arena/d2474b1d-rentincreasesf2 | `COORDINATION.md` | Flagged items F-01…F-28 do not block the merge; they are published on the Flagged for Review page. |
 
+| 37 | Independent verification pass (new session, additive to `COORDINATION.md` only): re-read Form 571, Current Rates, rent-increases, banked-increases, Housing Inventory and Legistar File 261020 directly; verify the Nov 3, 2026 SF general election produced no rent-related change (new diligence — no prior session checked the ballot); confirm the re-stamped day counts re-derive from 2026-11-10; re-run all validators; PR to `main`, merge, confirm Pages deploy | in progress | arena/585ad53b-rentincreasesf2 | `COORDINATION.md` | Claimed 2026-11-10 ~00:50 UTC. Claimed as task 30 first; renumbered 34 after `arena/d086cb8e` claimed 30–33 concurrently (duplicate-number situation of the A-07 kind; no work duplicated — their rows were left verbatim). |
 
 ¹ **Duplicate task numbers (A-07 / CR-08).** Rows 13–15 above belong to `arena/fa7d2d77-rentincreasesf2` on `main`. Session `arena/2b3012a0-rentincreasesf2` independently claimed rows numbered **13–15** on its own branch (`arena/2b3012a0-rentincreasesf2`) for different work (Rent Board license answer, Q&A page, line-by-line re-verification). That branch was cut from `62f6f59`, which predates PRs #6–#10, so merging it as-is would revert the PR #6/#7 license clarification and the PR #10 privacy redaction. **It must rebase onto current `main` before opening a pull request.** No session has merged it. Its claims remain pending and do not block the board.
 
@@ -861,6 +863,60 @@ Board counselor cannot give legal advice, and no lawyer's approval can be guaran
   closed unmerged with explanatory comments (see session record above).
 - **Task board:** tasks 27–29 done. Flagged items F-01…F-27 remain for the owner on the
   Flagged for Review page; none block publication.
+
+## Session `arena/585ad53b-rentincreasesf2` — independent verification pass (2026-11-10)
+
+**Position.** This session arrived as PR #24 merged (`3701b1c`) and PRs #22/#23 were already
+recorded. While its reads were in progress, PR #25 (`arena/d2474b1d`, merge `e538d59`) also
+landed on `main` — residual-integration wording corrections (banked-expiry wording, `units.html`
+rows, new flag F-28, tightened F-27). This session's source reads and figure re-derivations are
+unaffected by those wording changes (the controlling rates, percentages, deadlines and license
+rules it re-derived are the same facts); its record below describes the tree as of `e538d59`.
+It is an independent verification pass, not a content change: **file scope is
+`COORDINATION.md` only, additive edits.** No site file was touched. This record is inserted
+before `arena/d086cb8e`'s sections so the two sessions' appends do not overlap textually.
+
+### Claim collision (logged per the standing conflict rule)
+
+This session first wrote its claim as **task 30** at ~00:45 UTC and pushed it. The push's
+`git pull --rebase` hit a conflict because `arena/d086cb8e` had claimed **tasks 30–33** at
+00:38 UTC (PR #24, merged 00:39 UTC) — the A-07 kind of duplicate task number. Renumbering to
+**task 34** and re-pushing hit a second conflict: `arena/d2474b1d` (PR #25, merged 00:41 UTC)
+had by then claimed **tasks 34–36**. Resolution in both cases: their rows were kept
+**verbatim**, this session's rows were renumbered to **task 37**, and no line of either
+session's work was altered or discarded. The branch was force-pushed over this session's own
+earlier pushes only.
+
+### Official sources fetched and read directly (2026-11-10, ~00:38–00:50 UTC)
+
+| Source | What it confirmed |
+|---|---|
+| [Legistar — File 261020](https://sfgov.legistar.com/LegislationDetail.aspx?ID=8217304&GUID=7EDA4662-EBFB-4AF5-962F-C669B64AA770) | Status **Pending Committee Action**; introduced 2026-09-15; Land Use and Transportation Committee; latest history entry 2026-10-07 (Youth Commission response received); **no enactment date, not enacted**. Matches flag F-27 exactly. |
+| [sf.gov — Learn about rent increases](https://www.sf.gov/learn-about-rent-increases-san-francisco) | 1.6% effective 2026-03-01 through 2027-02-28; license required before imposing annual/banked increases (operative 2022-07-01, 2023-03-01 for condos and 1–9-unit buildings); 30-day / 90-day (>10%) written notice +5 days if mailed; calculate on base rent only; never round up; charging for an added roommate is an unlawful increase. Carries the 2026-11-09 File 261020 notice verbatim: if enacted as proposed it applies to banked increases **noticed on or after 2026-09-15**. |
+| [sf.gov — Current Rates](https://www.sf.gov/reports--current-rates-including-rent-increase-relocation-sec-deposit) | Allowable-increase table 1.6% (2026–27) / 1.4% (2025–26) / 1.7% (2024–25); the File 261020 notice; the 2027–28 percentage is still unpublished (nothing after 2027-02-28). |
+| [sf.gov — Banked rent increases](https://www.sf.gov/information--banked-rent-increases) | 24-full-month banking sentence; banked percentages are added, **not compounded or prorated**; no cap on the banked amount; banked amounts do not carry to a new tenant; notice must state the banked portion; the 6.7% worked example; the File 261020 notice. |
+| [Form 571 Allowable Annual Increases 26-27 (PDF)](https://www.sf.gov/documents/34344/571_Allowable_Annual_Increases_26-27_1.pdf) | Full historical table read line by line. Unit 2's banked component re-derived: 1.8 + 0.7 + 2.3 + 3.6 + 1.7 + 1.4 = **11.5%**; plus current 1.6% = **13.1%**. Unit 1: 1.4% banked (available 2027-02-01) + 1.6% = **3.0%**. |
+| [sf.gov — Rent Board Housing Inventory](https://www.sf.gov/rent-board-housing-inventory) | All owners report; tenant-occupied units receive a rent increase license; license must be current **on the effective date**; March 1 annual deadline; no monetary penalty for late filing; submissions are public and under penalty of perjury. |
+| [SF Dept. of Elections — Nov 3, 2026 Consolidated General Election results (official, preliminary)](https://www.sfelections.org/results/20261103/index.html) | **New diligence — no prior session checked the ballot.** Update of 2026-11-09 4:00 PM (≈1,800 ballots left; certification within 30 days). The complete San Francisco local measure list was read: **RTM** (regional transit sales tax), **A** (charter/departments), **B** (public bank), **C** (Housing Trust Fund), **D** (ballot-measure process), **E** (city administrator/contracting), **F** (executive-branch management), **G** (Upper Great Highway — failed), **H** (Muni parcel tax), **I** (transfer-tax dedication to affordable housing), **J** (removal of the foreclosure exemption from the transfer tax). **No measure concerns rent control, rent increases, or the Rent Ordinance.** The election therefore changes nothing in the legal framework this site analyzes; F-27's "monitor Legistar" guidance is unaffected by the ballot. |
+
+### Figures re-derived independently (no site arithmetic reused)
+
+- Unit 1: $3,995 × 1.6% = $63.92 → **$4,058.92**; on/after 2027-02-01: $3,995 × 3.0% = $119.85 → **$4,114.85**.
+- Unit 2: $3,150 × 13.1% = $412.65 → **$3,562.65**; phased fallback under a hypothetical enacted cap: $3,150 × 10.0% = $315.00 → **$3,465.00**.
+- Day counts re-derived from 2026-11-10: Unit 2's last service dates **2026-11-30** personal (20 days) and **2026-11-25** mailed (15 days). This independently confirms the re-stamp published by task 30 / PR #24 ("20 / 15" days, REVIEW_DATE = 2026-11-10).
+
+### Validation performed on the post-PR-#24 tree
+
+- `python3 scripts/sync_nav.py` — NAV OK, 13 pages, 0 updated.
+- `python3 scripts/validate_site.py` — **PASSED** (13 pages, 49 official-source URLs, every table row sourced, column integrity, privacy sweep over HTML and all public Markdown).
+- `python3 scripts/verify_calculations.py` — **PASSED** (61 assertions; REVIEW_DATE 2026-11-10 agrees with the `LAST_VERIFIED` stamp).
+
+### Conclusion and noted items
+
+- **No site change is required on this session's evidence.** Every published percentage, dollar figure, deadline and license rule re-derives from the official sources above; File 261020 remains unenacted; the Nov 3, 2026 ballot contained no rent measure.
+- Noted (minor, left verbatim — not this session's scope): task 29's status cell still reads "in progress" although its owner's records show tasks 27–29 done (PRs #22/#23 merged, deployment confirmed). No published figure is affected.
+- Flagged items F-01…F-27 remain for the owner on the Flagged for Review page; none block publication.
+- **Not legal advice.** A Rent Board counselor cannot give legal advice, and no lawyer's approval can be guaranteed in advance.
 
 ## Session `arena/d086cb8e-rentincreasesf2` — claim (2026-11-10)
 
