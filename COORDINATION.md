@@ -864,6 +864,53 @@ Board counselor cannot give legal advice, and no lawyer's approval can be guaran
 - **Task board:** tasks 27–29 done. Flagged items F-01…F-27 remain for the owner on the
   Flagged for Review page; none block publication.
 
+## Session `arena/585ad53b-rentincreasesf2` — independent verification pass (2026-11-10)
+
+**Position.** This session arrived as PR #24 merged (`3701b1c`) and PRs #22/#23 were already
+recorded. It is an independent verification pass, not a content change: **file scope is
+`COORDINATION.md` only, additive edits.** No site file was touched. This record is inserted
+before `arena/d086cb8e`'s sections so the two sessions' appends do not overlap textually.
+
+### Claim collision (logged per the standing conflict rule)
+
+This session first wrote its claim as **task 30** at ~00:45 UTC and pushed it. The push's
+`git pull --rebase` hit a conflict because `arena/d086cb8e` had claimed **tasks 30–33** at
+00:38 UTC (PR #24, merged 00:39 UTC) — the A-07 kind of duplicate task number. Resolution:
+their rows were kept **verbatim**, this session's rows were renumbered to **task 34**, and no
+line of the other session's work was altered or discarded. The rebase was completed and the
+branch force-pushed over this session's own earlier push only.
+
+### Official sources fetched and read directly (2026-11-10, ~00:38–00:50 UTC)
+
+| Source | What it confirmed |
+|---|---|
+| [Legistar — File 261020](https://sfgov.legistar.com/LegislationDetail.aspx?ID=8217304&GUID=7EDA4662-EBFB-4AF5-962F-C669B64AA770) | Status **Pending Committee Action**; introduced 2026-09-15; Land Use and Transportation Committee; latest history entry 2026-10-07 (Youth Commission response received); **no enactment date, not enacted**. Matches flag F-27 exactly. |
+| [sf.gov — Learn about rent increases](https://www.sf.gov/learn-about-rent-increases-san-francisco) | 1.6% effective 2026-03-01 through 2027-02-28; license required before imposing annual/banked increases (operative 2022-07-01, 2023-03-01 for condos and 1–9-unit buildings); 30-day / 90-day (>10%) written notice +5 days if mailed; calculate on base rent only; never round up; charging for an added roommate is an unlawful increase. Carries the 2026-11-09 File 261020 notice verbatim: if enacted as proposed it applies to banked increases **noticed on or after 2026-09-15**. |
+| [sf.gov — Current Rates](https://www.sf.gov/reports--current-rates-including-rent-increase-relocation-sec-deposit) | Allowable-increase table 1.6% (2026–27) / 1.4% (2025–26) / 1.7% (2024–25); the File 261020 notice; the 2027–28 percentage is still unpublished (nothing after 2027-02-28). |
+| [sf.gov — Banked rent increases](https://www.sf.gov/information--banked-rent-increases) | 24-full-month banking sentence; banked percentages are added, **not compounded or prorated**; no cap on the banked amount; banked amounts do not carry to a new tenant; notice must state the banked portion; the 6.7% worked example; the File 261020 notice. |
+| [Form 571 Allowable Annual Increases 26-27 (PDF)](https://www.sf.gov/documents/34344/571_Allowable_Annual_Increases_26-27_1.pdf) | Full historical table read line by line. Unit 2's banked component re-derived: 1.8 + 0.7 + 2.3 + 3.6 + 1.7 + 1.4 = **11.5%**; plus current 1.6% = **13.1%**. Unit 1: 1.4% banked (available 2027-02-01) + 1.6% = **3.0%**. |
+| [sf.gov — Rent Board Housing Inventory](https://www.sf.gov/rent-board-housing-inventory) | All owners report; tenant-occupied units receive a rent increase license; license must be current **on the effective date**; March 1 annual deadline; no monetary penalty for late filing; submissions are public and under penalty of perjury. |
+| [SF Dept. of Elections — Nov 3, 2026 Consolidated General Election results (official, preliminary)](https://www.sfelections.org/results/20261103/index.html) | **New diligence — no prior session checked the ballot.** Update of 2026-11-09 4:00 PM (≈1,800 ballots left; certification within 30 days). The complete San Francisco local measure list was read: **RTM** (regional transit sales tax), **A** (charter/departments), **B** (public bank), **C** (Housing Trust Fund), **D** (ballot-measure process), **E** (city administrator/contracting), **F** (executive-branch management), **G** (Upper Great Highway — failed), **H** (Muni parcel tax), **I** (transfer-tax dedication to affordable housing), **J** (removal of the foreclosure exemption from the transfer tax). **No measure concerns rent control, rent increases, or the Rent Ordinance.** The election therefore changes nothing in the legal framework this site analyzes; F-27's "monitor Legistar" guidance is unaffected by the ballot. |
+
+### Figures re-derived independently (no site arithmetic reused)
+
+- Unit 1: $3,995 × 1.6% = $63.92 → **$4,058.92**; on/after 2027-02-01: $3,995 × 3.0% = $119.85 → **$4,114.85**.
+- Unit 2: $3,150 × 13.1% = $412.65 → **$3,562.65**; phased fallback under a hypothetical enacted cap: $3,150 × 10.0% = $315.00 → **$3,465.00**.
+- Day counts re-derived from 2026-11-10: Unit 2's last service dates **2026-11-30** personal (20 days) and **2026-11-25** mailed (15 days). This independently confirms the re-stamp published by task 30 / PR #24 ("20 / 15" days, REVIEW_DATE = 2026-11-10).
+
+### Validation performed on the post-PR-#24 tree
+
+- `python3 scripts/sync_nav.py` — NAV OK, 13 pages, 0 updated.
+- `python3 scripts/validate_site.py` — **PASSED** (13 pages, 49 official-source URLs, every table row sourced, column integrity, privacy sweep over HTML and all public Markdown).
+- `python3 scripts/verify_calculations.py` — **PASSED** (61 assertions; REVIEW_DATE 2026-11-10 agrees with the `LAST_VERIFIED` stamp).
+
+### Conclusion and noted items
+
+- **No site change is required on this session's evidence.** Every published percentage, dollar figure, deadline and license rule re-derives from the official sources above; File 261020 remains unenacted; the Nov 3, 2026 ballot contained no rent measure.
+- Noted (minor, left verbatim — not this session's scope): task 29's status cell still reads "in progress" although its owner's records show tasks 27–29 done (PRs #22/#23 merged, deployment confirmed). No published figure is affected.
+- Flagged items F-01…F-27 remain for the owner on the Flagged for Review page; none block publication.
+- **Not legal advice.** A Rent Board counselor cannot give legal advice, and no lawyer's approval can be guaranteed in advance.
+
 ## Session `arena/d086cb8e-rentincreasesf2` — claim (2026-11-10)
 
 **Claimed at** 2026-11-10T00:38Z, immediately after PR #22 merged (`d02bee8`). **Tasks 30–33.**
