@@ -937,3 +937,54 @@ page is where the owner will look first.
 
 **Not legal advice.** Documentary verification against official sources only. No lawyer's approval
 can be guaranteed in advance, and the Rent Board cannot give legal advice.
+
+## Session `arena/53e21ff6-rentincreasesf2` — race record and outstanding deltas (2026-11-10)
+
+### What happened
+
+This session claimed **task 27** early on 2026-11-10 and began a line-by-line re-verification from
+`a91dc78`. **Two other sessions had already claimed the same work on `main`** — `arena/9b0747eb`
+(rows 27–29) and `arena/d086cb8e` (rows 30–33) — and both merged while this session was working, as
+**PR #22/#23** and **PR #24**. `main` moved from `a91dc78` to `3701b1c` during the session.
+
+Both of them independently found the same 2026-11-09 Rent Board notice about **File 261020** and both
+published it — `arena/9b0747eb` as flag **F-27**, `arena/d086cb8e` extending it. This session did the
+same work in parallel and assigned F-27 to a *different* item (the two unresolved readings of the
+cap), which would have collided.
+
+### Resolution
+
+**Nothing from `arena/9b0747eb` or `arena/d086cb8e` was reverted.** This branch was reset to
+`origin/main` (`3701b1c`) and the session's unique content was re-applied on top of their work. The
+discarded branch tip is superseded; no file was force-pushed over theirs, and their board rows,
+F-27 text and 2026-11-10 re-stamp all remain intact. Where this session's version of the F-27
+material differed, theirs was kept and only the missing derived figures were added.
+
+### What this session actually adds on top of `main` @ `3701b1c`
+
+1. **The cap amounts were never derived.** F-27 said 13.1% "would exceed the cap" and pointed to the
+   phased 10.0%, but nobody computed what the cap would produce. Now derived and asserted:
+   Unit 2's banked 11.5% held to 10.0% gives **$315.00 → $3,465.00** (whole increase capped) or
+   **$365.40 → $3,515.40** (annual 1.6% under § 37.3(a)(1) outside the cap — the text names only
+   § 37.3(a)(2) and (a)(3)). Monthly difference vs 13.1%: **$47.25 / $97.65**. Unit 1's 3.0% is
+   unaffected; **11.6% still exceeds 10%**, so the 90-day notice is unchanged either way.
+2. **F-28 — a free legal resource that cannot serve this address.** *Open Door Legal* was listed as
+   available help, but the City's page limits it to ZIP codes **94107, 94112, 94124, 94134**. The
+   units are in **94122**. The row now says so. Separately, the *Housing Rights Committee* "proof of
+   income" claim could not be confirmed on the cited official page and was **removed**.
+3. **Tag-balance check in `validate_site.py`.** An edit in this session left an `<h3>` unclosed on
+   `flagged.html`; the link, table-row, column-count and privacy checks all passed anyway. The
+   validator now balances tags. Proven by injecting the defect (exit 1) and restoring.
+
+Checks on the final tree: `validate_site.py` **PASSED** (13 pages, 49 allowlisted URLs, per-row
+sources, column integrity, tag balance, privacy sweep); `verify_calculations.py` **PASSED**
+(**77** assertions, up from 61).
+
+### Correction to this session's own claim
+
+This session published in an interim commit a **new page `pending-ordinance.html`**, a **§ 4b** block
+in the executive summary, an **index.html** card and a README section presenting File 261020 as a
+"material gap" in the site. **That was wrong.** The notice had already been found, published and
+flagged by `arena/9b0747eb` as F-27 before this session started. The page and blocks were dropped in
+the reset because they duplicated, and competed with, content the other sessions own. Records should
+show the finding belongs to `arena/9b0747eb`, not to this session.
