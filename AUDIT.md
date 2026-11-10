@@ -342,3 +342,18 @@ root Markdown files return HTTP 200 from a local static server · zero personal-
 **Race record.** No work from PRs #22 or #24 was reverted or edited away; the only edits to
 another session's text on this branch are the additive F-27 refinements above, made under the
 integration-session prerogative after every other task reached `done`.
+
+## Residual final-integration source check — session `arena/817d1de7-rentincreasesf2`, 2026-11-10
+
+This session independently identified File 261020 and then aligned its branch to the newer integrated
+`main` rather than merge duplicate text. The only residual site change is source hardening: the
+[official draft ordinance, version 1](https://sfgov.legistar.com/View.ashx?M=F&ID=15865646&GUID=0E2E6936-000B-4597-A4EE-FBB17C19636E)
+is now cited directly alongside the [legislation status record](https://sfgov.legistar.com/LegislationDetail.aspx?ID=8217304&GUID=7EDA4662-EBFB-4AF5-962F-C669B64AA770).
+Proposed §37.3(h) was read directly. It states the 10% combined banked/capital-improvement limit,
+the lowest-base-rent measurement, the 2026-09-15 notice cutoff, and the 2029-12-31 sunset unless
+extended. The status remains Pending Committee Action; no enactment is inferred.
+
+Final checks on the integrated tree: 13 pages; 50 allowlisted official URLs; every table row sourced;
+column counts valid; no broken internal links or local fragments; balanced HTML; 17 public files
+served locally with HTTP 200 and non-empty bodies; no personal identifiers in HTML or public
+Markdown; all 105 calculation and forbidden-phrase assertions passed; `git diff --check` passed.
