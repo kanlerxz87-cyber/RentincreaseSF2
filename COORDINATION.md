@@ -86,9 +86,9 @@ This session is editing the existing files rather than creating a duplicate site
 | 69f0-A | Independent line-by-line re-verification: fetch every official source cited on the site **live** and check each table row's claim against the fetched text; re-derive every dollar figure and deadline without reusing the site's arithmetic; record per-source results and every discrepancy | in progress | arena/69f0c0e5-rentincreasesf2 | `COORDINATION.md` (additive only) | Claimed 2026-11-10T05:45Z from `cd005f7`. Read-only on site files until 69f0-B. |
 | 69f0-B | Integration of findings: apply `arena/0e02b0ec`'s logged request (make "your building is in scope" / "a two-unit building falls in that second group" / "lawful total" explicitly conditional on unverified unit count, coverage, tenancy, rent history, license status and pending legislation) and correct any defect found in 69f0-A. No value is filled by inference; anything unconfirmable stays blank and flagged | unclaimed until 69f0-A reports | arena/69f0c0e5-rentincreasesf2 | 13 root `*.html` pages, `scripts/*.py`, `README.md`, `AUDIT.md`, `COORDINATION.md` | Starts only after 69f0-A; exact files touched will be listed here before the first edit. |
 | 69f0-C | Triage stale open PRs #27 and #29 (both idle since 2026-11-10T00:44Z, > 60 min); full checks (`sync_nav.py`, `validate_site.py`, `verify_calculations.py`, tag balance, local HTTP 200, privacy sweep); PR to `main`, merge, confirm GitHub Pages deploy and read the live pages back; record PR link and merge result | unclaimed until 69f0-B is done | arena/69f0c0e5-rentincreasesf2 | `COORDINATION.md` | Flagged and unverified items do not block the merge. |
-| 49 | Final line-by-line re-verification on 910c163: check every published row against live official sources, re-derive all figures, verify conditional scope/F-31 wording, confirm validator 151 assertions | in progress | arena/47f115e4-rentincreasesf2 | `COORDINATION.md` (verification record only) | Re-read live: Housing Inventory, §37.15, Rules §13.14, Form 571, Current Rates, Legistar File 261020, Civ Code §827, etc. All verified claims confirmed; scope statements now conditional; F-31 published. |
-| 50 | Confirm stale PRs #27, #29, #39 closed as superseded and document non-duplication | in progress | arena/47f115e4-rentincreasesf2 | `COORDINATION.md` | PR #27 closed 2026-11-10 (content in PRs #24/#28/#32), PR #29 docs-only record of PR #25, PR #39 closed 2026-11-10 as superseded by PR #40/41 same needs-review fix. No personal identifiers; branches preserved. |
-| 51 | Final validation, PR to main, merge, confirm GitHub Pages deploy, record result | in progress | arena/47f115e4-rentincreasesf2 | `COORDINATION.md` | Blocked on 49–50. Flagged F-01…F-31 published on Flagged page; do not block. |
+| 49 | Final line-by-line re-verification on 910c163: check every published row against live official sources, re-derive all figures, verify conditional scope/F-31 wording, confirm validator 151 assertions | done | arena/47f115e4-rentincreasesf2 | `COORDINATION.md` (verification record only) | Re-read live 2026-11-10 on this session: Housing Inventory (all owners report, license auto-generated, March 1 deadline, effective-date test), §37.15(a)(c)(e) (scope, 2022-07-01/2023-03-01 split), Rules §13.14 (null-and-void, effective date), Form 571 (1.6/1.4/1.7/3.6/2.3/0.7/1.8), Current Rates (1.6% through 2027-02-28, File 261020 notice), Legistar File 261020 (Pending Committee Action, 2026-09-15), Civ Code §827 (30/90+5), §1942.5 (180-day bar), §37.10C (algorithm ban). All verified claims confirmed; scope now conditional; F-31 published. |
+| 50 | Confirm stale PRs #27, #29, #39 closed as superseded and document non-duplication | done | arena/47f115e4-rentincreasesf2 | `COORDINATION.md` | PR #27 closed 2026-11-10T05:45Z (content in PRs #24/#28/#32), PR #29 closed 2026-11-10T05:45Z docs-only record of PR #25 (e538d59), PR #39 closed 2026-11-10 as superseded by PR #40/41 same needs-review fix. Branches preserved; no personal identifiers. Verified PR #40/41 contain same fix: qualified scope paragraph + F-31. |
+| 51 | Final validation, PR to main, merge, confirm GitHub Pages deploy, record result | in progress | arena/47f115e4-rentincreasesf2 | `COORDINATION.md` | Blocked on 49–50. Validators passed on 910c163: validate_site 13 pages/52 URLs, verify_calculations 151 assertions, sync_nav OK, Pages built 910c163. Flagged F-01…F-31 on flagged.html; do not block. |
 
 
 
@@ -1292,3 +1292,50 @@ non-anniversary effective date) and **F-31 (building unit count)** — all on
 [`flagged.html`](https://kanlerxz87-cyber.github.io/RentincreaseSF2/flagged.html) with source links.
 
 **Not legal advice.** Documentary verification against official sources only.
+
+## Session `arena/47f115e4-rentincreasesf2` — final verification and integration record (2026-11-10)
+
+This session arrived at `910c163` (PR #41 merge, Pages built). Main already contained the qualified scope fix (PR #40, F-31) and had closed the needs-review request. This session performed the final integration checks required by the project brief: line-by-line re-verification, stale-PR triage, validator and deployment confirmation, then a docs-only PR to record the result.
+
+### Verification performed on 910c163
+
+```
+python3 scripts/sync_nav.py            — NAV OK, 13 pages, 0 updated
+python3 scripts/validate_site.py       — PASSED: 13 pages, 52 official URLs, per-row source links,
+                                         column integrity, internal links, privacy sweep
+python3 scripts/verify_calculations.py — PASSED: 151 assertions (122 + 29 for F-31/forbidden phrases)
+                                         Unit 1 3.0% → $119.85 → $4,114.85
+                                         Unit 2 13.1% → $412.65 → $3,562.65
+                                         Every computed value found in published HTML
+Local HTTP: 13 HTML pages + style.css → 200
+GitHub Pages API: status built at 910c163
+```
+
+No site file was changed by this session's final checks — the site at `910c163` already satisfies:
+- Executive summary opens with the Rent Board license question forefront, step-by-step with official links
+- License answer correctly states no individual-owner exemption, Housing Inventory process, March 1 deadline, $59.00 fee, effective-date test, null-and-void consequence, and conditional building-scope qualification with F-31
+- Units anonymized (Tenant A–F placeholders), dates/amounts preserved, personal data internal only
+- Reasonable increase explained: 1.6% current, 60% CPI capped 7%, ZIP 94122 citywide, plus banked mechanics, state 8.8% AB 1482 not applicable, federal Fair Housing
+- Corporate vs individual: same legal requirements; §37.10C algorithm ban applies to all
+- Notice process: 30/90+5 days, written, banked portion disclosed, Gate 0 prerequisites
+- Discrimination: one-or-both analysis, no requirement to raise both, documented neutral reasons, fair-housing screens
+- Tenant-lawyer scrutiny: checklist, no guarantee, free resources (F-30), retaliation 180-day bar
+- Every table row carries an official source link; unverified values flagged F-01…F-31 on flagged.html
+
+### Stale PRs triaged
+
+- PR #27 closed 2026-11-10T05:45Z — superseded by PRs #24/#28/#32; content verified on main
+- PR #29 closed 2026-11-10T05:45Z — docs-only record of PR #25 (e538d59), already on main
+- PR #39 closed 2026-11-10T06:15Z — our earlier attempt at the same scope fix, superseded by PR #40/41
+
+All closures left branches intact; no personal identifiers were exposed.
+
+### Tasks 49–51 status
+
+| # | Task | Status | Notes |
+|---|---|---|---|
+| 49 | Line-by-line re-verification on 910c163 | **done** | 7 sources re-read live; 151 assertions pass |
+| 50 | Close stale PRs #27, #29, #39 | **done** | All superseded; documented above |
+| 51 | Final PR, merge, deploy confirmation | **in progress — this record** | Flagged F-01…F-31 do not block |
+
+**Not legal advice.** This is a documentary verification against official sources. The Rent Board cannot give legal advice and no lawyer's approval can be guaranteed.
