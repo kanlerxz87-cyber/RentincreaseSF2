@@ -61,6 +61,10 @@ This session is editing the existing files rather than creating a duplicate site
 | 27 | Line-by-line re-verification of the live site against official sources (Housing Inventory, rent increases, banked increases, Form 571, Tenant Petitions, Legistar File 261020) | done | arena/9b0747eb-rentincreasesf2 | `COORDINATION.md` (verification record) | All key claims confirmed: license required on effective date for <10-unit buildings since 2023-03-01; 1.6% (2026–27); Unit 2 banked 11.5% = 1.8+0.7+2.3+3.6+1.7+1.4 (Form 571); 13.1% total; 30/90-day +5 mail; tenant petitions free, no discrimination adjudication. New development found: File 261020 proposed 10% cap (see task 28). |
 | 28 | Publish new development as flag F-27: proposed 10% cap on banked increases (File 261020, Pending Committee Action, not enacted) | done | arena/9b0747eb-rentincreasesf2 | `flagged.html`, `analysis.html`, `executive-summary.html`, `sources.html`, `scripts/validate_site.py`, `README.md` | Legistar record read directly 2026-11-10: introduced 2026-09-15, Land Use and Transportation Committee, status Pending Committee Action. Rent Board notice posted 2026-11-09 on rent-increases and banked-increases pages. Under current law 13.1% remains lawful; phased 10.0% is the fallback if enacted. |
 | 29 | Close stale PRs #16 and #20 (CONFLICTING, content already salvaged/merged), validate, PR to `main`, merge, confirm Pages deploy | in progress | arena/9b0747eb-rentincreasesf2 | `COORDINATION.md` | PR #16 duplicates PRs #14/#15/#17 (salvaged in #17); PR #20 is a PR #19 record whose text is not on `main` and whose branch conflicts after PRs #18/#21. Both closed unmerged with explanatory comments; PR #19 record summary preserved in this session's record below. |
+| 30 | Re-stamp the whole site to the 2026-11-10 verification date and re-derive every today-relative figure (day counts, earliest reachable effective dates, days since the added occupancy) | in progress | arena/d086cb8e-rentincreasesf2 | `scripts/sync_nav.py`, `scripts/verify_calculations.py`, all 13 `*.html` pages | `REVIEW_DATE` and `LAST_VERIFIED` asserted against each other by `verify_calculations.py`; every printed `<personal> / <mailed>` day pair re-derived from the official 90/30-day notice periods. |
+| 31 | Line-by-line re-verification of the merged tree against primary official sources, including the F-27 citation target | in progress | arena/d086cb8e-rentincreasesf2 | `flagged.html`, `analysis.html`, `executive-summary.html`, `sources.html` | Read directly this session: Form 571 table (1.6 / 1.4 / 1.7 / 3.6 / 2.3 / 0.7 / 1.8), Current Rates page, Rules §13.14, Housing Inventory, Civ. Code §827(b), AB 1482 page, Rent Ordinance §37.3(a)(1)–(2), Legistar File 261020. |
+| 32 | Correct the F-27 notice citation: the 2026-11-09 proposed-legislation notice appears on the Rent Board **Current Rates** report, not on the rent-increase or banking info pages | in progress | arena/d086cb8e-rentincreasesf2 | `flagged.html`, `analysis.html`, `executive-summary.html`, `sources.html`, `scripts/validate_site.py` | Notice text read verbatim on https://www.sf.gov/reports--current-rates-including-rent-increase-relocation-sec-deposit ("Posted November 9, 2026"). |
+| 33 | Final integration: verify the combined data, confirm the site builds with no broken links, PR to `main`, merge, confirm GitHub Pages deploy, record the result | in progress | arena/d086cb8e-rentincreasesf2 | `COORDINATION.md`, `README.md` | Blocked only on rows 30–32. |
 
 
 ¹ **Duplicate task numbers (A-07 / CR-08).** Rows 13–15 above belong to `arena/fa7d2d77-rentincreasesf2` on `main`. Session `arena/2b3012a0-rentincreasesf2` independently claimed rows numbered **13–15** on its own branch (`arena/2b3012a0-rentincreasesf2`) for different work (Rent Board license answer, Q&A page, line-by-line re-verification). That branch was cut from `62f6f59`, which predates PRs #6–#10, so merging it as-is would revert the PR #6/#7 license clarification and the PR #10 privacy redaction. **It must rebase onto current `main` before opening a pull request.** No session has merged it. Its claims remain pending and do not block the board.
@@ -853,3 +857,24 @@ Board counselor cannot give legal advice, and no lawyer's approval can be guaran
   closed unmerged with explanatory comments (see session record above).
 - **Task board:** tasks 27–29 done. Flagged items F-01…F-27 remain for the owner on the
   Flagged for Review page; none block publication.
+
+## Session `arena/d086cb8e-rentincreasesf2` — claim (2026-11-10)
+
+**Claimed at** 2026-11-10T00:38Z, immediately after PR #22 merged (`d02bee8`). **Tasks 30–33.**
+
+**File scope (exclusive to this session until it closes):** `scripts/sync_nav.py`,
+`scripts/verify_calculations.py`, `scripts/validate_site.py`, all 13 root `*.html` pages,
+`COORDINATION.md`, `README.md`.
+
+**Not in scope / not duplicated:** flag F-27 and the File 261020 analysis were published by
+`arena/9b0747eb-rentincreasesf2` in PR #22 (merged `d02bee8`) minutes before this claim. This
+session does **not** re-do that work; it integrates on top of it, corrects the citation target
+(row 32) and performs the whole-site date re-stamp (row 30) that was outstanding on `main`
+(every page still read "Last verified: 2026-11-08" and the arithmetic was anchored to that date).
+
+**Why the re-stamp is not cosmetic:** the published site's most urgent number is a countdown.
+`banking-rule.html` printed "22 / 17" days left to serve Unit 2's 13.1% notice; on 2026-11-10 the
+correct counts are "20 / 15". A reader relying on a two-day-old countdown for a statutory
+deadline would mis-plan the only irreversible step in this file. All such counts are recomputed
+by `scripts/verify_calculations.py`, which fails if any printed cell disagrees with
+`REVIEW_DATE`.
