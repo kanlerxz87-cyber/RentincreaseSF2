@@ -1447,3 +1447,34 @@ re-appended on the then-current `main` at `a791240`). Task IDs use the `79f5-x` 
 - **`timing.html`** (task 26e3-B, `arena/26e3aa0f`): not yet delivered at this session's checks; its task 26e3-C (wiring into nav/validator) is correctly logged as a change request for a future integration session. Not blocked on by this session.
 
 **Not legal advice.** Documentary verification against official sources only.
+
+## PR #46 — 79f5-A…D integration, merge and deployment record (session `arena/79f56954-rentincreasesf2`)
+
+- **PR:** https://github.com/kanlerxz87-cyber/RentincreaseSF2/pull/46
+- **Title:** "Independent 2026-11-10 re-verification record (tasks 79f5-A..D); PR #39 moot; PR #42/#45 observations"
+- **Merged to `main`:** 2026-11-10T05:57Z; merge commit `5bad366ca507a2a711564679b7d177d146c8c18c`.
+- **Merge method:** merge commit (`gh pr merge 46 --merge`); `mergeable` before merge: MERGEABLE; `Validate site` on the PR **pass** (run 42765287965, 6s).
+- **Post-merge validation:** `Validate site` on `5bad366` — see the run on the merge commit; all three local suites passed pre-merge on the same tree (`sync_nav.py` NAV OK 14 pages · `validate_site.py` PASSED · `verify_calculations.py` PASSED 176 assertions).
+- **GitHub Pages:** `pages build and deployment` created 2026-11-10T05:57:22Z on `5bad366`; `pages/builds/latest` → status **built**, `error: null`. Pages URL: https://kanlerxz87-cyber.github.io/RentincreaseSF2/
+- **Live verification (cache-busted fetch `?v=5bad366`):** `index.html` serves the licence-first dashboard, the 2026-11-30/2026-11-25 service window, the F-27 watch item and the key-findings table; `answers.html` (Your Questions) serves the per-question tables with source links on every row. Deployed content matches the merged tree.
+- **Content:** docs-only (`COORDINATION.md`): the 79f5-A live-source verification log (Current Rates, Learn about rent increases, Housing Inventory, Banked rent increases, Form 571, Rent Board Fee, Legistar File 261020, Civ. Code § 827, SFDOE ballot check), line-by-line site checks (every dollar figure re-computed, every date re-counted from 2026-11-10, privacy grep 0 hits), PR #39 moot note, and PR #42/#45 observations. **No site file changed; no percentage, dollar figure, deadline or legal conclusion changed.**
+
+### Task close-out
+
+| # | Status | Result |
+|---|---|---|
+| 79f5-A | **done** | Independent re-verification complete; no defect requiring a site-file change found in the site content. |
+| 79f5-B | **done (moot)** | PR #39 closed by its own session as superseded; diff reviewed first — no salvage needed. |
+| 79f5-C | **done** | PR #46 opened, `Validate site` passed, merged to `main` at `5bad366`. |
+| 79f5-D | **done** | Pages built on `5bad366`; live content verified by cache-busted fetch. |
+
+### Open items observed at deploy time (flagged; none block the live site)
+
+1. **Stray merge-conflict marker in `AUDIT.md` (line ~395):** `>>>>>>> 97aadef (…)` is served in the public `AUDIT.md` page. Traced by `git log -S` to the PR #38 merge (`b24111e`, 2026-11-10 ~05:45Z) — not introduced by PR #46. **A fix is already in flight: PR #47** (`arena/22c8ef1e`, "Remove stray merge-conflict marker served on the live site; add CI guard; independent verification record") removes the line and adds a validator guard. PR #47 is currently reported `CONFLICTING` and needs its owner to rebase onto `main` (post-`5bad366`). Per the file-ownership rule this session did not duplicate the in-flight fix; if PR #47's claim goes stale (>60 min without commits), any later session may take it over under the standing rule.
+2. **PR #42** (`arena/47f115e4`, docs-only record, tasks 49–51): still open for its owner (task 51 is "merge this PR itself"); may need a rebase onto post-`5bad366` `main` if GitHub reports a conflict in `COORDINATION.md`.
+3. **PR #45** (`arena/9a476822`): `CONFLICTING` with **no merge base with `main`** on local fetch (orphan history, as PR #5 was). Unmergeable as-is; salvage/close under the PR #5 precedent after the stale window if its owner does not act.
+4. **`timing.html`** (task 26e3-B, `arena/26e3aa0f`): not yet delivered; wiring request 26e3-C remains queued for a future integration session.
+
+Flagged items F-01…F-34 remain published for the owner on [`flagged.html`](https://kanlerxz87-cyber.github.io/RentincreaseSF2/flagged.html) and do not block publication.
+
+**Not legal advice.** Documentary verification against official sources only.
