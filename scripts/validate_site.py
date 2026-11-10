@@ -114,6 +114,7 @@ class SiteChecker(HTMLParser):
         self.in_row = False
         self.row_has_td = False
         self.row_links: list[str] = []
+        self.row_external_links: list[str] = []
         self.row_line = 0
         self.header_cols = 0
         self.expected_cols: list[int] = []
@@ -147,6 +148,7 @@ class SiteChecker(HTMLParser):
             self.in_row = True
             self.row_has_td = False
             self.row_links = []
+            self.row_external_links = []
             self.row_cells = 0
             self.row_line = self.getpos()[0]
         elif tag == "th" and self.in_row:
@@ -161,6 +163,8 @@ class SiteChecker(HTMLParser):
                 self.links.append((href, self.getpos()[0]))
                 if self.in_row:
                     self.row_links.append(href)
+                    if href.startswith(("http://", "https://")):
+                        self.row_external_links.append(href)
 
     def handle_data(self, data: str) -> None:
         if self.in_head and not self.head_text_allowed and data.strip():
@@ -191,6 +195,11 @@ class SiteChecker(HTMLParser):
             if self.row_has_td and not self.row_links:
                 self.errors.append(
                     f"table row at line {self.row_line} has no official source link"
+                )
+            elif self.row_has_td and not self.row_external_links:
+                self.errors.append(
+                    f"table row at line {self.row_line} has only internal links; "
+                    "every data row needs an official external source link"
                 )
             if self.row_has_td and self.header_cols and self.row_cells != self.header_cols:
                 self.errors.append(
