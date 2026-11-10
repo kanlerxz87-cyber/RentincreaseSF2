@@ -34,6 +34,7 @@ PAGES = [
 ]
 
 VERIFIED_URLS = {
+    "https://sfgov.legistar.com/LegislationDetail.aspx?ID=8217304&GUID=7EDA4662-EBFB-4AF5-962F-C669B64AA770",
     "https://sfrb.org/section-1314-licensing-%E2%80%93-notice-rent-increase",
     "https://www.sf.gov/sites/default/files/2024-10/538%202024-25%20Bond%20Measure%20Worksheet%2010.24%20.pdf",
     "https://www.sf.gov/information--rent-increases-under-section-614-and-costa-hawkins",
