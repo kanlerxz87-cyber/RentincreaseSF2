@@ -262,6 +262,16 @@ def main() -> int:
     ]:
         expect_in_pages(f"days left — {label}", daypair(effective, notice_days), banking)
 
+    # ---------------- Residual source audit (F-29/F-30, 2026-11-10) ----------------
+    proposal_pages = ["index.html", "checklist.html", "laws.html", "process.html", "practices.html",
+                      "banking-rule.html", "analysis.html", "executive-summary.html", "flagged.html"]
+    expect_in_pages("File 261020 pending status", "Pending Committee Action", proposal_pages)
+    expect_in_pages("File 261020 proposed applicability", "2026-09-15", proposal_pages)
+    expect_in_pages("Unit 2 annual allowance is not separately banked",
+                    "not separately banked", ["banking-rule.html", "flagged.html"])
+    expect_in_pages("corrected tenant-resource description",
+                    "small claims court papers for rental debt", ["tenant-protections.html", "flagged.html"])
+
     # ---------------- Forbidden regressions (C-01, 2026-11-10) ----------------
     # The site must never again assert that banked amounts can only be given at the time of an
     # annual increase, or that a banked balance cannot be imposed later. sf.gov states that a
