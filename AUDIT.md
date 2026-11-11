@@ -550,3 +550,91 @@ as historical records even where later corrections supersede their wording.
 - Local HTTP: 14 pages and 17 unique internal/public resources returned HTTP 200, including Q&A,
   `style.css`, `AUDIT.md` and `internal/README.md`; titles/H1/main landmarks and fragments checked.
 - `git diff --check`: passed. PR, merge and deployment results are recorded in `COORDINATION.md`.
+
+---
+
+## Addendum F — re-verification pass on 2026-11-11 (session `arena/edd919ec-rentincreasesf2`)
+
+**Method.** Every controlling source was fetched and read directly on 2026-11-11, not carried over from
+the 2026-11-10 passes. The published site was then diffed against the fetched text, and every today-relative
+figure was re-derived from a base date of 2026-11-11. The session record, the full source list and the
+per-file change list are in `COORDINATION.md` (section "2026-11-11 independent re-verification pass").
+
+### 1. Sources read directly (result: no substantive change)
+
+| Source | Verdict on 2026-11-11 |
+|---|---|
+| Current Rates | 1.6% (2026-03-01–2027-02-28); 1.4%; 1.7%. Unchanged. File 261020 notice still posted 2026-11-09. |
+| Form 571 (26-27 PDF) | Historical table unchanged; ends 2027-02-28; 2027-28 blank. |
+| Learn about rent increases | 1.6%; 30/90 + 5; four worked examples unchanged, including the 3.3% new-anniversary example. |
+| Banked rent increases | Mechanics unchanged; 24-month summary wording still present (F-16 as resolved). |
+| Housing Inventory | "All owners of residential property"; tenant-occupied units receive the licence; licence current before the increase takes effect; not attached to the notice; 2023-03-01 for <10 units. |
+| § 37.15 | (a), (c), (e) verbatim as published on the site. |
+| Rules § 13.14 | Effective-date-not-service-date rule; entire increase void if unlicensed; banking rights survive. |
+| Rules Part IV §§ 4.10, 4.12 | § 4.12(a) verbatim, including the 12-month sentence and the "only … at the time of an annual increase" sentence. |
+| § 37.3 | 60% of CPI, 7% cap; (a)(2) banking on "subsequent rent increase anniversary dates". |
+| Irregular periods | Non-anniversary increases permitted; "24 months or more" example applies three prior periods to a non-anniversary date. |
+| Rental laws | Coverage requires built before 1979-06-14 **and** not used as a single-family dwelling. |
+| Costa-Hawkins partial exemption | Legal or illegal in-law unit ⇒ two-unit building, not exempt (F-33). |
+| Topic 153 (6.14 / Costa-Hawkins) | "within a reasonable time"; "generally, sixty days is considered reasonable". |
+| Rent Board Fee | $59.00/unit 2026-27; 50% recoverable; exemption 2026-12-14; due 2027-03-01. |
+| AB 1482 | 8.8% (2026-08-01–2027-07-31); "does NOT apply" to units under the SF rent-increase limitations. |
+| Legistar File 261020 | Pending Committee Action; introduced 2026-09-15; 4 history records; not enacted. |
+
+### 2. Arithmetic re-derived from 2026-11-11 (all confirmed)
+
+| Figure | Derivation | Result |
+|---|---|---|
+| Unit 1, early | 3,995.00 × 1.6% | $63.92 → $4,058.92 |
+| Unit 1, 2027-02-01 | (1.4 + 1.6) = 3.0%; 3,995.00 × 3.0% | $119.85 → $4,114.85 |
+| Unit 2 banked | 1.8 + 0.7 + 2.3 + 3.6 + 1.7 + 1.4, added | 11.5% |
+| Unit 2, 2027-02-15 | (11.5 + 1.6) = 13.1%; 3,150.00 × 13.1% | $412.65 → $3,562.65 |
+| Unit 2, annual-only | 3,150.00 × 1.6% | $50.40 → $3,200.40 |
+| Unit 2, phased | 3,150.00 × 10.0%; 13.1 − 10.0 left banked | $315.00 → $3,465.00; 3.1% banked |
+| **Unit 2, banked-only on 2027-06-01 (new, F-38)** | 3,150.00 × 11.5% | **$362.25 → $3,512.25** |
+| Notice period, banked-only | 11.5% > 10% ⇒ 90 days (+5 mailed) | serve by 2027-03-03 (mail 2027-02-26) |
+| Earliest effective from 2026-11-11 | +90 d / +95 d | 2027-02-09 / 2027-02-14 |
+| Unit 1 earliest from 2026-11-11 | +30 d / +35 d | 2026-12-11 / 2026-12-16 |
+| Days since added occupancy | 2026-04-01 → 2026-11-11 | 224 days |
+
+### 3. Defect found and fixed in the calculator
+
+`scripts/verify_calculations.py` compared four computed dates and one computed day-count against
+**hand-typed** values (`date(2027, 2, 8)`, `date(2027, 2, 13)`, `date(2026, 12, 10)`, `date(2026, 12, 15)`,
+`223`). Those constants encode the 2026-11-10 base date, so on any later base date the script reports a
+failure that describes the *test* rather than the site, and a careless session could "fix" it by editing the
+site to match the stale constant. All five now compute from `REVIEW_DATE` and assert that the **printed
+string** appears on every page that publishes it, so a base-date drift fails as drift. Assertions 315 → 334.
+
+### 4. Additions, and why they are not conclusions
+
+- **F-38** publishes a Unit 2 banked-only increase on the tenant's own anniversary. It exists because both
+  published options that use the banked balance impose it off-anniversary (F-28), and the option that avoids
+  F-28 entirely uses no banked amount at all. The new option is arithmetic on an unverified base rent and is
+  labelled as such; it states that it would exceed the *proposed* 10% cap in File 261020 if enacted, and
+  that ledger, coverage, licence, retaliation and discrimination reviews all still apply.
+- **F-28** was corrected: its action line had said no dollar figure could be stated for the anniversary date,
+  which the new option makes obsolete. Its record now also cites the Board's own non-anniversary example.
+
+### 5. Standing irregularities (unchanged, published for review)
+
+F-01 build year / coverage · F-02 lease facts · F-03 licence status · F-06 Unit 2 ledger · F-15 6.14 notice
+timing · F-17 2027-28 rate unpublished · F-18 retaliation screen · F-27 pending File 261020 · F-28
+off-anniversary timing · F-31 unit count · F-33 coverage second limb · F-34 federal "no ceiling" as an
+absence of source · F-38 new option (F-37 on main is PR #53's notice/retaliation flag). None blocks publication. Six `sources.html` rows keep their
+2026-11-10 badge because they were not re-read in this pass; that is recorded in `COORDINATION.md`.
+
+### 6. Rebase onto PR #51 and cross-session re-check of its new content
+
+Rebased onto `28e9a22` (PR #51, session `arena/e7ea8610`). Both conflicts — `COORDINATION.md` (append
+boundary) and `sources.html` (three new source rows) — were resolved by keeping main's content and
+re-applying this session's date stamps, and the resolution is recorded in `COORDINATION.md`. The new rows
+introduced by PR #51 were then fetched and read verbatim in this pass:
+
+| New source | Verdict |
+|---|---|
+| [§ 37.11A Civil Actions](https://www.sf.gov/information--sec-3711a-civil-actions) | Confirmed: tenant action for injunctive relief/damages over excess rent or retaliation; money awards for overpayments from a § 37.3(b)(5) void increase limited to the three-year period preceding the month of filing; prevailing party recovers fees and costs. |
+| [§ 37.10B Tenant Harassment](https://www.sf.gov/information--sec-3710b-tenant-harassment) | Confirmed, with one qualifier: the rent-increase example in (a)(5) concerns a unit **exempt** from the increase limitations under § 37.3(d) or § 37.3(g). The `sources.html` row omitted that limitation; it was tightened to describe the rent-increase point as the subsection's example for exempt units. `process.html` already stated it correctly. |
+| Rent Board Forms Center | Not re-fetched in this pass (listed in the six rows that keep a 2026-11-10 badge). |
+
+Validator allowlist is now 55 official URLs; all checks pass on the rebased tree.

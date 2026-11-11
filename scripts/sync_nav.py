@@ -15,7 +15,7 @@ import sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-LAST_VERIFIED = "2026-11-10"
+LAST_VERIFIED = "2026-11-11"
 
 # (group label, [(file, link text), ...])
 NAV = [

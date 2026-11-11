@@ -2,7 +2,7 @@
 
 **Repo:** `kanlerxz87-cyber/RentincreaseSF2`  
 **Live site:** https://kanlerxz87-cyber.github.io/RentincreaseSF2/  
-**Last updated:** 2026-11-10
+**Last updated:** 2026-11-11
 
 ## Sessions
 
@@ -1688,3 +1688,141 @@ Corrected shorthand across general notice summaries: [Civil Code § 827(b)(2)–
 |---|---|---|---|---|---|
 | e7ea-C | Final PR, CI, merge, deployment and stale-PR disposition | done | arena/e7ea8610-rentincreasesf2 | `COORDINATION.md` | PR #51 merged and deployed; PRs #42 and #45 closed with rationale. |
 | e7ea-D | Correct notice lookback and retaliation shorthand | done | arena/e7ea8610-rentincreasesf2 | `*.html`, `COORDINATION.md` | PR #53 merged and deployed; F-37 published. |
+
+## Session `arena/edd919ec-rentincreasesf2` — 2026-11-11 independent re-verification pass and re-stamp
+
+**Claimed at** 2026-11-11 (UTC), on the platform-fixed branch `arena/edd919ec-rentincreasesf2`, branched
+from `main` at `1a0af4d` (PR #50 merge). No task on this board was `in progress` under a live claim: every
+prior task is `done` or `needs review`, the two open pull requests (#42, #45) are documentation-only
+branches idle since 2026-11-10T05:5xZ (>60 min) whose content is superseded by PRs #44–#50, and no other
+session has committed on this branch. **File scope:** all 14 root `*.html` pages, `scripts/*.py`,
+`AUDIT.md`, `COORDINATION.md`. Tasks claimed as `edd9-A`, `edd9-B`, `edd9-C` (session-prefixed, because
+bare numbers 37–48 are already used three times over on this board).
+
+| # | Task | Status | Owner session | File scope | Sources / verification notes |
+|---|---|---|---|---|---|
+| edd9-A | Read every controlling official source **live again** on 2026-11-11 and diff the result against the published site; record what changed, if anything | done | arena/edd919ec-rentincreasesf2 | `COORDINATION.md`, `AUDIT.md` | 14 primary sources re-read directly (list below). No percentage, dollar amount, statutory citation, deadline or status changed. |
+| edd9-B | Re-stamp the site to the 2026-11-11 review date and re-derive every today-relative figure from that base date; make the calculator fail on base-date drift instead of comparing against hand-typed dates | done | arena/edd919ec-rentincreasesf2 | 14 `*.html`, `scripts/sync_nav.py`, `scripts/verify_calculations.py` | Earliest reachable effective dates, day-pair countdowns, the days-since-occupancy count and the Unit 2 closing-window counts all recomputed. `REVIEW_DATE` → 2026-11-11; three hard-coded "site declares" dates replaced by computed + printed-string assertions. |
+| edd9-C | Add the one Unit 2 scenario that was missing — a banked-only increase on the tenant's own anniversary — and re-open F-28's action line, which had said no dollar figure could be stated for that date | done | arena/edd919ec-rentincreasesf2 | `analysis.html`, `checklist.html`, `answers.html`, `index.html`, `flagged.html`, `scripts/verify_calculations.py` | New flag **F-38**. Every figure is arithmetic on the owner-supplied base rent and states its legal conditions; nothing is presented as cleared. |
+
+### Sources fetched and read directly on 2026-11-11
+
+| Source | What it confirmed this pass |
+|---|---|
+| [sf.gov — Current Rates](https://www.sf.gov/reports--current-rates-including-rent-increase-relocation-sec-deposit) | 1.6% for 2026-03-01–2027-02-28; 1.4% (2025-26); 1.7% (2024-25); the 2026-11-09 File 261020 notice still displayed |
+| [Form 571 — Allowable Annual Increases 26-27 (PDF)](https://www.sf.gov/documents/34344/571_Allowable_Annual_Increases_26-27_1.pdf) | Full historical table unchanged: 2019-20 2.6%, 2020-21 1.8%, 2021-22 0.7%, 2022-23 2.3%, 2023-24 3.6%, 2024-25 1.7%, 2025-26 1.4%, 2026-27 1.6%; table ends 2027-02-28 |
+| [sf.gov — Learn about rent increases](https://www.sf.gov/learn-about-rent-increases-san-francisco) | 1.6%; 30/90-day + 5-day mailing; the four worked examples, including the 3.3% "new anniversary" example that underpins F-16's resolution |
+| [sf.gov — Banked rent increases](https://www.sf.gov/information--banked-rent-increases) | 24-month summary wording still present (F-16), banking does not expire, partial increases permitted, no compounding, no prorating |
+| [sf.gov — The Rent Board Housing Inventory](https://www.sf.gov/rent-board-housing-inventory) | "All owners of residential property are required to report"; tenant-occupied units receive the licence; licence must be current before an increase takes effect; licence need not accompany the notice; 2023-03-01 start for buildings under 10 units |
+| [sf.gov — Sec. 37.15](https://www.sf.gov/information--sec-3715-reporting-obligations-licensing) | § 37.15(a), (c) phase-in dates and § 37.15(e) licence/suspension text, verbatim |
+| [sfrb.org — Rules § 13.14](https://sfrb.org/section-1314-licensing-%E2%80%93-notice-rent-increase) | "…shall render the entire rent increase null and void; provided, however, that the effective date of the rent increase, not the date of service, shall be used…"; banking rights survive |
+| [sf.gov — Rules Part IV (§§ 4.10, 4.12)](https://www.sf.gov/reports--december-2022--rent-board-rules-and-regulations-part-iv-rent-increases-not-requiring) | § 4.12(a) verbatim, including "A full 12 months must have elapsed…" and "This banked amount may only be given at the time of an annual increase" |
+| [sf.gov — Sec. 37.3](https://www.sf.gov/information--sec-373-rent-limitations) | 60% of CPI, 7% cap, licence hook, § 37.3(a)(2) banking "on the tenant's subsequent rent increase anniversary dates" |
+| [sf.gov — Irregular periods](https://www.sf.gov/information--increasing-rents-during-irregular-periods) | Non-anniversary increases permitted; the "24 months or more" example applies three prior periods to a non-anniversary date (used to strengthen F-28's record) |
+| [sf.gov — Learn about SF rental laws](https://www.sf.gov/learn-about-san-francisco-rental-laws) | The two-limb coverage test: built before 1979-06-14 **and** not used as a single-family dwelling |
+| [sf.gov — Costa-Hawkins partial exemption](https://www.sf.gov/information--partial-exemption-certain-single-family-homes-and-condominiums-under-costa-hawkins) | A single-family dwelling with a legal or illegal in-law unit "constitutes a two-unit building and is not exempt" (F-33) |
+| [sf.gov — Rules 6.14 / Costa-Hawkins (Topic 153)](https://www.sf.gov/information--rent-increases-under-section-614-and-costa-hawkins) | 6.14 notice "within a reasonable time"; "generally, sixty days is considered reasonable" (F-15); co-tenants never subject to the reset |
+| [sf.gov — Rent Board Fee](https://www.sf.gov/rent-board-fee) | $59.00 per dwelling unit for 2026-27; 50% ($29.50) recoverable from November 1 tenants; exemption deadline 2026-12-14; payment due 2027-03-01 |
+| [sf.gov — AB 1482](https://www.sf.gov/reports--california-tenant-protection-act-2019-ab-1482) | 8.8% for 2026-08-01–2027-07-31 and the words "This does NOT apply for units under the rent increase limitations of the San Francisco Rent Ordinance" |
+| [Legistar — File 261020](https://sfgov.legistar.com/LegislationDetail.aspx?ID=8217304&GUID=7EDA4662-EBFB-4AF5-962F-C669B64AA770) | Status **Pending Committee Action**; introduced 9/15/2026; 4 history records, latest 10/7/2026 (Youth Commission response). **Not enacted.** |
+
+### What changed in this pass (nothing substantive)
+
+1. **Base date 2026-11-10 → 2026-11-11 across all 14 pages** (`sync_nav.py`, 14/14 updated), with every
+   today-relative figure recomputed rather than shifted by one: earliest reachable effective date
+   **2027-02-09** personal / **2027-02-14** mail (was 2027-02-08 / 2027-02-13); Unit 1 earliest effective
+   **2026-12-11 / 2026-12-16**; day pairs **6 / 1**, **19 / 14**, **66 / 61**, **52 / 47**, **112 / 107**
+   (was 7 / 2, 20 / 15, 67 / 62, 53 / 48, 113 / 108); days since the added occupancy **224** (was 223);
+   the Unit 2 closing window restated as **11 to 30 November 2026 — 19 days** (was 20). The fixed dates
+   (**2026-11-30**, **2026-11-25**, **2026-11-17**, **2026-11-12**, **2027-01-02**, **2026-12-28**,
+   **2027-01-16**, **2027-01-11**, **2027-03-03**, **2027-02-26**) are unchanged because they are
+   arithmetic on fixed effective dates, not on today.
+2. **`verify_calculations.py` now fails on base-date drift.** Three assertions compared the computed date
+   against a hand-typed "site declares" date (`2027-02-08`, `2027-02-13`, `2026-12-10`, `2026-12-15`) and
+   one against a hand-typed `223`. They now compute from `REVIEW_DATE` and assert that the *printed* string
+   appears on each page that publishes it. Assertions rose **315 → 334**.
+3. **New flag F-38 and a third Unit 2 scenario: banked-only, on the tenant's own 2027-06-01 anniversary.**
+   $3,150.00 × 11.5% = **$362.25 → $3,512.25**, 90-day notice, serve by **2027-03-03** (mailed
+   **2027-02-26**). Why it was missing: the 13.1% headline and the 10.0% phased option both impose banked
+   amounts on an **off-anniversary** date, which is the whole subject of F-28; the 1.6%-only option avoids
+   F-28 but leaves the entire banked balance unused. The new option is the only published one that uses
+   the banked balance, stays on the anniversary *(the timing Rules § 4.12(a) states in terms)*, and needs
+   no unpublished 2027-28 rate. It is published with its trade-offs: lower than 13.1%, forgoes the annual
+   component this round, and would **exceed the proposed 10% cap** in File 261020 if that bill is enacted —
+   which is why the 10.0% phased option remains the one sized for that draft. Added to `analysis.html`
+   (scenario table), `checklist.html` (alternatives table), `answers.html` (Q&A row), `index.html`
+   (dashboard) and `flagged.html` (F-38).
+4. **F-28's action line corrected.** It previously said the 2027-06-01 anniversary alternative "needs the
+   unpublished 2027–28 annual percentage … so no dollar figure can be stated for it now". That is no longer
+   true, and the line now points to the banked-only figure and separates the two alternatives. F-28's "why
+   flagged" cell also now records the Board's own "24 months or more" worked example, which applies three
+   prior periods to a **non-anniversary** date — supporting the method while leaving the § 37.3(a)(2)
+   wording difference unresolved.
+
+### Flags, irregularities and what was deliberately left alone
+
+- **No new factual discrepancy was found.** Every figure on the site re-derives correctly from the sources
+  above: Unit 1 3.0% = $119.85 → $4,114.85; Unit 1 early 1.6% = $63.92 → $4,058.92; Unit 2 banked 11.5%
+  ((1.8+0.7+2.3+3.6+1.7+1.4), added not compounded), + 1.6% = 13.1% = $412.65 → $3,562.65; phased 10.0% =
+  $315.00 → $3,465.00 with 3.1% left banked; annual-only 1.6% = $50.40 → $3,200.40; new banked-only 11.5% =
+  $362.25 → $3,512.25.
+- **Source-badge dating on `sources.html` is now two-tier and honest.** Nine rows were re-read today and
+  moved to "Verified 2026-11-11". Six rows were **not** re-read in this pass — Form 538 (2026–27 bond
+  worksheet PDF), Legal resources for housing discrimination (Topic 019), Charging for Additional
+  Occupants (Topics 152/254), Algorithmic devices (§ 37.10C), and the `Leg Ver1` / `Leg Dig Ver1`
+  attachments of File 261020 — so they keep "Verified 2026-11-10" and the page now explains that the badge
+  records the date that row's source was last read directly. **Flagged for the owner:** those six should be
+  re-read before the site is treated as current on its own sources page; nothing on the site depends on
+  them having changed, and no assertion of change is made.
+- **F-16 remains as resolved on the evidence** (12-month per-allowance test in Rules § 4.12(a) reproduces
+  both official worked examples; the 24-month summary sentence does not). The live banked-increases page
+  still carries that sentence, so the resolution rests on the rule plus the two examples, as published.
+- **F-27 unchanged:** File 261020 is still Pending Committee Action on Legistar today. The site continues
+  to tell the owner to re-check it immediately before serving any Unit 2 notice.
+- **F-01, F-02, F-03, F-06, F-18, F-31, F-33 remain open and unverified** — build year, unit count, lease
+  facts, licence status, rent ledger and the retaliation screen are all owner-supplied or unavailable to
+  this review. No value was inferred or filled in.
+- **Privacy:** no tenant name, initial, address, contact or parcel number appears on any page. Every
+  occupancy reference is a placeholder. Nothing from the intake was added to the repository in this pass.
+
+### Verification performed
+
+- `python3 scripts/sync_nav.py --check` — 14 pages, 0 changes after the re-stamp.
+- `python3 scripts/validate_site.py` — **PASSED**: 14 pages, HTML tag balance, 52 allowlisted official
+  URLs all present on `sources.html`, every table data row carries an external official link, unique IDs,
+  all internal links and fragments resolve, no merge-conflict markers in any public text file, 0 private
+  patterns configured.
+- `python3 scripts/verify_calculations.py` — **PASSED, 334 assertions** (was 315).
+- Local HTTP server: all **14 pages** and `style.css`, `AUDIT.md`, `internal/README.md` returned 200;
+  every internal href and fragment resolved, 0 broken links. Server stopped after the check.
+- `git status`/`git diff --check` — clean, no whitespace errors.
+
+### Rebase conflict log (2026-11-11)
+
+`git fetch && git rebase origin/main` replayed this session's commit onto `28e9a22` (PR #51, session
+`arena/e7ea8610`), which had merged while this pass was running. Two conflicts, both resolved keeping main's
+work and re-applying this session's edits on top:
+
+1. **`COORDINATION.md`** — append-boundary conflict: main added `arena/e7ea8610`'s claim/verification
+   sections at the end of the file, this session appended its own section at the same point. Resolved by
+   keeping **main's block first, then this session's block** (8,258 + 12,583 characters), verified as
+   content-preserving: no line of either session's record was dropped, and the file now ends with this
+   session's section.
+2. **`sources.html`** — main added three new source rows (Rent Ordinance § 37.10B Tenant Harassment,
+   § 37.11A Civil Actions, Rent Board Forms Center) plus allowance changes in `scripts/validate_site.py`.
+   Resolved by taking main's rows and re-applying this session's two date stamps (§ 37.3 and Legistar
+   File 261020 → "Verified 2026-11-11"), so main's new rows and this session's dating both survive.
+   The allowlist is now **55 official URLs** and `validate_site.py` passes.
+
+No file, row or verification record from either session was discarded. After the rebase: `sync_nav.py
+--check` 14 pages / 0 changes; `validate_site.py` PASSED (14 pages, 55 official URLs); `verify_calculations.py`
+PASSED (334 assertions); `git diff --check` clean.
+
+**Cross-session check of main's new content (this session, 2026-11-11).** § 37.11A and § 37.10B were fetched
+and read verbatim before publishing them as verified content in this pass. § 37.11A's claims (tenant civil
+action over excess rent or retaliation; void-increase overpayments limited to the three-year period
+preceding the month of filing; prevailing party recovers fees) match the ordinance text. § 37.10B's
+rent-increase example is limited to units exempt from the increase limitations under § 37.3(d) or § 37.3(g);
+the `sources.html` summary omitted that qualifier, so it was tightened to state that the rent-increase
+point is the subsection's **example** for exempt units, while the general harassment rule is stated
+separately. `process.html` already described it correctly. This is a precision correction, not a reversal.
