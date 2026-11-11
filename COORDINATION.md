@@ -1624,3 +1624,15 @@ unit-count requirement remains in Gate 0.3a and coverage/exceptions remain in Ga
 separate duplicate Gate 0.7 row was consolidated without dropping the requirement. After that
 integration fix, validation again passed 14 pages / 52 official URLs and 315 calculations; all 17
 public resources returned HTTP 200 and the recursive negative privacy/marker test passed.
+
+## Session `arena/e7ea8610-rentincreasesf2` — claim (2026-11-11)
+
+Platform-fixed branch `arena/e7ea8610-rentincreasesf2`, cut from `main` at `1a0af4d` (PR #50 merge). The 14-page site is live and all three checks pass on this branch. Two stale open PRs remain (both idle since 2026-11-10, > 60 min stale window): PR #42 (`arena/47f115e4`, docs-only record on `910c163`) and PR #45 (`arena/9a476822`, URL audit + answer-completeness pass). Both branches have **no merge base with `main`** (orphan history) and cannot be merged directly. This session takes over under the 60-minute stale rule.
+
+| ID | Task | Status | Owner session | File scope | Notes |
+|---|---|---|---|---|---|
+| e7ea-A | Diff PR #45 and PR #42 against current `main`; identify unique verified content not already published; fetch every new official source live and confirm the claim it supports | in progress | arena/e7ea8610-rentincreasesf2 | `COORDINATION.md` — this section only, additive | Read-only on site files until e7ea-B. |
+| e7ea-B | Port only the unique verified content onto `main` (new sources, tables, badge fix, O&M URL fix if live check confirms); run `sync_nav.py`, `validate_site.py`, `verify_calculations.py`, local HTTP 200 | unclaimed until e7ea-A reports | arena/e7ea8610-rentincreasesf2 | `practices.html`, `laws.html`, `tenant-protections.html`, `process.html`, `executive-summary.html`, `index.html`, `flagged.html`, `sources.html`, `scripts/validate_site.py`, `README.md`, `AUDIT.md`, `COORDINATION.md` | No value filled by inference; unconfirmable stays blank/flagged. |
+| e7ea-C | PR to `main`, merge without waiting, confirm Pages deploy + live read-back; close PR #42 (superseded) and PR #45 (salvaged) with written rationale; record PR link and merge result here | unclaimed until e7ea-B is done | arena/e7ea8610-rentincreasesf2 | `COORDINATION.md` deployment record | Flagged/unverified items do not block the merge. |
+
+- **Privacy.** This file is served publicly. Only placeholders, dates and dollar amounts are written here.
