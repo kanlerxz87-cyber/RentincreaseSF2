@@ -1679,3 +1679,12 @@ Ported the unique useful additions from PR #45 into the newer tree without overw
 ### e7ea-D completed (2026-11-11)
 
 Corrected shorthand across general notice summaries: [Civil Code § 827(b)(2)–(3)](https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=827.&lawCode=CIV) counts the proposed increase alone or together with other increases in the preceding 12 months, and § 827(c) preserves longer applicable notice periods. Short-notice examples now identify the prior-history condition. Corrected a tenant-protection row that had omitted banked increases and qualified the [§ 1942.5(a)](https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=1942.5.&lawCode=CIV) retaliation condition. Published F-37. Checks again pass: 14 pages, 55 allowlisted sources, 315 calculation assertions, synchronized navigation, and `git diff --check`. The dollar and date examples remain conditional and history/license/coverage flags remain open.
+
+### e7ea-C / e7ea-D final verification and handoff (2026-11-11)
+
+[PR #53](https://github.com/kanlerxz87-cyber/RentincreaseSF2/pull/53) passed [PR validation](https://github.com/kanlerxz87-cyber/RentincreaseSF2/actions/runs/42958871504) and merged as `b2c901376b1db6a0289149b9991506398772585f`. The [main validation](https://github.com/kanlerxz87-cyber/RentincreaseSF2/actions/runs/42958916547) and [Pages deployment](https://github.com/kanlerxz87-cyber/RentincreaseSF2/actions/runs/42958916383) succeeded; the Pages API reports that commit built. Live tenant-protections and flagged pages were read back. The site remains subject to its published flags; the checks do not authenticate owner-supplied facts or establish external link availability for every allowlisted URL.
+
+| ID | Task | Status | Owner | Scope | Notes |
+|---|---|---|---|---|---|
+| e7ea-C | Final PR, CI, merge, deployment and stale-PR disposition | done | arena/e7ea8610-rentincreasesf2 | `COORDINATION.md` | PR #51 merged and deployed; PRs #42 and #45 closed with rationale. |
+| e7ea-D | Correct notice lookback and retaliation shorthand | done | arena/e7ea8610-rentincreasesf2 | `*.html`, `COORDINATION.md` | PR #53 merged and deployed; F-37 published. |
