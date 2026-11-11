@@ -91,15 +91,14 @@ def main() -> int:
     global checks
 
     # ------------- Base-date consistency -------------
-    # Every page is stamped "Last verified: <LAST_VERIFIED>" by sync_nav.py. If that
-    # stamp and REVIEW_DATE disagree, the published day counts are wrong by the
-    # difference. The two are asserted against each other on every run.
+    # The selected-audit stamp must match the fixed calculation snapshot. The prior
+    # source-review date stays separate: not every source was fetched on that day.
     with open(os.path.join(ROOT, "scripts", "sync_nav.py"), encoding="utf-8") as handle:
-        stamp = re.search(r'LAST_VERIFIED\s*=\s*"(\d{4}-\d{2}-\d{2})"', handle.read())
+        stamp = re.search(r'SELECTED_UPDATE_DATE\s*=\s*"(\d{4}-\d{2}-\d{2})"', handle.read())
     if not stamp:
-        errors.append("base date: could not read LAST_VERIFIED from scripts/sync_nav.py")
+        errors.append("base date: could not read SELECTED_UPDATE_DATE from scripts/sync_nav.py")
     else:
-        expect("nav stamp equals the calculation base date",
+        expect("selected audit stamp equals the calculation snapshot date",
                date.fromisoformat(stamp.group(1)), REVIEW_DATE)
 
     # ---------------- Unit 1 ----------------
@@ -131,7 +130,9 @@ def main() -> int:
     expect("Unit 1 serve by mail", u1_serve_mail, date(2026, 12, 28))
 
     # ---------------- Unit 2 ----------------
-    # Tenancy 2019-06-01, assumed never increased. Anniversary 1 June.
+    # Hypothetical rate-table sum, not a verified bank: the 2020 freeze affects
+    # the first assumed 2020-06-01 component (F-39), and all inputs are unverified.
+    # This checks arithmetic only; do not infer that any component is eligible.
     banked_components = []
     for year in range(2020, 2027):
         available = date(year, 6, 1)
@@ -207,15 +208,9 @@ def main() -> int:
     expect_in_pages("Proposed-cap conditional increase", usd(u2_proposed_inc), ["flagged.html"])
     expect_in_pages("Proposed-cap conditional new rent", usd(UNIT2_BASE + u2_proposed_inc), ["flagged.html"])
 
-    # Occupancy window.
-    # Also today-relative: computed here, then required to appear as printed text.
-    days_occupancy = (REVIEW_DATE - date(2026, 4, 1)).days
-    expect_in_pages("Days since added occupancy", f"{days_occupancy} days", ["flagged.html", "occupancy.html"])
-
-    # Banked-only alternative on the true anniversary (F-38, added in the 2026-11-11 pass; F-37 on
-    # main is the other session's notice/retaliation flag, so this one was renumbered on rebase):
-    # impose the six banked allowances only, effective on the tenant's own 2027-06-01
-    # anniversary, with no annual component and therefore no unpublished 2027-28 rate.
+    # Banked-only illustration on the assumed anniversary (F-38): arithmetic only.
+    # The 2020 component is unresolved (F-39); the banked-only legal timing is
+    # also unresolved (F-43). No unpublished annual percentage is used.
     u2_banked_only_inc = money(UNIT2_BASE * u2_banked / 100)
     expect("Unit 2 banked-only increase", u2_banked_only_inc, Decimal("362.25"))
     expect("Unit 2 banked-only new rent", UNIT2_BASE + u2_banked_only_inc, Decimal("3512.25"))
@@ -254,7 +249,6 @@ def main() -> int:
     expect_in_pages("Unit 2 closing service date (mailed)", closing_mail, published_closing)
     expect_in_pages("Unit 2 earliest effective if served today",
                     (REVIEW_DATE + timedelta(days=90)).isoformat(), ["banking-rule.html", "index.html", "executive-summary.html"])
-    expect_in_pages("Days since added occupancy", "224 days", ["flagged.html", "occupancy.html"])
 
     # ---------------- Closing service window (AUDIT.md A-02) ----------------
     u2_window_close = date(2027, 2, 28)
@@ -352,6 +346,22 @@ def main() -> int:
     expect_in_pages("federal rule labelled as no-source-located",
                     "No federal statute or agency page located in this review", ["laws.html"])
 
+    # ---------------- 2026-11-11 targeted source / assumptions regressions ----------------
+    expect_in_pages("2020 freeze explicitly flagged", "F-39",
+                    ["index.html", "executive-summary.html", "units.html", "analysis.html",
+                     "answers.html", "checklist.html", "banking-rule.html", "flagged.html"])
+    expect_in_pages("2020 freeze official source linked", "reports--december-2020--san-francisco-rent-board-news-archive-2020",
+                    ["analysis.html", "banking-rule.html", "flagged.html", "sources.html"])
+    expect_in_pages("mail geography explicitly flagged", "F-41", ["index.html", "flagged.html"])
+    expect_in_pages("lease restrictions explicitly flagged", "F-42", ["checklist.html", "flagged.html"])
+    expect_in_pages("banked-only legal timing unresolved", "F-43", ["analysis.html", "answers.html", "checklist.html", "flagged.html", "index.html"])
+    for page in ["analysis.html", "banking-rule.html"]:
+        with open(os.path.join(ROOT, page), encoding="utf-8") as handle:
+            body = handle.read()
+        row = re.search(r"<tr><td>2020-06-01</td>.*?</tr>", body, re.S)
+        expect(f"{page} 2020 component flagged", bool(row and "F-39" in row.group(0)), True)
+        expect(f"{page} 2020 component not declared verified", bool(row and ">Yes<" in row.group(0)), False)
+
     # ---------------- Forbidden regressions (C-01, 2026-11-10) ----------------
     # The exact Rules 4.12(a) timing sentence must be disclosed, not suppressed. Current guidance
     # separately states that a properly banked increase "does not expire" and may be imposed at
@@ -389,6 +399,11 @@ def main() -> int:
         "Yes — the most defensible course",
         "Your building is in scope? Yes",
         "It is lawful under current law",
+        "Serving while unlicensed",
+        "No federal rent ceiling applies to private unsubsidised housing",
+        "six allowances totalling <strong>11.5%</strong> are banked",
+        "The intake says this is a two-unit building",
+        "2020-06-01</td><td>1.8%</td><td>2021-06-01</td>",
         "13.1% stands if the ledger is right",
     ]
     for page in sorted(f for f in os.listdir(ROOT) if f.endswith(".html")):
@@ -408,7 +423,7 @@ def main() -> int:
     print("CALCULATION VERIFICATION PASSED")
     print(f" - {checks} assertions from official percentages and statutory notice periods")
     print(f" - Unit 1: {u1_total}% -> {usd(u1_inc)} -> {usd(u1_new)} effective {u1_anniversary}")
-    print(f" - Unit 2: {u2_banked}% banked + {u2_current}% current = {u2_total}% -> {usd(u2_inc)} -> {usd(UNIT2_BASE + u2_inc)}")
+    print(f" - Unit 2 illustrative sum: {u2_banked}% + {u2_current}% = {u2_total}% -> {usd(u2_inc)} -> {usd(UNIT2_BASE + u2_inc)} (eligibility unverified; F-39)")
     print(" - every computed value found in the published HTML")
     return 0
 

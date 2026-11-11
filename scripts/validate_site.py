@@ -35,6 +35,10 @@ PAGES = [
 ]
 
 VERIFIED_URLS = {
+    "https://www.sf.gov/reports--december-2020--san-francisco-rent-board-news-archive-2020",
+    "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=1013.&lawCode=CCP",
+    "https://www4.courts.ca.gov/documents/California-Tenants-Guide.pdf",
+    "https://sftreasurer.org/information-lessors-residential-real-estate",
     "https://sfgov.legistar.com/LegislationDetail.aspx?ID=8217304&GUID=7EDA4662-EBFB-4AF5-962F-C669B64AA770",
     "https://sfgov.legistar.com/View.ashx?M=F&ID=15865646&GUID=0E2E6936-000B-4597-A4EE-FBB17C19636E",
     "https://sfgov.legistar.com/View.ashx?M=F&ID=15865647&GUID=CC09B796-4675-4A7D-9960-85FE239F7FBB",

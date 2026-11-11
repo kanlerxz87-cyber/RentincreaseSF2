@@ -1,6 +1,6 @@
 # RentincreaseSF2
 
-Verified rent-increase review for two rent-controlled units in a 1940 building in San Francisco's
+Source-linked rent-increase review for two units in a reportedly 1940 building; coverage is unverified in San Francisco's
 Outer Sunset, ZIP 94122.
 
 ## Live site
@@ -9,7 +9,7 @@ https://kanlerxz87-cyber.github.io/RentincreaseSF2/
 ## The first question, answered
 **An individual owner of a tenant-occupied, rent-controlled unit does need a Rent Increase License.**
 For this property, that conclusion is conditional on the owner-supplied construction/coverage facts
-(F-01); the owner-supplied two-unit count (F-31) determines only which historical phase-in sentence
+(F-01); the unverified total building unit count (F-31) determines only which historical phase-in sentence
 applies. All owners of residential property must report into the Rent Board Housing Inventory;
 reporting a tenant-occupied unit automatically generates the license. Buildings with fewer than ten
 units have been in scope since **March 1, 2023**. The legal deadline is the **effective date** of the increase,
@@ -34,14 +34,14 @@ Sources: [Housing Inventory](https://www.sf.gov/rent-board-housing-inventory) ·
 | `practices.html` | Corporate vs. individual owners, including the § 37.10C algorithm ban |
 | `checklist.html` | Gate 0 prerequisites, computed service deadlines, notice content |
 | `answers.html` | Every owner question answered in turn, with a status and an official source on every row |
-| `flagged.html` | Every unverified item and irregularity (published IDs through F-36) |
+| `flagged.html` | Every unverified item and irregularity (published IDs through F-43) |
 | `sources.html` | All official sources and the integration method |
 | `banking-rule.html` | F-16 resolved: banking-interval decisive test, re-verification, closing service window |
 
 
 ## Key figures
 Computed from the official percentages; **inputs are owner-supplied and unverified**. All
-figures and deadlines below are re-derived from a base date of **2026-11-10** by
+figures and deadlines below are re-derived from a snapshot date of **2026-11-11** by
 `scripts/verify_calculations.py`.
 - 2026–27 SF allowable annual increase: **1.6%** (3/1/2026–2/28/2027)
 - **Unit 1** — effective 2027-02-01: 1.4% banked + 1.6% current = **3.0%** → **$119.85** → **$4,114.85**.
@@ -50,10 +50,10 @@ figures and deadlines below are re-derived from a base date of **2026-11-10** by
 - **Unit 2** — effective 2027-02-15: 11.5% banked + 1.6% current = **13.1%** → **$412.65** → **$3,562.65**.
   90-day notice; serve by 2026-11-17 (mailed 2026-11-12). **Closing deadline: to use any effective
   date inside the published-rate window, serve by 2026-11-30 (personal) or 2026-11-25 (mail).**
-  Assumes no increase was ever imposed and remains conditional on coverage, license, retaliation/discrimination and F-28 review.
+  The 11.5% / 13.1% figures are illustrative, not a verified banked balance: the 2020 rent freeze affects the first assumed component (F-39). They also assume no earlier increases and depend on coverage, lease, license, retaliation/discrimination, F-27 and F-28 review.
   A phased 10.0% option ($315.00 → $3,465.00) needs only 30 days and leaves 3.1% banked.
   A conservative annual-only option uses 1.6% (**$50.40 → $3,200.40**) and leaves 11.5% banked; ordinary legal gates apply, but F-28&rsquo;s banked-timing issue does not arise because no banked amount is imposed.
-- No market-rate reset on either unit; no surcharge for Unit 1's added occupant.
+- On the reported Unit 1 facts, no roommate-triggered reset is available while an original occupant remains; a surcharge solely for an added occupant is prohibited. Unit 2 occupancy is unverified.
 
 ## Watch item: File 261020 (F-27)
 On 2026-11-09 the Rent Board posted a notice on its **Current Rates**, **Banked rent increases** and
@@ -87,7 +87,7 @@ Sources: [Current Rates](https://www.sf.gov/reports--current-rates-including-ren
 Every legal and numerical claim links to an official government, legislative or City of San Francisco
 source. Owner-supplied lease dates, rents, occupancy and build year are marked **unverified**. Values
 that cannot be confirmed are left **blank** and flagged — including the not-yet-published 2027–28
-percentage. Nothing is inferred.
+percentage. Illustrative scenarios state their assumptions; an actual legal entitlement is not inferred.
 Three checks run on every push and pull request:
 ```bash
 python3 scripts/sync_nav.py            # one canonical navigation across all 14 pages
@@ -99,15 +99,16 @@ python3 scripts/verify_calculations.py # re-derive every dollar amount and deadl
 ```
 
 ## Privacy
-No tenant or owner name, initial, address, contact detail or parcel number is published. Occupants
-appear only as Tenant A–F placeholders. Dates and dollar amounts are preserved exactly as supplied.
+Current pages use anonymized labels and preserve requested dates and amounts, which may still allow
+re-identification. This repository is public and earlier Git history contains tenant initials (F-23);
+optional private-pattern scans cannot prove all unknown identifiers are absent.
 Note that the Rent Board's Housing Inventory submission is itself public — that is a legal filing
 obligation, and none of it is reproduced here.
 
 ## Not legal advice
 This is a compliance review based on official sources. It is not legal advice. The SF Rent Board
 expressly cannot give legal advice, and no one can guarantee that a tenant lawyer will approve an
-increase. Consult a tenant lawyer or a Rent Board counselor before serving a notice.
+increase. Owners should consult their own housing attorney; the Rent Board can explain its rules but cannot provide legal advice.
 
 ## Coordination
 Parallel sessions coordinate through [COORDINATION.md](COORDINATION.md), which records every claim,

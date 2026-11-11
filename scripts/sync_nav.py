@@ -15,7 +15,8 @@ import sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-LAST_VERIFIED = "2026-11-11"
+LAST_VERIFIED = "2026-11-10"
+SELECTED_UPDATE_DATE = "2026-11-11"
 
 # (group label, [(file, link text), ...])
 NAV = [
@@ -54,7 +55,7 @@ def render_nav(active: str) -> str:
     out = [
         "<nav>",
         "  <h1>Rental Increase Review</h1>",
-        f'  <div class="sub">San Francisco &middot; Outer Sunset 94122<br>Last verified: {LAST_VERIFIED}</div>',
+        f'  <div class="sub">San Francisco &middot; Outer Sunset 94122<br>Prior review: {LAST_VERIFIED}<br>Selected audit: {SELECTED_UPDATE_DATE}</div>',
     ]
     for group, items in NAV:
         out.append(f'  <div class="nav-group">{group}</div>')
@@ -79,7 +80,7 @@ def main() -> int:
             print(f"ERROR: {page} has {count} <nav> blocks, expected 1", file=sys.stderr)
             return 1
         # Keep the footer stamp in step with the nav stamp.
-        new_html = re.sub(r"Last verified: \d{4}-\d{2}-\d{2}", f"Last verified: {LAST_VERIFIED}", new_html)
+        new_html = re.sub(r"(?:Last verified: \d{4}-\d{2}-\d{2}|Prior review: \d{4}-\d{2}-\d{2} · Selected audit: \d{4}-\d{2}-\d{2})", f"Prior review: {LAST_VERIFIED} · Selected audit: {SELECTED_UPDATE_DATE}", new_html)
         if new_html != html:
             with open(path, "w", encoding="utf-8") as handle:
                 handle.write(new_html)

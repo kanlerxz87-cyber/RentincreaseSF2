@@ -671,3 +671,47 @@ above remain preserved as historical evidence, not silently rewritten.
    exposure remains separately disclosed at F-23/F-36 and was not destructively rewritten.
 
 **Not legal advice.** Documentary verification against official sources only.
+
+## Addendum G — targeted independent review, 2026-11-11
+
+**Session:** `arena/58ded41a-rentincreasesf2`. **Baseline:** `1a0af4d` / PR #50.
+This is a *targeted* re-review, not a fresh live check of every URL. Earlier dated findings above
+are historical and do not override this addendum. Legal advice and unit-specific clearance remain
+outside the scope of this static site.
+
+| Finding | Evidence checked on 2026-11-11 | Correction / unresolved issue |
+|---|---|---|
+| F-39: 2020 freeze | [2020 Rent Board archive](https://www.sf.gov/reports--december-2020--san-francisco-rent-board-news-archive-2020), especially “Temporary Moratorium”; [Rule 4.12(a)](https://www.sf.gov/reports--december-2022--rent-board-rules-and-regulations-part-iv-rent-increases-not-requiring) | An annual or banked increase could not take effect 2020-06-01 during the 2020-04-07–2020-10-21 freeze. Prior tables treated the 1.8% component as available then and banked 2021-06-01. Whether a later or deferred allowance is eligible is unresolved. The 11.5% and 13.1% sums are arithmetic illustrations, not a verified bank or legal maximum. 2020 notices, rent history, and professional review are needed. |
+| F-40: coverage and factual inference | [SF rental laws](https://www.sf.gov/learn-about-san-francisco-rental-laws); [Costa-Hawkins partial exemption](https://www.sf.gov/information--partial-exemption-certain-single-family-homes-and-condominiums-under-costa-hawkins) | The request discusses two units but does not establish total building count or all occupancy facts. Pre-1979 construction and non-single-family use mean coverage *may* apply, not that it is certain; substantial rehabilitation, regulated units, and an illegal in-law rented with the main home as one tenancy need consideration. Unsupported tenant-count and move-in-date inferences were removed. |
+| F-41: mail and notice | [Civil Code § 827](https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=827.&lawCode=CIV); [CCP § 1013(a)](https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=1013.&lawCode=CCP) | 30/90-day periods depend on increases combined during the prior 12 months. The 5-day mail extension is used for mailing and addressing within California; other geography or address-confidentiality cases can require longer. Published deadline examples state their assumptions. |
+| F-42: lease terms | [California Department of Real Estate tenants guide hosted by California Courts](https://www4.courts.ca.gov/documents/California-Tenants-Guide.pdf); [Civil Code § 827(c)](https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=827.&lawCode=CIV) | Current fixed-term clauses, program restrictions and longer contractual notice are unknown. Added a pre-service lease gate; no lease terms were inferred. |
+| Retaliation and license timing | [Civil Code § 1942.5](https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=1942.5.&lawCode=CIV); [Rule 13.14](https://sfrb.org/section-1314-licensing-%E2%80%93-notice-rent-increase) | Corrected categorical 180-day statements to include retaliation, rent-default and other statutory qualifications; subsection (d) remains separate. An unlicensed annual/banked increase can be void when effective; service while unlicensed alone is not the stated test. |
+| Petition, utility and bond routes | [Landlord petitions](https://www.sf.gov/landlord-petitions-and-passthroughs); [utility passthroughs](https://www.sf.gov/information--utility-passthroughs-gas-electricity-and-steam-heat); [bond worksheets](https://www.sf.gov/information--general-obligation-bond-passthrough-worksheets) | Removed blanket claims that all above-annual-allowance amounts or all operating-cost passthroughs require petitions. The applicable petition or worksheet is route-specific. Ordinary annual/banked increases do not require prior Board approval. |
+| Federal scope and privacy | [HUD Fair Housing](https://www.hud.gov/reporthousingdiscrimination); [City Housing Inventory](https://www.sf.gov/rent-board-housing-inventory) | The sourced Fair Housing rule is distinct from the unverified absence of any federal/program rent ceiling. The public repository's earlier history contains tenant initials (F-23); current anonymized pages and optional scans do not guarantee anonymity or erase history. Dates/amounts could allow re-identification. No personal patterns were committed. |
+| Proposed legislation | [Legistar 261020](https://sfgov.legistar.com/LegislationDetail.aspx?ID=8217304&GUID=7EDA4662-EBFB-4AF5-962F-C669B64AA770); [draft](https://sfgov.legistar.com/View.ashx?M=F&ID=15865646&GUID=0E2E6936-000B-4597-A4EE-FBB17C19636E); [Rent Board current rates](https://www.sf.gov/reports--current-rates-including-rent-increase-relocation-sec-deposit) | Status was **Pending Committee Action** on 2026-11-11, not enacted; the draft may reach notices on or after 2026-09-15 if enacted. Recheck immediately before notice. |
+
+**Calculation snapshot:** 2026-11-11; personal/mail earliest 90-day examples are 2027-02-09 /
+2027-02-14, assuming California-to-California mail. Fixed closing dates for a 2027-02-28 effective
+13.1% hypothetical remain 2026-11-30 / 2026-11-25. These are not live countdowns and must not be
+used to rush unresolved legal gates. The 2026-04-01 continuing-tenancy date does not establish the
+added occupant's move-in date, so no elapsed 6.14 notice-window count is asserted.
+
+**Validation at this stage:** `sync_nav.py --check`, `validate_site.py`, and
+`verify_calculations.py` passed after the updates; the latter includes 391 assertions and expressly
+checks the 2020 rows are marked unresolved. Further integration, privacy, served-file, CI and Pages
+checks are recorded in `COORDINATION.md` as they complete.
+
+### Concurrent integration / additional timing question
+
+While this pass was underway, PRs #51–#55 merged. Their tenant-remedy additions, source rows,
+2026-11-11 date calculations, prior flags F-37/F-38 and the 11.5% banked-only illustrative option
+were preserved. This pass's new flags were renumbered F-39–F-42 to avoid collisions. F-43 now
+records the separate unresolved question whether a banked-only notice without a current annual
+component satisfies the express wording of Rule § 4.12(a); an anniversary date avoids the separate
+off-anniversary question but does not by itself establish that point. The banked-only illustration
+remains arithmetic only and also depends on the 2020-freeze question in F-39.
+
+The combined suite retains the other session's date-drift and banked-only arithmetic checks while
+removing the unsupported elapsed-time assertion for the additional occupant; the review date is a
+snapshot rather than an automatically updating countdown. At the integration point it passes
+**411 assertions**, 14 pages and 59 source URLs; no private patterns were configured.

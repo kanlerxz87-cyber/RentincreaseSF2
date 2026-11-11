@@ -12,10 +12,9 @@ actually be public at `https://kanlerxz87-cyber.github.io/RentincreaseSF2/intern
 
 Therefore:
 
-- The tenant names and initials supplied in the intake **are not written anywhere in this
-  repository** — not here, not in `COORDINATION.md`, not in `AUDIT.md`, not in any HTML page.
-- The street address and Assessor's Parcel Number (APN) are **not written anywhere in this
-  repository** either.
+- Current public pages use anonymized labels. Earlier commits contain tenant initials; see F-23.
+  A scan without privately supplied patterns cannot guarantee every current file is free of identifiers.
+- Do not add the street address or Assessor's Parcel Number (APN) to any public file.
 - The mapping between the real identity of each occupant and the placeholder used on the site
   (Tenant A … Tenant F, and "Unit 1" / "Unit 2") is held **offline by the owner**. It is
   deliberately not reproducible from anything committed here.
@@ -63,8 +62,9 @@ commits in its history contain tenant initials that one earlier session wrote in
 `COORDINATION.md` while reviewing a different pull request. Those commits remain reachable through
 the repository history.
 
-Nothing on the site displays them and no current file contains them, but history is a separate
-exposure. The options — and why none of them was applied automatically — are set out under F-23 on
+Current pages use anonymized labels, but optional private-pattern checks are not a guarantee that
+unknown identifiers are absent. History remains a separate exposure, and published dates and
+amounts may also contribute to re-identification. The options — and why none of them was applied automatically — are set out under F-23 on
 the [Flagged for Review](../flagged.html#F-23) page:
 
 1. Make the repository private. Check the effect on GitHub Pages first; access control depends on

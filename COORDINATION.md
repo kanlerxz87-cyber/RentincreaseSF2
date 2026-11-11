@@ -1863,3 +1863,35 @@ The Arena session is fixed to `arena/58ded41a-rentincreasesf2`, so it cannot cre
 | 58de-A | in progress | arena/58ded41a-rentincreasesf2 | `COORDINATION.md`, `AUDIT.md` | Independently audit current published content, source links, unit calculations, privacy, and current official rules; document each verified finding and irregularity. |
 | 58de-B | in progress | arena/58ded41a-rentincreasesf2 | root `*.html`, `style.css`, `scripts/*.py`, `.github/workflows/*`, `README.md`, `COORDINATION.md`, `AUDIT.md` | Final integration and narrowly scoped corrections; no identifying tenant information will be added; unverified matters must be flagged. |
 | 58de-C | in progress | arena/58ded41a-rentincreasesf2 | `COORDINATION.md` | Run integrated validation and local link checks, open and merge a PR from the fixed Arena branch if the build is sound, and confirm the Pages deployment. |
+
+### 58de targeted audit and correction progress (2026-11-11)
+
+- Direct official review found the 2020 rent-increase freeze affecting Unit 2's assumed first
+  allowance; F-39 now leaves actual eligibility blank and marks 11.5% / 13.1% as illustrative.
+  F-40 records coverage and missing building/occupancy facts; F-41 records notice aggregation and
+  mail geography; F-42 records fixed-term/contract uncertainty. The details and direct source URLs
+  are in `AUDIT.md` Addendum G and the public flags.
+- Corrected effective-date licensing, retaliation qualifiers, petition vs worksheet routes,
+  federal-source claims, the published Git-history privacy warning and owner-counsel guidance.
+  Dates are now explicitly snapshots, with 2026-11-11 calendar arithmetic separated from the
+  2026-11-10 prior source-review stamp. No private names or identifier patterns were added.
+- Current local checks: 14 pages, 56 official URLs, every table row sourced, internal paths and
+  fragments resolve; 391 calculation/assertion checks pass; nav synchronized; diff whitespace
+  check clean. Integration review, additional negative tests, PR and Pages verification remain.
+
+### 58de rebase and conflict-resolution record (2026-11-11)
+
+`main` advanced from PR #50 to `a55d3fe` (PRs #51–#55) during this session. The required
+`git pull --rebase origin main` conflicted at the append-only task board and in the combined site.
+Both task-board histories were kept. Other sessions' tenant-remedy additions, source rows, date
+checks and banked-only arithmetic were retained alongside this session's legal/privacy fixes.
+F-37/F-38 were already in use on `main`, so this session's flags were renumbered **F-39–F-42**;
+F-43 additionally flags the unresolved banked-only/annual-increase wording. The 2020 freeze
+remains an explicit qualification on every 11.5% / 13.1% scenario, including the banked-only option.
+Historical claims that the added occupant joined on 2026-04-01 were superseded because that date
+was supplied as a continuing-tenancy date, not a verified occupancy start/knowledge date.
+
+Post-resolution local checks: synchronized nav (14 pages), validator (14 pages, 59 official source
+URLs, all table rows externally sourced, internal links and fragments resolved), 411 calculation and
+regression assertions, and whitespace/conflict-marker checks all pass. The specific balance,
+coverage, lease, license, notice service and retaliation facts remain unverified.
