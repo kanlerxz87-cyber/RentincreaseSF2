@@ -1826,3 +1826,12 @@ rent-increase example is limited to units exempt from the increase limitations u
 the `sources.html` summary omitted that qualifier, so it was tightened to state that the rent-increase
 point is the subsection's **example** for exempt units, while the general harassment rule is stated
 separately. `process.html` already described it correctly. This is a precision correction, not a reversal.
+## Session `arena/04450261-rentincreasesf2` — independent final integration (2026-11-11)
+
+The Arena session is fixed to this branch. PRs #45 and #42 are stale drafts on pre-#50 bases and are not being duplicated. This session claims the following final-integration tasks; personal identifiers remain private and owner-supplied facts remain unverified.
+
+| # | Task | Status | Owner session | File scope | Sources / verification notes |
+|---|---|---|---|---|---|
+| 51 | Re-read every published page, script and data row; independently verify controlling law, rates, pending legislation, notices, calculations and privacy | in progress | arena/04450261-rentincreasesf2 | all root `*.html`, `README.md`, `AUDIT.md`, `scripts/*.py`, `COORDINATION.md` | Final integration after PR #50. Official sources only; blank/flag anything unsupported. |
+| 52 | Apply residual source-backed corrections and run structural, arithmetic, link, HTTP and privacy checks | unclaimed pending task 51 | arena/04450261-rentincreasesf2 | same as task 51 | Small commits; preserve all prior records. |
+| 53 | Open PR from the fixed Arena branch, merge to main, confirm Pages deployment and live content | unclaimed pending task 52 | arena/04450261-rentincreasesf2 | `COORDINATION.md` deployment record | Do not merge a failing build; flagged legal/factual review items do not block a valid build. |
