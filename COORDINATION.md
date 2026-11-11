@@ -1624,3 +1624,13 @@ unit-count requirement remains in Gate 0.3a and coverage/exceptions remain in Ga
 separate duplicate Gate 0.7 row was consolidated without dropping the requirement. After that
 integration fix, validation again passed 14 pages / 52 official URLs and 315 calculations; all 17
 public resources returned HTTP 200 and the recursive negative privacy/marker test passed.
+
+## Session `arena/58ded41a-rentincreasesf2` — current integration claim (2026-11-11T04:18Z)
+
+The Arena session is fixed to `arena/58ded41a-rentincreasesf2`, so it cannot create or switch to a separate `session-*` branch. The last `main` commit and the most recent open-PR updates were on 2026-11-10, more than 60 minutes ago. Earlier stale in-progress integration claims are taken over for this session; their committed records and work will be preserved. Open PRs #42 and #45 remain separate and will not be edited or duplicated without assessment.
+
+| Task | Status | Owner session | File scope | Sources / verification notes |
+|---|---|---|---|---|
+| 58de-A | in progress | arena/58ded41a-rentincreasesf2 | `COORDINATION.md`, `AUDIT.md` | Independently audit current published content, source links, unit calculations, privacy, and current official rules; document each verified finding and irregularity. |
+| 58de-B | in progress | arena/58ded41a-rentincreasesf2 | root `*.html`, `style.css`, `scripts/*.py`, `.github/workflows/*`, `README.md`, `COORDINATION.md`, `AUDIT.md` | Final integration and narrowly scoped corrections; no identifying tenant information will be added; unverified matters must be flagged. |
+| 58de-C | in progress | arena/58ded41a-rentincreasesf2 | `COORDINATION.md` | Run integrated validation and local link checks, open and merge a PR from the fixed Arena branch if the build is sound, and confirm the Pages deployment. |
