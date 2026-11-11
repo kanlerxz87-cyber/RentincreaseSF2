@@ -1834,7 +1834,7 @@ The Arena session is fixed to this branch. PRs #45 and #42 are stale drafts on p
 |---|---|---|---|---|---|
 | 51 | Re-read every published page, script and data row; independently verify controlling law, rates, pending legislation, notices, calculations and privacy | done | arena/04450261-rentincreasesf2 | all root `*.html`, `README.md`, `AUDIT.md`, `scripts/*.py`, `COORDINATION.md` | Final integration after PR #50. Official sources only; blank/flag anything unsupported. |
 | 52 | Apply residual source-backed corrections and run structural, arithmetic, link, HTTP and privacy checks | done | arena/04450261-rentincreasesf2 | same as task 51 | Small commits; preserve all prior records. |
-| 53 | Open PR from the fixed Arena branch, merge to main, confirm Pages deployment and live content | in progress | arena/04450261-rentincreasesf2 | `COORDINATION.md` deployment record | Do not merge a failing build; flagged legal/factual review items do not block a valid build. |
+| 53 | Open PR from the fixed Arena branch, merge to main, confirm Pages deployment and live content | done | arena/04450261-rentincreasesf2 | `COORDINATION.md` deployment record | Do not merge a failing build; flagged legal/factual review items do not block a valid build. |
 
 ### Tasks 51–52 verification record
 
@@ -1844,3 +1844,12 @@ The Arena session is fixed to this branch. PRs #45 and #42 are stale drafts on p
 - Recursive privacy scan run with six privately supplied identifier patterns: no current public file contains any of them; no pattern was printed or stored. F-23/F-36 historical exposure remains disclosed.
 - Local HTTP test: all 14 pages and 17 unique public resources returned HTTP 200; every page has one title, H1 and main landmark. `git diff --check` passed.
 - Residual correction: Tenant Protections now distinguishes petition routes from Rules 6.14 / Costa-Hawkins. No legal approval is implied. Tasks 51–52 done; task 53 PR/deploy in progress.
+
+### PR #54 — merge and deployment record
+
+- **PR:** https://github.com/kanlerxz87-cyber/RentincreaseSF2/pull/54 — merged 2026-11-11T04:28:46Z as **`a55d3fe96b59cdf48cb06c7683be486212793c3d`** using `gh pr merge 54 --merge`.
+- **Validation:** PR run 42959442320 and post-merge main run 42959496729 both succeeded. Combined suite: 14 pages, 55 official URLs, **334 calculation assertions**.
+- **GitHub Pages:** run 42959496288 succeeded. `pages/builds/latest` reports status **built**, commit `a55d3fe`, error `null`, completed 2026-11-11T04:29:08Z.
+- **Live read-back:** dashboard shows 2026-11-11 and the banked-only Unit 2 scenario; cache-busted Tenant Protections shows the Rules 6.14 / Costa-Hawkins clarification; cache-busted Flagged for Review shows 224 days. The initial uncached reads of two URLs returned stale CDN content, while the deployed commit and cache-busted URLs matched.
+- **Concurrency:** PRs #51/#52/#53/#55 were preserved through repeated rebases. Duplicate date edits were dropped; main's stronger drift checks and banked-only scenario remain. No other session's content was discarded.
+- Published flags remain non-blocking and available on Flagged for Review. Task 53 done.
