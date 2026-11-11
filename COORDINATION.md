@@ -1853,3 +1853,13 @@ The Arena session is fixed to this branch. PRs #45 and #42 are stale drafts on p
 - **Live read-back:** dashboard shows 2026-11-11 and the banked-only Unit 2 scenario; cache-busted Tenant Protections shows the Rules 6.14 / Costa-Hawkins clarification; cache-busted Flagged for Review shows 224 days. The initial uncached reads of two URLs returned stale CDN content, while the deployed commit and cache-busted URLs matched.
 - **Concurrency:** PRs #51/#52/#53/#55 were preserved through repeated rebases. Duplicate date edits were dropped; main's stronger drift checks and banked-only scenario remain. No other session's content was discarded.
 - Published flags remain non-blocking and available on Flagged for Review. Task 53 done.
+
+## Session `arena/58ded41a-rentincreasesf2` — current integration claim (2026-11-11T04:18Z)
+
+The Arena session is fixed to `arena/58ded41a-rentincreasesf2`, so it cannot create or switch to a separate `session-*` branch. The last `main` commit and the most recent open-PR updates were on 2026-11-10, more than 60 minutes ago. Earlier stale in-progress integration claims are taken over for this session; their committed records and work will be preserved. Open PRs #42 and #45 remain separate and will not be edited or duplicated without assessment.
+
+| Task | Status | Owner session | File scope | Sources / verification notes |
+|---|---|---|---|---|
+| 58de-A | in progress | arena/58ded41a-rentincreasesf2 | `COORDINATION.md`, `AUDIT.md` | Independently audit current published content, source links, unit calculations, privacy, and current official rules; document each verified finding and irregularity. |
+| 58de-B | in progress | arena/58ded41a-rentincreasesf2 | root `*.html`, `style.css`, `scripts/*.py`, `.github/workflows/*`, `README.md`, `COORDINATION.md`, `AUDIT.md` | Final integration and narrowly scoped corrections; no identifying tenant information will be added; unverified matters must be flagged. |
+| 58de-C | in progress | arena/58ded41a-rentincreasesf2 | `COORDINATION.md` | Run integrated validation and local link checks, open and merge a PR from the fixed Arena branch if the build is sound, and confirm the Pages deployment. |
