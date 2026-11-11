@@ -641,7 +641,7 @@ Validator allowlist is now 55 official URLs; all checks pass on the rebased tree
 ## Addendum F — independent final integration audit (2026-11-11)
 
 Session `arena/04450261-rentincreasesf2` inspected all 14 HTML pages, the navigation and validation
-scripts, the calculation suite, every table row and all 52 allowlisted official-source mappings.
+scripts, the calculation suite, every table row and all 55 allowlisted official-source mappings.
 Controlling sources were fetched again on 2026-11-11; the earlier sessions' direct-source records
 above remain preserved as historical evidence, not silently rewritten.
 
