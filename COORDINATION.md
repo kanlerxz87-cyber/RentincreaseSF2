@@ -1667,3 +1667,11 @@ Ported the unique useful additions from PR #45 into the newer tree without overw
 
 | e7ea-B | Curated PR #45 integration and verification | done | arena/e7ea8610-rentincreasesf2 | Site files and validator as claimed | No wholesale branch merge; unresolved items remain on Flagged for Review. |
 | e7ea-C | Final PR, checks, merge, Pages confirmation, and superseded-PR disposition | in progress | arena/e7ea8610-rentincreasesf2 | `COORDINATION.md` deployment record | Proceed only if CI passes. |
+
+### e7ea-C progress and follow-up claim (2026-11-11)
+
+[PR #51](https://github.com/kanlerxz87-cyber/RentincreaseSF2/pull/51) passed its validation workflow and merged into main as `28e9a2275a41fd1eae0747d4a3b22315b55e0c10`. [Pages deployment](https://github.com/kanlerxz87-cyber/RentincreaseSF2/actions/runs/42958706388) completed successfully; the Pages build API reports `built` for that commit and the live tenant-protections and flagged pages were fetched successfully. PR #42 was closed as superseded, and PR #45 as curated into #51, with explanations on each. Live review found residual shorthand notice language and an overbroad retaliation summary requiring a small follow-up; the published calculations assume the unverified prior rent history.
+
+| ID | Task | Status | Owner | Scope | Notes |
+|---|---|---|---|---|---|
+| e7ea-D | Correct notice-lookback and retaliation shorthand found in final read-back; record flag, revalidate and deploy | in progress | arena/e7ea8610-rentincreasesf2 | `*.html`, `COORDINATION.md` | Final integration session; retain all existing assumptions and safeguards. Official Civil Code §§ 827 and 1942.5 checked on 2026-11-11. |
