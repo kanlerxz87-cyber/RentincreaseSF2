@@ -638,3 +638,36 @@ introduced by PR #51 were then fetched and read verbatim in this pass:
 | Rent Board Forms Center | Not re-fetched in this pass (listed in the six rows that keep a 2026-11-10 badge). |
 
 Validator allowlist is now 55 official URLs; all checks pass on the rebased tree.
+## Addendum F — independent final integration audit (2026-11-11)
+
+Session `arena/04450261-rentincreasesf2` inspected all 14 HTML pages, the navigation and validation
+scripts, the calculation suite, every table row and all 55 allowlisted official-source mappings.
+Controlling sources were fetched again on 2026-11-11; the earlier sessions' direct-source records
+above remain preserved as historical evidence, not silently rewritten.
+
+| Check | Official evidence / result | Outcome |
+|---|---|---|
+| Individual-owner license and timing | [Housing Inventory](https://www.sf.gov/rent-board-housing-inventory) says all residential owners report, reporting tenant-occupied units generates the license, and the current license is required on the increase's effective date; [Rules § 13.14](https://sfrb.org/section-1314-licensing-%E2%80%93-notice-rent-increase) says an unlicensed annual/banked increase is entirely void and expressly uses the effective date, not service date. | Confirmed the executive summary's answer and recommended sequence. No separate ordinary annual/banked petition is required. |
+| Rate ledger | [Form 571](https://www.sf.gov/documents/34344/571_Allowable_Annual_Increases_26-27_1.pdf) confirms 2019–20 2.6%; 2020–21 1.8%; 2021–22 0.7%; 2022–23 2.3%; 2023–24 3.6%; 2024–25 1.7%; 2025–26 1.4%; 2026–27 1.6%. | Unit 2 uses 1.8% + 0.7% + 2.3% + 3.6% + 1.7% + 1.4% = 11.5% banked, plus current 1.6% = 13.1%; Unit 1 uses 1.4% + 1.6% = 3.0%. Inputs remain owner-supplied and unverified. |
+| Banking and dates | [Banked increases](https://www.sf.gov/information--banked-rent-increases), [irregular periods](https://www.sf.gov/information--increasing-rents-during-irregular-periods), [Rent Board Rules Part IV](https://www.sf.gov/reports--december-2022--rent-board-rules-and-regulations-part-iv-rent-increases-not-requiring) and [rent-increase guidance](https://www.sf.gov/learn-about-rent-increases-san-francisco). | Confirmed no compounding, no rounding up, base rent only, 12-month frequency, off-anniversary/new-anniversary consequences, and notice content. F-28 remains a counselor-review item. |
+| Notice | [Civil Code § 827(b)](https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=827.&lawCode=CIV) confirms 30 days at 10% or less and 90 days above 10%, personal delivery or mail; Rent Board guidance adds five days for mail. | All serve-by dates and day counts re-derived. |
+| Pending proposal | [Legistar File 261020](https://sfgov.legistar.com/LegislationDetail.aspx?ID=8217304&GUID=7EDA4662-EBFB-4AF5-962F-C669B64AA770) remained Version 1, **Pending Committee Action**, with no enactment date or number on 2026-11-11. The Rent Board notice remains posted on Current Rates and rent-increase pages. | Still not enacted. F-27 and the conditional 10.0%/13.1% wording remain correct. |
+| State and federal framework | [Civil Code § 1947.12](https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=1947.12.&lawCode=CIV), [SF AB 1482 guidance](https://www.sf.gov/reports--california-tenant-protection-act-2019-ab-1482), [Civil Code § 1942.5](https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=1942.5.&lawCode=CIV), [California CRD](https://calcivilrights.ca.gov/housing/), [HUD](https://www.hud.gov/reporthousingdiscrimination), and [42 U.S.C. ch. 45](https://www.govinfo.gov/content/pkg/USCODE-2024-title42/html/USCODE-2024-title42-chap45.htm). | Confirmed local-cap exemption, notice/retaliation and protected-class analysis. The absence of a located federal rent ceiling remains explicitly qualified under F-34. |
+| Occupancy and owner practices | [Rules 6.14 / Costa-Hawkins](https://www.sf.gov/information--rent-increases-under-section-614-and-costa-hawkins), [additional occupants](https://www.sf.gov/information--charging-additional-occupants-prohibited), [algorithmic devices](https://www.sf.gov/information--algorithmic-devices-set-rent-are-prohibited-san-francisco), and [landlord petitions](https://www.sf.gov/landlord-petitions-and-passthroughs). | No market reset while an original occupant remains; no added-occupant surcharge; same legal caps for individual and corporate owners; ordinary management software is not banned. |
+| Fees, coverage and tenant help | [Rent Board Fee](https://www.sf.gov/rent-board-fee), [rental-law coverage](https://www.sf.gov/learn-about-san-francisco-rental-laws), [tenant petitions](https://www.sf.gov/tenant-petitions), [counselor](https://www.sf.gov/speak-rent-board-counselor), [tenant/landlord resources](https://www.sf.gov/tenant-and-landlord-resources), [legal resources](https://www.sf.gov/information/legal-resources-housing-discrimination), and [local discrimination help](https://www.sf.gov/information--get-help-discrimination-housing). | $59.00 dwelling-unit fee and 2026-12-14 exemption deadline confirmed; owner-supplied coverage facts and license status remain flagged; free help details and eligibility limits match the sources. |
+
+### Corrections made
+
+1. **Date-sensitive publication defect fixed.** The previous site used 2026-11-10 as “today.” The
+   base date is now 2026-11-11 throughout the current pages and scripts. Unit 2's earliest effective
+   dates are 2027-02-09 (personal service) and 2027-02-14 (mail); Unit 1's are 2026-12-11 and
+   2026-12-16. All remaining day pairs and the occupancy interval (224 days) were recomputed.
+   The fixed target serve-by dates and the outer 2026-11-30 / 2026-11-25 closing dates did not change.
+2. **Overbroad shorthand corrected.** Tenant Protections now distinguishes annual/banked limits,
+   petition routes, and the no-petition Rules 6.14 / Costa-Hawkins route rather than saying every
+   nonstandard increase needs an approved petition.
+3. **Privacy rechecked.** The recursive validator was run with six privately supplied identifier
+   patterns; none occurs in current public files. No pattern was stored or printed. Historical Git
+   exposure remains separately disclosed at F-23/F-36 and was not destructively rewritten.
+
+**Not legal advice.** Documentary verification against official sources only.

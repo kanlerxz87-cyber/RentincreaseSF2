@@ -1826,3 +1826,21 @@ rent-increase example is limited to units exempt from the increase limitations u
 the `sources.html` summary omitted that qualifier, so it was tightened to state that the rent-increase
 point is the subsection's **example** for exempt units, while the general harassment rule is stated
 separately. `process.html` already described it correctly. This is a precision correction, not a reversal.
+## Session `arena/04450261-rentincreasesf2` — independent final integration (2026-11-11)
+
+The Arena session is fixed to this branch. PRs #45 and #42 are stale drafts on pre-#50 bases and are not being duplicated. This session claims the following final-integration tasks; personal identifiers remain private and owner-supplied facts remain unverified.
+
+| # | Task | Status | Owner session | File scope | Sources / verification notes |
+|---|---|---|---|---|---|
+| 51 | Re-read every published page, script and data row; independently verify controlling law, rates, pending legislation, notices, calculations and privacy | done | arena/04450261-rentincreasesf2 | all root `*.html`, `README.md`, `AUDIT.md`, `scripts/*.py`, `COORDINATION.md` | Final integration after PR #50. Official sources only; blank/flag anything unsupported. |
+| 52 | Apply residual source-backed corrections and run structural, arithmetic, link, HTTP and privacy checks | done | arena/04450261-rentincreasesf2 | same as task 51 | Small commits; preserve all prior records. |
+| 53 | Open PR from the fixed Arena branch, merge to main, confirm Pages deployment and live content | in progress | arena/04450261-rentincreasesf2 | `COORDINATION.md` deployment record | Do not merge a failing build; flagged legal/factual review items do not block a valid build. |
+
+### Tasks 51–52 verification record
+
+- Directly re-read the controlling Rent Board, Legistar, California legislative, CRD and HUD sources on 2026-11-11; full source matrix and corrections are in `AUDIT.md` Addendum F. File 261020 remains **Pending Committee Action**, not enacted.
+- Refreshed all date-dependent outputs to 2026-11-11. Unit 2 earliest effective dates are now 2027-02-09 personal / 2027-02-14 mail; Unit 1 earliest dates are 2026-12-11 / 2026-12-16; added-occupancy interval is 224 days. Fixed-target deadlines and dollar calculations did not change.
+- `python3 scripts/sync_nav.py`: 14 pages, 0 changes. `validate_site.py`: 14 pages, 55 official URLs, external source on every data row, valid structure and resolving links/fragments, no conflict markers. `verify_calculations.py`: **334 assertions passed** after retaining concurrent PR #52's stronger drift-proof checks and banked-only scenario.
+- Recursive privacy scan run with six privately supplied identifier patterns: no current public file contains any of them; no pattern was printed or stored. F-23/F-36 historical exposure remains disclosed.
+- Local HTTP test: all 14 pages and 17 unique public resources returned HTTP 200; every page has one title, H1 and main landmark. `git diff --check` passed.
+- Residual correction: Tenant Protections now distinguishes petition routes from Rules 6.14 / Costa-Hawkins. No legal approval is implied. Tasks 51–52 done; task 53 PR/deploy in progress.
