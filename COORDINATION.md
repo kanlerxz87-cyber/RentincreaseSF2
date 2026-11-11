@@ -1636,3 +1636,25 @@ Platform-fixed branch `arena/e7ea8610-rentincreasesf2`, cut from `main` at `1a0a
 | e7ea-C | PR to `main`, merge without waiting, confirm Pages deploy + live read-back; close PR #42 (superseded) and PR #45 (salvaged) with written rationale; record PR link and merge result here | unclaimed until e7ea-B is done | arena/e7ea8610-rentincreasesf2 | `COORDINATION.md` deployment record | Flagged/unverified items do not block the merge. |
 
 - **Privacy.** This file is served publicly. Only placeholders, dates and dollar amounts are written here.
+
+### e7ea-A findings (2026-11-11)
+
+**Method.** Diffed both stale branches against `origin/main` (`1a0af4d`) file by file; fetched every PR #45 new source live; re-checked the two time-sensitive sources live on 2026-11-11.
+
+**PR #45 — unique verified content to port (e7ea-B).** PR #45's tree is older than `main` (it lacks `answers.html`, `internal/README.md`, and main's corrected AB 1482 / frequency / coverage / algorithm wording), so only its additive blocks are ported, adapted to main's corrected standards:
+1. `practices.html` — two new cards: "How large real estate corporations actually handle an annual increase" (7-row procedure table) and "Practical compliance steps for any owner" (7-row steps table). All URLs already on main's allowlist.
+2. `process.html` — "One unit or both — tested against the discrimination rules" (6-row table) + "What to write down" paragraph + callout. Uses new source § 37.10B.
+3. `tenant-protections.html` — "Would a tenant advocate support any increase at all?" card (7 rows). Uses new sources § 37.10B, § 37.11A.
+4. `laws.html` — "Outer Sunset, ZIP 94122" card (7 rows). Adapted: federal row labelled per F-34 (absence of source, not "Verified"), coverage row uses main's two-part test, "lawful amount" qualified as conditional.
+5. `executive-summary.html` — new § 7a advocate table (6 rows). Adapted: Unit 2 13.1% stated as conditional arithmetic, not a verified lawful total.
+6. `index.html` — badge "3 intake facts unverified" → "All intake facts unverified" (PR #45's correction; main still carries the understated wording).
+7. Three new official sources (allowlist 52 → 55): Rent Ordinance § 37.10B (Tenant Harassment), § 37.11A (Civil Actions), Rent Board Forms Center. Each fetched live 2026-11-11 and the quoted text confirmed (§ 37.10B(a)(5) bad-faith increase evidence; § 37.11A(a) three-year overpayment limit for void increases; Forms Center lists Form 516C Unlawful Rent Increase).
+8. O&M URL fix + new flag **F-32** (number free on main): main still cites `/information/topic-no-322-...`, which resolves only via redirect to the canonical `/information--operating-and-maintenance-expense-petitions` (confirmed live 2026-11-11; canonical page read and 7% O&M content confirmed). Replace in all pages + allowlist; publish F-32 as Corrected.
+
+**PR #45 — not ported (already on main).** Its F-31 (Form 538 date conflict) duplicates main's F-24; its F-33 (ZIP) and F-34 (advocate question) duplicate the substance of main's F-33/F-34 and the new cards above under colliding numbers. Its older wording on AB 1482 ("floor"), frequency ("on the anniversary"), coverage (build year only) and algorithmic devices (all software) was corrected on main by later sessions and is not reintroduced.
+
+**PR #42 — superseded, no salvage.** Docs-only verification record on `910c163` (151 assertions). Main has since moved to 315 assertions and PRs #44–#50; the stale-PR closures it records (#27/#29/#39) are already on main. Close with rationale in e7ea-C.
+
+**Live re-check 2026-11-11.** Current Rates still shows 1.6% for 3/1/2026–2/28/2027 with the File 261020 notice posted 2026-11-09; Legistar File 261020 still "Pending Committee Action", introduced 2026-09-15, Land Use and Transportation Committee, no enactment. No site figure changed.
+
+| e7ea-B | Port the unique verified content listed above; run all checks | in progress | arena/e7ea8610-rentincreasesf2 | `practices.html`, `process.html`, `tenant-protections.html`, `laws.html`, `executive-summary.html`, `index.html`, `flagged.html`, `sources.html`, `scripts/validate_site.py`, `README.md`, `AUDIT.md`, `COORDINATION.md` | Adapted to main's corrected standards; no value filled by inference. |
