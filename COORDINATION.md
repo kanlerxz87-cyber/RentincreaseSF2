@@ -1895,3 +1895,11 @@ Post-resolution local checks: synchronized nav (14 pages), validator (14 pages, 
 URLs, all table rows externally sourced, internal links and fragments resolved), 411 calculation and
 regression assertions, and whitespace/conflict-marker checks all pass. The specific balance,
 coverage, lease, license, notice service and retaliation facts remain unverified.
+
+### 58de follow-up rebase (2026-11-11)
+
+PR #56 (`a246a74`) landed as the first integration rebase completed. Its deployment record and this
+session's original claim were both retained in a second append-only conflict resolution. The local
+branch was revalidated afterward: 14 pages, 59 sourced official URLs and 411 assertions pass. The
+previously pushed claim commit is retained in the branch ancestry with a content-preserving merge
+before the next push; its rebased claim text is already present, so no remote work is discarded.
