@@ -1675,3 +1675,7 @@ Ported the unique useful additions from PR #45 into the newer tree without overw
 | ID | Task | Status | Owner | Scope | Notes |
 |---|---|---|---|---|---|
 | e7ea-D | Correct notice-lookback and retaliation shorthand found in final read-back; record flag, revalidate and deploy | in progress | arena/e7ea8610-rentincreasesf2 | `*.html`, `COORDINATION.md` | Final integration session; retain all existing assumptions and safeguards. Official Civil Code §§ 827 and 1942.5 checked on 2026-11-11. |
+
+### e7ea-D completed (2026-11-11)
+
+Corrected shorthand across general notice summaries: [Civil Code § 827(b)(2)–(3)](https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=827.&lawCode=CIV) counts the proposed increase alone or together with other increases in the preceding 12 months, and § 827(c) preserves longer applicable notice periods. Short-notice examples now identify the prior-history condition. Corrected a tenant-protection row that had omitted banked increases and qualified the [§ 1942.5(a)](https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=1942.5.&lawCode=CIV) retaliation condition. Published F-37. Checks again pass: 14 pages, 55 allowlisted sources, 315 calculation assertions, synchronized navigation, and `git diff --check`. The dollar and date examples remain conditional and history/license/coverage flags remain open.
