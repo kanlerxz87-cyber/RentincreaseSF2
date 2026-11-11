@@ -27,7 +27,7 @@ from decimal import Decimal, ROUND_DOWN
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-REVIEW_DATE = date(2026, 11, 10)
+REVIEW_DATE = date(2026, 11, 11)
 
 # SF Rent Board Info Sheet 571: percentage in effect on each 1 June / 1 February.
 RATE_571 = {
@@ -157,8 +157,17 @@ def main() -> int:
     u2_serve_mail = u2_effective - timedelta(days=95)
     expect("Unit 2 serve by", u2_serve, date(2026, 11, 17))
     expect("Unit 2 serve by mail", u2_serve_mail, date(2026, 11, 12))
-    expect("Unit 2 earliest effective if served today", REVIEW_DATE + timedelta(days=90), date(2027, 2, 8))
-    expect("Unit 2 earliest effective if mailed today", REVIEW_DATE + timedelta(days=95), date(2027, 2, 13))
+    # The earliest effective date reachable from "today" is a today-relative figure. It is
+    # computed from REVIEW_DATE and then matched against the printed text of every page that
+    # publishes it, so a stale base date fails here instead of being copied by hand (the
+    # 2026-11-10 -> 2026-11-11 re-stamp is exactly the drift this catches).
+    earliest_personal = REVIEW_DATE + timedelta(days=90)
+    earliest_mailed = REVIEW_DATE + timedelta(days=95)
+    for page in ["analysis.html", "index.html", "checklist.html", "executive-summary.html"]:
+        expect_in_pages("earliest reachable effective date (personal)", earliest_personal.isoformat(), [page])
+        expect_in_pages("earliest reachable effective date (mailed)", earliest_mailed.isoformat(), [page])
+    expect_in_pages("earliest reachable effective date (banking page)", earliest_personal.isoformat(),
+                    ["banking-rule.html"])
     # The closing window: the last date ANY effective date inside the published-rate
     # window (which ends 2027-02-28) can still be served for.
     expect("Unit 2 last day to serve for 2027-02-28", date(2027, 2, 28) - timedelta(days=90), date(2026, 11, 30))
@@ -199,11 +208,28 @@ def main() -> int:
     expect_in_pages("Proposed-cap conditional new rent", usd(UNIT2_BASE + u2_proposed_inc), ["flagged.html"])
 
     # Occupancy window.
-    expect("Days since added occupancy", (REVIEW_DATE - date(2026, 4, 1)).days, 223)
+    # Also today-relative: computed here, then required to appear as printed text.
+    days_occupancy = (REVIEW_DATE - date(2026, 4, 1)).days
+    expect_in_pages("Days since added occupancy", f"{days_occupancy} days", ["flagged.html", "occupancy.html"])
+
+    # Banked-only alternative on the true anniversary (F-38, added in the 2026-11-11 pass; F-37 on
+    # main is the other session's notice/retaliation flag, so this one was renumbered on rebase):
+    # impose the six banked allowances only, effective on the tenant's own 2027-06-01
+    # anniversary, with no annual component and therefore no unpublished 2027-28 rate.
+    u2_banked_only_inc = money(UNIT2_BASE * u2_banked / 100)
+    expect("Unit 2 banked-only increase", u2_banked_only_inc, Decimal("362.25"))
+    expect("Unit 2 banked-only new rent", UNIT2_BASE + u2_banked_only_inc, Decimal("3512.25"))
+    for page in ["analysis.html", "checklist.html", "answers.html", "index.html", "flagged.html"]:
+        expect_in_pages("Unit 2 banked-only increase", usd(u2_banked_only_inc), [page])
+        expect_in_pages("Unit 2 banked-only new rent", usd(UNIT2_BASE + u2_banked_only_inc), [page])
+    expect_in_pages("F-38 published on the flagged and dashboard pages", "F-38", ["flagged.html", "index.html"])
 
     # Earliest effective date reachable from today (Unit 1's 30-day notice).
-    expect("Unit 1 earliest reachable effective date", REVIEW_DATE + timedelta(days=30), date(2026, 12, 10))
-    expect("Unit 1 earliest reachable effective date (mailed)", REVIEW_DATE + timedelta(days=35), date(2026, 12, 15))
+    u1_earliest = REVIEW_DATE + timedelta(days=30)
+    u1_earliest_mailed = REVIEW_DATE + timedelta(days=35)
+    expect_in_pages("Unit 1 earliest reachable effective date", u1_earliest.isoformat(), ["banking-rule.html"])
+    expect_in_pages("Unit 1 earliest reachable effective date (mailed)",
+                    u1_earliest_mailed.isoformat(), ["banking-rule.html"])
 
     # ---------------- Published-value sweep ----------------
     analysis = ["analysis.html"]
@@ -228,7 +254,7 @@ def main() -> int:
     expect_in_pages("Unit 2 closing service date (mailed)", closing_mail, published_closing)
     expect_in_pages("Unit 2 earliest effective if served today",
                     (REVIEW_DATE + timedelta(days=90)).isoformat(), ["banking-rule.html", "index.html", "executive-summary.html"])
-    expect_in_pages("Days since added occupancy", "223 days", ["flagged.html", "occupancy.html"])
+    expect_in_pages("Days since added occupancy", "224 days", ["flagged.html", "occupancy.html"])
 
     # ---------------- Closing service window (AUDIT.md A-02) ----------------
     u2_window_close = date(2027, 2, 28)
@@ -236,8 +262,9 @@ def main() -> int:
     u2_close_mail = u2_window_close - timedelta(days=95)          # 2026-11-25
     expect("Unit 2 closing service date, personal", u2_close_personal, date(2026, 11, 30))
     expect("Unit 2 closing service date, mailed", u2_close_mail, date(2026, 11, 25))
-    expect("Unit 2 days left to serve, personal", (u2_close_personal - REVIEW_DATE).days, 20)
-    expect("Unit 2 days left to serve, mailed", (u2_close_mail - REVIEW_DATE).days, 15)
+    # Today-relative counts: computed from REVIEW_DATE and asserted as printed text, not typed.
+    u2_days_personal = (u2_close_personal - REVIEW_DATE).days
+    u2_days_mail = (u2_close_mail - REVIEW_DATE).days
 
     deadline_pages = ["index.html", "executive-summary.html", "checklist.html",
                       "flagged.html", "banking-rule.html"]
@@ -248,8 +275,11 @@ def main() -> int:
     expect_in_pages("Unit 2 closing effective date",
                     u2_window_close.isoformat(), deadline_pages)
     expect_in_pages("Unit 2 days left to serve, personal",
-                    str((u2_close_personal - REVIEW_DATE).days) + " / "
-                    + str((u2_close_mail - REVIEW_DATE).days), ["banking-rule.html"])
+                    f"{u2_days_personal} / {u2_days_mail}", ["banking-rule.html"])
+    # The flagged page states the same count in words.
+    expect_in_pages("Unit 2 days left to serve (flagged page wording)",
+                    f"({u2_days_personal} and {u2_days_mail} days from {REVIEW_DATE.isoformat()})",
+                    ["flagged.html"])
 
     # ------------- Printed day-count strings in the service-window table -------------
     # banking-rule.html prints "days until the last day to serve" for each scenario as
