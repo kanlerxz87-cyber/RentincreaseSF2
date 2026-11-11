@@ -1624,3 +1624,46 @@ unit-count requirement remains in Gate 0.3a and coverage/exceptions remain in Ga
 separate duplicate Gate 0.7 row was consolidated without dropping the requirement. After that
 integration fix, validation again passed 14 pages / 52 official URLs and 315 calculations; all 17
 public resources returned HTTP 200 and the recursive negative privacy/marker test passed.
+
+## Session `arena/e7ea8610-rentincreasesf2` — claim (2026-11-11)
+
+Platform-fixed branch `arena/e7ea8610-rentincreasesf2`, cut from `main` at `1a0af4d` (PR #50 merge). The 14-page site is live and all three checks pass on this branch. Two stale open PRs remain (both idle since 2026-11-10, > 60 min stale window): PR #42 (`arena/47f115e4`, docs-only record on `910c163`) and PR #45 (`arena/9a476822`, URL audit + answer-completeness pass). Both branches have **no merge base with `main`** (orphan history) and cannot be merged directly. This session takes over under the 60-minute stale rule.
+
+| ID | Task | Status | Owner session | File scope | Notes |
+|---|---|---|---|---|---|
+| e7ea-A | Diff PR #45 and PR #42 against current `main`; identify unique verified content not already published; fetch every new official source live and confirm the claim it supports | in progress | arena/e7ea8610-rentincreasesf2 | `COORDINATION.md` — this section only, additive | Read-only on site files until e7ea-B. |
+| e7ea-B | Port only the unique verified content onto `main` (new sources, tables, badge fix, O&M URL fix if live check confirms); run `sync_nav.py`, `validate_site.py`, `verify_calculations.py`, local HTTP 200 | unclaimed until e7ea-A reports | arena/e7ea8610-rentincreasesf2 | `practices.html`, `laws.html`, `tenant-protections.html`, `process.html`, `executive-summary.html`, `index.html`, `flagged.html`, `sources.html`, `scripts/validate_site.py`, `README.md`, `AUDIT.md`, `COORDINATION.md` | No value filled by inference; unconfirmable stays blank/flagged. |
+| e7ea-C | PR to `main`, merge without waiting, confirm Pages deploy + live read-back; close PR #42 (superseded) and PR #45 (salvaged) with written rationale; record PR link and merge result here | unclaimed until e7ea-B is done | arena/e7ea8610-rentincreasesf2 | `COORDINATION.md` deployment record | Flagged/unverified items do not block the merge. |
+
+- **Privacy.** This file is served publicly. Only placeholders, dates and dollar amounts are written here.
+
+### e7ea-A findings (2026-11-11)
+
+**Method.** Diffed both stale branches against `origin/main` (`1a0af4d`) file by file; fetched every PR #45 new source live; re-checked the two time-sensitive sources live on 2026-11-11.
+
+**PR #45 — unique verified content to port (e7ea-B).** PR #45's tree is older than `main` (it lacks `answers.html`, `internal/README.md`, and main's corrected AB 1482 / frequency / coverage / algorithm wording), so only its additive blocks are ported, adapted to main's corrected standards:
+1. `practices.html` — two new cards: "How large real estate corporations actually handle an annual increase" (7-row procedure table) and "Practical compliance steps for any owner" (7-row steps table). All URLs already on main's allowlist.
+2. `process.html` — "One unit or both — tested against the discrimination rules" (6-row table) + "What to write down" paragraph + callout. Uses new source § 37.10B.
+3. `tenant-protections.html` — "Would a tenant advocate support any increase at all?" card (7 rows). Uses new sources § 37.10B, § 37.11A.
+4. `laws.html` — "Outer Sunset, ZIP 94122" card (7 rows). Adapted: federal row labelled per F-34 (absence of source, not "Verified"), coverage row uses main's two-part test, "lawful amount" qualified as conditional.
+5. `executive-summary.html` — new § 7a advocate table (6 rows). Adapted: Unit 2 13.1% stated as conditional arithmetic, not a verified lawful total.
+6. `index.html` — badge "3 intake facts unverified" → "All intake facts unverified" (PR #45's correction; main still carries the understated wording).
+7. Three new official sources (allowlist 52 → 55): Rent Ordinance § 37.10B (Tenant Harassment), § 37.11A (Civil Actions), Rent Board Forms Center. Each fetched live 2026-11-11 and the quoted text confirmed (§ 37.10B(a)(5) bad-faith increase evidence; § 37.11A(a) three-year overpayment limit for void increases; Forms Center lists Form 516C Unlawful Rent Increase).
+8. O&M URL fix + new flag **F-32** (number free on main): main still cites `/information/topic-no-322-...`, which resolves only via redirect to the canonical `/information--operating-and-maintenance-expense-petitions` (confirmed live 2026-11-11; canonical page read and 7% O&M content confirmed). Replace in all pages + allowlist; publish F-32 as Corrected.
+
+**PR #45 — not ported (already on main).** Its F-31 (Form 538 date conflict) duplicates main's F-24; its F-33 (ZIP) and F-34 (advocate question) duplicate the substance of main's F-33/F-34 and the new cards above under colliding numbers. Its older wording on AB 1482 ("floor"), frequency ("on the anniversary"), coverage (build year only) and algorithmic devices (all software) was corrected on main by later sessions and is not reintroduced.
+
+**PR #42 — superseded, no salvage.** Docs-only verification record on `910c163` (151 assertions). Main has since moved to 315 assertions and PRs #44–#50; the stale-PR closures it records (#27/#29/#39) are already on main. Close with rationale in e7ea-C.
+
+**Live re-check 2026-11-11.** Current Rates still shows 1.6% for 3/1/2026–2/28/2027 with the File 261020 notice posted 2026-11-09; Legistar File 261020 still "Pending Committee Action", introduced 2026-09-15, Land Use and Transportation Committee, no enactment. No site figure changed.
+
+| e7ea-B | Port the unique verified content listed above; run all checks | in progress | arena/e7ea8610-rentincreasesf2 | `practices.html`, `process.html`, `tenant-protections.html`, `laws.html`, `executive-summary.html`, `index.html`, `flagged.html`, `sources.html`, `scripts/validate_site.py`, `README.md`, `AUDIT.md`, `COORDINATION.md` | Adapted to main's corrected standards; no value filled by inference. |
+
+### e7ea-B completed — curated integration (2026-11-11)
+
+Ported the unique useful additions from PR #45 into the newer tree without overwriting later fixes: a ZIP-specific explanation, tenant scrutiny and remedies, neutral one-unit/both decision points, source-based corporate/individual guidance, a summary review card, corrected dashboard badge, and three official-source entries. Corrected the Topic 322 redirect and published F-32. The duplicated practical steps already exist on main, so they were not duplicated. The older proposal included unsourced claims about typical corporate staffing and guaranteed legal outcomes, and overstated the petition rule; these were not imported. The new harassment description retains the statute's context for the exempt-unit example, and § 37.11A's refund period is limited to its stated cases. A contradictory Unit 1 annual-only maximum in process.html was corrected to acknowledge the conditional banked scenario.
+
+**Verification:** Read the official [banked-increase guidance](https://www.sf.gov/information--banked-rent-increases), [petitions and passthroughs](https://www.sf.gov/landlord-petitions-and-passthroughs), [algorithmic-device rule](https://www.sf.gov/information--algorithmic-devices-set-rent-are-prohibited-san-francisco), [tenant petitions](https://www.sf.gov/tenant-petitions), [§ 37.3](https://www.sf.gov/information--sec-373-rent-limitations), [§ 37.10B](https://www.sf.gov/information--sec-3710b-tenant-harassment), [§ 37.11A](https://www.sf.gov/information--sec-3711a-civil-actions), and [Civil Code § 1942.5](https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=1942.5.&lawCode=CIV). All three checks passed: 14 pages, 55 allowlisted source URLs, 315 calculation assertions, and synced navigation. Local HTTP returned 200 for all pages and referenced local resources. F-01/F-02/F-27/F-28/F-31/F-33/F-34 and other published flags remain; no factual intake was independently verified. Static link validation checks local targets and the official URL allowlist; it is not a fresh HTTP availability test of all 55 external pages.
+
+| e7ea-B | Curated PR #45 integration and verification | done | arena/e7ea8610-rentincreasesf2 | Site files and validator as claimed | No wholesale branch merge; unresolved items remain on Flagged for Review. |
+| e7ea-C | Final PR, checks, merge, Pages confirmation, and superseded-PR disposition | in progress | arena/e7ea8610-rentincreasesf2 | `COORDINATION.md` deployment record | Proceed only if CI passes. |
