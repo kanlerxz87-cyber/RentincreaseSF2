@@ -34,22 +34,26 @@ Sources: [Housing Inventory](https://www.sf.gov/rent-board-housing-inventory) ·
 | `practices.html` | Corporate vs. individual owners, including the § 37.10C algorithm ban |
 | `checklist.html` | Gate 0 prerequisites, computed service deadlines, notice content |
 | `answers.html` | Every owner question answered in turn, with a status and an official source on every row |
-| `flagged.html` | Every unverified item and irregularity (published IDs through F-36) |
+| `flagged.html` | Every unverified item and irregularity (published IDs through F-39) |
+| `suggestions.html` | Suggestions for Review — decision paths, missing-information discovery plan, proposed site improvements (nothing implemented until chosen) |
 | `sources.html` | All official sources and the integration method |
 | `banking-rule.html` | F-16 resolved: banking-interval decisive test, re-verification, closing service window |
 
 
 ## Key figures
 Computed from the official percentages; **inputs are owner-supplied and unverified**. All
-figures and deadlines below are re-derived from a base date of **2026-11-10** by
+figures and deadlines below are re-derived from a base date of **2026-11-13** by
 `scripts/verify_calculations.py`.
 - 2026–27 SF allowable annual increase: **1.6%** (3/1/2026–2/28/2027)
 - **Unit 1** — effective 2027-02-01: 1.4% banked + 1.6% current = **3.0%** → **$119.85** → **$4,114.85**.
   Taking it earlier yields only 1.6% ($63.92 → $4,058.92) and the 1.4% is permanently lost.
   30-day notice; serve by 2027-01-02 (mailed 2026-12-28).
 - **Unit 2** — effective 2027-02-15: 11.5% banked + 1.6% current = **13.1%** → **$412.65** → **$3,562.65**.
-  90-day notice; serve by 2026-11-17 (mailed 2026-11-12). **Closing deadline: to use any effective
-  date inside the published-rate window, serve by 2026-11-30 (personal) or 2026-11-25 (mail).**
+  90-day notice; serve by 2026-11-17 (the mailed deadline, 2026-11-12, passed on 2026-11-12 —
+  mailed service can now reach only 2027-02-16 or later; personal service through 2026-11-17
+  remains). **Closing deadline: to use any effective
+  date inside the published-rate window, serve by 2026-11-30 (personal) or 2026-11-25 (mail) —
+  17 and 12 days from 2026-11-13.**
   Assumes no increase was ever imposed and remains conditional on coverage, license, retaliation/discrimination and F-28 review.
   A phased 10.0% option ($315.00 → $3,465.00) needs only 30 days and leaves 3.1% banked.
   A conservative annual-only option uses 1.6% (**$50.40 → $3,200.40**) and leaves 11.5% banked; ordinary legal gates apply, but F-28&rsquo;s banked-timing issue does not arise because no banked amount is imposed.

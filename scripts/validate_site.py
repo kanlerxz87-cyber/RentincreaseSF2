@@ -30,6 +30,7 @@ PAGES = [
     "checklist.html",
     "answers.html",
     "flagged.html",
+    "suggestions.html",
     "sources.html",
     "banking-rule.html",
 ]

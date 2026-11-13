@@ -223,6 +223,23 @@ def main() -> int:
         expect_in_pages("Unit 2 banked-only increase", usd(u2_banked_only_inc), [page])
         expect_in_pages("Unit 2 banked-only new rent", usd(UNIT2_BASE + u2_banked_only_inc), [page])
     expect_in_pages("F-38 published on the flagged and dashboard pages", "F-38", ["flagged.html", "index.html"])
+    expect_in_pages("F-39 published on the flagged page", "F-39", ["flagged.html"])
+
+    # ---------------- suggestions.html (task c4c7-C, 2026-11-13) ----------------
+    # The decision-review page only restates figures already computed above; these
+    # assertions tie every option card to the same arithmetic so nothing on the
+    # menu can drift away from the analysis pages.
+    suggest = ["suggestions.html"]
+    expect_in_pages("Suggestions: Unit 2 full option new rent", usd(UNIT2_BASE + u2_inc), suggest)
+    expect_in_pages("Suggestions: Unit 2 phased new rent", usd(UNIT2_BASE + u2_phase_inc), suggest)
+    expect_in_pages("Suggestions: Unit 2 annual-only new rent", usd(UNIT2_BASE + u2_annual_only_inc), suggest)
+    expect_in_pages("Suggestions: Unit 2 banked-only new rent", usd(UNIT2_BASE + u2_banked_only_inc), suggest)
+    expect_in_pages("Suggestions: Unit 1 full option new rent", usd(u1_new), suggest)
+    expect_in_pages("Suggestions: Unit 1 early new rent", usd(UNIT1_BASE + u1_early_inc), suggest)
+    expect_in_pages("Suggestions: Unit 1 early-vs-full monthly difference", usd(u1_inc - u1_early_inc), suggest)
+    expect_in_pages("Suggestions: nothing is implemented marker",
+                    "Proposed &mdash; not implemented", suggest)
+    expect_in_pages("Suggestions: discovery plan cross-links the open flags", "F-39", suggest)
 
     # Earliest effective date reachable from today (Unit 1's 30-day notice).
     u1_earliest = REVIEW_DATE + timedelta(days=30)

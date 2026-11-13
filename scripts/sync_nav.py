@@ -40,6 +40,7 @@ NAV = [
     ]),
     ("Review", [
         ("flagged.html", "Flagged for Review"),
+        ("suggestions.html", "Suggestions for Review"),
         ("sources.html", "Sources"),
     ]),
     ("Verification", [
