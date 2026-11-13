@@ -868,4 +868,11 @@ rule, gates, paths, fairness and choice log from G; the site-improvement proposa
 session), the allowlist is the 57-URL union, and `verify_calculations.py` passes the 349-assertion
 union. The conflict-by-conflict record is in `COORDINATION.md` under *4383 rebase / conflict log*.
 
+**Round-2 concurrency note.** A fourth session (`arena/c4c75e09`, PRs #61/#62) merged into `main`
+while this branch was being rebased: its `lapsed (<date>)` day-pair renderer, EQ-A/EQ-B
+equal-treatment rows, "no increase now" paths, F-40, and the 362-assertion set were all kept, and
+this addendum was retitled from H to I to stay unique. The published `suggestions.html` is now the
+union of all four sessions' suggestion work; the conflict-by-conflict record is in
+`COORDINATION.md` under *4383 rebase log, round 2*.
+
 **Not legal advice.** Documentary verification against official sources only.
