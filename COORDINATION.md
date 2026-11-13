@@ -1855,6 +1855,7 @@ The Arena session is fixed to this branch. PRs #45 and #42 are stale drafts on p
 - **Concurrency:** PRs #51/#52/#53/#55 were preserved through repeated rebases. Duplicate date edits were dropped; main's stronger drift checks and banked-only scenario remain. No other session's content was discarded.
 - Published flags remain non-blocking and available on Flagged for Review. Task 53 done.
 
+<<<<<<< HEAD
 ## Session `arena/756ae8e9-rentincreasesf2` — decision-support integration (2026-11-13)
 
 The previous final integration (tasks 51–53 / PR #54 and subsequent PR #56) is present on this branch. The older claim by `arena/69f0c0e5-rentincreasesf2` for integration and source review dates to 2026-11-10 and is stale by the board's 60-minute handoff rule; the 2026-11-11 final integration already completed the merge/deployment work. This session takes over only the remaining product gap and current-date refresh, preserving all prior audit records.
@@ -1875,3 +1876,14 @@ The previous final integration (tasks 51–53 / PR #54 and subsequent PR #56) is
 - **GitHub Pages:** deployment run **43381880495** succeeded. `pages/builds/latest` status is **built**, commit `6b9a988072654ba9aa1b2d59552b21015584ee00`, error `null`, updated 2026-11-13T06:54:13Z.
 - **Live readback:** https://kanlerxz87-cyber.github.io/RentincreaseSF2/ returned the refreshed dashboard, including the 2026-11-13 window and the Unit 2 mail-deadline-passed warning. https://kanlerxz87-cyber.github.io/RentincreaseSF2/suggestions.html returned the new Suggestions & Decision Paths page and its source-backed tables.
 - **Outcome:** all checks and deployment passed; flagged fact/legal questions remain visible and do not imply approval of any increase.
+=======
+## Session `arena/cfe62440-rentincreasesf2` — line-by-line re-verification and brief-gap closure (claimed 2026-11-13)
+
+Arena fixes this session to branch `arena/cfe62440-rentincreasesf2` (from `main` at `a246a74`, PR #56 merge). No other claim is active on this branch. Session-prefixed task IDs are used to avoid numbering collisions. All prior sessions' records are preserved verbatim.
+
+| # | Task | Status | Owner session | File scope | Sources / verification notes |
+|---|---|---|---|---|---|
+| cfe6-A | Independent line-by-line re-verification of every published claim against **live** official sources on 2026-11-13: Form 571 2026–27 rates and historical table, Current Rates page (2026-11-09 notice), banked increases + Rules § 4.12, Housing Inventory / licence rules, rent-increase notice rules (Civ. Code § 827), File 261020 status, Nov 3 2026 election results check, Costa-Hawkins / AB 1482 rows; re-derive every published dollar figure and day count from today | in progress | arena/cfe62440-rentincreasesf2 | `COORDINATION.md` (additive) until cfe6-B | Read-only on site files until cfe6-B. Zero values inferred; anything unconfirmable is left blank and flagged. |
+| cfe6-B | Close the remaining gap against the original brief: add a dedicated **Suggestions & Decision Review** section (`suggestions.html`) — site-improvement suggestions plus decision options with pros/cons to review and choose a path **before** implementing any change — and apply only source-backed corrections/re-stamps from cfe6-A | unclaimed until cfe6-A reports | arena/cfe62440-rentincreasesf2 | NEW `suggestions.html`, `index.html`, `scripts/sync_nav.py`, `scripts/validate_site.py`, `scripts/verify_calculations.py`, plus any file cfe6-A names (listed here before first edit) | New page follows the site's existing rule: every table row carries an official source link or is blank/flagged. |
+| cfe6-C | Full check suite (`sync_nav.py --check`, `validate_site.py`, `verify_calculations.py`, local HTTP 200 smoke test, privacy sweep), PR to `main`, merge without waiting, confirm GitHub Pages deploy and live read-back, record PR link and merge result | unclaimed until cfe6-B is done | arena/cfe62440-rentincreasesf2 | `COORDINATION.md` | Do not merge a broken build. Flagged and unverified items do not block the merge. |
+>>>>>>> 4dd03ab (COORDINATION: claim cfe6-A/B/C for session arena/cfe62440 (re-verification + suggestions page + integration))
