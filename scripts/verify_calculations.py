@@ -27,7 +27,7 @@ from decimal import Decimal, ROUND_DOWN
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-REVIEW_DATE = date(2026, 11, 11)
+REVIEW_DATE = date(2026, 11, 13)
 
 # SF Rent Board Info Sheet 571: percentage in effect on each 1 June / 1 February.
 RATE_571 = {
@@ -254,7 +254,8 @@ def main() -> int:
     expect_in_pages("Unit 2 closing service date (mailed)", closing_mail, published_closing)
     expect_in_pages("Unit 2 earliest effective if served today",
                     (REVIEW_DATE + timedelta(days=90)).isoformat(), ["banking-rule.html", "index.html", "executive-summary.html"])
-    expect_in_pages("Days since added occupancy", "224 days", ["flagged.html", "occupancy.html"])
+    days_occupancy = (REVIEW_DATE - date(2026, 4, 1)).days
+    expect_in_pages("Days since added occupancy", f"{days_occupancy} days", ["flagged.html", "occupancy.html"])
 
     # ---------------- Closing service window (AUDIT.md A-02) ----------------
     u2_window_close = date(2027, 2, 28)
