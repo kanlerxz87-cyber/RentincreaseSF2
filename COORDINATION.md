@@ -20,6 +20,8 @@
 | `arena/c71c22cd-rentincreasesf2` (this session, 2026-11-10) | Line-by-line audit, full primary-source re-verification (including File 261020 `Leg Ver1`/`Leg Dig Ver1`, Rent Ordinance `600_Ordinance_11-02-26_2.pdf`, § 37.15, Form 538 2026–27, 2026–27 Rent Board Fee `$59.00`, SF.gov legal clinics), and final defect remediation on `22bf77d` | **In progress (tasks 43–44 done; task 45 PR/deploy in progress)** — owns tasks 43–45 (renumbered from 37–39 after PRs #28–#33 used 37–42). File scope: `scripts/validate_site.py`, `scripts/verify_calculations.py`, `index.html`, `executive-summary.html`, `units.html`, `analysis.html`, `laws.html`, `checklist.html`, `tenant-protections.html`, `practices.html`, `flagged.html`, `sources.html`, `banking-rule.html`, `README.md`, `AUDIT.md`, `COORDINATION.md`. Branched/rebased onto `main` at `22bf77d` (PR #33 merge). |
 | `arena/69f0c0e5-rentincreasesf2` (claimed 2026-11-10T05:45Z) | Independent line-by-line re-verification of every published row against the **live** official source, then integration of whatever is still wrong or missing: apply `arena/0e02b0ec`'s open change request (conditional wording on building scope and on "lawful total"), re-check every today-relative figure, triage stale open PRs #27 and #29, PR, merge, confirm Pages deploy | **Stale / handed off 2026-11-13** — previous final integration PR #56 superseded the merge/deploy scope. |
 | `arena/756ae8e9-rentincreasesf2` (this session, 2026-11-13) | Dedicated Suggestions & Decision Paths page, current-date refresh, primary-source recheck, validation, PR and Pages verification | **DONE** — PR #57 merged; Pages build and post-merge validation succeeded. Deployment/readback record below. |
+| `arena/69f0c0e5-rentincreasesf2` (claimed 2026-11-10T05:45Z) | Independent line-by-line re-verification of every published row against the **live** official source, then integration of whatever is still wrong or missing: apply `arena/0e02b0ec`'s open change request (conditional wording on building scope and on "lawful total"), re-check every today-relative figure, triage stale open PRs #27 and #29, PR, merge, confirm Pages deploy | **In progress** — owns tasks `69f0-A`, `69f0-B`, `69f0-C` (session-prefixed IDs; see the claim note at the end of this file). File scope while in progress: `COORDINATION.md` (additive), then — as integration session, all earlier tasks being `done` or `needs review` — the 13 root `*.html` pages, `scripts/*.py`, `README.md`, `AUDIT.md`. Branched from `main` at `cd005f7` (PR #36 merge). |
+| `arena/438353cc-rentincreasesf2` (claimed 2026-11-13) | Final integration: live re-verification of controlling sources as of 2026-11-13; re-stamp of today-relative figures; new dedicated **Suggestions** page (site-improvement / decision-support suggestions with per-row review status); explicit "state or local law?" answer to the 2023 informing question; full check suite; PR, merge, Pages deploy confirmation | **In progress** — owns tasks `4383-A` … `4383-G` (session-prefixed IDs; bare numbers 1–53 and prefixed IDs of prior sessions are taken). File scope: all 15 root `*.html` (14 existing + new `suggestions.html`), `scripts/*.py`, `README.md`, `AUDIT.md`, `COORDINATION.md`. Branched from `main` at `a246a74` (PR #56 merge). No other session has a live claim or open PR at claim time. |
 
 ## Coordination note / handoff
 
@@ -2048,3 +2050,109 @@ site rows/sections all remain in place.
 - **Live read-back (2026-11-13):** `flagged.html` shows F-38 (banked-only option), **F-39** (the 2026-11-03 election diligence row from `arena/cfe62440`, preserved) and **F-40** (this session's worked-example label irregularity) side by side, plus the F-23 privacy disclosure; `suggestions.html` shows the merged page — `arena/756ae8e9`'s gate questions and conditional paths with this session's "no increase now" rows, the F-24/F-40 discovery row, the EQ-A/EQ-B equal-treatment table and the nine-row improvement table (five from `arena/cfe62440`/`arena/756ae8e9` and four added here); `index.html` shows the 2026-11-13 re-stamp ("the mailed-notice deadline (2026-11-12) has passed"; earliest 2027-02-11 / 2027-02-16) and the pointer to the suggestions page. Unit figures unchanged ($4,114.85 / $3,562.65 conditional).
 - **Checks on the merged tree before the PR:** `sync_nav.py --check` 15 pages / 0 changes; `validate_site.py` PASSED (15 pages, 56 official URLs, external official link on every table data row); `verify_calculations.py` PASSED (362 assertions); local HTTP smoke 20/20 resources 200; privacy sweep of the intake initial patterns: clean.
 - **Tasks c4c7-A, c4c7-B, c4c7-C and c4c7-D are all done.** Flagged and unverified items (F-01…F-40 as published) remain non-blocking and live on the Flagged for Review page. This record commit is delivered by the follow-up coordination-log PR (same pattern as PRs #56/#58/#60); that PR's own merge is the terminal event and is not self-recorded.
+## Session `arena/438353cc-rentincreasesf2` — claim (2026-11-13)
+
+Platform-fixed branch `arena/438353cc-rentincreasesf2`, cut from `main` at `a246a74` (PR #56 merge). At claim time: no open pull requests, no other session branch on the remote, `pages/builds/latest` = `built` at `a246a74`, and every task on the board above is `done` or `needs review` under claims whose branches have had no commit since 2026-11-11 (> 60 minutes). This session therefore claims final integration.
+
+| # | Task | Status | Owner session | File scope | Sources / verification notes |
+|---|---|---|---|---|---|
+| 4383-A | Claim tasks, file scope and session record | done | arena/438353cc-rentincreasesf2 | `COORDINATION.md` (additive) | This section. Claim committed and pushed before any other edit. |
+| 4383-B | Live re-verification (2026-11-13): current rates + File 261020 notice, Legistar status, Form 571, Housing Inventory/license, Rules § 13.14, rent-increase guidance, Rent Board Fee, § 37.15 text, Civ. Code § 827 | done | arena/438353cc-rentincreasesf2 | `COORDINATION.md`, `AUDIT.md` | Fetch every controlling source live; record what changed vs 2026-11-11; no value inferred. |
+| 4383-C | Answer the owner's "state or local law (2023)?" question explicitly on the Q&A page and executive summary, with official links | done | arena/438353cc-rentincreasesf2 | `answers.html`, `executive-summary.html` | Expected answer (to be verified against § 37.15 / Rules § 13.14 text): local — SF Rent Ordinance, not state law. Publish only what the fetched text supports. |
+| 4383-D | New dedicated `suggestions.html`: site-improvement and decision-support suggestions, each with a review status (open / choose-before-implementing), motivation and official source link; wire into nav, validator page list and dashboard | done | arena/438353cc-rentincreasesf2 | NEW `suggestions.html`, `scripts/sync_nav.py`, `scripts/validate_site.py`, `index.html`, `COORDINATION.md` | Shared-output change; allowed because no other live claim exists. Every table data row carries an official external link; suggestions to discover missing information map to open flags. |
+| 4383-E | Re-stamp to 2026-11-13: `LAST_VERIFIED`, `REVIEW_DATE`, re-derive every today-relative figure, update printed text | done | arena/438353cc-rentincreasesf2 | 15 `*.html`, `scripts/sync_nav.py`, `scripts/verify_calculations.py` | Drift-proof assertions must pass with the new base date. |
+| 4383-F | Full check suite: `sync_nav.py --check`, `validate_site.py`, `verify_calculations.py`, local HTTP 200 + link crawl, privacy sweep, `git diff --check` | done | arena/438353cc-rentincreasesf2 | — | No merge on a failing build. |
+| 4383-G | PR to `main`, merge without waiting, confirm GitHub Pages deploy and live read-back; record PR link and merge result here | in progress | arena/438353cc-rentincreasesf2 | `COORDINATION.md` deployment record | Flagged/unverified items (F-01…F-38) do not block the merge; they stay published on `flagged.html`. |
+
+### 4383-B … 4383-F verification record (2026-11-13)
+
+- **Sources re-read live (18):** Current Rates; Legistar File 261020; Form 571; Learn about rent
+  increases; Banked rent increases; Housing Inventory; Rules § 13.14; § 37.15 (incl. the
+  Ord. 265-20 / 2021-01-18 addition line); Rent Board Fee; Civ. Code § 827; sf.gov AB 1482; SB 567
+  bill text (chaptered 2023-09-30); Rent Ordinance (Ch. 37) contents page; Civ. Code § 1942.5;
+  rental-laws coverage page; Topic 153; Topic 019. Full matrix in `AUDIT.md` Addendum I.
+- **No published figure changed.** File 261020 still Pending Committee Action; 1.6% unchanged;
+  every dollar amount re-derived. **Re-stamp to 2026-11-13:** earliest effective dates
+  2027-02-11/2027-02-16 (Unit 2) and 2026-12-13/2026-12-18 (Unit 1); closing counts 17/12 days;
+  occupancy 226 days; all banking-rule day pairs recomputed. The mailed deadline for the suggested
+  2027-02-15 date passed on 2026-11-12 — day-pair logic now prints `passed`, and F-19 says only
+  personal service by 2026-11-17 remains for that exact date.
+- **4383-C answer published:** the 2023 informing/license duty is **local** — Rent Ordinance
+  (Administrative Code Ch. 37) § 37.15, added by Ord. 265-20 (effective 2021-01-18), Rules § 13.14;
+  2023-03-01 is the small-building phase-in, not the year of passage. The 2023 state law SB 567
+  (approved 2023-09-30) amends AB 1482 eviction provisions and creates no Rent Board duty; the
+  Rent Board states it cannot enforce AB 1482. Published in `executive-summary.html` §2 and
+  `answers.html` §1; SB 567 added to the allowlist (56 URLs) and `sources.html`.
+- **4383-D published:** new `suggestions.html` — 10 decision-support rows with options-to-choose
+  and statuses (S-01 time-critical Unit 2 timing; S-02 one-unit-vs-both; S-03 license check; S-04
+  Legistar re-check; S-05 ledger; S-06 counselor log; S-07 retaliation screen; S-08 deadlines;
+  S-09/S-10 implemented) and 11 missing-information rows D-01…D-11 mapped to F-01…F-38. Wired into
+  `sync_nav.py`, `validate_site.py` (15 pages) and `index.html`.
+- **Line-by-line finding fixed:** Topic 019's own qualifier ("unless both units are rented together
+  as a single tenancy") was missing from the two-unit coverage statements; added to `laws.html`,
+  `executive-summary.html`, `answers.html`. Conclusion unchanged; wording now complete.
+- **Checks:** `sync_nav.py --check` 15 pages / 0 changes; `validate_site.py` **PASSED** (15 pages,
+  56 official URLs); `verify_calculations.py` **PASSED, 334 assertions**; local HTTP: all 15 pages
+  + `style.css` + `AUDIT.md` + `COORDINATION.md` + `internal/README.md` = 200, 17 internal targets
+  crawled, 0 broken links/fragments, one `<h1>`/`<main>` per page; privacy sweep of all public text
+  files for the supplied initials/name patterns — none present (patterns not stored or echoed);
+  `git diff --check` clean.
+- **Irregularities:** none new. F-01…F-38 remain published and non-blocking; F-27 re-checked
+  2026-11-13 (still pending). Six source rows not re-read in this pass keep their earlier badges,
+  as disclosed on `sources.html`.
+
+### 4383 rebase / conflict log (2026-11-13) — concurrent sessions merged without discarding work
+
+While `arena/438353cc-rentincreasesf2` was working from `a246a74`, three PRs merged into `main`:
+**#57/#58** (`arena/756ae8e9` — its own `suggestions.html`, 2026-11-13 re-stamp, AUDIT Addendum G),
+**#59/#60** (`arena/cfe62440` — line-by-line re-verification, F-39 election diligence, site-improvement
+proposal table added into `suggestions.html`, elections URL on the allowlist). `git rebase
+origin/main` replayed this session's seven commits; every conflict was resolved by keeping **both**
+sessions' work:
+
+| Conflict | Resolution |
+|---|---|
+| `COORDINATION.md` (2 hunks: Sessions table + append boundary) | Main's rows (69f0 updated, `756ae8e9`) kept first, then `438353cc` row; at EOF main's `756ae8e9` and `cfe62440` blocks kept first, then this session's claim block. |
+| `suggestions.html` (add/add: both sessions created the page) | **Merged into one page** — `arena/756ae8e9`'s decision-rule callout, gate questions, conditional paths, fairness card and choice log + `cfe62440`'s 5-row site-improvement table + this session's status legend, S-01…S-10 decision-support table, D-01…D-11 flag-mapped actions and decision sequence. One page, both sessions' content, nothing dropped; duplicate row removed. |
+| Nav duplication (every page had two `suggestions.html` links) | Canonical nav = main's ("Action" group, "Suggestions & Decisions"); this session's duplicate Review-group entry removed from `sync_nav.py` and all pages re-synced. |
+| `scripts/validate_site.py` | `suggestions.html` deduped in `PAGES`; allowlist = union (elections URL from main + SB 567 from this session) = **57 URLs**. |
+| `scripts/verify_calculations.py` | Main's computed `days_occupancy` kept (its duplicate definition at the second call site dropped); this session's `daypair()` "passed" rendering kept. **349 assertions** pass — the union of both sessions' checks. |
+| `banking-rule.html` day-pair cells | This session's `4 / passed` / `0` cells kept (matches `daypair()`); main's `4 / -1` superseded. |
+| `flagged.html` F-19 / F-32 | F-19: this session's wording ("2026-11-12 mailed deadline … has passed") kept. F-32: neither session re-read the O&M page today, so the row now says "checked on 2026-11-11; not re-read in the 2026-11-13 pass" — strictly truthful; `sources.html` does not badge that row as rechecked (main's two-tier badge scheme kept elsewhere). |
+| `executive-summary.html` / `index.html` deadline paragraphs | Main's longer phrasing (includes the mailed-passed sentence) kept — superset of this session's wording. |
+| `sources.html` page badge + 571 row | Main's "Core sources rechecked 2026-11-13" page badge kept; this session's truthful "Verified 2026-11-13" badge on the 571 row kept (this session re-read Form 571 today; main did not badge it). |
+| `AUDIT.md` append | Both addenda kept: main's "Addendum G" first; this session's retitled **Addendum H**. |
+| `README.md` | Single merged `suggestions.html` table row (both descriptions combined); main's serve-by phrasing kept; 15 pages / base 2026-11-13 / F-38 applied. |
+
+Post-rebase suite on the merged tree: `sync_nav.py --check` 15 pages / 0 changes; `validate_site.py`
+**PASSED** (15 pages, **57 official URLs**, every table row externally sourced); `verify_calculations.py`
+**PASSED (349 assertions)**; local HTTP smoke — all 15 pages + `style.css` + `AUDIT.md` +
+`COORDINATION.md` + `internal/README.md` = 200, 17 targets crawled, exactly one suggestions nav link
+per page, 0 broken links/fragments; privacy grep for the supplied initials — **0 matches**;
+`git diff --check` clean. Branch pushed with `--force-with-lease` (own session branch only).
+
+### 4383 rebase log, round 2 (2026-11-13) — fourth session (`arena/c4c75e09`, PRs #61/#62) merged in
+
+Before this branch could open its PR, `main` advanced again (`c995cb5` → `6b5fb42`): PRs #61/#62
+landed from `arena/c4c75e09` (24-source live re-read, base-date re-stamp with a `lapsed (<date>)`
+day-pair renderer, its own `suggestions.html` additions — EQ-A/EQ-B equal-treatment rows, "no
+increase now" paths, F-24/F-40 discovery row, notice-calculator proposal — plus new flag **F-40**
+and 362 assertions). This branch was rebased again; conflict resolutions, all preserving every
+session's work:
+
+| Conflict | Resolution |
+|---|---|
+| `COORDINATION.md` (claim append) | `c4c75e09`'s session block kept first, then this session's claim block. Sessions-table row for `438353cc` auto-merged. |
+| `scripts/verify_calculations.py` | **Main kept entirely** — its `lapsed (<date>)` renderer, earliest-row assertions and 362-assertion set supersede this session's earlier `passed` variant; the union loses nothing (main already contained the computed-occupancy and 2026-11-13 base-date work). |
+| `banking-rule.html` | Main's cells kept (`4 / lapsed (2026-11-12)`, `2026-11-13 — today`); this session's `4 / passed` superseded by the richer form. |
+| `flagged.html` F-19 | Main's wording is a superset ("has passed as of this review; mailed service can still reach 2027-02-16 or later") — kept. F-39 (election) and F-40 (worked-example label) both preserved. |
+| `sources.html` | Enriched § 1947.12 row (main, with `(d)(3)` note) + this session's **SB 567** row + § 1954.50 (main), in that order; AB 1482 row = main's enriched version. A marker block left by an interrupted resolution script was repaired before continuing; final tree verified marker-free. Allowlist = **57 URLs** (main's 56 + SB 567). |
+| `suggestions.html` (add/add, again) | Re-merged: **main's newest unified page as the base** (decision rule, gates incl. F-24/F-40 row, paths incl. no-increase rows and the $55.93 comparison, fairness incl. EQ-A/EQ-B, choice log, nine-row improvement table, sources) **plus this session's four cards** (status legend, S-01…S-10 decision-support table, D-01…D-11 flag-mapped actions, decision sequence). 353 lines; every `verify_calculations.py` suggestion assertion satisfied. |
+| `README.md` | Flag range → F-40 (main); single merged `suggestions.html` row combining both descriptions. |
+| `AUDIT.md` | Main's Addendum G (756) + Addendum H (c4c7) kept; this session's addendum retitle → **Addendum I**. |
+
+**Final suite on the rebased tree:** `sync_nav.py --check` 15 pages / 0 changes; `validate_site.py`
+**PASSED** (15 pages, **57** official URLs, every table row externally sourced, no markers);
+`verify_calculations.py` **PASSED (362 assertions)**; local HTTP smoke: 15 pages + 4 resources
+= 200, 17 internal targets, exactly one suggestions nav link per page, 0 broken links/fragments;
+privacy grep (intake initials) clean; `git diff --check` clean.

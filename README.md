@@ -35,7 +35,7 @@ Sources: [Housing Inventory](https://www.sf.gov/rent-board-housing-inventory) ·
 | `checklist.html` | Gate 0 prerequisites, computed service deadlines, notice content |
 | `answers.html` | Every owner question answered in turn, with a status and an official source on every row |
 | `flagged.html` | Every unverified item and irregularity (published IDs through F-40) |
-| `suggestions.html` | Suggestions &amp; Decision Paths — gate questions, conditional paths, equal-treatment options, missing-evidence discovery, choice log and proposed site improvements (nothing implemented until chosen) |
+| `suggestions.html` | Suggestions &amp; Decision Paths — decision-support options with per-row status, gate questions, conditional paths, equal-treatment options, flag-mapped missing-information actions, choice log and proposed site improvements (nothing implemented until chosen) |
 | `sources.html` | All official sources and the integration method |
 | `banking-rule.html` | F-16 resolved: banking-interval decisive test, re-verification, closing service window |
 

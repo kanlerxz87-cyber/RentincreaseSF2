@@ -783,5 +783,96 @@ petitions/evictions/tenant-help pages, HUD/CRD/govinfo) keep their 2026-11-10/20
   `internal/README.md` returned 200 (20 resources, 0 failures).
 - Privacy sweep: word-bounded, case-sensitive forms of the intake initial pairs match **no** current
   public text file. No identifier was stored or printed. F-23/F-36 historical disclosure unchanged.
+## Addendum I — 2026-11-13 pass: live re-verification, merged Suggestions page, state/local answer (session `arena/438353cc-rentincreasesf2`)
+
+**Scope.** Final integration on branch `arena/438353cc-rentincreasesf2` from `main` at `a246a74`
+(PR #56). Re-read the controlling official sources live on 2026-11-13, re-stamped every
+today-relative figure to that date, added the dedicated `suggestions.html` page the owner asked for,
+and answered the owner's "is the 2023 informing requirement state or local law?" question on the
+executive summary and Q&A pages. No value was inferred; nothing unconfirmable was filled in.
+
+### Official sources fetched and read directly on 2026-11-13
+
+| Source | What it confirmed this pass |
+|---|---|
+| [sf.gov — Current Rates](https://www.sf.gov/reports--current-rates-including-rent-increase-relocation-sec-deposit) | 1.6% for 2026-03-01–2027-02-28 unchanged; File 261020 notice still posted (2026-11-09); not enacted |
+| [Legistar — File 261020](https://sfgov.legistar.com/LegislationDetail.aspx?ID=8217304&GUID=7EDA4662-EBFB-4AF5-962F-C669B64AA770) | Status **Pending Committee Action**, introduced 2026-09-15, Land Use and Transportation Committee, no enactment date; history now shows a Youth Commission response received 2026-10-07 — no status change |
+| [Form 571 (26–27)](https://www.sf.gov/documents/34344/571_Allowable_Annual_Increases_26-27_1.pdf) | Full historical table unchanged; 2019-20 2.6%, 2020-21 1.8%, 2021-22 0.7%, 2022-23 2.3%, 2023-24 3.6%, 2024-25 1.7%, 2025-26 1.4%, 2026-27 1.6%; table ends 2027-02-28 |
+| [sf.gov — Learn about rent increases](https://www.sf.gov/learn-about-rent-increases-san-francisco) | 1.6%; 30/90-day + 5-day mail; license before imposing; base-rent-only, no rounding up; additional-occupant surcharge unlawful; worked examples unchanged |
+| [sf.gov — Banked rent increases](https://www.sf.gov/information--banked-rent-increases) | Add, do not compound; no expiry during tenancy; partial increases bank the rest; license required; 24-month summary sentence still present (F-16 resolution unchanged) |
+| [sf.gov — Housing Inventory](https://www.sf.gov/rent-board-housing-inventory) | All owners report; tenant-occupied units receive a license; phase-in 2022-07-01 / 2023-03-01; license needed on the effective date; license need not accompany the notice; submissions public, under penalty of perjury |
+| [sfrb.org — Rules § 13.14](https://sfrb.org/section-1314-licensing-%E2%80%93-notice-rent-increase) | Null-and-void rule, effective-date test, banking-rights survival, 2022-07-01 / 2023-03-01 phase-in — read verbatim, unchanged |
+| [sf.gov — § 37.15](https://www.sf.gov/information--sec-3715-reporting-obligations-licensing) | Full text read: (a) reaches units subject to Chapter 37; (c) phase-in dates; (e) license/suspension rule; **[Added by Ord. No. 265-20, effective January 18, 2021]** — the ordinance itself predates 2023; 2023 is the small-building phase-in date |
+| [sf.gov — Rent Board Fee](https://www.sf.gov/rent-board-fee) | $59.00 per dwelling unit for 2026–27; 50% ($29.50) recoverable from Nov 1 tenants once paid; exemption deadline 2026-12-14; due 2027-03-01; late penalties 5%/month capped at 15% |
+| [Civ. Code § 827](https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=827.&lawCode=CIV) | (b)(2) 30 days at ≤10% alone or combined with prior-12-month increases; (b)(3)(A) 90 days above 10%; mail under CCP § 1013 |
+| [sf.gov — AB 1482](https://www.sf.gov/reports--california-tenant-protection-act-2019-ab-1482) | 8.8% SF maximum 2026-08-01→2027-07-31; "does NOT apply for units under the rent increase limitations of the San Francisco Rent Ordinance"; Rent Board cannot enforce state law |
+| [leginfo — SB 567 (2023)](https://leginfo.legislature.ca.gov/faces/billTextClient.xhtml?bill_id=202320240SB567) | Chaptered 2023 (approved 2023-09-30); amends Civ. Code §§ 1946.2, 1947.12 on termination of tenancy / no-fault just causes — **no rent-board reporting or license duty** |
+| [sf.gov — Rent Ordinance](https://www.sf.gov/reports--rent-ordinance) | Confirms the Rent Ordinance is **Chapter 37 of the San Francisco Administrative Code** (local law), last amended 2026-11-02; § 37.15 listed in its table of contents |
+| [Civ. Code § 1942.5](https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=1942.5.&lawCode=CIV) | 180-day bar after the listed tenant events; once per 12 months; immigration-threat and organising provisions; waiver void |
+| [sf.gov — Rental laws](https://www.sf.gov/learn-about-san-francisco-rental-laws) | Two-limb test: built before June 14, 1979 **and** not used as a single-family dwelling |
+| [sf.gov — Topic 153 (Rules 6.14 / Costa-Hawkins)](https://www.sf.gov/information--rent-increases-under-section-614-and-costa-hawkins) | 6.14 unlimited increase only when the last original occupant vacates; 60 days generally reasonable; co-tenant never subject to the Costa-Hawkins reset; petition optional |
+| [sf.gov — Topic 019 (Costa-Hawkins partial exemption)](https://www.sf.gov/information--partial-exemption-certain-single-family-homes-and-condominiums-under-costa-hawkins) | Two-unit rule read verbatim, including the qualifier the site had omitted: not exempt "unless both units are rented together as a single tenancy" |
+
+### Findings and corrections
+
+1. **No factual discrepancy in any published figure.** Every dollar amount and deadline re-derived
+   from Form 571 and the statutory notice periods: Unit 1 3.0% = $119.85 → $4,114.85; Unit 1 early
+   1.6% = $63.92 → $4,058.92; Unit 2 banked 11.5% + 1.6% = 13.1% = $412.65 → $3,562.65; phased
+   10.0% = $315.00 → $3,465.00; annual-only 1.6% = $50.40 → $3,200.40; banked-only 11.5% =
+   $362.25 → $3,512.25. File 261020 still Pending Committee Action (F-27 unchanged).
+2. **Re-stamp to 2026-11-13.** `LAST_VERIFIED` / `REVIEW_DATE` moved to 2026-11-13; every
+   today-relative figure recomputed: Unit 2 earliest effective 2027-02-11 (personal) / 2027-02-16
+   (mail); Unit 1 earliest 2026-12-13 / 2026-12-18; closing-window counts 17 / 12 days; occupancy
+   interval 226 days; all five banking-rule day pairs recomputed. **New this pass:** the mailed
+   deadline for the suggested 2027-02-15 Unit 2 date (2026-11-12) passed before the review date, so
+   the day-pair logic now prints `passed` instead of a negative count, and F-19 states that only
+   personal service (by 2026-11-17) remains for that exact date. Fixed target dates and the
+   2026-11-30 / 2026-11-25 closing deadlines did not change.
+3. **Owner's "state or local law?" question answered** (Executive Summary §2, Q&A §1): the
+   reporting/license duty is **local** — Rent Ordinance (Administrative Code Chapter 37) § 37.15,
+   added by Ord. 265-20 effective 2021-01-18, implemented by Rules § 13.14; the "2023" date is the
+   § 37.15(c) small-building phase-in (2023-03-01), not the year the law passed. The 2023 *state*
+   law, SB 567 (approved 2023-09-30), amends AB 1482's termination-of-tenancy provisions and
+   imposes no Rent Board duty. SB 567 was added to the allowlist and `sources.html`.
+4. **Precision correction (Topic 019 qualifier).** The two-unit coverage statements on
+   `laws.html`, `executive-summary.html` and `answers.html` now carry the source's own exception —
+   "unless both units are rented together as a single tenancy" — which does not match the intake's
+   two separate tenancies. Conclusion unchanged; wording now complete.
+5. **New page `suggestions.html`** (the owner's dedicated-suggestions requirement): 10
+   decision-support suggestions with options-to-choose and review statuses, and 11
+   missing-information actions mapped one-to-one to the open flags. Every row carries an official
+   source link; nothing marked Open has been implemented. Wired into the canonical nav, the
+   validator page list (15 pages) and the dashboard.
+6. **Privacy.** Recursive sweep of all public text files for the supplied initials/name patterns:
+   none present. Occupants remain Tenant A–F placeholders; dates and amounts unchanged. F-23/F-36
+   historical exposure remains disclosed.
+
+### Verification performed
+
+- `python3 scripts/sync_nav.py --check` — 15 pages, 0 changes after the final sync.
+- `python3 scripts/validate_site.py` — **PASSED**: 15 pages, HTML tag balance, 56 allowlisted
+  official URLs all present on `sources.html`, every table data row carries an external official
+  link, unique IDs, all internal links/fragments resolve, no merge markers, 0 private patterns.
+- `python3 scripts/verify_calculations.py` — **PASSED, 334 assertions** on base date 2026-11-13.
+- Local HTTP test: all 15 pages, `style.css`, `AUDIT.md`, `COORDINATION.md`,
+  `internal/README.md` returned 200; 17 unique internal targets crawled; 0 broken links or
+  fragments; each page has exactly one `<h1>` and one `<main>`. Server stopped after the test.
+- `git diff --check` — clean; no whitespace errors.
+
+
+**Concurrency note (2026-11-13).** This addendum was written before `arena/756ae8e9` (Addendum G)
+and `arena/cfe62440` merged their own 2026-11-13 work into `main`. The rebase preserved all of it:
+the published `suggestions.html` is now a merge of the three sessions' suggestion sections (decision
+rule, gates, paths, fairness and choice log from G; the site-improvement proposals table from
+`cfe62440`; the S-01…S-10 / D-01…D-11 tables, status legend and decision sequence from this
+session), the allowlist is the 57-URL union, and `verify_calculations.py` passes the 349-assertion
+union. The conflict-by-conflict record is in `COORDINATION.md` under *4383 rebase / conflict log*.
+
+**Round-2 concurrency note.** A fourth session (`arena/c4c75e09`, PRs #61/#62) merged into `main`
+while this branch was being rebased: its `lapsed (<date>)` day-pair renderer, EQ-A/EQ-B
+equal-treatment rows, "no increase now" paths, F-40, and the 362-assertion set were all kept, and
+this addendum was retitled from H to I to stay unique. The published `suggestions.html` is now the
+union of all four sessions' suggestion work; the conflict-by-conflict record is in
+`COORDINATION.md` under *4383 rebase log, round 2*.
 
 **Not legal advice.** Documentary verification against official sources only.
