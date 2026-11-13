@@ -11,6 +11,14 @@ write any of the material it audits. Every figure was re-derived from primary of
 without reusing the site's own arithmetic. Nothing in this document is inferred: where a value
 could not be confirmed from an official source it is recorded as blank and flagged.
 
+> **Current status correction (2026-11-13):** This document is a historical audit dated 2026-11-07.
+> Its conclusion that F-16 (the 12-/24-month banking-interval difference) was resolved is
+> **withdrawn**. The official wording and worked examples do not expressly reconcile the two
+> formulations; F-16 is open, and banked calculations use Rules § 4.12(a) only as a working
+> assumption. Treat every later statement below recommending closure or calling F-16 resolved as
+> historical and superseded by [`banking-rule.html`](banking-rule.html), [`flagged.html`](flagged.html),
+> and the 2026-11-13 review record in `COORDINATION.md`.
+
 **Privacy note.** This file is served publicly by GitHub Pages from the repository root, because
 Pages is configured to publish `/` of `main` and `.nojekyll` disables Jekyll. It was confirmed
 empirically during this audit that
@@ -34,7 +42,7 @@ The site's own placeholders (`Tenant A`–`Tenant F`, see `occupancy.html`) are 
 | `tenant-protections.html` | 126 | yes | Pass |
 | `practices.html` | 107 | yes | Pass |
 | `checklist.html` | — | yes | Pass — all service dates recomputed and confirmed |
-| `flagged.html` | 95 | yes | Pass — 22 flags, all justified; F-16 can now be closed (A-01) |
+| `flagged.html` | 95 | yes | Historical audit proposed closing F-16 (A-01); withdrawn by the 2026-11-13 status correction above |
 | `sources.html` | 145 | yes | Pass |
 | `scripts/validate_site.py` | — | yes | Pass — runs clean; see A-09 |
 | `scripts/sync_nav.py` | — | yes | Pass |
@@ -106,7 +114,7 @@ accuracy or timing; **low** = completeness.
 
 | ID | Severity | Finding | Files affected | Official source for manual review |
 |---|---|---|---|---|
-| **A-01** | medium | **Flag F-16 is recorded as an open conflict, but it is resolvable on the evidence.** Rules §4.12(a) requires "a full 12 months… from the date that an annual rent increase… could have been imposed"; the summary page says "at least 24 full months pass without any rent increase." Of the three possible readings, only the per-allowance 12-month test reproduces **both** official worked examples (6.7% and 3.3%). A global-24 reading gives 4.7% where the Rent Board's own example says 3.3% and states the allowance is "permanently lost"; a per-allowance-24 reading gives 5.0% where the example says 6.7%. F-16 should be closed as resolved, with the test cited. | `flagged.html`, `analysis.html` | [Rules Part IV §4.12](https://www.sf.gov/reports--december-2022--rent-board-rules-and-regulations-part-iv-rent-increases-not-requiring) · [Banked increases](https://www.sf.gov/information--banked-rent-increases) · [Worked examples](https://www.sf.gov/learn-about-rent-increases-san-francisco) |
+| **A-01** | medium | **WITHDRAWN 2026-11-13 — historical conclusion only.** The 2026-11-07 audit argued that F-16 was resolvable; re-review found the evidence does not reconcile the official formulations. The earlier analysis below is retained as audit history, not current guidance. **Historical claim (withdrawn):** Rules §4.12(a) requires "a full 12 months… from the date that an annual rent increase… could have been imposed"; the summary page says "at least 24 full months pass without any rent increase." Of the three possible readings, only the per-allowance 12-month test reproduces **both** official worked examples (6.7% and 3.3%). A global-24 reading gives 4.7% where the Rent Board's own example says 3.3% and states the allowance is "permanently lost"; a per-allowance-24 reading gives 5.0% where the example says 6.7%. F-16 should be closed as resolved, with the test cited. | `flagged.html`, `analysis.html` | [Rules Part IV §4.12](https://www.sf.gov/reports--december-2022--rent-board-rules-and-regulations-part-iv-rent-increases-not-requiring) · [Banked increases](https://www.sf.gov/information--banked-rent-increases) · [Worked examples](https://www.sf.gov/learn-about-rent-increases-san-francisco) |
 | **A-02** | **high** | **The Unit 2 service window is not stated as a closing deadline.** The site records the outer limit (effective on or before 2027-02-28) and the service dates for the suggested 2027-02-15 target, but not the last date on which *any* effective date inside the window can still be reached: **2026-11-30** by personal delivery, **2026-11-25** by mail — 23 and 18 days from the audit date. Nor is it stated that the mailed route to the earliest date (2027-02-05) closed on 2026-11-02. Because banked amounts may only be given at the time of an annual increase, and the 2027-28 percentage is unpublished, missing this window means Unit 2's 13.1% cannot be priced until the Rent Board announces the new rate. | `index.html`, `executive-summary.html`, `checklist.html` | [Form 571](https://www.sf.gov/documents/34344/571_Allowable_Annual_Increases_26-27_1.pdf) · [Civ. Code §827](https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=827.&lawCode=CIV) · [Rule 4.12(a)](https://www.sf.gov/reports--december-2022--rent-board-rules-and-regulations-part-iv-rent-increases-not-requiring) |
 | **A-03** | medium | The "take nothing yet" option in `checklist.html` says there is "no deadline to act, other than the rate-change effect above." That is accurate but incomplete: §4.12(a) provides the banked amount "may only be given at the time of an annual increase," so the 11.5% cannot be imposed on its own at a later date of the owner's choosing — it must ride with an annual allowance, and after 2027-02-28 that allowance is not yet known. | `checklist.html` | [Rules Part IV §4.12(a)](https://www.sf.gov/reports--december-2022--rent-board-rules-and-regulations-part-iv-rent-increases-not-requiring) · [Banked increases](https://www.sf.gov/information--banked-rent-increases) |
 | **A-04** | low | **A favourable rule is missing.** Rules §13.14 ends: "Nothing in this Regulation shall affect a landlord's banking rights or the ability to accumulate otherwise lawful rent increases that were found to be null and void." This materially softens flag F-03: a notice that fails for want of a license voids *that increase*, not the accumulated 11.5%. Worth recording so the license risk is not over-weighted. | `checklist.html`, `flagged.html`, `laws.html` | [Rules §13.14 (Rent Board)](https://sfrb.org/section-1314-licensing-%E2%80%93-notice-rent-increase) · [Form 538 worksheet restating it](https://www.sf.gov/sites/default/files/2024-10/538%202024-25%20Bond%20Measure%20Worksheet%2010.24%20.pdf) |
@@ -153,7 +161,7 @@ Logged here rather than applied, per the coordination instructions. `scripts/val
 |---|---|---|---|
 | **CR-01** | Add `banking-rule.html` to the shared navigation and to the validator's page list so the new page is not orphaned | `scripts/sync_nav.py`, `scripts/validate_site.py` | Add `("banking-rule.html", "Banking Interval (F-16)")` to the `NAV` list under a *Verification* group, run `python3 scripts/sync_nav.py`, and add `"banking-rule.html"` to `PAGES`. The page already links to all twelve existing pages and carries the standard footer, so it passes the validator as written. |
 | **CR-02** | Allowlist the two official URLs this page cites that are not yet in `VERIFIED_URLS` | `scripts/validate_site.py` | `https://sfrb.org/section-1314-licensing-%E2%80%93-notice-rent-increase` and `https://www.sf.gov/sites/default/files/2024-10/538%202024-25%20Bond%20Measure%20Worksheet%2010.24%20.pdf`. Both are official Rent Board documents. |
-| **CR-03** | Close flag **F-16** as resolved and cite the test | `flagged.html`, `analysis.html` | Replace the open-conflict wording with: only the per-allowance 12-month test in Rules §4.12(a) reproduces both official worked examples (6.7% and 3.3%); a global-24 reading gives 4.7% against an official 3.3%, and a per-allowance-24 reading gives 5.0% against an official 6.7%. Link `banking-rule.html`. |
+| **CR-03** | **WITHDRAWN 2026-11-13.** Historical request: close F-16 as resolved; do not apply. | `flagged.html`, `analysis.html` | Historical proposed wording only: the prior audit argued that the per-allowance 12-month test reproduced the two worked examples. That inference is withdrawn because the examples do not reconcile the official source formulations. The current flag stays open; see `banking-rule.html`. |
 | **CR-04** | Publish the closing service window as a deadline (A-02) | `index.html`, `executive-summary.html`, `checklist.html` | Unit 2's 13.1% requires an effective date on or before 2027-02-28, so a 90-day notice must be served by **2026-11-30** (personal delivery) or **2026-11-25** (mail). The mailed route to 2027-02-05 closed on 2026-11-02. Unit 1 needs no urgency: serve by 2027-01-02 for a 2027-02-01 effective date. |
 | **CR-05** | Add Rules §13.14's two favourable provisions (A-04, A-05) | `checklist.html`, `laws.html`, `flagged.html` | The license test is applied to the effective date, not the service date; and a void increase does not affect banking rights or the ability to accumulate otherwise lawful increases. |
 | **CR-06** | Add irregularity **A-06** to the flagged register | `flagged.html` | The license requirement's start dates differ between the Housing Inventory page (1 July 2022 / 1 March 2023) and Form 538 (1 July 2020 / 1 March 2021). No practical impact; recorded for completeness. |
@@ -243,11 +251,12 @@ and a stale-based branch that would revert merged work if merged as-is) and A-08
 publicly served, which is how tenant initials were exposed before PR #10). The remainder are
 medium or low and are covered by change requests CR-01 to CR-08.
 
-The one substantive legal question the site left open — flag F-16, the 12-versus-24-month banking
-interval — is resolved in section 2 of [`banking-rule.html`](banking-rule.html) by testing all
-three readings against both official worked examples. Only Rules §4.12(a)'s per-allowance
-12-month test reproduces both, and it confirms the figures the site already publishes: **1.6%**
-and **3.0%** for Unit 1, **13.1%** for Unit 2.
+The original audit's arithmetic comparison of F-16 readings is retained above as historical
+analysis, but its conclusion that the issue was legally resolved is **withdrawn as of 2026-11-13**.
+The worked examples may favor a Rules § 4.12(a) reading in a scenario; they do not expressly
+reconcile the Rule's 12-month wording with the SF.gov summary's 24-month wording. The current site
+keeps F-16 open and labels every banked calculation as conditional on the Rule text as a working
+assumption. See [`banking-rule.html`](banking-rule.html) and [`flagged.html`](flagged.html).
 
 **Not legal advice.** This is a documentary audit against official sources. A Rent Board counselor
 cannot give legal advice, and no lawyer's approval can be guaranteed in advance.
@@ -567,7 +576,7 @@ per-file change list are in `COORDINATION.md` (section "2026-11-11 independent r
 | Current Rates | 1.6% (2026-03-01–2027-02-28); 1.4%; 1.7%. Unchanged. File 261020 notice still posted 2026-11-09. |
 | Form 571 (26-27 PDF) | Historical table unchanged; ends 2027-02-28; 2027-28 blank. |
 | Learn about rent increases | 1.6%; 30/90 + 5; four worked examples unchanged, including the 3.3% new-anniversary example. |
-| Banked rent increases | Mechanics unchanged; 24-month summary wording still present (F-16 as resolved). |
+| Banked rent increases | Mechanics unchanged; 24-month summary wording still present (F-16 was called resolved in the historical audit; that conclusion is withdrawn as of 2026-11-13). |
 | Housing Inventory | "All owners of residential property"; tenant-occupied units receive the licence; licence current before the increase takes effect; not attached to the notice; 2023-03-01 for <10 units. |
 | § 37.15 | (a), (c), (e) verbatim as published on the site. |
 | Rules § 13.14 | Effective-date-not-service-date rule; entire increase void if unlicensed; banking rights survive. |

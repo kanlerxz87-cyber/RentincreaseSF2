@@ -4,6 +4,14 @@
 **Live site:** https://kanlerxz87-cyber.github.io/RentincreaseSF2/  
 **Last updated:** 2026-11-13
 
+## Current legal-status override (2026-11-13)
+
+F-16 is **open**, not resolved. Earlier audit and coordination entries that stated the 12-month
+per-allowance reading had definitively reconciled the official 24-month summary are historical
+claims; that conclusion is withdrawn after re-review. The current site treats Rules § 4.12(a) only
+as a working assumption for arithmetic, pending an authoritative reconciliation. See `banking-rule.html`,
+`flagged.html`, and the correction at the top of `AUDIT.md`.
+
 ## Sessions
 
 | Session ID | Role | Status |
@@ -56,7 +64,7 @@ This session is editing the existing files rather than creating a duplicate site
 | 17 | Integration: shared nav, sources register, flags, validator allowlist | done | arena/fa7d2d77-rentincreasesf2 | all *.html nav blocks, sources.html, flagged.html, scripts/validate_site.py, style.css, README.md | Integration-session prerogative; tasks 1–12 are all `done`. 12 pages, 46 official URLs, per-row sources, column integrity and privacy sweep all pass. |
 | 18 | Final verification, PR to main, merge, confirm Pages deploy | done | arena/fa7d2d77-rentincreasesf2 | COORDINATION.md | Pending tasks 13–17. PR #8 merged; Pages built on the merge commit; live site verified. |
 | 19 | Independent primary-source audit of the integrated 12-page site: re-derive every published figure without reusing the site's arithmetic, recompute every notice deadline, scan for personal identifiers | done | arena/bf462feb-rentincreasesf2 | `AUDIT.md` (new) | **No published figure is wrong and no value was invented.** 13 figure classes re-derived and confirmed; 7 service deadlines recomputed and confirmed. Primary texts read directly: Rules Part IV §4.10/§4.12, Rent Ordinance §37.3, §37.10C, Rules §13.14, Form 571, Form 538, Current Rates, all four sf.gov worked examples, Banked increases, Irregular periods, Multiple years, Housing Inventory, AB 1482, Tenant Petitions, Civ. Code §827. Ten irregularities logged as A-01…A-10. |
-| 20 | Resolve flag F-16 (the 12-vs-24-month banking interval conflict) on the evidence rather than leaving it open | done | arena/bf462feb-rentincreasesf2 | `banking-rule.html` (new) | Three candidate readings tested against **both** official Rent Board worked examples. Only Rules §4.12(a)'s per-allowance 12-month test reproduces both (6.7% and 3.3%). Global-24 gives 4.7% against an official 3.3%; per-allowance-24 gives 5.0% against an official 6.7%. The resolution **confirms** the site's published 11.5% / 13.1% / 1.6% / 3.0% figures. |
+| 20 | Historical task: resolve flag F-16 (the 12-vs-24-month banking interval conflict) | historical conclusion withdrawn 2026-11-13 | arena/bf462feb-rentincreasesf2 | `banking-rule.html` (new) | The earlier session used a comparison of worked examples to call F-16 resolved. That inference is withdrawn: the examples do not reconcile the official wording. Current site keeps F-16 open and uses § 4.12(a) only as a working assumption. |
 | 21 | Publish the closing service window as a deadline counted back from today (irregularity A-02) | done | arena/bf462feb-rentincreasesf2 | `banking-rule.html`, `AUDIT.md` | Unit 2's 13.1% needs an effective date on or before 2027-02-28 because Form 571 ends there and the 2027-28 percentage is unpublished; with a 90-day notice the last service date is **2026-11-30** personal / **2026-11-25** mailed. The mailed route to the earliest date closed 2026-11-02. Unit 1 is not urgent: serve by 2027-01-02 for 2027-02-01. |
 | 22 | Log change requests for corrections that belong in files owned by other sessions, instead of editing them | done | arena/bf462feb-rentincreasesf2 | `AUDIT.md` section 6 | CR-01…CR-08. No page in `PAGES`, no script, and no nav block was modified by this session. |
 | 23 | Validate, open PR to `main`, merge, confirm GitHub Pages deploy | done | arena/bf462feb-rentincreasesf2 | `COORDINATION.md` | **PR #11 merged** at 2026-11-07T21:32:15Z, merge commit `041632c`. `Validate site` passed on the PR and post-merge; `pages build and deployment` succeeded on `041632c`; Pages status `built`. Live URLs re-fetched after deployment and confirmed serving the new content. See *PR #11 — independent audit* below. |
@@ -572,21 +580,12 @@ Ten irregularities are logged as **A-01…A-10** in `AUDIT.md` section 4. Three 
   initials were exposed before PR #10 remediated them. The standing rule is now written down here so
   a future session does not repeat it with `AUDIT.md` or any other root Markdown file.
 
-**Flag F-16 is resolvable and has been resolved.** Two official Rent Board sources state different
-banking intervals — Rules §4.12(a) says a full 12 months from when an allowance could have been
-imposed; the *Banked rent increases* summary page says at least 24 full months without any increase.
-Rather than accept either at face value, all three possible readings were tested against **both**
-published Rent Board worked examples:
-
-| Reading | Example A (official answer 6.7%) | Example B (official answer 3.3%) | Verdict |
-|---|---|---|---|
-| Per-allowance, 12 months — Rules §4.12(a) | 6.7% | 3.3% | **Matches both** |
-| Global, 24 months | 6.7% | 4.7% | Fails B |
-| Per-allowance, 24 months | 5.0% | 1.6% | Fails both |
-
-Only Rules §4.12(a) reproduces both. The resolution **confirms** the figures the site already
-publishes — Unit 1 at 1.6% ($4,058.92) before 2027-02-01 and 3.0% ($4,114.85) on it; Unit 2 at
-11.5% banked plus 1.6% current = 13.1% ($3,562.65). CR-03 asks for F-16 to be closed on this basis.
+**Historical F-16 analysis — withdrawn 2026-11-13.** The earlier session treated the Rule&rsquo;s
+12-month wording as resolved after comparing it with the official worked examples. That inference
+is withdrawn: the examples do not expressly reconcile the Rule with the SF.gov summary&rsquo;s
+24-month wording, and the changed-anniversary example itself needs clarification. The old arithmetic
+comparison is historical, not current guidance. F-16 remains open; see the status override at the top
+of this file and the detailed correction in `AUDIT.md`.
 
 Two further primary-source points were verified and are new to the repository: Rules §13.14 fixes
 the license test to the **effective date, not the service date**, and expressly preserves banking
@@ -670,7 +669,7 @@ favourable provisions.
 |---|---|---|
 | CR-01 | `banking-rule.html` added to the canonical navigation under a new **Verification** group; added to the validator's page list; `scripts/sync_nav.py` re-run (13 pages updated) | `scripts/sync_nav.py`, `scripts/validate_site.py`, all `*.html` nav blocks |
 | CR-02 | Form 538 worksheet URL allowlisted (the §13.14 URL was already allowlisted); allowlist now 47 URLs | `scripts/validate_site.py` |
-| CR-03 | Flag **F-16 closed as resolved** on the evidence (only the per-allowance 12-month test in Rules §4.12(a) reproduces both official worked examples, 6.7% and 3.3%; global-24 gives 4.7% vs official 3.3%; per-allowance-24 gives 5.0% vs official 6.7%). Linked `banking-rule.html`; the 24-month wording on `laws.html`, `process.html`, `practices.html`, `tenant-protections.html` annotated with the resolution | `flagged.html`, `analysis.html`, `laws.html`, `process.html`, `practices.html`, `tenant-protections.html` |
+| CR-03 | Historical action, withdrawn 2026-11-13: the prior session marked F-16 resolved. Current flag remains open; see the status override above. | `flagged.html`, `analysis.html`, `laws.html`, `process.html`, `practices.html`, `tenant-protections.html` |
 | CR-04 | Closing service window published as a deadline: Unit 2's 13.1% needs an effective date on or before **2027-02-28** → serve by **2026-11-30** (personal) / **2026-11-25** (mail); the mailed route to 2027-02-05 closed 2026-11-02; Unit 1 serve by 2027-01-02 | `index.html`, `executive-summary.html`, `checklist.html` (new row 2.8a) |
 | CR-05 | Rules §13.14's two provisions added: the license test is keyed to the **effective date, not the service date** (express regulatory wording now quoted), and a void increase does **not** affect the owner's banking rights or the ability to accumulate otherwise lawful increases. F-03's "what to verify" softened accordingly; A-05 wording added to `process.html`; "Final review before service" gains a *Banking rights survive* row | `laws.html`, `checklist.html`, `flagged.html`, `process.html` |
 | CR-06 | Official-documents discrepancy on the license requirement's start date (Housing Inventory / *Learn about rent increases*: 2022-07-01 for 10+ unit buildings vs 2023-03-01 for condominiums and buildings with fewer than 10 units; Form 538 worksheet: 2020-07-01 / 2021-03-01) logged as flag **F-24** and as a laws.html row. Practical impact nil — both dates are past; a two-unit building is "fewer than 10 units" on either version | `flagged.html`, `laws.html` |
@@ -693,7 +692,7 @@ Rules §4.12(a)/§4.10/§4.12(b) and Rules §13.14 (sf.gov / sfrb.org) · Rent O
 
 ### Irregularities / flags
 
-- **F-16 closed** on the evidence (see CR-03).
+- **Historical status only:** F-16 was reported closed in this session; that conclusion is withdrawn by the 2026-11-13 override above.
 - **A-06** logged as **F-24** (official documents disagree on the license start date; practical impact nil).
 - **A-02** addressed: the closing service window (2026-11-30 / 2026-11-25) is now published in `index.html`, `executive-summary.html` and `checklist.html` row 2.8a, in addition to `banking-rule.html`.
 - **A-04 / A-05** addressed (Rules §13.14 provisions published; F-03 softened).
@@ -1775,9 +1774,9 @@ bare numbers 37–48 are already used three times over on this board).
   records the date that row's source was last read directly. **Flagged for the owner:** those six should be
   re-read before the site is treated as current on its own sources page; nothing on the site depends on
   them having changed, and no assertion of change is made.
-- **F-16 remains as resolved on the evidence** (12-month per-allowance test in Rules § 4.12(a) reproduces
-  both official worked examples; the 24-month summary sentence does not). The live banked-increases page
-  still carries that sentence, so the resolution rests on the rule plus the two examples, as published.
+- **Withdrawn 2026-11-13:** this session's earlier statement that F-16 was resolved by the
+  per-allowance 12-month comparison is historical and no longer current. The examples do not expressly
+  reconcile the 24-month summary with Rules § 4.12(a); the current site keeps F-16 open.
 - **F-27 unchanged:** File 261020 is still Pending Committee Action on Legistar today. The site continues
   to tell the owner to re-check it immediately before serving any Unit 2 notice.
 - **F-01, F-02, F-03, F-06, F-18, F-31, F-33 remain open and unverified** — build year, unit count, lease
@@ -1951,8 +1950,17 @@ The platform-fixed branch for this session is `arena/2125f469-rentincreasesf2`, 
 
 | # | Task | Status | Owner session | File scope | Notes |
 |---|---|---|---|---|---|
-| 54 | Independently re-read the current official source pages and audit the published facts, legal explanations, calculations, notices, flags, and privacy for the 2026-11-13 as-of date | in progress | arena/2125f469-rentincreasesf2 | `COORDINATION.md` while auditing; then all public site files as final integration | Read official primary sources, identify whether any time-sensitive rate/legislation/deadline or prior citation changed since the recorded 2026-11-11 pass. Existing owner/tenant facts stay unverified unless independently supported. |
-| 55 | Apply only source-backed corrections; add or improve a dedicated, review-first suggestions section and decision questions/unknowns if not already complete | blocked on 54 | arena/2125f469-rentincreasesf2 | new `suggestions.html` if needed; all pages/nav/source register/scripts/docs only as required for final integration | Every substantive table row must link to an official source; unsupported values stay blank and flagged. Do not publish personal identifiers. |
-| 56 | Run full checks, open a PR from this fixed branch, merge only after validation, confirm Pages deploy and live read-back, and record results | blocked on 54–55 | arena/2125f469-rentincreasesf2 | validation outputs and this deployment record in `COORDINATION.md` | No branch other than the platform-fixed branch will be created or pushed. Flagged items do not block a structurally valid build. |
+| 54 | Independently re-read the current official source pages and audit the published facts, legal explanations, calculations, notices, flags, and privacy for the 2026-11-13 as-of date | done | arena/2125f469-rentincreasesf2 | `COORDINATION.md` while auditing; then all public site files as final integration | Read official primary sources, identify whether any time-sensitive rate/legislation/deadline or prior citation changed since the recorded 2026-11-11 pass. Existing owner/tenant facts stay unverified unless independently supported. |
+| 55 | Apply only source-backed corrections; add or improve a dedicated, review-first suggestions section and decision questions/unknowns if not already complete | done | arena/2125f469-rentincreasesf2 | new `suggestions.html` if needed; all pages/nav/source register/scripts/docs only as required for final integration | Every substantive table row must link to an official source; unsupported values stay blank and flagged. Do not publish personal identifiers. |
+| 56 | Run full checks, open a PR from this fixed branch, merge only after validation, confirm Pages deploy and live read-back, and record results | in progress | arena/2125f469-rentincreasesf2 | validation outputs and this deployment record in `COORDINATION.md` | No branch other than the platform-fixed branch will be created or pushed. Flagged items do not block a structurally valid build. |
 
-Claim pushed before research begins. No public site file has been edited in this session yet.
+Claim pushed before research began. The current session later edited the public site, completed the source-backed F-16/date corrections, and is recording verification and integration status below.
+
+### Tasks 54–55 — source review and content integration (2026-11-13)
+
+- Rechecked the time-sensitive City rate/banking guidance, Rent Board Rules Part IV § 4.12(a), Housing Inventory/licensing material, Ordinance §§ 37.3 and 37.15, Rules § 13.14, Civil Code § 827, and Legistar File 261020. File 261020 remains **Pending Committee Action — not enacted** as checked 2026-11-13; no proposal is described as law.
+- Reopened F-16. Rules § 4.12(a) uses 12 months from when an allowance could first have been imposed, while the SF.gov summary says 24 full months without an increase. The examples do not expressly reconcile the formulations; one has a date-span mismatch. Calculations using the Rule are conditional, not legal conclusions. The former audit conclusion is explicitly withdrawn in `AUDIT.md`, this board, `flagged.html`, `analysis.html`, and `banking-rule.html`.
+- Added `suggestions.html` as a review-only decision aid with alternatives, unresolved factual questions, a no-rush default, official source links on every data row, and no option selected. Updated the navigation and validator to cover 15 pages.
+- Recomputed date-dependent notices from 2026-11-13: Unit 2's 2027-02-15 mailed deadline is 2026-11-12 (passed), personal deadline 2026-11-17; outer dates for an effective date by 2027-02-28 are 2026-11-30 personal / 2026-11-25 mail; earliest dates from Nov 13 are 2027-02-11 / 2027-02-16. Unit 1 earliest 30-day dates are 2026-12-13 / 2026-12-18; occupancy interval is 226 days.
+- `python3 scripts/sync_nav.py` — 15 pages, 0 updates. `scripts/validate_site.py` — passed: 15 pages, 55 official URLs, row-level sources, valid HTML, internal links/fragments, unique IDs, column counts, and merge-marker checks; two temporary generic privacy patterns were used and no matches were found. `scripts/verify_calculations.py` — 352 assertions passed, including F-16-open guards. `git diff --check` — passed.
+- Tasks 54–55 are done. Task 56 remains in progress for the fixed-branch PR, merge, CI/Pages checks, and live read-back.
