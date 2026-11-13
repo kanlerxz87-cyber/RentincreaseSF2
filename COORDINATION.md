@@ -2100,3 +2100,33 @@ Platform-fixed branch `arena/438353cc-rentincreasesf2`, cut from `main` at `a246
 - **Irregularities:** none new. F-01…F-38 remain published and non-blocking; F-27 re-checked
   2026-11-13 (still pending). Six source rows not re-read in this pass keep their earlier badges,
   as disclosed on `sources.html`.
+
+### 4383 rebase / conflict log (2026-11-13) — concurrent sessions merged without discarding work
+
+While `arena/438353cc-rentincreasesf2` was working from `a246a74`, three PRs merged into `main`:
+**#57/#58** (`arena/756ae8e9` — its own `suggestions.html`, 2026-11-13 re-stamp, AUDIT Addendum G),
+**#59/#60** (`arena/cfe62440` — line-by-line re-verification, F-39 election diligence, site-improvement
+proposal table added into `suggestions.html`, elections URL on the allowlist). `git rebase
+origin/main` replayed this session's seven commits; every conflict was resolved by keeping **both**
+sessions' work:
+
+| Conflict | Resolution |
+|---|---|
+| `COORDINATION.md` (2 hunks: Sessions table + append boundary) | Main's rows (69f0 updated, `756ae8e9`) kept first, then `438353cc` row; at EOF main's `756ae8e9` and `cfe62440` blocks kept first, then this session's claim block. |
+| `suggestions.html` (add/add: both sessions created the page) | **Merged into one page** — `arena/756ae8e9`'s decision-rule callout, gate questions, conditional paths, fairness card and choice log + `cfe62440`'s 5-row site-improvement table + this session's status legend, S-01…S-10 decision-support table, D-01…D-11 flag-mapped actions and decision sequence. One page, both sessions' content, nothing dropped; duplicate row removed. |
+| Nav duplication (every page had two `suggestions.html` links) | Canonical nav = main's ("Action" group, "Suggestions & Decisions"); this session's duplicate Review-group entry removed from `sync_nav.py` and all pages re-synced. |
+| `scripts/validate_site.py` | `suggestions.html` deduped in `PAGES`; allowlist = union (elections URL from main + SB 567 from this session) = **57 URLs**. |
+| `scripts/verify_calculations.py` | Main's computed `days_occupancy` kept (its duplicate definition at the second call site dropped); this session's `daypair()` "passed" rendering kept. **349 assertions** pass — the union of both sessions' checks. |
+| `banking-rule.html` day-pair cells | This session's `4 / passed` / `0` cells kept (matches `daypair()`); main's `4 / -1` superseded. |
+| `flagged.html` F-19 / F-32 | F-19: this session's wording ("2026-11-12 mailed deadline … has passed") kept. F-32: neither session re-read the O&M page today, so the row now says "checked on 2026-11-11; not re-read in the 2026-11-13 pass" — strictly truthful; `sources.html` does not badge that row as rechecked (main's two-tier badge scheme kept elsewhere). |
+| `executive-summary.html` / `index.html` deadline paragraphs | Main's longer phrasing (includes the mailed-passed sentence) kept — superset of this session's wording. |
+| `sources.html` page badge + 571 row | Main's "Core sources rechecked 2026-11-13" page badge kept; this session's truthful "Verified 2026-11-13" badge on the 571 row kept (this session re-read Form 571 today; main did not badge it). |
+| `AUDIT.md` append | Both addenda kept: main's "Addendum G" first; this session's retitled **Addendum H**. |
+| `README.md` | Single merged `suggestions.html` table row (both descriptions combined); main's serve-by phrasing kept; 15 pages / base 2026-11-13 / F-38 applied. |
+
+Post-rebase suite on the merged tree: `sync_nav.py --check` 15 pages / 0 changes; `validate_site.py`
+**PASSED** (15 pages, **57 official URLs**, every table row externally sourced); `verify_calculations.py`
+**PASSED (349 assertions)**; local HTTP smoke — all 15 pages + `style.css` + `AUDIT.md` +
+`COORDINATION.md` + `internal/README.md` = 200, 17 targets crawled, exactly one suggestions nav link
+per page, 0 broken links/fragments; privacy grep for the supplied initials — **0 matches**;
+`git diff --check` clean. Branch pushed with `--force-with-lease` (own session branch only).

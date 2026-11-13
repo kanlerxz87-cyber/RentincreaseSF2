@@ -859,4 +859,13 @@ executive summary and Q&A pages. No value was inferred; nothing unconfirmable wa
   fragments; each page has exactly one `<h1>` and one `<main>`. Server stopped after the test.
 - `git diff --check` — clean; no whitespace errors.
 
+
+**Concurrency note (2026-11-13).** This addendum was written before `arena/756ae8e9` (Addendum G)
+and `arena/cfe62440` merged their own 2026-11-13 work into `main`. The rebase preserved all of it:
+the published `suggestions.html` is now a merge of the three sessions' suggestion sections (decision
+rule, gates, paths, fairness and choice log from G; the site-improvement proposals table from
+`cfe62440`; the S-01…S-10 / D-01…D-11 tables, status legend and decision sequence from this
+session), the allowlist is the 57-URL union, and `verify_calculations.py` passes the 349-assertion
+union. The conflict-by-conflict record is in `COORDINATION.md` under *4383 rebase / conflict log*.
+
 **Not legal advice.** Documentary verification against official sources only.
