@@ -671,3 +671,76 @@ above remain preserved as historical evidence, not silently rewritten.
    exposure remains separately disclosed at F-23/F-36 and was not destructively rewritten.
 
 **Not legal advice.** Documentary verification against official sources only.
+
+## Addendum G — live re-verification and suggestions page (2026-11-13, session `arena/c4c75e09-rentincreasesf2`)
+
+Branch `arena/c4c75e09-rentincreasesf2` (Arena-fixed), branched from `main` at `a246a74`. Tasks
+c4c7-A..D claimed in `COORDINATION.md`, with a stale-claim handoff recorded for tasks 45 and
+69f0-A/B/C (claims older than 60 minutes with no commits since the 2026-11-11 merges).
+
+### Sources fetched and read directly on 2026-11-13 (24 rows)
+
+| Source | What this pass confirmed |
+|---|---|
+| [sf.gov — Current Rates](https://www.sf.gov/reports--current-rates-including-rent-increase-relocation-sec-deposit) | 1.6% for 2026-03-01–2027-02-28; 1.4% (2025-26); 1.7% (2024-25); File 261020 notice still posted (posted 2026-11-09) |
+| [Form 571 (PDF)](https://www.sf.gov/documents/34344/571_Allowable_Annual_Increases_26-27_1.pdf) | Full historical table unchanged; matches `RATE_571` in `scripts/verify_calculations.py` exactly |
+| [sf.gov — Learn about rent increases](https://www.sf.gov/learn-about-rent-increases-san-francisco) | 1.6%; 30/90-day + 5-day mailing; license requirement; worked examples — see F-39 for one label irregularity in example 1 |
+| [sf.gov — Banked rent increases](https://www.sf.gov/information--banked-rent-increases) | 24-month summary wording still present (F-16 basis unchanged); no expiry; partial increases; no compounding/prorating; notice contents |
+| [sf.gov — Housing Inventory](https://www.sf.gov/rent-board-housing-inventory) | "All owners of residential property are required to report"; tenant-occupied units receive the license; license must be current on the effective date; need not accompany the notice; 2023-03-01 start for buildings under 10 units |
+| [sf.gov — § 37.15](https://www.sf.gov/information--sec-3715-reporting-obligations-licensing) | (a)–(e) verbatim, including (c) phase-in dates and (e) license/suspension text; Ord. 265-20 effective 2021-01-18 |
+| [sfrb.org — Rules § 13.14](https://sfrb.org/section-1314-licensing-%E2%80%93-notice-rent-increase) | Null-and-void rule verbatim; effective-date test; 2022-07-01 / 2023-03-01 phase-in |
+| [sf.gov — Rules Part IV (§§ 4.10, 4.12)](https://www.sf.gov/reports--december-2022--rent-board-rules-and-regulations-part-iv-rent-increases-not-requiring) | § 4.10 notice breakdown/void rule; § 4.12(a) verbatim: "A full 12 months must have elapsed…"; "This banked amount may only be given at the time of an annual increase" |
+| [sf.gov — § 37.3](https://www.sf.gov/information--sec-373-rent-limitations) | 60% of CPI / 7% cap; license hook to § 37.15; banking "on the tenant's subsequent rent increase anniversary dates" |
+| [sf.gov — Irregular periods](https://www.sf.gov/information--increasing-rents-during-irregular-periods) | Non-anniversary increases permitted; "24 months or more" example applies three prior periods to a non-anniversary date (F-28 record) |
+| [sf.gov — Learn about SF rental laws](https://www.sf.gov/learn-about-san-francisco-rental-laws) | Coverage two-limb test verbatim: built before 1979-06-14 **and** not used as a single-family dwelling |
+| [sf.gov — Costa-Hawkins partial exemption](https://www.sf.gov/information--partial-exemption-certain-single-family-homes-and-condominiums-under-costa-hawkins) | "A single-family dwelling with a legal in-law unit constitutes a two-unit building and is not exempt" (F-33 anchor) |
+| [sf.gov — Topic 153 (Rules 6.14)](https://www.sf.gov/information--rent-increases-under-section-614-and-costa-hawkins) | 6.14 notice within a reasonable time ("generally, sixty days"); co-tenants never subject to the reset |
+| [sf.gov — Rent Board Fee](https://www.sf.gov/rent-board-fee) | $59.00 per dwelling unit 2026-27; 50% ($29.50) recoverable from Nov 1 tenants; exemption deadline 2026-12-14; due 2027-03-01 |
+| [sf.gov — AB 1482](https://www.sf.gov/reports--california-tenant-protection-act-2019-ab-1482) | 8.8% for 2026-08-01–2027-07-31 (5% + 3.8% CPI); "This does NOT apply for units under the rent increase limitations of the San Francisco Rent Ordinance" |
+| [Form 538 (2026–27)](https://www.sf.gov/documents/64370/538_2026-2027_Bond_Measure_Worksheet_10.26.pdf) | **F-24 persists**: the live worksheet still prints licensing start dates 2021-07-01 / 2022-03-01 against § 13.14's 2022-07-01 / 2023-03-01 |
+| [sf.gov — Legal resources (Topic 019)](https://www.sf.gov/information/legal-resources-housing-discrimination) | Open Door Legal service area (94107, 94112, 94124, 94134) still excludes 94122 |
+| [sf.gov — Topics 152 / 254](https://www.sf.gov/information--charging-additional-occupants-prohibited) | No surcharge for added occupants, even if the lease permits it |
+| [sf.gov — § 37.10C (Topic 268)](https://www.sf.gov/information--algorithmic-devices-set-rent-are-prohibited-san-francisco) | Effective 2024-10-14; sale/use prohibitions; up to $1,000 per violation |
+| [Legistar — File 261020](https://sfgov.legistar.com/LegislationDetail.aspx?ID=8217304&GUID=7EDA4662-EBFB-4AF5-962F-C669B64AA770) | Status **Pending Committee Action** unchanged; history still 4 records, latest 2026-10-07; **new sixth attachment "Comment Ltrs"** posted since the 2026-11-11 read; Version 1; no enactment date/number |
+| [Leg Ver1](https://sfgov.legistar.com/View.ashx?M=F&ID=15865646&GUID=0E2E6936-000B-4597-A4EE-FBB17C19636E) | Proposed § 37.3(h) verbatim ("…more than a total of 10% of the lowest base rent… during the 12 months immediately preceding…"; 2029-12-31 sunset; 2030-01-01 deferral; notices on/after 2026-09-15); § 37.15(b)(2)(F) amendment verbatim ("…and whether any banked rent increases were imposed under Section 37.3(a)(2) during the previous 12 months") |
+| [Leg Dig Ver1](https://sfgov.legistar.com/View.ashx?M=F&ID=15865647&GUID=CC09B796-4675-4A7D-9960-85FE239F7FBB) | City Attorney digest: "combined 10% cap on Banked Increases and Capital Improvement Increases"; same dates |
+| [Civ. Code § 827](https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=827.&lawCode=CIV) | (b)(1)(A)/(B) personal or mail (CCP § 1013); (b)(2) ≤10% → 30 days; (b)(3)(A) >10% → 90 days; both "subject to Section 1013 … if served by mail" |
+| [Civ. Code § 1947.12](https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=1947.12.&lawCode=CIV) | (a) 5% + CPI / 10% cap on lowest prior-12-month rate; (a)(2) two increments per 12 months; (d)(3) exempts units under local limits lower than the state cap |
+
+Rows not re-read this pass (§ 37.10B, § 37.11A, Forms Center, § 1954.50, § 1954.52, § 1942.5,
+petitions/evictions/tenant-help pages, HUD/CRD/govinfo) keep their 2026-11-10/2026-11-11 badges;
+`sources.html` now states the two-tier convention explicitly.
+
+### Findings and changes in this pass
+
+1. **F-24 confirmed persistent** (Form 538 date discrepancy), recorded on `flagged.html`.
+2. **F-27 re-checked**: still Pending Committee Action. Observation recorded: Legistar now shows a
+   sixth attachment ("Comment Ltrs") that was not present at the 2026-11-11 read.
+3. **New flag F-39** — an irregularity in the official source itself: the first worked example on
+   *Learn about rent increases* labels "the annual allowable increase in effect on June 1, **2025**"
+   as 1.6%, while the 571 table gives 1.4% for that date and the same page's own rule uses the
+   percentage in effect on the effective date (2026-06-01 → 1.6%, matching the example's arithmetic).
+   No published site figure depends on the label.
+4. **Deadline drift**: the mailed-notice deadline (2026-11-12) for the suggested Unit 2 effective
+   date 2027-02-15 has passed. Pages now state the mailed route for that date is closed and personal
+   service remains open through 2026-11-17; mailed notices can still reach 2027-02-16 or later.
+5. **New `suggestions.html`** (task c4c7-C): the owner-requested dedicated suggestions section —
+   decision paths for each unit (U2-A..E, U1-A..C), equal-treatment options (EQ-A/EQ-B), a
+   missing-information discovery plan keyed to the open flags, and seven proposed site improvements
+   (S-1..S-7), all marked proposed/not implemented. Every figure repeats the asserted arithmetic.
+
+### Verification performed (2026-11-13)
+
+- `python3 scripts/sync_nav.py --check` — 15 pages, 0 changes.
+- `python3 scripts/validate_site.py` — **PASSED**: 15 pages; 55 allowlisted official URLs all on
+  `sources.html`; external official link on every table data row; tag balance, unique IDs, resolving
+  internal links/fragments; no merge markers; 0 private patterns configured.
+- `python3 scripts/verify_calculations.py` — **PASSED, 361 assertions** (334 at the previous pass;
+  +2 drift-proof banking-row assertions, +10 suggestions/F-39 assertions, +15 forbidden-phrase
+  sweep entries for the new page).
+- Local HTTP server: all 15 pages plus `style.css`, `AUDIT.md`, `README.md`, `COORDINATION.md`,
+  `internal/README.md` returned 200 (20 resources, 0 failures).
+- Privacy sweep: word-bounded, case-sensitive forms of the intake initial pairs match **no** current
+  public text file. No identifier was stored or printed. F-23/F-36 historical disclosure unchanged.
+
+**Not legal advice.** Documentary verification against official sources only.

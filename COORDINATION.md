@@ -1869,7 +1869,52 @@ handoff here. No content of either session is discarded; their verification reco
 
 | # | Task | Status | Owner session | File scope | Sources / verification notes |
 |---|---|---|---|---|---|
-| c4c7-A | Live re-read of every controlling official source on 2026-11-13 — including the six sources left un-re-read at the 2026-11-11 pass (Form 538 2026–27 worksheet, Topic 019, Topics 152/254, § 37.10C, File 261020 `Leg Ver1` and `Leg Dig Ver1`) — plus a fresh File 261020 Legistar status check | in progress | arena/c4c75e09-rentincreasesf2 | `COORDINATION.md` (additive), `AUDIT.md`, `sources.html` (date badges only) | Official sources only; anything that cannot be confirmed is left blank and flagged. |
-| c4c7-B | Re-stamp the base date 2026-11-11 → 2026-11-13 and recompute every today-relative figure; handle the lapsed mailed-notice window for the 2027-02-15 Unit 2 target (mailed deadline 2026-11-12 has passed; personal service remains open through 2026-11-17) | in progress | arena/c4c75e09-rentincreasesf2 | `scripts/sync_nav.py`, `scripts/verify_calculations.py`, 14 root `*.html`, `README.md` | Drift-proof assertions in `verify_calculations.py` re-derive every printed date and day count. |
-| c4c7-C | New `suggestions.html` — the owner-required dedicated suggestions section: reviewable decision paths (choose before implementing anything), suggestions to improve decision-making, and a discovery plan for every piece of missing information | in progress | arena/c4c75e09-rentincreasesf2 | NEW `suggestions.html`, `scripts/sync_nav.py`, `scripts/validate_site.py`, `scripts/verify_calculations.py`, `README.md`, `index.html` | Reuses only figures already asserted by `verify_calculations.py`; no new value inferred. |
-| c4c7-D | Full check suite (`sync_nav.py`, `validate_site.py`, `verify_calculations.py`, tag balance, local HTTP 200 smoke test, privacy sweep); PR to `main`, merge, confirm GitHub Pages deploy and read the live pages back; record the PR link and merge result | unclaimed until c4c7-B and c4c7-C are done | arena/c4c75e09-rentincreasesf2 | `COORDINATION.md` | Flagged and unverified items do not block the merge; a broken build does. |
+| c4c7-A | Live re-read of every controlling official source on 2026-11-13 — including the six sources left un-re-read at the 2026-11-11 pass (Form 538 2026–27 worksheet, Topic 019, Topics 152/254, § 37.10C, File 261020 `Leg Ver1` and `Leg Dig Ver1`) — plus a fresh File 261020 Legistar status check | done | arena/c4c75e09-rentincreasesf2 | `COORDINATION.md` (additive), `AUDIT.md`, `sources.html` (date badges only) | 24 sources read live 2026-11-13; full matrix in AUDIT.md Addendum G. F-24 persists; F-27 unchanged (new "Comment Ltrs" attachment noted); F-39 added. |
+| c4c7-B | Re-stamp the base date 2026-11-11 → 2026-11-13 and recompute every today-relative figure; handle the lapsed mailed-notice window for the 2027-02-15 Unit 2 target (mailed deadline 2026-11-12 has passed; personal service remains open through 2026-11-17) | done | arena/c4c75e09-rentincreasesf2 | `scripts/sync_nav.py`, `scripts/verify_calculations.py`, 14 root `*.html`, `README.md` | Drift-proof assertions re-derived every printed date and day count; mailed lapsed windows now print `lapsed (<date>)` from the script, not by hand. |
+| c4c7-C | New `suggestions.html` — the owner-required dedicated suggestions section: reviewable decision paths (choose before implementing anything), suggestions to improve decision-making, and a discovery plan for every piece of missing information | done | arena/c4c75e09-rentincreasesf2 | NEW `suggestions.html`, `scripts/sync_nav.py`, `scripts/validate_site.py`, `scripts/verify_calculations.py`, `README.md`, `index.html` | 15-page site; every option figure asserted by `verify_calculations.py` (361 assertions). Nothing implemented; all rows marked proposed. |
+| c4c7-D | Full check suite (`sync_nav.py`, `validate_site.py`, `verify_calculations.py`, tag balance, local HTTP 200 smoke test, privacy sweep); PR to `main`, merge, confirm GitHub Pages deploy and read the live pages back; record the PR link and merge result | in progress | arena/c4c75e09-rentincreasesf2 | `COORDINATION.md` | Flagged and unverified items do not block the merge; a broken build does. |
+
+### Session `arena/c4c75e09-rentincreasesf2` — verification record (2026-11-13, tasks c4c7-A..C)
+
+**Sources fetched and read directly on 2026-11-13 (24):** sf.gov Current Rates, Form 571, Learn
+about rent increases, Banked rent increases, Rent Board Housing Inventory, § 37.15, Rules § 13.14
+(sfrb.org), Rules Part IV §§ 4.10/4.12, § 37.3, Irregular periods, Learn about SF rental laws,
+Costa-Hawkins partial exemption, Topic 153, Rent Board Fee, AB 1482, Form 538 (2026–27), Topic 019
+legal resources, Topics 152/254, § 37.10C, Legistar File 261020, Leg Ver1 (incl. the § 37.15 chunk),
+Leg Dig Ver1, Civ. Code § 827, Civ. Code § 1947.12. Full per-source matrix: `AUDIT.md` Addendum G.
+
+**Findings.** (1) Every controlling figure the site publishes was confirmed unchanged: 1.6% AGI,
+the 571 ledger (1.8+0.7+2.3+3.6+1.7+1.4 = 11.5% banked), $59.00 Rent Board Fee, 8.8% AB 1482 cap
+with the SF-Rent-Ordinance exclusion, and the license mechanics (Housing Inventory → automatic
+license for tenant-occupied units; current on the effective date; need not accompany the notice;
+under-10-unit phase-in 2023-03-01). (2) F-24 persists (Form 538 prints 2021-07-01/2022-03-01 vs
+§ 13.14's 2022-07-01/2023-03-01) — re-recorded. (3) F-27 re-checked: File 261020 remains Version 1,
+Pending Committee Action, history 4 records (latest 2026-10-07), not enacted; Legistar now shows a
+sixth attachment ("Comment Ltrs") not present at the 2026-11-11 read. (4) New flag **F-39**: the
+first worked example on *Learn about rent increases* labels "in effect on June 1, **2025**" as 1.6%
+while the 571 table gives 1.4% for that date and the page's own effective-date rule yields 1.6% for
+2026-06-01 (matching the example's math) — an irregularity in the official source; no site figure
+depends on it. (5) Deadline drift handled: the mailed window for the Unit 2 2027-02-15 target closed
+2026-11-12; pages now say personal service through 2026-11-17 remains and mailed service reaches
+2027-02-16 or later.
+
+**Changes.** Base date re-stamped 2026-11-11 → 2026-11-13 with every today-relative figure
+recomputed (earliest reachable 2027-02-11/2027-02-16; Unit 1 2026-12-13/2026-12-18; day pairs
+4 / lapsed (2026-11-12), 17 / 12, 64 / 59, 50 / 45, 110 / 105; occupancy interval 226 days).
+`daypair()` now prints `lapsed (<date>)` for closed mailed windows so the string is computed, not
+typed. New `suggestions.html` (15th page) implements the owner-required dedicated suggestions
+section: U2-A..E and U1-A..C decision paths, EQ-A/EQ-B equal-treatment options, a discovery plan for
+every open flag, and S-1..S-7 proposed site improvements — every row marked proposed/not
+implemented, every figure asserted by `verify_calculations.py`. Sources badges updated to
+"Verified 2026-11-13" for the 24 re-read rows; the two-tier convention is now stated on the page.
+
+**Verification performed.** `sync_nav.py --check` 15 pages / 0 changes · `validate_site.py`
+**PASSED** (15 pages, 55 allowlisted URLs all on `sources.html`, official link on every table data
+row, tag balance, unique IDs, resolving fragments, no merge markers) · `verify_calculations.py`
+**PASSED (361 assertions)** · local HTTP smoke 20/20 resources returned 200 · privacy sweep
+(word-bounded, case-sensitive intake initials): clean in all current public files; nothing stored or
+printed. Historical exposure disclosure (F-23/F-36) unchanged.
+
+**Irregularities left on the Flagged page (non-blocking):** F-01/F-02/F-03/F-06/F-18/F-31/F-33
+(owner-supplied or unavailable intake), F-27 (pending legislation), F-28 (off-anniversary banking
+question), F-24 and F-39 (official-source irregularities), plus the standing privacy disclosures.
