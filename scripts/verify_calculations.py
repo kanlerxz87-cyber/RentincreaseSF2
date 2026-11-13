@@ -27,7 +27,7 @@ from decimal import Decimal, ROUND_DOWN
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-REVIEW_DATE = date(2026, 11, 11)
+REVIEW_DATE = date(2026, 11, 13)
 
 # SF Rent Board Info Sheet 571: percentage in effect on each 1 June / 1 February.
 RATE_571 = {
@@ -254,7 +254,14 @@ def main() -> int:
     expect_in_pages("Unit 2 closing service date (mailed)", closing_mail, published_closing)
     expect_in_pages("Unit 2 earliest effective if served today",
                     (REVIEW_DATE + timedelta(days=90)).isoformat(), ["banking-rule.html", "index.html", "executive-summary.html"])
-    expect_in_pages("Days since added occupancy", "224 days", ["flagged.html", "occupancy.html"])
+    # banking-rule.html's "earliest date a notice served today can reach" row prints the
+    # serve-by day and its already-passed mailed counterpart; assert both so that row
+    # cannot go stale while the review date moves (added in the 2026-11-13 pass).
+    expect_in_pages("Unit 2 earliest-row serve-by is the review date",
+                    f"{REVIEW_DATE.isoformat()} — today", ["banking-rule.html"])
+    expect_in_pages("Unit 2 earliest-row mailed deadline already passed",
+                    (earliest_personal - timedelta(days=95)).isoformat(), ["banking-rule.html"])
+    expect_in_pages("Days since added occupancy", f"{days_occupancy} days", ["flagged.html", "occupancy.html"])
 
     # ---------------- Closing service window (AUDIT.md A-02) ----------------
     u2_window_close = date(2027, 2, 28)
@@ -291,7 +298,13 @@ def main() -> int:
     def daypair(effective: date, notice_days: int) -> str:
         personal = effective - timedelta(days=notice_days)
         mailed = effective - timedelta(days=notice_days + 5)
-        return f"{(personal - REVIEW_DATE).days} / {(mailed - REVIEW_DATE).days}"
+        personal_left = (personal - REVIEW_DATE).days
+        mailed_left = (mailed - REVIEW_DATE).days
+        if mailed_left < 0:
+            # The mailed route to this effective date has closed; only the
+            # personal-service deadline is still reachable (2026-11-13 pass).
+            return f"{personal_left} / lapsed ({mailed.isoformat()})"
+        return f"{personal_left} / {mailed_left}"
 
     for label, effective, notice_days in [
         ("suggested 2027-02-15", u2_effective, 90),
