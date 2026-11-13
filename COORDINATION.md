@@ -2057,9 +2057,46 @@ Platform-fixed branch `arena/438353cc-rentincreasesf2`, cut from `main` at `a246
 | # | Task | Status | Owner session | File scope | Sources / verification notes |
 |---|---|---|---|---|---|
 | 4383-A | Claim tasks, file scope and session record | done | arena/438353cc-rentincreasesf2 | `COORDINATION.md` (additive) | This section. Claim committed and pushed before any other edit. |
-| 4383-B | Live re-verification (2026-11-13): current rates + File 261020 notice, Legistar status, Form 571, Housing Inventory/license, Rules § 13.14, rent-increase guidance, Rent Board Fee, § 37.15 text, Civ. Code § 827 | in progress | arena/438353cc-rentincreasesf2 | `COORDINATION.md`, `AUDIT.md` | Fetch every controlling source live; record what changed vs 2026-11-11; no value inferred. |
-| 4383-C | Answer the owner's "state or local law (2023)?" question explicitly on the Q&A page and executive summary, with official links | in progress | arena/438353cc-rentincreasesf2 | `answers.html`, `executive-summary.html` | Expected answer (to be verified against § 37.15 / Rules § 13.14 text): local — SF Rent Ordinance, not state law. Publish only what the fetched text supports. |
-| 4383-D | New dedicated `suggestions.html`: site-improvement and decision-support suggestions, each with a review status (open / choose-before-implementing), motivation and official source link; wire into nav, validator page list and dashboard | in progress | arena/438353cc-rentincreasesf2 | NEW `suggestions.html`, `scripts/sync_nav.py`, `scripts/validate_site.py`, `index.html`, `COORDINATION.md` | Shared-output change; allowed because no other live claim exists. Every table data row carries an official external link; suggestions to discover missing information map to open flags. |
-| 4383-E | Re-stamp to 2026-11-13: `LAST_VERIFIED`, `REVIEW_DATE`, re-derive every today-relative figure, update printed text | in progress | arena/438353cc-rentincreasesf2 | 15 `*.html`, `scripts/sync_nav.py`, `scripts/verify_calculations.py` | Drift-proof assertions must pass with the new base date. |
-| 4383-F | Full check suite: `sync_nav.py --check`, `validate_site.py`, `verify_calculations.py`, local HTTP 200 + link crawl, privacy sweep, `git diff --check` | in progress | arena/438353cc-rentincreasesf2 | — | No merge on a failing build. |
+| 4383-B | Live re-verification (2026-11-13): current rates + File 261020 notice, Legistar status, Form 571, Housing Inventory/license, Rules § 13.14, rent-increase guidance, Rent Board Fee, § 37.15 text, Civ. Code § 827 | done | arena/438353cc-rentincreasesf2 | `COORDINATION.md`, `AUDIT.md` | Fetch every controlling source live; record what changed vs 2026-11-11; no value inferred. |
+| 4383-C | Answer the owner's "state or local law (2023)?" question explicitly on the Q&A page and executive summary, with official links | done | arena/438353cc-rentincreasesf2 | `answers.html`, `executive-summary.html` | Expected answer (to be verified against § 37.15 / Rules § 13.14 text): local — SF Rent Ordinance, not state law. Publish only what the fetched text supports. |
+| 4383-D | New dedicated `suggestions.html`: site-improvement and decision-support suggestions, each with a review status (open / choose-before-implementing), motivation and official source link; wire into nav, validator page list and dashboard | done | arena/438353cc-rentincreasesf2 | NEW `suggestions.html`, `scripts/sync_nav.py`, `scripts/validate_site.py`, `index.html`, `COORDINATION.md` | Shared-output change; allowed because no other live claim exists. Every table data row carries an official external link; suggestions to discover missing information map to open flags. |
+| 4383-E | Re-stamp to 2026-11-13: `LAST_VERIFIED`, `REVIEW_DATE`, re-derive every today-relative figure, update printed text | done | arena/438353cc-rentincreasesf2 | 15 `*.html`, `scripts/sync_nav.py`, `scripts/verify_calculations.py` | Drift-proof assertions must pass with the new base date. |
+| 4383-F | Full check suite: `sync_nav.py --check`, `validate_site.py`, `verify_calculations.py`, local HTTP 200 + link crawl, privacy sweep, `git diff --check` | done | arena/438353cc-rentincreasesf2 | — | No merge on a failing build. |
 | 4383-G | PR to `main`, merge without waiting, confirm GitHub Pages deploy and live read-back; record PR link and merge result here | in progress | arena/438353cc-rentincreasesf2 | `COORDINATION.md` deployment record | Flagged/unverified items (F-01…F-38) do not block the merge; they stay published on `flagged.html`. |
+
+### 4383-B … 4383-F verification record (2026-11-13)
+
+- **Sources re-read live (18):** Current Rates; Legistar File 261020; Form 571; Learn about rent
+  increases; Banked rent increases; Housing Inventory; Rules § 13.14; § 37.15 (incl. the
+  Ord. 265-20 / 2021-01-18 addition line); Rent Board Fee; Civ. Code § 827; sf.gov AB 1482; SB 567
+  bill text (chaptered 2023-09-30); Rent Ordinance (Ch. 37) contents page; Civ. Code § 1942.5;
+  rental-laws coverage page; Topic 153; Topic 019. Full matrix in `AUDIT.md` Addendum I.
+- **No published figure changed.** File 261020 still Pending Committee Action; 1.6% unchanged;
+  every dollar amount re-derived. **Re-stamp to 2026-11-13:** earliest effective dates
+  2027-02-11/2027-02-16 (Unit 2) and 2026-12-13/2026-12-18 (Unit 1); closing counts 17/12 days;
+  occupancy 226 days; all banking-rule day pairs recomputed. The mailed deadline for the suggested
+  2027-02-15 date passed on 2026-11-12 — day-pair logic now prints `passed`, and F-19 says only
+  personal service by 2026-11-17 remains for that exact date.
+- **4383-C answer published:** the 2023 informing/license duty is **local** — Rent Ordinance
+  (Administrative Code Ch. 37) § 37.15, added by Ord. 265-20 (effective 2021-01-18), Rules § 13.14;
+  2023-03-01 is the small-building phase-in, not the year of passage. The 2023 state law SB 567
+  (approved 2023-09-30) amends AB 1482 eviction provisions and creates no Rent Board duty; the
+  Rent Board states it cannot enforce AB 1482. Published in `executive-summary.html` §2 and
+  `answers.html` §1; SB 567 added to the allowlist (56 URLs) and `sources.html`.
+- **4383-D published:** new `suggestions.html` — 10 decision-support rows with options-to-choose
+  and statuses (S-01 time-critical Unit 2 timing; S-02 one-unit-vs-both; S-03 license check; S-04
+  Legistar re-check; S-05 ledger; S-06 counselor log; S-07 retaliation screen; S-08 deadlines;
+  S-09/S-10 implemented) and 11 missing-information rows D-01…D-11 mapped to F-01…F-38. Wired into
+  `sync_nav.py`, `validate_site.py` (15 pages) and `index.html`.
+- **Line-by-line finding fixed:** Topic 019's own qualifier ("unless both units are rented together
+  as a single tenancy") was missing from the two-unit coverage statements; added to `laws.html`,
+  `executive-summary.html`, `answers.html`. Conclusion unchanged; wording now complete.
+- **Checks:** `sync_nav.py --check` 15 pages / 0 changes; `validate_site.py` **PASSED** (15 pages,
+  56 official URLs); `verify_calculations.py` **PASSED, 334 assertions**; local HTTP: all 15 pages
+  + `style.css` + `AUDIT.md` + `COORDINATION.md` + `internal/README.md` = 200, 17 internal targets
+  crawled, 0 broken links/fragments, one `<h1>`/`<main>` per page; privacy sweep of all public text
+  files for the supplied initials/name patterns — none present (patterns not stored or echoed);
+  `git diff --check` clean.
+- **Irregularities:** none new. F-01…F-38 remain published and non-blocking; F-27 re-checked
+  2026-11-13 (still pending). Six source rows not re-read in this pass keep their earlier badges,
+  as disclosed on `sources.html`.
