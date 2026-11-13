@@ -15,7 +15,7 @@ import sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-LAST_VERIFIED = "2026-11-11"
+LAST_VERIFIED = "2026-11-13"
 
 # (group label, [(file, link text), ...])
 NAV = [
@@ -37,6 +37,7 @@ NAV = [
     ("Action", [
         ("checklist.html", "Action Checklist"),
         ("answers.html", "Your Questions"),
+        ("suggestions.html", "Suggestions &amp; Decisions"),
     ]),
     ("Review", [
         ("flagged.html", "Flagged for Review"),
