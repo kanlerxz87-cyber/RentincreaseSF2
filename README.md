@@ -34,10 +34,10 @@ Sources: [Housing Inventory](https://www.sf.gov/rent-board-housing-inventory) ·
 | `practices.html` | Corporate vs. individual owners, including the § 37.10C algorithm ban |
 | `checklist.html` | Gate 0 prerequisites, computed service deadlines, notice content |
 | `answers.html` | Every owner question answered in turn, with a status and an official source on every row |
-| `suggestions.html` | Separate suggestions and decision paths, missing-evidence questions, and a blank choice log |
-| `flagged.html` | Every unverified item and irregularity (published IDs through F-38) |
+| `suggestions.html` | Review-only decision paths, missing-information questions, and proposed site improvements (no option selected) |
+| `flagged.html` | Every unverified item and irregularity (published IDs through F-39) |
 | `sources.html` | All official sources and the integration method |
-| `banking-rule.html` | F-16 resolved: banking-interval decisive test, re-verification, closing service window |
+| `banking-rule.html` | F-16 open: compares official 12-/24-month wording, worked examples, conditional calculations, and current notice dates |
 
 
 ## Key figures
@@ -45,23 +45,16 @@ Computed from the official percentages; **inputs are owner-supplied and unverifi
 figures and deadlines below are re-derived from a base date of **2026-11-13** by
 `scripts/verify_calculations.py`.
 - 2026–27 SF allowable annual increase: **1.6%** (3/1/2026–2/28/2027)
-- **Unit 1** — effective 2027-02-01: 1.4% banked + 1.6% current = **3.0%** → **$119.85** → **$4,114.85**.
-  Taking it earlier yields only 1.6% ($63.92 → $4,058.92) and the 1.4% is permanently lost.
-  30-day notice; serve by 2027-01-02 (mailed 2026-12-28).
-- **Unit 2** — effective 2027-02-15: 11.5% banked + 1.6% current = **13.1%** → **$412.65** → **$3,562.65**.
-  90-day notice; for a 2027-02-15 effective date, serve by 2026-11-17 personally; the mailed deadline
-  (2026-11-12) has passed as of 2026-11-13. To use any effective date inside the published-rate window,
-  serve by 2026-11-30 (personal) or 2026-11-25 (mail).
-  Assumes no increase was ever imposed and remains conditional on coverage, license, retaliation/discrimination and F-28 review.
-  A phased 10.0% option ($315.00 → $3,465.00) needs only 30 days and leaves 3.1% banked.
-  A conservative annual-only option uses 1.6% (**$50.40 → $3,200.40**) and leaves 11.5% banked; ordinary legal gates apply, but F-28&rsquo;s banked-timing issue does not arise because no banked amount is imposed.
+- **Unit 1** — conditional scenario for 2027-02-01: 1.4% banked + 1.6% current = **3.0%** → **$119.85** → **$4,114.85**, using Rules § 4.12(a)'s 12-month reading as a working assumption (F-16 remains open). Taking it earlier yields only 1.6% ($63.92 → $4,058.92) under that method; the skipped 1.4% may be lost when the anniversary changes. A 30-day notice is due by 2027-01-02 personally (2026-12-28 by mail), if the prior-12-month notice test permits.
+- **Unit 2** — conditional scenario for 2027-02-15: 11.5% banked + 1.6% current = **13.1%** → **$412.65** → **$3,562.65**, using the same provisional reading and assuming no prior increase was imposed. A 90-day notice is due by **2026-11-17 personally**; the mailed deadline, **2026-11-12, passed** as of 2026-11-13. **Outer deadline** to use an effective date inside the published-rate window: 2026-11-30 personally or 2026-11-25 by mail.
+  These are calculations, not approvals or recommendations; coverage, current license, rent ledger, retaliation/discrimination, F-16 and F-28 remain review gates. A phased 10.0% option ($315.00 → $3,465.00) has a 30-day notice only if the preceding-12-month notice test permits. Annual-only 1.6% is $50.40 → $3,200.40 and uses no banked amount; other gates still apply.
 - No market-rate reset on either unit; no surcharge for Unit 1's added occupant.
 
 ## Watch item: File 261020 (F-27)
 On 2026-11-09 the Rent Board posted a notice on its **Current Rates**, **Banked rent increases** and
-**Learn about rent increases** pages: the Board of Supervisors is considering **File No. 261020**
-(introduced 2026-09-15; Land Use and Transportation Committee; status **Pending Committee Action —
-not enacted**). Proposed **§ 37.3(h)** in the legislative text (`Leg Ver1`) would bar banked
+**Learn about rent increases** pages that the Board of Supervisors is considering **File No. 261020**.
+The Legistar tracker was checked on 2026-11-13 and still showed **Pending Committee Action — not
+enacted** (introduced 2026-09-15; Land Use and Transportation Committee). Proposed **§ 37.3(h)** in the legislative text (`Leg Ver1`) would bar banked
 (§ 37.3(a)(2)) and/or capital-improvement (§ 37.3(a)(3)) increases *"that cause a tenant's rent to
 increase by more than a total of 10% of the lowest base rent that was in effect at any time during
 the 12 months immediately preceding the date the increase takes effect"* through **2029-12-31**

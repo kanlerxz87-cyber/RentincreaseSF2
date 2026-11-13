@@ -10,7 +10,10 @@ Official inputs:
   * Allowable annual percentages - SF Rent Board Info Sheet 571 (26-27)
     https://www.sf.gov/documents/34344/571_Allowable_Annual_Increases_26-27_1.pdf
   * Banking mechanics - https://www.sf.gov/information--banked-rent-increases
-    and Rules 4.12 (12 full months from when the increase could have been imposed)
+    and Rules 4.12(a). The script uses the Rule's 12-month-from-availability wording
+    only as a provisional arithmetic assumption. The SF.gov summary says 24 full
+    months without an increase; F-16 remains open, and this script does not decide
+    legal eligibility for a banked amount.
   * Notice periods - Civil Code 827(b)(2) and (b)(3)(A); +5 days if mailed per
     https://www.sf.gov/learn-about-rent-increases-san-francisco
 
@@ -66,7 +69,7 @@ def rate_on(day: date) -> Decimal:
 
 
 def banks_on(available: date) -> date:
-    """Rules 4.12: a full 12 months must elapse from when it could be imposed."""
+    """Arithmetic model only: apply Rule 4.12(a)'s 12-month text provisionally (F-16 open)."""
     return date(available.year + 1, available.month, available.day)
 
 
@@ -102,6 +105,14 @@ def main() -> int:
         expect("nav stamp equals the calculation base date",
                date.fromisoformat(stamp.group(1)), REVIEW_DATE)
 
+    # F-16 status guards: arithmetic tests must not imply the legal wording conflict is resolved.
+    expect_in_pages("F-16 remains open in the flagged register",
+                    "Banking-interval wording difference — OPEN", ["flagged.html"])
+    expect_in_pages("F-16 remains open in the analysis",
+                    "F-16 remains open", ["analysis.html"])
+    expect_in_pages("Banking page labels F-16 unresolved",
+                    "F-16 remains unresolved", ["banking-rule.html"])
+
     # ---------------- Unit 1 ----------------
     # Tenancy 2025-02-01, never increased. First allowance available 2026-02-01.
     u1_available = date(2026, 2, 1)
@@ -119,7 +130,8 @@ def main() -> int:
     expect("Unit 1 increase", u1_inc, Decimal("119.85"))
     expect("Unit 1 new rent", u1_new, Decimal("4114.85"))
 
-    # Early scenario: only the current allowance, the skipped 1.4% is lost.
+    # Early scenario under the § 4.12(a) working assumption: only the current rate is used;
+    # the skipped 1.4% may be lost if the anniversary changes, as in the official example.
     u1_early_inc = money(UNIT1_BASE * u1_current / 100)
     expect("Unit 1 early increase", u1_early_inc, Decimal("63.92"))
     expect("Unit 1 early new rent", UNIT1_BASE + u1_early_inc, Decimal("4058.92"))
@@ -408,8 +420,8 @@ def main() -> int:
 
     print("CALCULATION VERIFICATION PASSED")
     print(f" - {checks} assertions from official percentages and statutory notice periods")
-    print(f" - Unit 1: {u1_total}% -> {usd(u1_inc)} -> {usd(u1_new)} effective {u1_anniversary}")
-    print(f" - Unit 2: {u2_banked}% banked + {u2_current}% current = {u2_total}% -> {usd(u2_inc)} -> {usd(UNIT2_BASE + u2_inc)}")
+    print(f" - Unit 1 under § 4.12(a) working assumption: {u1_total}% -> {usd(u1_inc)} -> {usd(u1_new)} effective {u1_anniversary}")
+    print(f" - Unit 2 under § 4.12(a) working assumption: {u2_banked}% banked + {u2_current}% current = {u2_total}% -> {usd(u2_inc)} -> {usd(UNIT2_BASE + u2_inc)}")
     print(" - every computed value found in the published HTML")
     return 0
 
