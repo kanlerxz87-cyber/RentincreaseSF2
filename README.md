@@ -34,8 +34,8 @@ Sources: [Housing Inventory](https://www.sf.gov/rent-board-housing-inventory) ·
 | `practices.html` | Corporate vs. individual owners, including the § 37.10C algorithm ban |
 | `checklist.html` | Gate 0 prerequisites, computed service deadlines, notice content |
 | `answers.html` | Every owner question answered in turn, with a status and an official source on every row |
-| `suggestions.html` | Separate suggestions and decision paths, missing-evidence questions, and a blank choice log |
-| `flagged.html` | Every unverified item and irregularity (published IDs through F-38) |
+| `flagged.html` | Every unverified item and irregularity (published IDs through F-40) |
+| `suggestions.html` | Suggestions &amp; Decision Paths — gate questions, conditional paths, equal-treatment options, missing-evidence discovery, choice log and proposed site improvements (nothing implemented until chosen) |
 | `sources.html` | All official sources and the integration method |
 | `banking-rule.html` | F-16 resolved: banking-interval decisive test, re-verification, closing service window |
 
@@ -51,7 +51,7 @@ figures and deadlines below are re-derived from a base date of **2026-11-13** by
 - **Unit 2** — effective 2027-02-15: 11.5% banked + 1.6% current = **13.1%** → **$412.65** → **$3,562.65**.
   90-day notice; for a 2027-02-15 effective date, serve by 2026-11-17 personally; the mailed deadline
   (2026-11-12) has passed as of 2026-11-13. To use any effective date inside the published-rate window,
-  serve by 2026-11-30 (personal) or 2026-11-25 (mail).
+  serve by 2026-11-30 (personal) or 2026-11-25 (mail) — 17 and 12 days from 2026-11-13.
   Assumes no increase was ever imposed and remains conditional on coverage, license, retaliation/discrimination and F-28 review.
   A phased 10.0% option ($315.00 → $3,465.00) needs only 30 days and leaves 3.1% banked.
   A conservative annual-only option uses 1.6% (**$50.40 → $3,200.40**) and leaves 11.5% banked; ordinary legal gates apply, but F-28&rsquo;s banked-timing issue does not arise because no banked amount is imposed.

@@ -223,6 +223,25 @@ def main() -> int:
         expect_in_pages("Unit 2 banked-only increase", usd(u2_banked_only_inc), [page])
         expect_in_pages("Unit 2 banked-only new rent", usd(UNIT2_BASE + u2_banked_only_inc), [page])
     expect_in_pages("F-38 published on the flagged and dashboard pages", "F-38", ["flagged.html", "index.html"])
+    expect_in_pages("F-40 published on the flagged page", "F-40", ["flagged.html"])
+
+    # ---------------- suggestions.html (task c4c7-C, 2026-11-13) ----------------
+    # The decision-review page only restates figures already computed above; these
+    # assertions tie every option card to the same arithmetic so nothing on the
+    # menu can drift away from the analysis pages.
+    suggest = ["suggestions.html"]
+    expect_in_pages("Suggestions: Unit 2 full option new rent", usd(UNIT2_BASE + u2_inc), suggest)
+    expect_in_pages("Suggestions: Unit 2 phased new rent", usd(UNIT2_BASE + u2_phase_inc), suggest)
+    expect_in_pages("Suggestions: Unit 2 annual-only new rent", usd(UNIT2_BASE + u2_annual_only_inc), suggest)
+    expect_in_pages("Suggestions: Unit 2 banked-only new rent", usd(UNIT2_BASE + u2_banked_only_inc), suggest)
+    expect_in_pages("Suggestions: Unit 1 full option new rent", usd(u1_new), suggest)
+    expect_in_pages("Suggestions: Unit 1 early new rent", usd(UNIT1_BASE + u1_early_inc), suggest)
+    expect_in_pages("Suggestions: Unit 1 early-vs-full monthly difference", usd(u1_inc - u1_early_inc), suggest)
+    expect_in_pages("Suggestions: nothing is implemented marker",
+                    "Nothing below has been built or changed", suggest)
+    expect_in_pages("Suggestions: decision paths marked owner-to-choose",
+                    "owner to choose", suggest)
+    expect_in_pages("Suggestions: discovery plan cross-links the open flags", "F-40", suggest)
 
     # Earliest effective date reachable from today (Unit 1's 30-day notice).
     u1_earliest = REVIEW_DATE + timedelta(days=30)
@@ -254,6 +273,13 @@ def main() -> int:
     expect_in_pages("Unit 2 closing service date (mailed)", closing_mail, published_closing)
     expect_in_pages("Unit 2 earliest effective if served today",
                     (REVIEW_DATE + timedelta(days=90)).isoformat(), ["banking-rule.html", "index.html", "executive-summary.html"])
+    # banking-rule.html's "earliest date a notice served today can reach" row prints the
+    # serve-by day and its already-passed mailed counterpart; assert both so that row
+    # cannot go stale while the review date moves (added in the 2026-11-13 pass).
+    expect_in_pages("Unit 2 earliest-row serve-by is the review date",
+                    f"{REVIEW_DATE.isoformat()} — today", ["banking-rule.html"])
+    expect_in_pages("Unit 2 earliest-row mailed deadline already passed",
+                    (earliest_personal - timedelta(days=95)).isoformat(), ["banking-rule.html"])
     days_occupancy = (REVIEW_DATE - date(2026, 4, 1)).days
     expect_in_pages("Days since added occupancy", f"{days_occupancy} days", ["flagged.html", "occupancy.html"])
 
@@ -292,7 +318,13 @@ def main() -> int:
     def daypair(effective: date, notice_days: int) -> str:
         personal = effective - timedelta(days=notice_days)
         mailed = effective - timedelta(days=notice_days + 5)
-        return f"{(personal - REVIEW_DATE).days} / {(mailed - REVIEW_DATE).days}"
+        personal_left = (personal - REVIEW_DATE).days
+        mailed_left = (mailed - REVIEW_DATE).days
+        if mailed_left < 0:
+            # The mailed route to this effective date has closed; only the
+            # personal-service deadline is still reachable (2026-11-13 pass).
+            return f"{personal_left} / lapsed ({mailed.isoformat()})"
+        return f"{personal_left} / {mailed_left}"
 
     for label, effective, notice_days in [
         ("suggested 2027-02-15", u2_effective, 90),

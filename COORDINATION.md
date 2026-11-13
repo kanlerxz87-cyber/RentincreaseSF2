@@ -1944,3 +1944,99 @@ Task **cfe6-A done**. Task **cfe6-B done** (re-scoped as recorded). Task **cfe6-
 - **Checks before merge:** `sync_nav.py --check` 15 pages / 0 changes; `validate_site.py` PASSED (15 pages, 56 official URLs, external official source on every table data row); `verify_calculations.py` PASSED (349 assertions); `py_compile` clean; `git diff --check` clean; privacy sweep of the six intake initial-pair patterns found zero matches in public files.
 - **Note for future sessions:** direct `curl` from the sandbox to the live site fails at TLS (restricted egress) — a failed fetch must not be misread as missing page content; use the platform fetch tool for live read-backs. An earlier curl-based grep in this session produced a false "not deployed" signal that the fetch tool disproved.
 - Tasks cfe6-A, cfe6-B and cfe6-C are all **done**. Flagged and unverified items (F-01…F-39 as published) remain non-blocking and are listed on the site's Flagged for Review page. This record commit is delivered by the follow-up coordination-log PR (same pattern as PR #56 and PR #58); that PR's own merge is the terminal event and is not self-recorded.
+## Session `arena/c4c75e09-rentincreasesf2` — 2026-11-13 re-verification, deadline drift, suggestions page (claim)
+
+**Claimed 2026-11-13.** Arena fixes this session to branch `arena/c4c75e09-rentincreasesf2` (branched
+from `main` at `a246a74`, PR #56 merge), so the session branch is the Arena branch; all work happens
+there and nowhere else. Task IDs are session-prefixed (`c4c7-*`) to avoid the A-07 number-collision
+problem.
+
+**Stale-claim handoff (per the 60-minute rule).** The claims of task 45 (`arena/c71c22cd`) and tasks
+69f0-A/B/C (`arena/69f0c0e5`) date from 2026-11-10 and their last landed work was merged on
+2026-11-11 (PR #56). No commit from either session has landed since; the claims are far older than
+60 minutes. This session therefore takes over the residual integration work below and records the
+handoff here. No content of either session is discarded; their verification records stay in this file.
+
+| # | Task | Status | Owner session | File scope | Sources / verification notes |
+|---|---|---|---|---|---|
+| c4c7-A | Live re-read of every controlling official source on 2026-11-13 — including the six sources left un-re-read at the 2026-11-11 pass (Form 538 2026–27 worksheet, Topic 019, Topics 152/254, § 37.10C, File 261020 `Leg Ver1` and `Leg Dig Ver1`) — plus a fresh File 261020 Legistar status check | done | arena/c4c75e09-rentincreasesf2 | `COORDINATION.md` (additive), `AUDIT.md`, `sources.html` (date badges only) | 24 sources read live 2026-11-13; full matrix in AUDIT.md Addendum H. F-24 persists; F-27 unchanged (new "Comment Ltrs" attachment noted); F-40 added (renumbered after the concurrent merge). |
+| c4c7-B | Re-stamp the base date 2026-11-11 → 2026-11-13 and recompute every today-relative figure; handle the lapsed mailed-notice window for the 2027-02-15 Unit 2 target (mailed deadline 2026-11-12 has passed; personal service remains open through 2026-11-17) | done | arena/c4c75e09-rentincreasesf2 | `scripts/sync_nav.py`, `scripts/verify_calculations.py`, 14 root `*.html`, `README.md` | Drift-proof assertions re-derived every printed date and day count; mailed lapsed windows now print `lapsed (<date>)` from the script, not by hand. |
+| c4c7-C | New `suggestions.html` — the owner-required dedicated suggestions section: reviewable decision paths (choose before implementing anything), suggestions to improve decision-making, and a discovery plan for every piece of missing information | done | arena/c4c75e09-rentincreasesf2 | NEW `suggestions.html`, `scripts/sync_nav.py`, `scripts/validate_site.py`, `scripts/verify_calculations.py`, `README.md`, `index.html` | 15-page site; every option figure asserted by `verify_calculations.py` (362 assertions after the merge). Nothing implemented; all rows marked proposed. |
+| c4c7-D | Full check suite (`sync_nav.py`, `validate_site.py`, `verify_calculations.py`, tag balance, local HTTP 200 smoke test, privacy sweep); PR to `main`, merge, confirm GitHub Pages deploy and read the live pages back; record the PR link and merge result | in progress | arena/c4c75e09-rentincreasesf2 | `COORDINATION.md` | Flagged and unverified items do not block the merge; a broken build does. |
+
+### Session `arena/c4c75e09-rentincreasesf2` — verification record (2026-11-13, tasks c4c7-A..C)
+
+**Sources fetched and read directly on 2026-11-13 (24):** sf.gov Current Rates, Form 571, Learn
+about rent increases, Banked rent increases, Rent Board Housing Inventory, § 37.15, Rules § 13.14
+(sfrb.org), Rules Part IV §§ 4.10/4.12, § 37.3, Irregular periods, Learn about SF rental laws,
+Costa-Hawkins partial exemption, Topic 153, Rent Board Fee, AB 1482, Form 538 (2026–27), Topic 019
+legal resources, Topics 152/254, § 37.10C, Legistar File 261020, Leg Ver1 (incl. the § 37.15 chunk),
+Leg Dig Ver1, Civ. Code § 827, Civ. Code § 1947.12. Full per-source matrix: `AUDIT.md` Addendum H.
+
+**Findings.** (1) Every controlling figure the site publishes was confirmed unchanged: 1.6% AGI,
+the 571 ledger (1.8+0.7+2.3+3.6+1.7+1.4 = 11.5% banked), $59.00 Rent Board Fee, 8.8% AB 1482 cap
+with the SF-Rent-Ordinance exclusion, and the license mechanics (Housing Inventory → automatic
+license for tenant-occupied units; current on the effective date; need not accompany the notice;
+under-10-unit phase-in 2023-03-01). (2) F-24 persists (Form 538 prints 2021-07-01/2022-03-01 vs
+§ 13.14's 2022-07-01/2023-03-01) — re-recorded. (3) F-27 re-checked: File 261020 remains Version 1,
+Pending Committee Action, history 4 records (latest 2026-10-07), not enacted; Legistar now shows a
+sixth attachment ("Comment Ltrs") not present at the 2026-11-11 read. (4) New flag **F-40** (renumbered from F-39 after the concurrent merge): the
+first worked example on *Learn about rent increases* labels "in effect on June 1, **2025**" as 1.6%
+while the 571 table gives 1.4% for that date and the page's own effective-date rule yields 1.6% for
+2026-06-01 (matching the example's math) — an irregularity in the official source; no site figure
+depends on it. (5) Deadline drift handled: the mailed window for the Unit 2 2027-02-15 target closed
+2026-11-12; pages now say personal service through 2026-11-17 remains and mailed service reaches
+2027-02-16 or later.
+
+**Changes.** Base date re-stamped 2026-11-11 → 2026-11-13 with every today-relative figure
+recomputed (earliest reachable 2027-02-11/2027-02-16; Unit 1 2026-12-13/2026-12-18; day pairs
+4 / lapsed (2026-11-12), 17 / 12, 64 / 59, 50 / 45, 110 / 105; occupancy interval 226 days).
+`daypair()` now prints `lapsed (<date>)` for closed mailed windows so the string is computed, not
+typed. New `suggestions.html` (15th page) implements the owner-required dedicated suggestions
+section: U2-A..E and U1-A..C decision paths, EQ-A/EQ-B equal-treatment options, a discovery plan for
+every open flag, and S-1..S-7 proposed site improvements — every row marked proposed/not
+implemented, every figure asserted by `verify_calculations.py`. Sources badges updated to
+"Verified 2026-11-13" for the 24 re-read rows; the two-tier convention is now stated on the page.
+
+**Verification performed.** `sync_nav.py --check` 15 pages / 0 changes · `validate_site.py`
+**PASSED** (15 pages, 55 allowlisted URLs all on `sources.html`, official link on every table data
+row, tag balance, unique IDs, resolving fragments, no merge markers) · `verify_calculations.py`
+**PASSED (362 assertions after the concurrent-session merge)** · local HTTP smoke 20/20 resources returned 200 · privacy sweep
+(word-bounded, case-sensitive intake initials): clean in all current public files; nothing stored or
+printed. Historical exposure disclosure (F-23/F-36) unchanged.
+
+**Irregularities left on the Flagged page (non-blocking):** F-01/F-02/F-03/F-06/F-18/F-31/F-33
+(owner-supplied or unavailable intake), F-27 (pending legislation), F-28 (off-anniversary banking
+question), F-24 and F-40 (official-source irregularities), plus the standing privacy disclosures.
+
+### Concurrent-session merge into this branch (2026-11-13) — conflict-resolution log
+
+`git pull --rebase` was attempted first and hit conflicts: sessions `arena/756ae8e9` (PR #57) and
+`arena/cfe62440` (PRs #59/#60) had merged overlapping 2026-11-13 work into `main` while this
+session worked (their own suggestions page, a 2026-11-13 date refresh, an F-39 election-diligence
+row, a 56-URL source allowlist and their own audit addenda). The rebase was aborted and
+`origin/main` was merged into this branch instead, resolving every conflict **without discarding
+either side**:
+
+- `suggestions.html` (add/add): their page kept as the base (title, gate-questions table,
+  conditional paths, fairness card, choice log, five improvement rows all stand); this session's
+  unique rows folded in — two "no increase now" paths, the EQ-A/EQ-B equal-treatment options
+  table, one official-source-irregularities discovery row, four site-improvement rows — and the
+  Unit 1 early-path trade-off enriched with the 24-month forfeiture note ($55.93).
+- `flagged.html`: their F-39 (2026-11-03 election diligence, Measure H watch item) preserved;
+  this session's new worked-example irregularity flag renumbered **F-39 → F-40** because both
+  sessions had used F-39. Both rows are published; assertions and cross-references updated.
+- `scripts/verify_calculations.py`: both assertion sets kept (their computed-deadline checks and
+  this session's drift-proof banking-row and suggestions checks); this session's day-pair format
+  (`lapsed (2026-11-12)`) adopted site-wide in place of the raw `4 / -1` print, and the page rows
+  match it.
+- `sources.html`: their election-results row and "Core sources rechecked 2026-11-13" summary tag
+  kept; this session's per-row "Verified 2026-11-13" badges and two-tier badge note kept.
+- `AUDIT.md`: their Addendum G kept; this session's addendum renamed **Addendum H**.
+- Shared date re-stamp hunks on the content pages: identical changes collapsed; where the two
+  wordings overlapped, the more explicit lapsed-mail wording was kept.
+- `scripts/sync_nav.py`: the duplicate nav entry introduced by both edits resolved to their
+  single label ("Suggestions & Decisions", Action group).
+
+No content of `arena/756ae8e9` or `arena/cfe62440` was discarded; their records above and their
+site rows/sections all remain in place.
