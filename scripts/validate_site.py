@@ -45,6 +45,7 @@ VERIFIED_URLS = {
     "https://www.sf.gov/information--charging-additional-occupants-prohibited",
     "https://www.sf.gov/information--algorithmic-devices-set-rent-are-prohibited-san-francisco",
     "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=1942.5.&lawCode=CIV",
+    "https://leginfo.legislature.ca.gov/faces/billTextClient.xhtml?bill_id=202320240SB567",
     "https://calcivilrights.ca.gov/housing/",
     "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=1947.12.&lawCode=CIV",
     "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=1954.50.&lawCode=CIV",
