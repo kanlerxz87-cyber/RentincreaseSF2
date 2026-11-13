@@ -2130,3 +2130,29 @@ Post-rebase suite on the merged tree: `sync_nav.py --check` 15 pages / 0 changes
 `COORDINATION.md` + `internal/README.md` = 200, 17 targets crawled, exactly one suggestions nav link
 per page, 0 broken links/fragments; privacy grep for the supplied initials — **0 matches**;
 `git diff --check` clean. Branch pushed with `--force-with-lease` (own session branch only).
+
+### 4383 rebase log, round 2 (2026-11-13) — fourth session (`arena/c4c75e09`, PRs #61/#62) merged in
+
+Before this branch could open its PR, `main` advanced again (`c995cb5` → `6b5fb42`): PRs #61/#62
+landed from `arena/c4c75e09` (24-source live re-read, base-date re-stamp with a `lapsed (<date>)`
+day-pair renderer, its own `suggestions.html` additions — EQ-A/EQ-B equal-treatment rows, "no
+increase now" paths, F-24/F-40 discovery row, notice-calculator proposal — plus new flag **F-40**
+and 362 assertions). This branch was rebased again; conflict resolutions, all preserving every
+session's work:
+
+| Conflict | Resolution |
+|---|---|
+| `COORDINATION.md` (claim append) | `c4c75e09`'s session block kept first, then this session's claim block. Sessions-table row for `438353cc` auto-merged. |
+| `scripts/verify_calculations.py` | **Main kept entirely** — its `lapsed (<date>)` renderer, earliest-row assertions and 362-assertion set supersede this session's earlier `passed` variant; the union loses nothing (main already contained the computed-occupancy and 2026-11-13 base-date work). |
+| `banking-rule.html` | Main's cells kept (`4 / lapsed (2026-11-12)`, `2026-11-13 — today`); this session's `4 / passed` superseded by the richer form. |
+| `flagged.html` F-19 | Main's wording is a superset ("has passed as of this review; mailed service can still reach 2027-02-16 or later") — kept. F-39 (election) and F-40 (worked-example label) both preserved. |
+| `sources.html` | Enriched § 1947.12 row (main, with `(d)(3)` note) + this session's **SB 567** row + § 1954.50 (main), in that order; AB 1482 row = main's enriched version. A marker block left by an interrupted resolution script was repaired before continuing; final tree verified marker-free. Allowlist = **57 URLs** (main's 56 + SB 567). |
+| `suggestions.html` (add/add, again) | Re-merged: **main's newest unified page as the base** (decision rule, gates incl. F-24/F-40 row, paths incl. no-increase rows and the $55.93 comparison, fairness incl. EQ-A/EQ-B, choice log, nine-row improvement table, sources) **plus this session's four cards** (status legend, S-01…S-10 decision-support table, D-01…D-11 flag-mapped actions, decision sequence). 353 lines; every `verify_calculations.py` suggestion assertion satisfied. |
+| `README.md` | Flag range → F-40 (main); single merged `suggestions.html` row combining both descriptions. |
+| `AUDIT.md` | Main's Addendum G (756) + Addendum H (c4c7) kept; this session's addendum retitle → **Addendum I**. |
+
+**Final suite on the rebased tree:** `sync_nav.py --check` 15 pages / 0 changes; `validate_site.py`
+**PASSED** (15 pages, **57** official URLs, every table row externally sourced, no markers);
+`verify_calculations.py` **PASSED (362 assertions)**; local HTTP smoke: 15 pages + 4 resources
+= 200, 17 internal targets, exactly one suggestions nav link per page, 0 broken links/fragments;
+privacy grep (intake initials) clean; `git diff --check` clean.
