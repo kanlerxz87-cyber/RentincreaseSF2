@@ -1853,3 +1853,23 @@ The Arena session is fixed to this branch. PRs #45 and #42 are stale drafts on p
 - **Live read-back:** dashboard shows 2026-11-11 and the banked-only Unit 2 scenario; cache-busted Tenant Protections shows the Rules 6.14 / Costa-Hawkins clarification; cache-busted Flagged for Review shows 224 days. The initial uncached reads of two URLs returned stale CDN content, while the deployed commit and cache-busted URLs matched.
 - **Concurrency:** PRs #51/#52/#53/#55 were preserved through repeated rebases. Duplicate date edits were dropped; main's stronger drift checks and banked-only scenario remain. No other session's content was discarded.
 - Published flags remain non-blocking and available on Flagged for Review. Task 53 done.
+
+## Session `arena/c4c75e09-rentincreasesf2` — 2026-11-13 re-verification, deadline drift, suggestions page (claim)
+
+**Claimed 2026-11-13.** Arena fixes this session to branch `arena/c4c75e09-rentincreasesf2` (branched
+from `main` at `a246a74`, PR #56 merge), so the session branch is the Arena branch; all work happens
+there and nowhere else. Task IDs are session-prefixed (`c4c7-*`) to avoid the A-07 number-collision
+problem.
+
+**Stale-claim handoff (per the 60-minute rule).** The claims of task 45 (`arena/c71c22cd`) and tasks
+69f0-A/B/C (`arena/69f0c0e5`) date from 2026-11-10 and their last landed work was merged on
+2026-11-11 (PR #56). No commit from either session has landed since; the claims are far older than
+60 minutes. This session therefore takes over the residual integration work below and records the
+handoff here. No content of either session is discarded; their verification records stay in this file.
+
+| # | Task | Status | Owner session | File scope | Sources / verification notes |
+|---|---|---|---|---|---|
+| c4c7-A | Live re-read of every controlling official source on 2026-11-13 — including the six sources left un-re-read at the 2026-11-11 pass (Form 538 2026–27 worksheet, Topic 019, Topics 152/254, § 37.10C, File 261020 `Leg Ver1` and `Leg Dig Ver1`) — plus a fresh File 261020 Legistar status check | in progress | arena/c4c75e09-rentincreasesf2 | `COORDINATION.md` (additive), `AUDIT.md`, `sources.html` (date badges only) | Official sources only; anything that cannot be confirmed is left blank and flagged. |
+| c4c7-B | Re-stamp the base date 2026-11-11 → 2026-11-13 and recompute every today-relative figure; handle the lapsed mailed-notice window for the 2027-02-15 Unit 2 target (mailed deadline 2026-11-12 has passed; personal service remains open through 2026-11-17) | in progress | arena/c4c75e09-rentincreasesf2 | `scripts/sync_nav.py`, `scripts/verify_calculations.py`, 14 root `*.html`, `README.md` | Drift-proof assertions in `verify_calculations.py` re-derive every printed date and day count. |
+| c4c7-C | New `suggestions.html` — the owner-required dedicated suggestions section: reviewable decision paths (choose before implementing anything), suggestions to improve decision-making, and a discovery plan for every piece of missing information | in progress | arena/c4c75e09-rentincreasesf2 | NEW `suggestions.html`, `scripts/sync_nav.py`, `scripts/validate_site.py`, `scripts/verify_calculations.py`, `README.md`, `index.html` | Reuses only figures already asserted by `verify_calculations.py`; no new value inferred. |
+| c4c7-D | Full check suite (`sync_nav.py`, `validate_site.py`, `verify_calculations.py`, tag balance, local HTTP 200 smoke test, privacy sweep); PR to `main`, merge, confirm GitHub Pages deploy and read the live pages back; record the PR link and merge result | unclaimed until c4c7-B and c4c7-C are done | arena/c4c75e09-rentincreasesf2 | `COORDINATION.md` | Flagged and unverified items do not block the merge; a broken build does. |
