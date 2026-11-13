@@ -672,7 +672,48 @@ above remain preserved as historical evidence, not silently rewritten.
 
 **Not legal advice.** Documentary verification against official sources only.
 
-## Addendum G — live re-verification and suggestions page (2026-11-13, session `arena/c4c75e09-rentincreasesf2`)
+## Addendum G — 2026-11-13 decision-support and date refresh
+
+Session `arena/756ae8e9-rentincreasesf2` rechecked the controlling current sources and refreshed the published today-relative dates. This is an additive record; the 2026-11-10 and 2026-11-11 verification records above remain historical, and no owner-supplied property or tenancy fact has been treated as verified.
+
+### Official sources fetched directly on 2026-11-13
+
+| Official source | Direct check and result |
+|---|---|
+| [SF Rent Board Housing Inventory](https://www.sf.gov/rent-board-housing-inventory) | All residential property owners report; reporting is online and free; tenant-occupied units receive the license automatically; the license must be current before an annual or banked increase takes effect; it need not be attached to the tenant notice; annual March 1 reporting and 30-day owner-contact updates; Inventory contents are public. |
+| [Rent Ordinance § 37.15](https://www.sf.gov/information--sec-3715-reporting-obligations-licensing) | Local San Francisco ordinance: § 37.15(a) reporting obligation; under-ten-unit non-condominium units and condominium units report beginning March 1, 2023, with annual updates. § 37.15(e) provides for a license after substantial compliance and temporary suspension during noncompliance. This is not a state statute passed in 2023; March 1, 2023 is the local phase-in date for the specified smaller buildings/condos. |
+| [Rent Board Rules § 13.14](https://sfrb.org/section-1314-licensing-%E2%80%93-notice-rent-increase) | Direct text: an increase effective while unlicensed is null and void in its entirety; the effective date, not service date, controls; banking rights are unaffected. For condos and buildings with fewer than ten residential units the rule applies to increases effective on or after March 1, 2023. |
+| [SF Rent Increases guidance](https://www.sf.gov/learn-about-rent-increases-san-francisco) and [Current Rates](https://www.sf.gov/reports--current-rates-including-rent-increase-relocation-sec-deposit) | 1.6% remains in force March 1, 2026–February 28, 2027; 30/90-day written notice; 5 additional days when mailed; notice identifies dollar amount, percentage and effective date; use the rate in force on effective date; Housing Inventory/license is required. Rent Board notice for File 261020 still says proposed and not enacted. |
+| [Banked rent increases](https://www.sf.gov/information--banked-rent-increases) | Current page still says banked increases do not expire, can be combined/partially imposed, and repeats its “24 full months” summary. The separate official Rules § 4.12(a) 12-month test and worked examples remain the basis of F-16; the inconsistency remains disclosed, not silently harmonized. |
+| [California Civil Code § 827](https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=827.&lawCode=CIV) | Current text confirms 30 days at 10% or less and 90 days above 10%, including increases in the preceding 12 months, with personal delivery or mail under the referenced service rules. Rent Board guidance adds five days for mail. |
+| [Legistar File 261020](https://sfgov.legistar.com/LegislationDetail.aspx?ID=8217304&GUID=7EDA4662-EBFB-4AF5-962F-C669B64AA770) | Still Version 1; **Pending Committee Action**; Land Use and Transportation Committee; no final action, enactment date, or enactment number; latest listed action remains 2026-10-07. It is not law as of this direct check. The City’s current-rates notice remains posted. |
+
+### Recomputed dates (base date 2026-11-13)
+
+| Scenario / check | Re-derived result | Source / status |
+|---|---|---|
+| Earliest effective date from a 90-day notice served today | 2027-02-11 personal; 2027-02-16 mailed | Civil Code § 827 + Rent Board notice guidance. |
+| Suggested Unit 2 effective date 2027-02-15 | Personal service deadline 2026-11-17; mailed deadline 2026-11-12 has passed | Same statutory notice periods. Unit 2's off-anniversary banked-increase timing remains F-28; no clearance implied. |
+| Last service date for any effective date through the published-rate end date 2027-02-28 | 2026-11-30 personal / 2026-11-25 mailed; 17 / 12 calendar days from the review date | Form 571 ends 2027-02-28; Civ. Code § 827. The fixed dates did not change; only the remaining-day counts did. |
+| Earliest Unit 1 dates from today | 2026-12-13 personal / 2026-12-18 mailed | 30-day notice, plus five days for mail. Fixed Unit 1 anniversary target remains 2027-02-01. |
+| Time since reported Unit 1 occupancy change | 226 days from 2026-04-01 to 2026-11-13 | Arithmetic only on owner-supplied date; F-15 remains open. |
+| Dollar scenarios | No change: Unit 1 3.0% = $119.85 → $4,114.85; Unit 2 annual-only 1.6% = $50.40 → $3,200.40; phased 10.0% = $315.00 → $3,465.00; conditional 13.1% = $412.65 → $3,562.65; banked-only 11.5% = $362.25 → $3,512.25 | Arithmetic only on owner-supplied rents and unverified histories. Unit 2 banked amounts remain contingent on complete records, coverage, license, applicable law and F-28. |
+
+### Site and privacy changes
+
+- Added `suggestions.html` as a dedicated, separately navigable decision-support page: evidence questions, instructions to discover missing facts, conditional scenario comparisons, fairness/review cautions, and a blank choice log. It selects no path and asserts no owner fact as verified. Every table row links to an official source.
+- The Executive Summary now expressly answers that the license requirement is local San Francisco law, not a state law passed in 2023; 2023 is the under-ten-unit/condominium local phase-in date. The dashboard, checklist, summary and suggestions page explicitly state that the 2026-11-12 mail deadline for Unit 2's 2027-02-15 target has passed as of November 13.
+- Date-sensitive page text and `scripts/verify_calculations.py` now use 2026-11-13; the calculations script asserts current strings rather than leaving day-counts to manual updating.
+- Privacy scan of all public text files found none of the supplied tenant-initial patterns. No names, initials, street address, contact details or parcel identifiers were added. Only anonymized Tenant A–F references, the provided ZIP, dates and amounts remain.
+
+### Verification performed
+
+- `python3 scripts/sync_nav.py --check` — 15 pages, 0 changes.
+- `python3 scripts/validate_site.py` — passed: all 15 pages structurally valid; all 55 allowlisted official URLs appear on Sources; every table data row has an official external source; all internal paths/fragments resolve; every table has consistent columns; no public merge markers; no private-initial matches.
+- `python3 scripts/verify_calculations.py` — passed **349 assertions**, including all published dollar figures, service deadlines, current-date counts and expected HTML text.
+- `python3 -m py_compile scripts/sync_nav.py scripts/validate_site.py scripts/verify_calculations.py` — passed. `git diff --check` — passed.
+- The intake facts (1940 construction date, two-unit count, leases, rents, ledger, occupants, license status, and any discrimination/retaliation facts) remain unverified and are left flagged; they are not supplied or invented by this session.
+## Addendum H — live re-verification, deadline drift and suggestions content (2026-11-13, session `arena/c4c75e09-rentincreasesf2`)
 
 Branch `arena/c4c75e09-rentincreasesf2` (Arena-fixed), branched from `main` at `a246a74`. Tasks
 c4c7-A..D claimed in `COORDINATION.md`, with a stale-claim handoff recorded for tasks 45 and
@@ -684,7 +725,7 @@ c4c7-A..D claimed in `COORDINATION.md`, with a stale-claim handoff recorded for 
 |---|---|
 | [sf.gov — Current Rates](https://www.sf.gov/reports--current-rates-including-rent-increase-relocation-sec-deposit) | 1.6% for 2026-03-01–2027-02-28; 1.4% (2025-26); 1.7% (2024-25); File 261020 notice still posted (posted 2026-11-09) |
 | [Form 571 (PDF)](https://www.sf.gov/documents/34344/571_Allowable_Annual_Increases_26-27_1.pdf) | Full historical table unchanged; matches `RATE_571` in `scripts/verify_calculations.py` exactly |
-| [sf.gov — Learn about rent increases](https://www.sf.gov/learn-about-rent-increases-san-francisco) | 1.6%; 30/90-day + 5-day mailing; license requirement; worked examples — see F-39 for one label irregularity in example 1 |
+| [sf.gov — Learn about rent increases](https://www.sf.gov/learn-about-rent-increases-san-francisco) | 1.6%; 30/90-day + 5-day mailing; license requirement; worked examples — see F-40 for one label irregularity in example 1 |
 | [sf.gov — Banked rent increases](https://www.sf.gov/information--banked-rent-increases) | 24-month summary wording still present (F-16 basis unchanged); no expiry; partial increases; no compounding/prorating; notice contents |
 | [sf.gov — Housing Inventory](https://www.sf.gov/rent-board-housing-inventory) | "All owners of residential property are required to report"; tenant-occupied units receive the license; license must be current on the effective date; need not accompany the notice; 2023-03-01 start for buildings under 10 units |
 | [sf.gov — § 37.15](https://www.sf.gov/information--sec-3715-reporting-obligations-licensing) | (a)–(e) verbatim, including (c) phase-in dates and (e) license/suspension text; Ord. 265-20 effective 2021-01-18 |
@@ -716,11 +757,11 @@ petitions/evictions/tenant-help pages, HUD/CRD/govinfo) keep their 2026-11-10/20
 1. **F-24 confirmed persistent** (Form 538 date discrepancy), recorded on `flagged.html`.
 2. **F-27 re-checked**: still Pending Committee Action. Observation recorded: Legistar now shows a
    sixth attachment ("Comment Ltrs") that was not present at the 2026-11-11 read.
-3. **New flag F-39** — an irregularity in the official source itself: the first worked example on
+3. **New flag F-40** (renumbered from F-39 after the concurrent-session merge: `arena/cfe62440` had already published its own F-39 election-diligence row; both rows are preserved) — an irregularity in the official source itself: the first worked example on
    *Learn about rent increases* labels "the annual allowable increase in effect on June 1, **2025**"
    as 1.6%, while the 571 table gives 1.4% for that date and the same page's own rule uses the
    percentage in effect on the effective date (2026-06-01 → 1.6%, matching the example's arithmetic).
-   No published site figure depends on the label.
+   No published site figure depends on the label. Published as **F-40**.
 4. **Deadline drift**: the mailed-notice deadline (2026-11-12) for the suggested Unit 2 effective
    date 2027-02-15 has passed. Pages now state the mailed route for that date is closed and personal
    service remains open through 2026-11-17; mailed notices can still reach 2027-02-16 or later.
@@ -735,9 +776,9 @@ petitions/evictions/tenant-help pages, HUD/CRD/govinfo) keep their 2026-11-10/20
 - `python3 scripts/validate_site.py` — **PASSED**: 15 pages; 55 allowlisted official URLs all on
   `sources.html`; external official link on every table data row; tag balance, unique IDs, resolving
   internal links/fragments; no merge markers; 0 private patterns configured.
-- `python3 scripts/verify_calculations.py` — **PASSED, 361 assertions** (334 at the previous pass;
-  +2 drift-proof banking-row assertions, +10 suggestions/F-39 assertions, +15 forbidden-phrase
-  sweep entries for the new page).
+- `python3 scripts/verify_calculations.py` — **PASSED, 362 assertions** after the concurrent-session merge (334 at the previous pass;
+  +2 drift-proof banking-row assertions, +10 suggestions/F-40 assertions and +15 forbidden-phrase
+  sweep entries for the new page, plus the concurrent session's checks folded in at the merge).
 - Local HTTP server: all 15 pages plus `style.css`, `AUDIT.md`, `README.md`, `COORDINATION.md`,
   `internal/README.md` returned 200 (20 resources, 0 failures).
 - Privacy sweep: word-bounded, case-sensitive forms of the intake initial pairs match **no** current

@@ -29,8 +29,8 @@ PAGES = [
     "practices.html",
     "checklist.html",
     "answers.html",
-    "flagged.html",
     "suggestions.html",
+    "flagged.html",
     "sources.html",
     "banking-rule.html",
 ]
@@ -91,6 +91,7 @@ VERIFIED_URLS = {
     "https://www.sf.gov/tenant-and-landlord-resources",
     "https://www.sf.gov/tenant-petitions",
     "https://www.sfassessor.org/property-information/homeowners/property-search-tool",
+    "https://www.sfelections.org/results/20261103w/index.html",
 }
 
 # Optional privacy patterns may be supplied privately by a reviewer, one regex per

@@ -2,7 +2,7 @@
 
 **Repo:** `kanlerxz87-cyber/RentincreaseSF2`  
 **Live site:** https://kanlerxz87-cyber.github.io/RentincreaseSF2/  
-**Last updated:** 2026-11-11
+**Last updated:** 2026-11-13
 
 ## Sessions
 
@@ -18,7 +18,8 @@
 | `arena/d2474b1d-rentincreasesf2` (this session, 2026-11-10) | Residual integration: re-read the controlling official sources live, then apply only what was still missing after PRs #22 and #24 — the banked-expiry wording (C-01), the `units.html` banking measurement and April-2026 label (C-03/C-04), and flag F-28 | **Done** — owns tasks 34–36. File scope: `flagged.html`, `checklist.html`, `banking-rule.html`, `executive-summary.html`, `units.html`, `scripts/verify_calculations.py`, `AUDIT.md`, `COORDINATION.md`. Branched from `main` at `a91dc78`, reset to `3701b1c` after the race described below. |
 | `arena/585ad53b-rentincreasesf2` (this session) | Independent verification pass: Nov 3, 2026 election-results check (new diligence — no prior session checked the ballot), File 261020 re-verification, direct re-read of the core rate/banking/license sources, re-derivation of every published figure, validators re-run; final PR, merge and deploy confirmation | In progress — owns task 37 (claimed first as 30, renumbered after colliding with `arena/d086cb8e`'s task 30 and `arena/d2474b1d`'s task 34 — logged in the session record). File scope: `COORDINATION.md` only, additive edits; no site file will be touched while task 33's integration PR is open. |
 | `arena/c71c22cd-rentincreasesf2` (this session, 2026-11-10) | Line-by-line audit, full primary-source re-verification (including File 261020 `Leg Ver1`/`Leg Dig Ver1`, Rent Ordinance `600_Ordinance_11-02-26_2.pdf`, § 37.15, Form 538 2026–27, 2026–27 Rent Board Fee `$59.00`, SF.gov legal clinics), and final defect remediation on `22bf77d` | **In progress (tasks 43–44 done; task 45 PR/deploy in progress)** — owns tasks 43–45 (renumbered from 37–39 after PRs #28–#33 used 37–42). File scope: `scripts/validate_site.py`, `scripts/verify_calculations.py`, `index.html`, `executive-summary.html`, `units.html`, `analysis.html`, `laws.html`, `checklist.html`, `tenant-protections.html`, `practices.html`, `flagged.html`, `sources.html`, `banking-rule.html`, `README.md`, `AUDIT.md`, `COORDINATION.md`. Branched/rebased onto `main` at `22bf77d` (PR #33 merge). |
-| `arena/69f0c0e5-rentincreasesf2` (claimed 2026-11-10T05:45Z) | Independent line-by-line re-verification of every published row against the **live** official source, then integration of whatever is still wrong or missing: apply `arena/0e02b0ec`'s open change request (conditional wording on building scope and on "lawful total"), re-check every today-relative figure, triage stale open PRs #27 and #29, PR, merge, confirm Pages deploy | **In progress** — owns tasks `69f0-A`, `69f0-B`, `69f0-C` (session-prefixed IDs; see the claim note at the end of this file). File scope while in progress: `COORDINATION.md` (additive), then — as integration session, all earlier tasks being `done` or `needs review` — the 13 root `*.html` pages, `scripts/*.py`, `README.md`, `AUDIT.md`. Branched from `main` at `cd005f7` (PR #36 merge). |
+| `arena/69f0c0e5-rentincreasesf2` (claimed 2026-11-10T05:45Z) | Independent line-by-line re-verification of every published row against the **live** official source, then integration of whatever is still wrong or missing: apply `arena/0e02b0ec`'s open change request (conditional wording on building scope and on "lawful total"), re-check every today-relative figure, triage stale open PRs #27 and #29, PR, merge, confirm Pages deploy | **Stale / handed off 2026-11-13** — previous final integration PR #56 superseded the merge/deploy scope. |
+| `arena/756ae8e9-rentincreasesf2` (this session, 2026-11-13) | Dedicated Suggestions & Decision Paths page, current-date refresh, primary-source recheck, validation, PR and Pages verification | **DONE** — PR #57 merged; Pages build and post-merge validation succeeded. Deployment/readback record below. |
 
 ## Coordination note / handoff
 
@@ -1854,6 +1855,95 @@ The Arena session is fixed to this branch. PRs #45 and #42 are stale drafts on p
 - **Concurrency:** PRs #51/#52/#53/#55 were preserved through repeated rebases. Duplicate date edits were dropped; main's stronger drift checks and banked-only scenario remain. No other session's content was discarded.
 - Published flags remain non-blocking and available on Flagged for Review. Task 53 done.
 
+## Session `arena/756ae8e9-rentincreasesf2` — decision-support integration (2026-11-13)
+
+The previous final integration (tasks 51–53 / PR #54 and subsequent PR #56) is present on this branch. The older claim by `arena/69f0c0e5-rentincreasesf2` for integration and source review dates to 2026-11-10 and is stale by the board's 60-minute handoff rule; the 2026-11-11 final integration already completed the merge/deployment work. This session takes over only the remaining product gap and current-date refresh, preserving all prior audit records.
+
+| ID | Task | Status | Owner session | File scope | Sources / verification notes |
+|---|---|---|---|---|---|
+| 756-A | Add a distinct Suggestions & Decision Paths page that organizes choices, open questions, and how to obtain missing evidence without making an unsupported choice | done | arena/756ae8e9-rentincreasesf2 | `suggestions.html`, `scripts/sync_nav.py`, `scripts/validate_site.py`, all HTML nav blocks, `index.html`, `README.md`, `COORDINATION.md` | Added, linked and validated. Recommendations distinguish official rules from owner choices; unknowns remain blank. See `AUDIT.md` Addendum G. |
+| 756-B | Refresh today-relative deadlines, verify controlling live official sources and preserve privacy; run complete validation suite | done | arena/756ae8e9-rentincreasesf2 | `scripts/verify_calculations.py`, all affected HTML, `README.md`, `AUDIT.md`, `COORDINATION.md` | Direct checks on 2026-11-13; full source list and results in `AUDIT.md` Addendum G. 349 arithmetic assertions pass; owner inputs remain unverified. |
+| 756-C | Open a pull request from this fixed branch, merge after checks, verify GitHub Pages deploy and read back the live site; record the result | done | arena/756ae8e9-rentincreasesf2 | `COORDINATION.md` | PR #57 merged at 2026-11-13T06:53:51Z as `6b9a988`; PR check, post-merge validation and Pages deployment succeeded. Live dashboard and suggestions page read back below. |
+
+**Claim commit:** `77703a4` was pushed to this fixed Arena branch before implementation. Tasks 756-A–C are done. This session used no other branch or worktree.
+
+### PR #57 — merge, deployment and live-readback record
+
+- **PR:** https://github.com/kanlerxz87-cyber/RentincreaseSF2/pull/57 — merged 2026-11-13T06:53:51Z to `main` as merge commit **`6b9a988072654ba9aa1b2d59552b21015584ee00`** (`gh pr merge 57 --merge`).
+- **PR check:** `Validate site` run **43381844907** passed before merge.
+- **Post-merge check:** `Validate site` run **43381881512** passed on the merge commit; 15 pages, 55 official URLs, 349 calculation assertions.
+- **GitHub Pages:** deployment run **43381880495** succeeded. `pages/builds/latest` status is **built**, commit `6b9a988072654ba9aa1b2d59552b21015584ee00`, error `null`, updated 2026-11-13T06:54:13Z.
+- **Live readback:** https://kanlerxz87-cyber.github.io/RentincreaseSF2/ returned the refreshed dashboard, including the 2026-11-13 window and the Unit 2 mail-deadline-passed warning. https://kanlerxz87-cyber.github.io/RentincreaseSF2/suggestions.html returned the new Suggestions & Decision Paths page and its source-backed tables.
+- **Outcome:** all checks and deployment passed; flagged fact/legal questions remain visible and do not imply approval of any increase.
+## Session `arena/cfe62440-rentincreasesf2` — line-by-line re-verification and brief-gap closure (claimed 2026-11-13)
+
+Arena fixes this session to branch `arena/cfe62440-rentincreasesf2` (from `main` at `a246a74`, PR #56 merge). No other claim is active on this branch. Session-prefixed task IDs are used to avoid numbering collisions. All prior sessions' records are preserved verbatim.
+
+| # | Task | Status | Owner session | File scope | Sources / verification notes |
+|---|---|---|---|---|---|
+| cfe6-A | Independent line-by-line re-verification of every published claim against **live** official sources on 2026-11-13: Form 571 2026–27 rates and historical table, Current Rates page (2026-11-09 notice), banked increases + Rules § 4.12, Housing Inventory / licence rules, rent-increase notice rules (Civ. Code § 827), File 261020 status, Nov 3 2026 election results check, Costa-Hawkins / AB 1482 rows; re-derive every published dollar figure and day count from today | **done** — record below | arena/cfe62440-rentincreasesf2 | `COORDINATION.md` (additive) until cfe6-B | Read-only on site files until cfe6-B. Zero values inferred; anything unconfirmable is left blank and flagged. |
+| cfe6-B | Close the remaining gap against the original brief: add a dedicated **Suggestions & Decision Review** section (`suggestions.html`) — site-improvement suggestions plus decision options with pros/cons to review and choose a path **before** implementing any change — and apply only source-backed corrections/re-stamps from cfe6-A | **done (re-scoped)** — `suggestions.html` and the 2026-11-13 date refresh were delivered concurrently by `arena/756ae8e9` (PRs #57/#58, its tasks 756-A–C, already merged); this session verified that work line by line against its own live fetches and added the remaining brief item (site-improvement suggestions table) plus the election diligence F-39 | arena/cfe62440-rentincreasesf2 | NEW `suggestions.html`, `index.html`, `executive-summary.html`, `analysis.html`, `checklist.html`, `flagged.html`, `banking-rule.html`, `occupancy.html`, `units.html`, `answers.html`, `laws.html`, `practices.html`, `process.html`, `tenant-protections.html`, `sources.html`, `scripts/sync_nav.py`, `scripts/validate_site.py`, `scripts/verify_calculations.py`, `README.md` (file scope finalized 2026-11-13 before the first edit: date re-stamp to the 2026-11-13 review + suggestions page; no other session's claim is active on this branch) | New page follows the site's existing rule: every table row carries an official source link or is blank/flagged. |
+| cfe6-C | Full check suite (`sync_nav.py --check`, `validate_site.py`, `verify_calculations.py`, local HTTP 200 smoke test, privacy sweep), PR to `main`, merge without waiting, confirm GitHub Pages deploy and live read-back, record PR link and merge result | **done** — PR #59 merged 2026-11-13 as `4a82332`; Pages built on `4a82332`; live content read back. Record below | arena/cfe62440-rentincreasesf2 | `COORDINATION.md` | Do not merge a broken build. Flagged and unverified items do not block the merge. |
+
+
+### cfe6-A verification record (this session, 2026-11-13)
+
+Independent live fetches by `arena/cfe62440-rentincreasesf2` on 2026-11-13, run **in parallel with and without knowledge of** `arena/756ae8e9`'s Addendum G. Every figure below was derived by this session from the fetched text and then compared with the published site; nothing was taken from the site first.
+
+| Official source (fetched 2026-11-13) | Direct check and result |
+|---|---|
+| [Current Rates](https://www.sf.gov/reports--current-rates-including-rent-increase-relocation-sec-deposit) | 1.6% for 3/1/2026–2/28/2027; 1.4% and 1.7% prior periods; File 261020 notice posted 2026-11-09 still displayed. Matches the site. |
+| [Form 571 (26-27)](https://www.sf.gov/documents/34344/571_Allowable_Annual_Increases_26-27_1.pdf) | Full historical table read: 2020–21 1.8%, 2021–22 0.7%, 2022–23 2.3%, 2023–24 3.6%, 2024–25 1.7%, 2025–26 1.4%, 2026–27 1.6%. Unit 2's published banked sum (1.8+0.7+2.3+3.6+1.7+1.4 = 11.5%) re-derives exactly; Unit 1's 1.4% + 1.6% = 3.0% likewise. |
+| [Banked rent increases](https://www.sf.gov/information--banked-rent-increases) | 24-full-month summary sentence; once banked, does not expire; no limit; not compounded; not carried to a new tenant; license required; 30/90-day notice, +5 days mailed; **use the percentage in effect on the date of the increase**. Matches F-16/F-28 treatment and the site's notice content list. |
+| [Rules § 4.12 (Part IV)](https://www.sf.gov/reports--december-2022--rent-board-rules-and-regulations-part-iv-rent-increases-not-requiring) | Exact text confirmed: "This banked amount may only be given at the time of an annual increase."; "A full 12 months must have elapsed…"; "impose that amount **on or after** the tenant's subsequent rent increase anniversary date"; § 4.10 notice-content and void rules confirmed. The rule/ordinance wording difference behind F-28 is real and still unresolved by any official page. |
+| [Housing Inventory](https://www.sf.gov/rent-board-housing-inventory) | All owners report (individual owners included); tenant-occupied units receive the rent increase license automatically; license must be current **on the effective date**; need not accompany the tenant notice; March 1 annual deadline; Inventory contents are public. |
+| [§ 37.15](https://www.sf.gov/information--sec-3715-reporting-obligations-licensing) | **[Added by Ord. No. 265-20, effective January 18, 2021]** — the "2023 law" is **local**: § 37.15(c) phase-in for condos/buildings under 10 units began **March 1, 2023**; § 37.15(e) license/suspension mechanics. Not a state law. Matches the executive summary's framing. |
+| [Rules § 13.14](https://sfrb.org/section-1314-licensing-%E2%80%93-notice-rent-increase) | Unlicensed increase "null and void" in its entirety; **effective date, not service date**, controls; banking rights survive; under-10-unit/condo application from 2023-03-01. Verbatim quotes on the site are accurate. |
+| [Rent increases (learn page)](https://www.sf.gov/learn-about-rent-increases-san-francisco) | 1.6%; formula; license paragraph with 2022-07-01 / 2023-03-01 dates; 30/90-day notice; +5 mailed; percentage-in-effect-on-increase-date rule; **added-occupant charge prohibited**; anniversary mechanics. Matches the site. |
+| [Irregular periods](https://www.sf.gov/information--increasing-rents-during-irregular-periods) | The "24 months or more" worked example (2.2% + 1.6% + 2.6% = 6.4% on 2019-06-01 for a 2016-04-01 tenancy) matches F-28's description exactly. |
+| [Civ. Code § 827](https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=827.&lawCode=CIV) | 30 days at ≤10% / 90 days above 10%, measured against rent charged in the 12 months before the effective date, combined increases included; personal or mail service. Matches the published day counts. |
+| [§ 37.3](https://www.sf.gov/information--sec-373-rent-limitations) | (a)(1) 60% of CPI, hard cap 7%; (a)(2) banking "on the tenant's subsequent rent increase anniversary dates"; (b) notice contents; (b)(5) nonconforming increases null and void; (a)(11) additional-occupant prohibition. Matches. |
+| [Legistar File 261020](https://sfgov.legistar.com/LegislationDetail.aspx?ID=8217304&GUID=7EDA4662-EBFB-4AF5-962F-C669B64AA770) + [Leg Ver1](https://sfgov.legistar.com/View.ashx?M=F&ID=15865646&GUID=0E2E6936-000B-4597-A4EE-FBB17C19636E) | Status **Pending Committee Action** (Land Use and Transportation Committee), introduced 2026-09-15, no enactment. The site's § 37.3(h) quotation matches the draft text word for word ("…more than a total of 10% of the lowest base rent that was in effect at any time during the 12 months immediately preceding the date the increase takes effect"; notices on/after 2026-09-15; through 2029-12-31; excess on/after 2030-01-01). |
+| [Rent Board Fee](https://www.sf.gov/rent-board-fee) | 2026–27: $59.00 per dwelling unit; 50% ($29.50) recoverable from tenants in occupancy since Nov 1 once paid in full; exemption deadline **2026-12-14**; fee due 2027-03-01. Matches. |
+| [Topic 153 (6.14 / Costa-Hawkins)](https://www.sf.gov/information--rent-increases-under-section-614-and-costa-hawkins) | Unlimited increase only when the **last original occupant** vacates, with timely § 6.14 notice (~60 days) to subsequent occupants; co-tenants not subject. Supports the site's "no market reset — an original occupant remains" row and F-15. |
+| [Rental laws / coverage](https://www.sf.gov/learn-about-san-francisco-rental-laws) | Two-limb test (built before 1979-06-14 **and** not used as a single-family dwelling) confirmed. |
+| [AB 1482 (sf.gov)](https://www.sf.gov/reports--california-tenant-protection-act-2019-ab-1482) | 8.8% for San Francisco (5% + 3.8% CPI) 2026-08-01→2027-07-31; "This does NOT apply for units under the rent increase limitations of the San Francisco Rent Ordinance." Matches the site's state-law row. |
+| [Ordinance 265-20 news release](https://www.sf.gov/news/new-legislation-creates-housing-inventory-and-requires-owners-obtain-license-imposing) | Confirms the license originates in **local Ord. No. 265-20** (effective 2021-01-18) with the small-building reporting date of 2023-03-01. (Read for this record; not added to the site's allowlist — § 37.15 already carries the statutory citation.) |
+
+**Independent cross-check of `arena/756ae8e9`'s merged work (PRs #57/#58):** this session derived the same values before reading their record: earliest effective dates 2027-02-11 personal / 2027-02-16 mail; Unit 1 2026-12-13 / 2026-12-18; closing window 2026-11-30 / 2026-11-25 (17 and 12 days); occupancy interval 226 days; the 2026-11-12 mailed-service date for the suggested 2027-02-15 Unit 2 date has passed. String-level sweep of all 15 pages confirms these are the published values (day-pair cells 17 / 12, 64 / 59, 50 / 45, 110 / 105). Their date refresh and `suggestions.html` need no correction.
+
+**Election check (new diligence; not covered by Addendum G).** Official [SF Department of Elections results for the 2026-11-03 Consolidated General Election](https://www.sfelections.org/results/20261103w/index.html) (preliminary; last update 2026-11-10 16:00; ~900 ballots left; certification due within 30 days): contests were state propositions 1–5 and 37–45 and local Measure RTM and Measures A–J. **No measure amends the Rent Ordinance's rent-increase limitations, banking rules, or license requirement.** Measure H (new Muni parcel tax, $129–$400,000 per parcel, 15 years) is passing 74.4% on the preliminary count; the ballot text quoted in the official results states no tenant passthrough, and no passthrough claim is published. Findings recorded on the site as **F-39** with the official results link (allowlist now 56 URLs; `sources.html` row added).
+
+**Irregularities observed (source quirks, no site impact):**
+1. The official banked-increases worked example labels its annual component "in effect on August 1, 2024 (1.4%)" although 1.4% is the rate in effect on August 1, **2025**; the official rent-increases example similarly says "in effect on June 1, 2025 is 1.6%" for a June 1, 2026 increase. In both examples the **numbers** follow the stated rule (rate in effect on the increase date); the year labels appear to be typos on the official pages. The site applies the rule text, not the labels. Noted for manual review; nothing to correct here.
+2. The boarded-increases page's "24 full months" summary remains in tension with Rules § 4.12(a)'s 12-month test (F-16) and the § 37.3(a)(2)/Rule wording difference (F-28) remains unresolved by any official page located — both stay published as open flags.
+
+**Rebase/conflict log (2026-11-13).** `git pull --rebase` replayed this session's claim commit onto `051d27e` (PR #58, `arena/756ae8e9`) which merged mid-session. One conflict in `COORDINATION.md` (append boundary), resolved by keeping **main's block first, then this session's block** — both sessions' records preserved verbatim. Lesson recorded here: this repository's historical records legitimately contain quoted conflict-marker strings in prose (e.g. the F-36/AUDIT.md incident), so marker remediation must be line-anchored; the validator only flags lines that *start* with a marker. The rebased branch was then pushed with `--force-with-lease` (own session branch only). After resolution: `validate_site.py` passed (15 pages, 55→56 URLs), `verify_calculations.py` passed (349 assertions), `sync_nav.py --check` clean, privacy sweep with the six intake initial-pair patterns found **zero** matches in public files.
+
+### cfe6-B site changes (this session, 2026-11-13)
+
+- `flagged.html`: new **F-39** (2026-11-03 election diligence; Measure H watch item; results preliminary).
+- `sources.html` + `scripts/validate_site.py`: official election-results row; allowlist 55 → 56.
+- `suggestions.html`: added **"Suggestions to improve this site"** — five proposals (rent-ledger intake worksheet, File 261020 watch log, printable notice-content checklist, decision-log export, per-path gates checklist), each marked *Proposed — owner to choose* with an official anchor link. This closes the brief's "suggestions on how to improve the site to improve decision making" clause; `arena/756ae8e9`'s page already covers the decision-paths/choose-before-implementing clause.
+- No dollar figure, percentage, date, or legal conclusion was changed. No personal identifier appears anywhere.
+
+### Checks run (2026-11-13, before PR)
+
+- `python3 scripts/sync_nav.py --check` — 15 pages, 0 updated.
+- `python3 scripts/validate_site.py` — **PASSED**: 15 pages; 56 official URLs, all listed on `sources.html`; external official source on every table data row; structure, links, fragments, unique IDs OK; no conflict markers.
+- `python3 scripts/verify_calculations.py` — **PASSED, 349 assertions**; Unit 1 3.0% → $119.85 → $4,114.85 effective 2027-02-01; Unit 2 11.5% banked + 1.6% = 13.1% → $412.65 → $3,562.65 (conditional).
+- Privacy sweep: no intake initial-pair pattern in any public text file. `git diff --check` clean.
+
+Task **cfe6-A done**. Task **cfe6-B done** (re-scoped as recorded). Task **cfe6-C** (PR, merge, Pages confirmation) in progress below.
+
+### PR #59 — merge, deployment and live-readback record (cfe6-C)
+
+- **PR:** https://github.com/kanlerxz87-cyber/RentincreaseSF2/pull/59 — merged to `main` on 2026-11-13 as **`4a82332190f4672f5f0388d71294e3d055f166c8`** using `gh pr merge 59 --merge`. PR check `validate` passed before merge (run 43383981304).
+- **GitHub Pages:** build 1365507486 reports status **built** on commit `4a82332`, error `null`.
+- **Live read-back (2026-11-13):** `flagged.html` shows F-39 (2026-11-03 election diligence, Measure H watch item) with the official Department of Elections link; `suggestions.html` shows both `arena/756ae8e9`'s gate questions / conditional paths and this session's "Suggestions to improve this site" table (5 proposals, *Proposed — owner to choose*); `sources.html` shows the two-tier "Core sources rechecked 2026-11-13" badges and the election-results row. All 15 pages and `style.css` returned HTTP 200 in the pre-merge local smoke test; unit figures unchanged ($4,114.85 / $3,562.65 conditional).
+- **Checks before merge:** `sync_nav.py --check` 15 pages / 0 changes; `validate_site.py` PASSED (15 pages, 56 official URLs, external official source on every table data row); `verify_calculations.py` PASSED (349 assertions); `py_compile` clean; `git diff --check` clean; privacy sweep of the six intake initial-pair patterns found zero matches in public files.
+- **Note for future sessions:** direct `curl` from the sandbox to the live site fails at TLS (restricted egress) — a failed fetch must not be misread as missing page content; use the platform fetch tool for live read-backs. An earlier curl-based grep in this session produced a false "not deployed" signal that the fetch tool disproved.
+- Tasks cfe6-A, cfe6-B and cfe6-C are all **done**. Flagged and unverified items (F-01…F-39 as published) remain non-blocking and are listed on the site's Flagged for Review page. This record commit is delivered by the follow-up coordination-log PR (same pattern as PR #56 and PR #58); that PR's own merge is the terminal event and is not self-recorded.
 ## Session `arena/c4c75e09-rentincreasesf2` — 2026-11-13 re-verification, deadline drift, suggestions page (claim)
 
 **Claimed 2026-11-13.** Arena fixes this session to branch `arena/c4c75e09-rentincreasesf2` (branched
@@ -1869,9 +1959,9 @@ handoff here. No content of either session is discarded; their verification reco
 
 | # | Task | Status | Owner session | File scope | Sources / verification notes |
 |---|---|---|---|---|---|
-| c4c7-A | Live re-read of every controlling official source on 2026-11-13 — including the six sources left un-re-read at the 2026-11-11 pass (Form 538 2026–27 worksheet, Topic 019, Topics 152/254, § 37.10C, File 261020 `Leg Ver1` and `Leg Dig Ver1`) — plus a fresh File 261020 Legistar status check | done | arena/c4c75e09-rentincreasesf2 | `COORDINATION.md` (additive), `AUDIT.md`, `sources.html` (date badges only) | 24 sources read live 2026-11-13; full matrix in AUDIT.md Addendum G. F-24 persists; F-27 unchanged (new "Comment Ltrs" attachment noted); F-39 added. |
+| c4c7-A | Live re-read of every controlling official source on 2026-11-13 — including the six sources left un-re-read at the 2026-11-11 pass (Form 538 2026–27 worksheet, Topic 019, Topics 152/254, § 37.10C, File 261020 `Leg Ver1` and `Leg Dig Ver1`) — plus a fresh File 261020 Legistar status check | done | arena/c4c75e09-rentincreasesf2 | `COORDINATION.md` (additive), `AUDIT.md`, `sources.html` (date badges only) | 24 sources read live 2026-11-13; full matrix in AUDIT.md Addendum H. F-24 persists; F-27 unchanged (new "Comment Ltrs" attachment noted); F-40 added (renumbered after the concurrent merge). |
 | c4c7-B | Re-stamp the base date 2026-11-11 → 2026-11-13 and recompute every today-relative figure; handle the lapsed mailed-notice window for the 2027-02-15 Unit 2 target (mailed deadline 2026-11-12 has passed; personal service remains open through 2026-11-17) | done | arena/c4c75e09-rentincreasesf2 | `scripts/sync_nav.py`, `scripts/verify_calculations.py`, 14 root `*.html`, `README.md` | Drift-proof assertions re-derived every printed date and day count; mailed lapsed windows now print `lapsed (<date>)` from the script, not by hand. |
-| c4c7-C | New `suggestions.html` — the owner-required dedicated suggestions section: reviewable decision paths (choose before implementing anything), suggestions to improve decision-making, and a discovery plan for every piece of missing information | done | arena/c4c75e09-rentincreasesf2 | NEW `suggestions.html`, `scripts/sync_nav.py`, `scripts/validate_site.py`, `scripts/verify_calculations.py`, `README.md`, `index.html` | 15-page site; every option figure asserted by `verify_calculations.py` (361 assertions). Nothing implemented; all rows marked proposed. |
+| c4c7-C | New `suggestions.html` — the owner-required dedicated suggestions section: reviewable decision paths (choose before implementing anything), suggestions to improve decision-making, and a discovery plan for every piece of missing information | done | arena/c4c75e09-rentincreasesf2 | NEW `suggestions.html`, `scripts/sync_nav.py`, `scripts/validate_site.py`, `scripts/verify_calculations.py`, `README.md`, `index.html` | 15-page site; every option figure asserted by `verify_calculations.py` (362 assertions after the merge). Nothing implemented; all rows marked proposed. |
 | c4c7-D | Full check suite (`sync_nav.py`, `validate_site.py`, `verify_calculations.py`, tag balance, local HTTP 200 smoke test, privacy sweep); PR to `main`, merge, confirm GitHub Pages deploy and read the live pages back; record the PR link and merge result | in progress | arena/c4c75e09-rentincreasesf2 | `COORDINATION.md` | Flagged and unverified items do not block the merge; a broken build does. |
 
 ### Session `arena/c4c75e09-rentincreasesf2` — verification record (2026-11-13, tasks c4c7-A..C)
@@ -1881,7 +1971,7 @@ about rent increases, Banked rent increases, Rent Board Housing Inventory, § 37
 (sfrb.org), Rules Part IV §§ 4.10/4.12, § 37.3, Irregular periods, Learn about SF rental laws,
 Costa-Hawkins partial exemption, Topic 153, Rent Board Fee, AB 1482, Form 538 (2026–27), Topic 019
 legal resources, Topics 152/254, § 37.10C, Legistar File 261020, Leg Ver1 (incl. the § 37.15 chunk),
-Leg Dig Ver1, Civ. Code § 827, Civ. Code § 1947.12. Full per-source matrix: `AUDIT.md` Addendum G.
+Leg Dig Ver1, Civ. Code § 827, Civ. Code § 1947.12. Full per-source matrix: `AUDIT.md` Addendum H.
 
 **Findings.** (1) Every controlling figure the site publishes was confirmed unchanged: 1.6% AGI,
 the 571 ledger (1.8+0.7+2.3+3.6+1.7+1.4 = 11.5% banked), $59.00 Rent Board Fee, 8.8% AB 1482 cap
@@ -1890,7 +1980,7 @@ license for tenant-occupied units; current on the effective date; need not accom
 under-10-unit phase-in 2023-03-01). (2) F-24 persists (Form 538 prints 2021-07-01/2022-03-01 vs
 § 13.14's 2022-07-01/2023-03-01) — re-recorded. (3) F-27 re-checked: File 261020 remains Version 1,
 Pending Committee Action, history 4 records (latest 2026-10-07), not enacted; Legistar now shows a
-sixth attachment ("Comment Ltrs") not present at the 2026-11-11 read. (4) New flag **F-39**: the
+sixth attachment ("Comment Ltrs") not present at the 2026-11-11 read. (4) New flag **F-40** (renumbered from F-39 after the concurrent merge): the
 first worked example on *Learn about rent increases* labels "in effect on June 1, **2025**" as 1.6%
 while the 571 table gives 1.4% for that date and the page's own effective-date rule yields 1.6% for
 2026-06-01 (matching the example's math) — an irregularity in the official source; no site figure
@@ -1911,10 +2001,42 @@ implemented, every figure asserted by `verify_calculations.py`. Sources badges u
 **Verification performed.** `sync_nav.py --check` 15 pages / 0 changes · `validate_site.py`
 **PASSED** (15 pages, 55 allowlisted URLs all on `sources.html`, official link on every table data
 row, tag balance, unique IDs, resolving fragments, no merge markers) · `verify_calculations.py`
-**PASSED (361 assertions)** · local HTTP smoke 20/20 resources returned 200 · privacy sweep
+**PASSED (362 assertions after the concurrent-session merge)** · local HTTP smoke 20/20 resources returned 200 · privacy sweep
 (word-bounded, case-sensitive intake initials): clean in all current public files; nothing stored or
 printed. Historical exposure disclosure (F-23/F-36) unchanged.
 
 **Irregularities left on the Flagged page (non-blocking):** F-01/F-02/F-03/F-06/F-18/F-31/F-33
 (owner-supplied or unavailable intake), F-27 (pending legislation), F-28 (off-anniversary banking
-question), F-24 and F-39 (official-source irregularities), plus the standing privacy disclosures.
+question), F-24 and F-40 (official-source irregularities), plus the standing privacy disclosures.
+
+### Concurrent-session merge into this branch (2026-11-13) — conflict-resolution log
+
+`git pull --rebase` was attempted first and hit conflicts: sessions `arena/756ae8e9` (PR #57) and
+`arena/cfe62440` (PRs #59/#60) had merged overlapping 2026-11-13 work into `main` while this
+session worked (their own suggestions page, a 2026-11-13 date refresh, an F-39 election-diligence
+row, a 56-URL source allowlist and their own audit addenda). The rebase was aborted and
+`origin/main` was merged into this branch instead, resolving every conflict **without discarding
+either side**:
+
+- `suggestions.html` (add/add): their page kept as the base (title, gate-questions table,
+  conditional paths, fairness card, choice log, five improvement rows all stand); this session's
+  unique rows folded in — two "no increase now" paths, the EQ-A/EQ-B equal-treatment options
+  table, one official-source-irregularities discovery row, four site-improvement rows — and the
+  Unit 1 early-path trade-off enriched with the 24-month forfeiture note ($55.93).
+- `flagged.html`: their F-39 (2026-11-03 election diligence, Measure H watch item) preserved;
+  this session's new worked-example irregularity flag renumbered **F-39 → F-40** because both
+  sessions had used F-39. Both rows are published; assertions and cross-references updated.
+- `scripts/verify_calculations.py`: both assertion sets kept (their computed-deadline checks and
+  this session's drift-proof banking-row and suggestions checks); this session's day-pair format
+  (`lapsed (2026-11-12)`) adopted site-wide in place of the raw `4 / -1` print, and the page rows
+  match it.
+- `sources.html`: their election-results row and "Core sources rechecked 2026-11-13" summary tag
+  kept; this session's per-row "Verified 2026-11-13" badges and two-tier badge note kept.
+- `AUDIT.md`: their Addendum G kept; this session's addendum renamed **Addendum H**.
+- Shared date re-stamp hunks on the content pages: identical changes collapsed; where the two
+  wordings overlapped, the more explicit lapsed-mail wording was kept.
+- `scripts/sync_nav.py`: the duplicate nav entry introduced by both edits resolved to their
+  single label ("Suggestions & Decisions", Action group).
+
+No content of `arena/756ae8e9` or `arena/cfe62440` was discarded; their records above and their
+site rows/sections all remain in place.

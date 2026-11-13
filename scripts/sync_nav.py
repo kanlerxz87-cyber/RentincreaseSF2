@@ -37,10 +37,10 @@ NAV = [
     ("Action", [
         ("checklist.html", "Action Checklist"),
         ("answers.html", "Your Questions"),
+        ("suggestions.html", "Suggestions &amp; Decisions"),
     ]),
     ("Review", [
         ("flagged.html", "Flagged for Review"),
-        ("suggestions.html", "Suggestions for Review"),
         ("sources.html", "Sources"),
     ]),
     ("Verification", [

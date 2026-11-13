@@ -223,7 +223,7 @@ def main() -> int:
         expect_in_pages("Unit 2 banked-only increase", usd(u2_banked_only_inc), [page])
         expect_in_pages("Unit 2 banked-only new rent", usd(UNIT2_BASE + u2_banked_only_inc), [page])
     expect_in_pages("F-38 published on the flagged and dashboard pages", "F-38", ["flagged.html", "index.html"])
-    expect_in_pages("F-39 published on the flagged page", "F-39", ["flagged.html"])
+    expect_in_pages("F-40 published on the flagged page", "F-40", ["flagged.html"])
 
     # ---------------- suggestions.html (task c4c7-C, 2026-11-13) ----------------
     # The decision-review page only restates figures already computed above; these
@@ -238,8 +238,10 @@ def main() -> int:
     expect_in_pages("Suggestions: Unit 1 early new rent", usd(UNIT1_BASE + u1_early_inc), suggest)
     expect_in_pages("Suggestions: Unit 1 early-vs-full monthly difference", usd(u1_inc - u1_early_inc), suggest)
     expect_in_pages("Suggestions: nothing is implemented marker",
-                    "Proposed &mdash; not implemented", suggest)
-    expect_in_pages("Suggestions: discovery plan cross-links the open flags", "F-39", suggest)
+                    "Nothing below has been built or changed", suggest)
+    expect_in_pages("Suggestions: decision paths marked owner-to-choose",
+                    "owner to choose", suggest)
+    expect_in_pages("Suggestions: discovery plan cross-links the open flags", "F-40", suggest)
 
     # Earliest effective date reachable from today (Unit 1's 30-day notice).
     u1_earliest = REVIEW_DATE + timedelta(days=30)
@@ -278,6 +280,7 @@ def main() -> int:
                     f"{REVIEW_DATE.isoformat()} — today", ["banking-rule.html"])
     expect_in_pages("Unit 2 earliest-row mailed deadline already passed",
                     (earliest_personal - timedelta(days=95)).isoformat(), ["banking-rule.html"])
+    days_occupancy = (REVIEW_DATE - date(2026, 4, 1)).days
     expect_in_pages("Days since added occupancy", f"{days_occupancy} days", ["flagged.html", "occupancy.html"])
 
     # ---------------- Closing service window (AUDIT.md A-02) ----------------
