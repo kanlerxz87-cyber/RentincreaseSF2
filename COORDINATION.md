@@ -1853,3 +1853,14 @@ The Arena session is fixed to this branch. PRs #45 and #42 are stale drafts on p
 - **Live read-back:** dashboard shows 2026-11-11 and the banked-only Unit 2 scenario; cache-busted Tenant Protections shows the Rules 6.14 / Costa-Hawkins clarification; cache-busted Flagged for Review shows 224 days. The initial uncached reads of two URLs returned stale CDN content, while the deployed commit and cache-busted URLs matched.
 - **Concurrency:** PRs #51/#52/#53/#55 were preserved through repeated rebases. Duplicate date edits were dropped; main's stronger drift checks and banked-only scenario remain. No other session's content was discarded.
 - Published flags remain non-blocking and available on Flagged for Review. Task 53 done.
+
+## Session `arena/756ae8e9-rentincreasesf2` — decision-support integration (2026-11-13)
+
+The previous final integration (tasks 51–53 / PR #54 and subsequent PR #56) is present on this branch. The older claim by `arena/69f0c0e5-rentincreasesf2` for integration and source review dates to 2026-11-10 and is stale by the board's 60-minute handoff rule; the 2026-11-11 final integration already completed the merge/deployment work. This session takes over only the remaining product gap and current-date refresh, preserving all prior audit records.
+
+| ID | Task | Status | Owner session | File scope | Sources / verification notes |
+|---|---|---|---|---|---|
+| 756-A | Add a distinct Suggestions & Decision Paths page that organizes choices, open questions, and how to obtain missing evidence without making an unsupported choice | in progress | arena/756ae8e9-rentincreasesf2 | `suggestions.html`, `scripts/sync_nav.py`, `scripts/validate_site.py`, all HTML nav blocks, `index.html`, `README.md`, `COORDINATION.md` | Stale-scope handoff from the 2026-11-10 integration claim; all recommendations must distinguish verified rules from owner decisions and unknown inputs. |
+| 756-B | Refresh today-relative deadlines, verify controlling live official sources and preserve privacy; run complete validation suite | in progress | arena/756ae8e9-rentincreasesf2 | `scripts/verify_calculations.py`, all affected HTML, `README.md`, `AUDIT.md`, `COORDINATION.md` | Directly fetched on 2026-11-13: sf.gov Housing Inventory, § 37.15, Current Rates, Rent Increases, banked increases; Rent Board Rules § 13.14; Legistar File 261020; California Civil Code § 827. Arithmetic is script-verified; owner inputs remain unverified. |
+
+Claim commit is being pushed immediately before further edits. This session remains on the fixed Arena branch; no other branch or worktree is used.
